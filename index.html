@@ -33,6 +33,13 @@
   hr { border: none; border-top: 1px solid #ccc; margin: 28px 0; }
   .stats span { display: inline-block; margin-right: 24px; }
   .stats strong { font-size: 18px; }
+  img { max-width: 100%; height: auto; display: block; }
+  .portrait { width: 320px; max-width: 100%; margin: 8px 0 4px; border: 1px solid #ddd; }
+  .photo-row { margin: 12px 0; }
+  .photo-row img { width: 100%; border: 1px solid #ddd; margin-bottom: 4px; }
+  .caption { font-size: 11px; color: #777; margin: 0 0 12px; font-style: italic; }
+  .product { margin: 10px 0 4px; }
+  .product img { width: 200px; max-width: 60%; }
   /* Print: keep flow simple, avoid awkward breaks inside entries. */
   @media print {
     body { padding: 0; max-width: none; }
@@ -57,6 +64,8 @@
 
   <section>
     <h2>Profile</h2>
+    <img class="portrait" src="images/founder.jpg" alt="Sushanth Paatnaik">
+    <p class="caption">Inventor, deep-tech founder, and six-time Indian Presidential awardee.</p>
     <p>
       An inventor quietly building industrial futures. Born in Bhubaneswar, Odisha,
       the work began in a borrowed workshop at fourteen — and has not really paused since.
@@ -142,6 +151,19 @@
     <h2>Innovations — 23 Graphene Products</h2>
     <p class="meta">One material platform, twenty-three industrial expressions — from bench formulation through plant pilot to field deployment. Graphene: ~200&times; the tensile strength of steel, ~13&times; the thermal conductivity of copper, 2,630 m&sup2;/g surface area.</p>
 
+    <div class="product">
+      <img src="images/p-graphacrete.jpg" alt="Graphacrete">
+      <p class="caption">Graphacrete — graphene admixture for high-performance concrete.</p>
+    </div>
+    <div class="product">
+      <img src="images/p-graffisol.jpg" alt="Graffisol">
+      <p class="caption">Graffisol — self-cleaning solar coating, +10&ndash;12% annual yield.</p>
+    </div>
+    <div class="product">
+      <img src="images/p-aquamax.jpg" alt="Aquamax">
+      <p class="caption">Aquamax — world-first system recovering 95%+ of cooling tower plume water.</p>
+    </div>
+
     <h3>Commercial &middot; Field-Deployed</h3>
     <ul>
       <li><strong>Graphacrete</strong> — Graphene admixture for high-performance concrete. 49.5 MPa, &minus;40 kg/m&sup3; cement. (Patent)</li>
@@ -181,6 +203,21 @@
   <section>
     <h2>Recognitions</h2>
     <p class="meta">From a school-bench prototype to Rashtrapati Bhavan and Silicon Valley — twenty-seven honors of record and sixty-plus keynotes.</p>
+
+    <div class="photo-row">
+      <img src="images/presidential-trio.jpg" alt="Presidential awards">
+      <p class="caption">Six-time Indian Presidential awardee — recognized by three Presidents of India (2008&ndash;2013).</p>
+    </div>
+    <div class="photo-row">
+      <img src="images/award-kalam.jpg" alt="With Dr. A.P.J. Abdul Kalam">
+      <p class="caption">With Dr. A.P.J. Abdul Kalam — Presidential Award, National Innovation Foundation.</p>
+      <img src="images/ted.jpg" alt="TED-India">
+      <p class="caption">TED-India Speaker (2012) — among the youngest ever featured.</p>
+      <img src="images/nasa.jpg" alt="NASA recognition">
+      <p class="caption">NASA recognition — Kennedy Space Center / U.S. Space &amp; Rocket Center, Huntsville (2011).</p>
+      <img src="images/g20.jpg" alt="Startup20 at G20">
+      <p class="caption">Startup20 at G20 India Presidency, Gurugram (2023).</p>
+    </div>
 
     <h3>Defining Honors</h3>
     <ul>
