@@ -31,6 +31,9 @@
     margin: 0 0 10px;
     color: #f5f5f5;
     font-weight: 300;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #c4923b;
+    display: inline-block;
   }
   h2 {
     font-size: 11px;
@@ -115,23 +118,30 @@
     flex-wrap: wrap;
     gap: 0;
     margin: 14px 0 6px;
-    border: 1px solid rgba(245,245,245,0.08);
-    background: #0a0c10;
+    border: 1px solid rgba(91,143,223,0.18);   /* graphene-blue hairline */
+    background:
+      radial-gradient(80% 100% at 50% 0%, rgba(91,143,223,0.08), transparent 70%),
+      #0a0c10;
+    box-shadow: 0 0 0 1px rgba(91,143,223,0.04) inset;
   }
   .stats .cell {
     flex: 1 0 25%;
-    padding: 14px 12px;
+    padding: 16px 12px;
     text-align: center;
-    border-right: 1px solid rgba(245,245,245,0.05);
-    border-bottom: 1px solid rgba(245,245,245,0.05);
+    border-right: 1px solid rgba(91,143,223,0.10);
+    border-bottom: 1px solid rgba(91,143,223,0.10);
   }
   .stats .cell strong {
     display: block;
-    font-size: 22px;
-    color: #f5f5f5;
+    font-size: 24px;
+    color: #eaf0fb;
     font-weight: 300;
     letter-spacing: -0.02em;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    background: linear-gradient(180deg, #f5f5f5 0%, #b9c8e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   .stats .cell .label { display: block; }
   /* Images — dark plates with hairline frames */
@@ -173,6 +183,35 @@
     border-top: 1px solid rgba(245,245,245,0.08);
   }
   .entry:first-of-type { border-top: none; }
+  /* Hall of Fame — gallery grid using CSS table for weasyprint reliability */
+  .hof {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    margin: 12px 0 8px;
+  }
+  .hof-row { display: table-row; }
+  .hof-cell {
+    display: table-cell;
+    width: 33.33%;
+    background: #0a0c10;
+    border: 1px solid rgba(245,245,245,0.10);
+    padding: 4px;
+    vertical-align: top;
+  }
+  .hof-cell img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+  }
+  .hof-cell .caption {
+    margin: 6px 2px 2px;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    line-height: 1.3;
+  }
   /* Quote / philosophy emphasis */
   .pull {
     font-size: 16px;
@@ -354,15 +393,79 @@
       <img src="images/presidential-trio.jpg" alt="Presidential awards">
       <p class="caption">Six-time Indian Presidential awardee — recognized by three Presidents of India (2008&ndash;2013).</p>
     </div>
-    <div class="photo-row">
-      <img src="images/award-kalam.jpg" alt="With Dr. A.P.J. Abdul Kalam">
-      <p class="caption">With Dr. A.P.J. Abdul Kalam — Presidential Award, National Innovation Foundation.</p>
-      <img src="images/ted.jpg" alt="TED-India">
-      <p class="caption">TED-India Speaker (2012) — among the youngest ever featured.</p>
-      <img src="images/nasa.jpg" alt="NASA recognition">
-      <p class="caption">NASA recognition — Kennedy Space Center / U.S. Space &amp; Rocket Center, Huntsville (2011).</p>
-      <img src="images/g20.jpg" alt="Startup20 at G20">
-      <p class="caption">Startup20 at G20 India Presidency, Gurugram (2023).</p>
+
+    <p class="eyebrow" style="margin-top:18px;">Hall of Fame &middot; Continuous Reel</p>
+    <div class="hof">
+      <div class="hof-row">
+        <div class="hof-cell">
+          <img src="images/award-kalam.jpg" alt="Dr. A.P.J. Abdul Kalam">
+          <p class="caption">With Dr. A.P.J. Abdul Kalam &middot; Presidential Award 2008</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/award-patil.jpg" alt="President Pratibha Patil">
+          <p class="caption">With Smt. Pratibha Patil &middot; Presidential Award 2009</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/award-pranab.jpg" alt="President Pranab Mukherjee">
+          <p class="caption">With Shri Pranab Mukherjee &middot; Presidential Award 2013</p>
+        </div>
+      </div>
+      <div class="hof-row">
+        <div class="hof-cell">
+          <img src="images/ted.jpg" alt="TED-India">
+          <p class="caption">TED-India &middot; Bangalore &middot; 2012</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/nasa.jpg" alt="NASA recognition">
+          <p class="caption">NASA &middot; Kennedy Space Center &middot; 2011</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/mit-tr35.jpg" alt="MIT TR-35">
+          <p class="caption">MIT TR-35 &middot; Technology Review &middot; 2010</p>
+        </div>
+      </div>
+      <div class="hof-row">
+        <div class="hof-cell">
+          <img src="images/intel-iris.jpg" alt="Intel IRIS">
+          <p class="caption">Intel IRIS &middot; Best Popular Invention &middot; 2010</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/silicon-valley.jpg" alt="Silicon Valley">
+          <p class="caption">Silicon Valley Address &middot; Bay Area &middot; 2024</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/brics.jpg" alt="BRICS Roundtable">
+          <p class="caption">BRICS Roundtable &middot; New Delhi &middot; 2022</p>
+        </div>
+      </div>
+      <div class="hof-row">
+        <div class="hof-cell">
+          <img src="images/g20.jpg" alt="Startup20 at G20">
+          <p class="caption">Startup20 &middot; G20 India Presidency &middot; 2023</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/italian.jpg" alt="Embassy of Italy">
+          <p class="caption">H.E. Antonio Bartoli &middot; Embassy of Italy</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/gadkari.jpg" alt="Nitin Gadkari">
+          <p class="caption">Shri Nitin Gadkari &middot; Transport Bhawan</p>
+        </div>
+      </div>
+      <div class="hof-row">
+        <div class="hof-cell">
+          <img src="images/lea-dia.jpg" alt="LEA Excellence Award">
+          <p class="caption">LEA Excellence Award with Dia Mirza &middot; 2022</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/ieema.jpg" alt="IEEMA Buildelec">
+          <p class="caption">IEEMA Buildelec Mainstage &middot; Mumbai &middot; 2024</p>
+        </div>
+        <div class="hof-cell">
+          <img src="images/presidential-trio.jpg" alt="Presidential trio">
+          <p class="caption">Three Presidents &middot; Six citations &middot; 2008&ndash;13</p>
+        </div>
+      </div>
     </div>
 
     <h3>Defining Honors</h3>
