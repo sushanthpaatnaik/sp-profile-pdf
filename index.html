@@ -2,127 +2,283 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sushanth Paatnaik — Company Profile</title>
+<title>Sushanth Paatnaik — Founder Dossier</title>
 <style>
-  /* Theme sourced from sushanthpaatnaik.com — graphite background,
-     premium-white type, copper-gold + graphene-blue accents, hairlines. */
+  /* ========================================================
+     SP · FOUNDER DOSSIER · DESIGN SYSTEM
+     Sourced from sushanthpaatnaik.com
+     Palette:
+       --ink-black     #08090b   /* base */
+       --ink-deep      #0a0c10   /* navy-tinted plates */
+       --ink-plate     #0d1018
+       --white         #f5f5f5
+       --white-soft    rgba(245,245,245,0.78)
+       --white-mute    rgba(245,245,245,0.55)
+       --gold-brand    #88622A   /* logo gold */
+       --gold-warm     #c4923b   /* highlight gold */
+       --blue-graphene #5b8fdf
+     ======================================================== */
+
   @page {
     size: A4;
-    margin: 16mm 14mm;
-    background: #0d0d0d;
+    margin: 18mm 16mm;
+    background: #08090b;
   }
-  html, body { background: #0d0d0d; }
+  @page :first {
+    margin: 0;
+    background: #08090b;
+  }
+  @page chapter {
+    margin: 0;
+    background: #08090b;
+  }
+
+  html, body { background: #08090b; }
   body {
     font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
     color: #f5f5f5;
-    line-height: 1.65;
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 28px 28px 40px;
-    font-size: 13px;
+    line-height: 1.7;
+    font-size: 12.5px;
     letter-spacing: 0.005em;
+    margin: 0;
+    padding: 0;
   }
-  /* Editorial display headings */
-  h1 {
-    font-size: 38px;
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin: 0 0 10px;
-    color: #f5f5f5;
-    font-weight: 300;
-    padding-bottom: 14px;
-    border-bottom: 2px solid #c4923b;
-    display: inline-block;
-  }
-  h2 {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.42em;
-    color: #c4923b;            /* copper-gold accent */
-    margin: 40px 0 4px;
-    font-weight: 500;
-  }
-  h2::after {
-    content: "";
-    display: block;
-    height: 1px;
-    background: rgba(245,245,245,0.12);
-    margin-top: 10px;
-  }
-  .section-title {
-    font-size: 22px;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: #f5f5f5;
-    font-weight: 300;
-    margin: 6px 0 14px;
-  }
-  h3 {
-    font-size: 14px;
-    margin: 18px 0 2px;
-    color: #f5f5f5;
-    font-weight: 500;
-    letter-spacing: -0.005em;
-  }
-  /* Editorial labels — mono uppercase */
-  .tagline {
-    font-family: "Courier New", monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.32em;
-    color: #c4923b;
-    margin: 0 0 18px;
-  }
+
+  /* === Typography === */
+  h1, h2, h3, h4 { font-weight: 300; color: #f5f5f5; letter-spacing: -0.02em; margin: 0; }
+  p { margin: 10px 0; color: rgba(245,245,245,0.78); }
+
   .eyebrow {
+    font-family: "Courier New", monospace;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: #c4923b;
+    margin: 0 0 12px;
+  }
+  .eyebrow-mute {
     font-family: "Courier New", monospace;
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.42em;
     color: rgba(245,245,245,0.45);
-    margin: 0 0 8px;
   }
-  .label {
+  .caption {
     font-family: "Courier New", monospace;
-    font-size: 9px;
+    font-size: 8.5px;
     text-transform: uppercase;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.28em;
     color: rgba(245,245,245,0.5);
+    margin: 6px 0 16px;
   }
-  .meta {
-    font-size: 12px;
-    color: rgba(245,245,245,0.6);
-    margin: 2px 0;
+
+  /* === Cover === */
+  .cover {
+    page: chapter;
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    background:
+      radial-gradient(60% 50% at 20% 20%, rgba(91,143,223,0.10), transparent 65%),
+      radial-gradient(70% 60% at 80% 90%, rgba(136,98,42,0.08), transparent 65%),
+      linear-gradient(180deg, #08090b 0%, #0a0c10 100%);
+    color: #f5f5f5;
+    page-break-after: always;
+    overflow: hidden;
   }
-  .meta a { color: #c4923b; text-decoration: none; }
-  p { margin: 8px 0; color: rgba(245,245,245,0.78); }
-  ul { margin: 8px 0; padding-left: 18px; }
-  li { margin: 5px 0; color: rgba(245,245,245,0.78); }
-  li strong { color: #f5f5f5; font-weight: 500; }
-  .role {
+  .cover::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: url('images/bg-cover.jpg') center/cover no-repeat;
+    opacity: 0.30;
+    mix-blend-mode: lighten;
+  }
+  .cover-inner {
+    position: relative;
+    padding: 28mm 22mm;
+    height: 100%;
+    display: block;
+  }
+  .cover-logo {
+    width: 26mm; height: 26mm;
+    display: block;
+    margin-bottom: 22mm;
+  }
+  .cover-eyebrow {
     font-family: "Courier New", monospace;
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: rgba(196,146,59,0.85);
-    font-style: normal;
+    letter-spacing: 0.6em;
+    color: #c4923b;
+    margin-bottom: 14mm;
   }
-  hr {
+  .cover h1 {
+    font-size: 64px;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    font-weight: 200;
+    margin-bottom: 8mm;
+  }
+  .cover-sub {
+    font-size: 18px;
+    line-height: 1.4;
+    color: rgba(245,245,245,0.75);
+    max-width: 130mm;
+    letter-spacing: -0.005em;
+    margin-bottom: 16mm;
+  }
+  .cover-rule {
+    width: 36mm;
+    height: 1.5px;
+    background: #88622A;
+    margin: 0 0 10mm;
+  }
+  .cover-meta {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    color: rgba(245,245,245,0.55);
+    line-height: 2.0;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 18mm; left: 22mm; right: 22mm;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Courier New", monospace;
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    color: rgba(245,245,245,0.45);
+    border-top: 1px solid rgba(245,245,245,0.10);
+    padding-top: 6mm;
+  }
+
+  /* === Chapter divider === */
+  .chapter {
+    page: chapter;
+    page-break-before: always;
+    page-break-after: always;
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+  }
+  .chapter::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+  }
+  .chapter::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 50% at 30% 30%, rgba(91,143,223,0.10), transparent 70%),
+      radial-gradient(70% 55% at 80% 90%, rgba(136,98,42,0.08), transparent 70%),
+      linear-gradient(180deg, rgba(8,9,11,0.55) 0%, rgba(8,9,11,0.85) 100%);
+  }
+  .chapter-inner {
+    position: relative;
+    z-index: 2;
+    padding: 36mm 24mm;
+  }
+  .chapter-num {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.55em;
+    color: #c4923b;
+    margin-bottom: 18mm;
+  }
+  .chapter-title {
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 200;
+    color: #f5f5f5;
+    max-width: 150mm;
+  }
+  .chapter-lead {
+    margin-top: 16mm;
+    max-width: 130mm;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(245,245,245,0.7);
+  }
+  .chapter-rule {
+    width: 30mm;
+    height: 1px;
+    background: #88622A;
+    margin-top: 18mm;
+  }
+  .ch-origin::before     { background-image: url('images/bg-origin.jpg'); }
+  .ch-material::before   { background-image: url('images/bg-material.jpg'); }
+  .ch-industrial::before { background-image: url('images/bg-industrial.jpg'); }
+  .ch-recognition::before{ background-image: url('images/bg-recognition.jpg'); }
+  .ch-ecosystem::before  { background-image: url('images/bg-ecosystem.jpg'); }
+  .ch-voices::before     { background-image: url('images/bg-voices.jpg'); }
+  .ch-future::before     { background-image: url('images/bg-future.jpg'); }
+
+  /* === Content pages === */
+  .content { padding: 4mm 0; }
+  .content h2 {
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 300;
+    margin-top: 22px;
+  }
+  .content h3 {
+    font-size: 16px;
+    letter-spacing: -0.005em;
+    font-weight: 500;
+    margin: 22px 0 6px;
+  }
+  .content p { font-size: 12.5px; line-height: 1.75; }
+  ul { margin: 8px 0; padding-left: 18px; }
+  li { margin: 6px 0; color: rgba(245,245,245,0.78); line-height: 1.6; }
+  li strong { color: #f5f5f5; font-weight: 500; }
+
+  .lede {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(245,245,245,0.88);
+    margin: 14px 0 28px;
+    letter-spacing: -0.01em;
+    max-width: 150mm;
+  }
+
+  .pull {
+    font-size: 19px;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    color: rgba(245,245,245,0.92);
+    margin: 26px 0 26px;
+    padding: 4px 0 4px 18px;
+    border-left: 2px solid #c4923b;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  hr.hair {
     border: none;
     border-top: 1px solid rgba(245,245,245,0.10);
-    margin: 28px 0;
+    margin: 24px 0;
   }
-  /* Stats — plate grid */
+
+  /* === Stats plate === */
   .stats {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-    margin: 14px 0 6px;
-    border: 1px solid rgba(91,143,223,0.18);   /* graphene-blue hairline */
+    margin: 14px 0 18px;
+    border: 1px solid rgba(91,143,223,0.18);
     background:
-      radial-gradient(80% 100% at 50% 0%, rgba(91,143,223,0.08), transparent 70%),
+      radial-gradient(80% 100% at 50% 0%, rgba(91,143,223,0.07), transparent 70%),
       #0a0c10;
-    box-shadow: 0 0 0 1px rgba(91,143,223,0.04) inset;
   }
   .stats .cell {
     flex: 1 0 25%;
@@ -133,63 +289,106 @@
   }
   .stats .cell strong {
     display: block;
-    font-size: 24px;
-    color: #eaf0fb;
-    font-weight: 300;
+    font-size: 26px;
+    font-weight: 200;
     letter-spacing: -0.02em;
     margin-bottom: 6px;
-    background: linear-gradient(180deg, #f5f5f5 0%, #b9c8e5 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #f5f5f5;
   }
-  .stats .cell .label { display: block; }
-  /* Images — dark plates with hairline frames */
+  .stats .cell .label {
+    display: block;
+    font-family: "Courier New", monospace;
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: rgba(245,245,245,0.5);
+  }
+
+  /* === Image plates === */
   img { max-width: 100%; height: auto; display: block; }
+  .plate {
+    background: #0a0c10;
+    border: 1px solid rgba(245,245,245,0.08);
+    padding: 4px;
+    margin: 10px 0 4px;
+  }
   .portrait {
-    width: 320px;
-    max-width: 100%;
-    margin: 12px 0 6px;
-    border: 1px solid rgba(245,245,245,0.10);
-    background: #0a0c10;
-    padding: 4px;
-  }
-  .photo-row { margin: 14px 0; }
-  .photo-row img {
     width: 100%;
-    border: 1px solid rgba(245,245,245,0.10);
-    background: #0a0c10;
-    padding: 4px;
-    margin-bottom: 4px;
+    max-width: 360px;
+    margin: 8px 0;
   }
-  .caption {
+
+  /* === Innovation product card === */
+  .product {
+    margin: 14px 0;
+    padding: 12px 14px;
+    background:
+      radial-gradient(70% 100% at 0% 0%, rgba(91,143,223,0.05), transparent 70%),
+      #0a0c10;
+    border: 1px solid rgba(245,245,245,0.08);
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+  }
+  .product-row { display: table-row; }
+  .product-img-cell { display: table-cell; width: 110px; vertical-align: top; padding-right: 14px; }
+  .product-img-cell img { width: 100px; height: auto; }
+  .product-body { display: table-cell; vertical-align: top; }
+  .product-eyebrow {
+    font-family: "Courier New", monospace;
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: #c4923b;
+  }
+  .product h4 {
+    font-size: 15px;
+    color: #f5f5f5;
+    font-weight: 500;
+    margin: 4px 0 4px;
+    letter-spacing: -0.005em;
+  }
+  .product .metric {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: rgba(91,143,223,0.85);
+    margin-bottom: 6px;
+  }
+  .product p { margin: 0; font-size: 11.5px; line-height: 1.55; color: rgba(245,245,245,0.7); }
+
+  /* === Venture entry === */
+  .venture {
+    padding: 14px 0 6px;
+    border-top: 1px solid rgba(245,245,245,0.08);
+  }
+  .venture:first-of-type { border-top: none; }
+  .venture-tag {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.36em;
+    color: #c4923b;
+  }
+  .venture h3 { margin: 6px 0 4px; font-size: 18px; font-weight: 400; }
+  .venture .role {
     font-family: "Courier New", monospace;
     font-size: 9.5px;
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    color: rgba(245,245,245,0.5);
-    margin: 0 0 14px;
-    font-style: normal;
+    color: rgba(245,245,245,0.55);
+    margin-bottom: 4px;
   }
-  .product {
-    margin: 14px 0 4px;
-    padding: 10px;
-    background: #0a0c10;
-    border: 1px solid rgba(245,245,245,0.08);
-  }
-  .product img { width: 180px; max-width: 55%; background: transparent; padding: 0; border: 0; }
-  .entry {
-    padding: 10px 0 6px;
-    border-top: 1px solid rgba(245,245,245,0.08);
-  }
-  .entry:first-of-type { border-top: none; }
-  /* Hall of Fame — gallery grid using CSS table for weasyprint reliability */
+  .venture p { font-size: 12px; line-height: 1.6; }
+
+  /* === Hall of Fame grid (table) === */
   .hof {
     display: table;
     width: 100%;
     border-collapse: separate;
     border-spacing: 6px;
-    margin: 12px 0 8px;
+    margin: 12px 0 12px;
   }
   .hof-row { display: table-row; }
   .hof-cell {
@@ -202,321 +401,899 @@
   }
   .hof-cell img {
     width: 100%;
-    height: 110px;
+    height: 100px;
     object-fit: cover;
-    display: block;
   }
-  .hof-cell .caption {
-    margin: 6px 2px 2px;
-    font-size: 8.5px;
+  .hof-cell .cap {
+    margin: 5px 2px 2px;
+    font-family: "Courier New", monospace;
+    font-size: 8px;
+    line-height: 1.35;
     letter-spacing: 0.18em;
-    line-height: 1.3;
+    text-transform: uppercase;
+    color: rgba(245,245,245,0.5);
   }
-  /* Quote / philosophy emphasis */
-  .pull {
-    font-size: 16px;
-    line-height: 1.45;
-    letter-spacing: -0.015em;
-    color: rgba(245,245,245,0.92);
-    margin: 16px 0;
-    padding-left: 14px;
-    border-left: 2px solid #c4923b;
-    font-style: italic;
+
+  /* === Engage lane === */
+  .lane {
+    border-top: 1px solid rgba(245,245,245,0.08);
+    padding: 16px 0 4px;
+    display: table;
+    width: 100%;
   }
-  /* Print niceties */
-  h2, h3, .section-title { page-break-after: avoid; }
-  .entry, li, .photo-row, .product { page-break-inside: avoid; }
+  .lane-num {
+    display: table-cell;
+    width: 32px;
+    font-size: 22px;
+    font-weight: 200;
+    color: rgba(245,245,245,0.35);
+    vertical-align: top;
+    padding-top: 4px;
+  }
+  .lane-body { display: table-cell; vertical-align: top; }
+  .lane-cat {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    color: #c4923b;
+  }
+  .lane h3 { margin: 4px 0 8px; font-size: 17px; font-weight: 400; }
+  .lane p { margin: 0 0 10px; font-size: 12px; line-height: 1.6; }
+  .lane-meta {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: rgba(245,245,245,0.45);
+    margin-top: 6px;
+  }
+
+  /* === Voice card === */
+  .voice {
+    border-top: 1px solid rgba(245,245,245,0.08);
+    padding: 18px 0;
+    display: table;
+    width: 100%;
+  }
+  .voice-logo-cell {
+    display: table-cell;
+    width: 60px;
+    vertical-align: top;
+    padding-right: 14px;
+  }
+  .voice-logo-cell img {
+    width: 48px;
+    height: 48px;
+    background: #0d1018;
+    border: 1px solid rgba(245,245,245,0.10);
+    padding: 4px;
+    object-fit: contain;
+  }
+  .voice-body { display: table-cell; vertical-align: top; }
+  .voice-role {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.36em;
+    color: #c4923b;
+  }
+  .voice h3 { font-size: 16px; margin: 5px 0 6px; font-weight: 400; }
+  .voice p { font-size: 12px; line-height: 1.6; font-style: italic; color: rgba(245,245,245,0.72); margin: 0; }
+
+  /* === Press strip === */
+  .press {
+    border-top: 1px solid rgba(245,245,245,0.08);
+    padding: 12px 0;
+  }
+  .press .outlet {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.36em;
+    color: #c4923b;
+  }
+  .press .headline { color: rgba(245,245,245,0.85); font-size: 12.5px; margin-top: 2px; }
+
+  /* === Thank you === */
+  .thanks {
+    page: chapter;
+    page-break-before: always;
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .thanks::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: url('images/bg-future.jpg') center/cover no-repeat;
+    opacity: 0.30;
+  }
+  .thanks::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 50% at 50% 30%, rgba(91,143,223,0.10), transparent 70%),
+      linear-gradient(180deg, rgba(8,9,11,0.65), rgba(8,9,11,0.92));
+  }
+  .thanks-inner {
+    position: relative;
+    z-index: 2;
+    padding: 60mm 22mm;
+    text-align: center;
+  }
+  .thanks h1 {
+    font-size: 80px;
+    font-weight: 200;
+    letter-spacing: -0.04em;
+    margin: 0 0 16mm;
+  }
+  .thanks .signoff {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(245,245,245,0.78);
+    max-width: 130mm;
+    margin: 0 auto 14mm;
+  }
+  .thanks .rule { width: 30mm; height: 1.5px; background: #88622A; margin: 12mm auto; }
+  .thanks .contact {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.45em;
+    color: rgba(245,245,245,0.65);
+    line-height: 2.0;
+  }
+  .thanks .contact a { color: #c4923b; text-decoration: none; }
+
+  /* === Section wrapper for content pages === */
+  .page-wrap { padding: 0; }
+  .page-eyebrow {
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.48em;
+    color: #c4923b;
+    margin: 0 0 8px;
+  }
+  .page-title {
+    font-size: 26px;
+    letter-spacing: -0.025em;
+    font-weight: 300;
+    margin: 0 0 6px;
+    color: #f5f5f5;
+  }
+
+  /* Page break helpers */
+  .pb-after { page-break-after: always; }
+  .pb-before { page-break-before: always; }
+  .no-break  { page-break-inside: avoid; }
 </style>
 </head>
 <body>
 
-  <header>
-    <p class="eyebrow">Founder Dossier &middot; sushanthpaatnaik.com</p>
-    <h1>Sushanth Paatnaik</h1>
-    <p class="tagline">Inventor &middot; Deep-Tech Founder &middot; Materials Strategist</p>
-    <p class="meta">Six-time Indian Presidential awardee building graphene, nano-materials, and industrial deep-tech ventures from India.</p>
-    <p class="meta">Bhubaneswar &middot; New Delhi &middot; Ahmedabad, India</p>
-    <p class="meta">Email: <a href="mailto:me@sushanthpaatnaik.com">me@sushanthpaatnaik.com</a></p>
-    <p class="meta">LinkedIn: linkedin.com/in/sushanthpaatnaik &nbsp;|&nbsp; X: x.com/sushantinthinks &nbsp;|&nbsp; YouTube: @Susantinventions &nbsp;|&nbsp; Instagram: @sushanthpaatnaik</p>
-  </header>
-
-  <section>
-    <h2>01 &middot; Profile</h2>
-    <p class="section-title">An inventor, quietly building industrial futures.</p>
-    <img class="portrait" src="images/founder.jpg" alt="Sushanth Paatnaik">
-    <p class="caption">Portrait &middot; Bhubaneswar, India</p>
-    <p>
-      Born in Bhubaneswar, Odisha. The work began in a borrowed workshop at fourteen —
-      and has not really paused since. An industrial systems builder, deep-tech founder,
-      and materials strategist, building from India for the world.
+<!-- =========================================================
+     COVER
+========================================================= -->
+<div class="cover">
+  <div class="cover-inner">
+    <img class="cover-logo" src="images/sp-logo.svg" alt="SP">
+    <div class="cover-eyebrow">Founder Dossier &middot; 2026</div>
+    <h1>Sushanth<br>Paatnaik</h1>
+    <p class="cover-sub">
+      Inventor, deep-tech founder, and six-time Indian Presidential awardee.
+      Engineering matter, capital, and scale across graphene, nano-materials,
+      and industrial systems — from India for the world.
     </p>
-    <p>
-      Fifteen years inside the workshop have taught one lesson without exception:
-      frontier science only matters when it reaches the industrial world. The brief is
-      not a paper, not a prototype, not even a product — it is the discipline of carrying
-      invention through capital, through manufacturing, and through the long quiet years
-      before scale.
+    <div class="cover-rule"></div>
+    <div class="cover-meta">
+      Six Presidential Awards &nbsp;&middot;&nbsp; Twenty-Seven Honors of Record<br>
+      Twenty-Three Graphene Innovations &nbsp;&middot;&nbsp; Six Operating Ventures<br>
+      Bhubaneswar &nbsp;&middot;&nbsp; New Delhi &nbsp;&middot;&nbsp; Ahmedabad
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span>sushanthpaatnaik.com</span>
+    <span>Confidential &middot; Founder Dossier</span>
+  </div>
+</div>
+
+<!-- =========================================================
+     FOREWORD
+========================================================= -->
+<div class="content pb-after">
+  <p class="eyebrow">Foreword</p>
+  <h2>An inventor, quietly building industrial futures.</h2>
+  <p class="lede">
+    Sushanth Paatnaik is an inventor, deep-tech founder, and six-time Indian
+    Presidential awardee. His work spans graphene and advanced materials,
+    industrial commercialization, and the patient capital that carries frontier
+    science from the lab into operating reality.
+  </p>
+  <p>
+    Born in Bhubaneswar, Odisha, the work began in a borrowed workshop at
+    fourteen — a breath-powered wheelchair built for a man with locked-in
+    syndrome. That afternoon set the brief: not optimisation, but agency.
+    Performance is the means; agency is the brief.
+  </p>
+  <p>
+    Fifteen years on, that brief now spans six operating ventures, twenty-three
+    graphene innovations from bench to field, and a register of recognition that
+    includes three Presidents of India, MIT TR-35, NASA, TED-India, and BRICS.
+  </p>
+  <p class="pull">
+    Engineer matter. Engineer capital. Engineer scale.<br>
+    Hold all three in one hand long enough for the work to outlive the inventor.
+  </p>
+  <hr class="hair">
+  <div class="stats">
+    <div class="cell"><strong>27</strong><span class="label">Honors of record</span></div>
+    <div class="cell"><strong>06</strong><span class="label">Presidential awards</span></div>
+    <div class="cell"><strong>60+</strong><span class="label">Keynotes since 2010</span></div>
+    <div class="cell"><strong>23</strong><span class="label">Graphene innovations</span></div>
+    <div class="cell"><strong>06</strong><span class="label">Operating ventures</span></div>
+    <div class="cell"><strong>14+</strong><span class="label">Years of research</span></div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CHAPTER 01 · ORIGIN
+========================================================= -->
+<div class="chapter ch-origin">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 01</div>
+    <h1 class="chapter-title">Origin</h1>
+    <p class="chapter-lead">
+      A workshop, a wheelchair, and a question.
+      The first decade — from a school-bench prototype in Bhubaneswar to IISER
+      Bhopal, NASA, and the long apprenticeship of an inventor.
     </p>
-    <p class="pull">
-      Engineer matter. Engineer capital. Engineer scale. Hold all three in one hand
-      long enough for the work to outlive the inventor.
+    <div class="chapter-rule"></div>
+  </div>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">01 &middot; Origin</p>
+  <h2 class="page-title">A workshop, a wheelchair, and a question.</h2>
+  <img class="plate portrait" src="images/founder.jpg" alt="Sushanth Paatnaik">
+  <p class="caption">Portrait &middot; Bhubaneswar, India</p>
+
+  <p>
+    At fourteen, in a workshop borrowed for a weekend, Sushanth built a
+    breath-powered wheelchair for a man with locked-in syndrome who could no
+    longer ask for water. That afternoon rewrote what engineering meant: not
+    optimisation, but agency.
+  </p>
+  <p>
+    Every venture since has begun from the same question — who is this for, and
+    what does dignity look like for them at scale?
+  </p>
+
+  <h3>Academia &middot; IISER Bhopal &middot; OCT Bhopal</h3>
+  <p>
+    <strong>BSc.</strong> from IISER Bhopal under the KVPY-SP scholarship —
+    chemistry, physics, and the discipline of asking questions matter cannot
+    easily answer.
+  </p>
+  <p>
+    <strong>BEd. (ETE)</strong> from OCT, Bhopal under the Special Achiever
+    category — the conviction that an inventor who cannot teach has not really
+    finished the invention.
+  </p>
+
+  <p class="pull">
+    The work began in a borrowed workshop at fourteen — and has not really
+    paused since.
+  </p>
+
+  <h3>From inventor to ecosystem</h3>
+  <p>
+    The first decade was about inventions — ten-plus working prototypes shipped
+    from a borrowed workshop. The second is about systems — companies, capital,
+    and the talent that compounds across them. The third, by design, will be
+    about handing the work to the next generation of Indian builders who never
+    had to ask permission.
+  </p>
+</div>
+
+<!-- =========================================================
+     CHAPTER 02 · MATERIAL INTELLIGENCE
+========================================================= -->
+<div class="chapter ch-material">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 02</div>
+    <h1 class="chapter-title">Material<br>Intelligence</h1>
+    <p class="chapter-lead">
+      One material platform. Twenty-three industrial expressions.
+      A private R&amp;D archive of graphene engineering — calibrated for concrete,
+      solar, batteries, water, hydrogen, mobility, storage and armour.
     </p>
-    <p>
-      The direction is narrower still — graphene and advanced materials, patient
-      industrial capital, and a vertically integrated stack designed to make Indian
-      deep-tech globally inevitable in the carbon century ahead.
-    </p>
-  </section>
+    <div class="chapter-rule"></div>
+  </div>
+</div>
 
-  <section>
-    <h2>02 &middot; Dossier</h2>
-    <p class="section-title">At a glance.</p>
-    <div class="stats">
-      <div class="cell"><strong>27</strong><span class="label">Honors of record</span></div>
-      <div class="cell"><strong>06</strong><span class="label">Presidential awards</span></div>
-      <div class="cell"><strong>60+</strong><span class="label">Keynotes since 2010</span></div>
-      <div class="cell"><strong>23</strong><span class="label">Graphene innovations</span></div>
-      <div class="cell"><strong>06</strong><span class="label">Operating ventures</span></div>
-      <div class="cell"><strong>14+</strong><span class="label">Years of research</span></div>
-    </div>
-  </section>
+<div class="content pb-after">
+  <p class="page-eyebrow">02 &middot; Material Intelligence &middot; Substrate</p>
+  <h2 class="page-title">The substrate beneath everything.</h2>
+  <p class="lede">
+    A single material platform — monolayer carbon, sp&sup2; bonded, 0.142 nm
+    apart — engineered into twenty-three industrial expressions and traced from
+    bench formulation through plant pilot to field deployment.
+  </p>
+  <div class="stats">
+    <div class="cell"><strong>1</strong><span class="label">Atomic layer &middot; Monolayer carbon</span></div>
+    <div class="cell"><strong>130 GPa</strong><span class="label">Tensile &middot; ~200&times; steel</span></div>
+    <div class="cell"><strong>2,630</strong><span class="label">m&sup2;/g surface &middot; per gram</span></div>
+    <div class="cell"><strong>5,000</strong><span class="label">W/mK &middot; ~13&times; copper</span></div>
+  </div>
 
-  <section>
-    <h2>03 &middot; Education</h2>
-    <p class="section-title">IISER Bhopal &middot; OCT Bhopal.</p>
-    <h3>BSc. — IISER Bhopal</h3>
-    <p class="meta">Admitted under the KVPY-SP scholarship. Foundation in chemistry, physics, and the discipline of asking questions matter cannot easily answer.</p>
-    <h3>BEd. (ETE) — OCT, Bhopal</h3>
-    <p class="meta">Special Achiever category — a conviction that an inventor who cannot teach has not really finished the invention.</p>
-  </section>
+  <h3>Commercial &middot; Field-Deployed</h3>
 
-  <section>
-    <h2>04 &middot; Ventures</h2>
-    <p class="section-title">A portfolio engineered for planetary impact.</p>
-    <p class="meta">Founder, co-founder and chief innovation officer across six operating vehicles — plus an advisory roster of five houses across industry, materials and climate. A closed loop from atom to invoice.</p>
-
-    <div class="entry">
-      <h3>Monoatom Labs <span class="role">— Co-Founder &amp; CEO &middot; 2025 &middot; Materials</span></h3>
-      <p>A scalable and economical method to manufacture graphene — and the applications that turn it into real-world performance gains. (monoatomlabs.com)</p>
-    </div>
-    <div class="entry">
-      <h3>Grafillium <span class="role">— Co-Founder &amp; CIO &middot; 2025 &middot; Eco nano additives</span></h3>
-      <p>Deep-tech nanomaterial additive technologies that boost efficiency and cut carbon emissions across power, logistics and heavy industry. (grafillium.com)</p>
-    </div>
-    <div class="entry">
-      <h3>SPI Industries <span class="role">— Founder &amp; CEO &middot; 2024 &middot; Industrial Systems</span></h3>
-      <p>R&amp;D-led industrial solutions in nanomaterial engineering — translating advanced materials science into deployable systems. (spiindustries.co)</p>
-    </div>
-    <div class="entry">
-      <h3>InThinks <span class="role">— Co-Founder &middot; 2026 &middot; Innovation Studio</span></h3>
-      <p>An ideation and innovation studio that shapes early-stage thinking into products, then transfers or licenses the technology to partner organisations. (inthinks.com)</p>
-    </div>
-    <div class="entry">
-      <h3>Starunico Capital <span class="role">— Co-Founder &middot; 2026 &middot; Deep-Tech Capital</span></h3>
-      <p>Backing founders building the materials and energy layer of the next century. (starunico.com)</p>
-    </div>
-    <div class="entry">
-      <h3>Magppie <span class="role">— Chief Innovation Officer &middot; 2025 &middot; Design + Living</span></h3>
-      <p>Pioneering the world's first 100% stone-built modular kitchen — transforming ordinary homes into wellness homes. (magppie.com)</p>
-    </div>
-
-    <h3>Advisory Roster</h3>
-    <ul>
-      <li>Vinrox — Materials</li>
-      <li>VPRPL — Industrial Systems</li>
-      <li>WeHear — Consumer Tech</li>
-      <li>Tileopedia — Surface Technologies</li>
-      <li>Magppie — Design + Living</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>05 &middot; Innovations</h2>
-    <p class="section-title">One material platform. Twenty-three industrial expressions.</p>
-    <p class="meta">One material platform, twenty-three industrial expressions — from bench formulation through plant pilot to field deployment. Graphene: ~200&times; the tensile strength of steel, ~13&times; the thermal conductivity of copper, 2,630 m&sup2;/g surface area.</p>
-
-    <div class="product">
-      <img src="images/p-graphacrete.jpg" alt="Graphacrete">
-      <p class="caption">Graphacrete — graphene admixture for high-performance concrete.</p>
-    </div>
-    <div class="product">
-      <img src="images/p-graffisol.jpg" alt="Graffisol">
-      <p class="caption">Graffisol — self-cleaning solar coating, +10&ndash;12% annual yield.</p>
-    </div>
-    <div class="product">
-      <img src="images/p-aquamax.jpg" alt="Aquamax">
-      <p class="caption">Aquamax — world-first system recovering 95%+ of cooling tower plume water.</p>
-    </div>
-
-    <h3>Commercial &middot; Field-Deployed</h3>
-    <ul>
-      <li><strong>Graphacrete</strong> — Graphene admixture for high-performance concrete. 49.5 MPa, &minus;40 kg/m&sup3; cement. (Patent)</li>
-      <li><strong>Graffisol</strong> — Solar coating: +10&ndash;12% annual yield, panel cooling, self-cleaning. (Patent)</li>
-      <li><strong>Ceraphene</strong> — Graphene ceramic coating, 9H+ hardness at one-third the premium price. (Patent)</li>
-      <li><strong>HD-G-PE</strong> — Graphene masterbatch: +30% tensile, 100&times; barrier. (Patent)</li>
-      <li><strong>Graphenodes</strong> — Graphene polymer cathode/anode for high-density batteries.</li>
-      <li><strong>Ignitron D</strong> — Diesel combustion optimization: 25% efficiency, 20% lower emissions.</li>
-    </ul>
-
-    <h3>Pilot &middot; Plant &amp; Field</h3>
-    <ul>
-      <li><strong>Coalorix</strong> — Coal combustion optimization: 15% utilization, 35% lower emissions.</li>
-      <li><strong>Aquamax</strong> — World-first system recovering 95%+ of cooling tower plume water.</li>
-      <li><strong>Ignitron P</strong> — Petrol combustion: 15% efficiency improvement.</li>
-      <li><strong>Lubritron</strong> — Engine oil additive: up to 6% fuel savings, 40% wear reduction.</li>
-      <li><strong>Rustene</strong> — Graphene anti-corrosion shield for steel, marine and industrial assets.</li>
-      <li><strong>Gryogen</strong> — Graphene hydrogen-selection membrane for clean fuel.</li>
-      <li><strong>Mariphene</strong> — Low-energy graphene desalination membrane.</li>
-      <li><strong>Aerophenter</strong> — Atmospheric water harvesting via graphene surfaces.</li>
-      <li><strong>Fibrasphene</strong> — Reinforced graphene glass fibres for stronger composites.</li>
-      <li><strong>Voltaphene</strong> — Graphene-enabled grid and mobility energy storage.</li>
-    </ul>
-
-    <h3>R&amp;D &middot; Bench</h3>
-    <ul>
-      <li><strong>Armophene</strong> — Graphene ballistics: lighter, stronger personal/vehicle armour.</li>
-      <li><strong>Hydrocell</strong> — Graphene hydrogen fuel cell stack for clean power.</li>
-      <li><strong>Bitumax</strong> — Bitumen additive: 1.5&ndash;2&times; pavement life.</li>
-      <li><strong>Pyronex</strong> — Multi-functional paint additive: fire, heat, UV, microbe shield.</li>
-      <li><strong>Graphyre</strong> — Graphene performance tyres: longer life, better grip.</li>
-      <li><strong>Graphosite</strong> — Ultra-light, ultra-strong structural graphene composites.</li>
-      <li><strong>Thermaphene</strong> — Smart thermal fabrics with active temperature regulation.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>06 &middot; Recognitions</h2>
-    <p class="section-title">Twenty-seven honors of record.</p>
-    <p class="meta">From a school-bench prototype to Rashtrapati Bhavan and Silicon Valley — twenty-seven honors of record and sixty-plus keynotes.</p>
-
-    <div class="photo-row">
-      <img src="images/presidential-trio.jpg" alt="Presidential awards">
-      <p class="caption">Six-time Indian Presidential awardee — recognized by three Presidents of India (2008&ndash;2013).</p>
-    </div>
-
-    <p class="eyebrow" style="margin-top:18px;">Hall of Fame &middot; Continuous Reel</p>
-    <div class="hof">
-      <div class="hof-row">
-        <div class="hof-cell">
-          <img src="images/award-kalam.jpg" alt="Dr. A.P.J. Abdul Kalam">
-          <p class="caption">With Dr. A.P.J. Abdul Kalam &middot; Presidential Award 2008</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/award-patil.jpg" alt="President Pratibha Patil">
-          <p class="caption">With Smt. Pratibha Patil &middot; Presidential Award 2009</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/award-pranab.jpg" alt="President Pranab Mukherjee">
-          <p class="caption">With Shri Pranab Mukherjee &middot; Presidential Award 2013</p>
-        </div>
-      </div>
-      <div class="hof-row">
-        <div class="hof-cell">
-          <img src="images/ted.jpg" alt="TED-India">
-          <p class="caption">TED-India &middot; Bangalore &middot; 2012</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/nasa.jpg" alt="NASA recognition">
-          <p class="caption">NASA &middot; Kennedy Space Center &middot; 2011</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/mit-tr35.jpg" alt="MIT TR-35">
-          <p class="caption">MIT TR-35 &middot; Technology Review &middot; 2010</p>
-        </div>
-      </div>
-      <div class="hof-row">
-        <div class="hof-cell">
-          <img src="images/intel-iris.jpg" alt="Intel IRIS">
-          <p class="caption">Intel IRIS &middot; Best Popular Invention &middot; 2010</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/silicon-valley.jpg" alt="Silicon Valley">
-          <p class="caption">Silicon Valley Address &middot; Bay Area &middot; 2024</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/brics.jpg" alt="BRICS Roundtable">
-          <p class="caption">BRICS Roundtable &middot; New Delhi &middot; 2022</p>
-        </div>
-      </div>
-      <div class="hof-row">
-        <div class="hof-cell">
-          <img src="images/g20.jpg" alt="Startup20 at G20">
-          <p class="caption">Startup20 &middot; G20 India Presidency &middot; 2023</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/italian.jpg" alt="Embassy of Italy">
-          <p class="caption">H.E. Antonio Bartoli &middot; Embassy of Italy</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/gadkari.jpg" alt="Nitin Gadkari">
-          <p class="caption">Shri Nitin Gadkari &middot; Transport Bhawan</p>
-        </div>
-      </div>
-      <div class="hof-row">
-        <div class="hof-cell">
-          <img src="images/lea-dia.jpg" alt="LEA Excellence Award">
-          <p class="caption">LEA Excellence Award with Dia Mirza &middot; 2022</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/ieema.jpg" alt="IEEMA Buildelec">
-          <p class="caption">IEEMA Buildelec Mainstage &middot; Mumbai &middot; 2024</p>
-        </div>
-        <div class="hof-cell">
-          <img src="images/presidential-trio.jpg" alt="Presidential trio">
-          <p class="caption">Three Presidents &middot; Six citations &middot; 2008&ndash;13</p>
-        </div>
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-graphacrete.jpg" alt="Graphacrete"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Construction &middot; Cement &middot; Patent</div>
+        <h4>Graphacrete</h4>
+        <div class="metric">49.5 MPa &middot; &minus;40 kg/m&sup3; cement</div>
+        <p>Graphene nano-platelet admixture transforming standard concrete into a high-performance material.</p>
       </div>
     </div>
+  </div>
 
-    <h3>Defining Honors</h3>
-    <ul>
-      <li><strong>Six-Time Indian Presidential Awardee (2008&ndash;2013)</strong> — Recognized by three Presidents of India: Dr. A.P.J. Abdul Kalam, Smt. Pratibha Patil, and Shri Pranab Mukherjee, via the National Innovation Foundation.</li>
-      <li><strong>MIT TR-35 Awardee (2010)</strong> — Among the world's leading young innovators under 35 (MIT Technology Review).</li>
-      <li><strong>Intel IRIS National Recognition (2010)</strong> — Best Popular Invention for the breath-operated wheelchair.</li>
-      <li><strong>NASA Recognition (2011)</strong> — International recognition at Kennedy Space Center for human&ndash;machine interface engineering.</li>
-      <li><strong>TED-India Speaker (2012)</strong> — One of the youngest speakers ever featured.</li>
-      <li><strong>MIT Fab-10 &amp; Fab-11 Awardee (2013&ndash;14)</strong> — MIT Center for Bits and Atoms.</li>
-    </ul>
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-graffisol.jpg" alt="Graffisol"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Solar &middot; Coatings &middot; Patent</div>
+        <h4>Graffisol</h4>
+        <div class="metric">+10&ndash;12% annual yield &middot; self-cleaning</div>
+        <p>Solar coating delivering higher annual yield, panel cooling and superhydrophobic self-cleaning surfaces.</p>
+      </div>
+    </div>
+  </div>
 
-    <h3>Selected Achievement Ledger</h3>
-    <ul>
-      <li>2008 — Presidential Award (Dr. A.P.J. Abdul Kalam, NIF); Jawaharlal Nehru &amp; CBSE National Science Exhibition Awards.</li>
-      <li>2009 — Presidential Awards (Pratibha Patil &amp; A.P.J. Abdul Kalam, NIF); KVPY Fellow; NCSC Award.</li>
-      <li>2010 — MIT TR-35; INK Fellow; Intel IRIS Best Popular Invention.</li>
-      <li>2011 — NASA Award; DLF&ndash;Pramerica Spirit of Community Award; Eureka-11 IIT-Bombay.</li>
-      <li>2012 — Golden Book of World Record; TED-India Speaker; IDEAS-12 IIT-Kanpur.</li>
-      <li>2013 — Presidential Award (Pranab Mukherjee, NIF); ICAI Abu Dhabi Speaker.</li>
-      <li>2014 — Under-35 CEO Award.</li>
-      <li>2021 — STPI-Chunauti Winner.</li>
-      <li>2024 — ELECRAMA Winner (IEEMA); Silicon Valley Speaker.</li>
-      <li>2025 — CEO Club Speaker, Hyderabad.</li>
-    </ul>
-    <p class="meta">Diplomatic &amp; institutional engagement includes BRICS roundtables, Startup20 at G20 India, the Ministry of Power / Bureau of Energy Efficiency, DRIIV (PSA, Govt of India), and the embassies of Italy and Mauritius.</p>
-  </section>
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-ceraphene.jpg" alt="Ceraphene"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Ceramics &middot; Coatings &middot; Retail</div>
+        <h4>Ceraphene</h4>
+        <div class="metric">9H+ hardness &middot; one-third premium price</div>
+        <p>Graphene-enhanced ceramic coating with 9H+ hardness at a fraction of the cost of premium alternatives.</p>
+      </div>
+    </div>
+  </div>
 
-  <section>
-    <h2>07 &middot; Mission</h2>
-    <p class="section-title">Built in India. Designed for the world.</p>
-    <p>
-      Built in India. Designed for the world. India has the talent, the demand, and the
-      urgency to lead the carbon century. What remains is patience — the institutional
-      patience to translate Indian invention into global industrial deployment. These
-      ventures, taken together, are one answer: a vertically integrated stack from
-      atom-scale research to capital and commercialization.
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-ignitron-d.jpg" alt="Ignitron D"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Mobility &middot; Combustion &middot; Fleet trial</div>
+        <h4>Ignitron D</h4>
+        <div class="metric">25% efficiency &middot; 20% lower emissions</div>
+        <p>Graphene-enhanced diesel combustion optimization for industrial fleets, logistics systems, and heavy-duty engines.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:14px; font-size:12px; color:rgba(245,245,245,0.7);">
+    Additional commercial products: <strong>HD-G-PE</strong> (graphene masterbatch, +30% tensile, 100&times; barrier) and
+    <strong>Graphenodes</strong> (next-gen graphene polymer cathode/anode for high-density batteries).
+  </p>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">02 &middot; Material Intelligence &middot; Pilot &amp; R&amp;D</p>
+  <h2 class="page-title">Plant pilots and bench formulations.</h2>
+
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-aquamax.jpg" alt="Aquamax"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Water &middot; Recovery &middot; Pilot</div>
+        <h4>Aquamax</h4>
+        <div class="metric">95%+ recovery &middot; 12&ndash;24 mo ROI</div>
+        <p>World-first hybrid HAMR + HGMC system recovering 95%+ of cooling tower plume water.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-coalorix.png" alt="Coalorix"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Thermal Power &middot; Combustion &middot; Plant pilot</div>
+        <h4>Coalorix</h4>
+        <div class="metric">15% coal utilization &middot; 35% lower emissions</div>
+        <p>Nano-engineered coal combustion optimization for thermal plants, industrial furnaces, and energy infrastructure.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-lubritron.jpg" alt="Lubritron"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Tribology &middot; Lubricants &middot; Industrial pilot</div>
+        <h4>Lubritron</h4>
+        <div class="metric">Up to 6% fuel savings &middot; 40% wear reduction</div>
+        <p>Nano-enabled molecular engine oil additive for all engine types — improving efficiency, reducing wear, extending oil life.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="product no-break">
+    <div class="product-row">
+      <div class="product-img-cell"><img src="images/p-voltaphene.jpg" alt="Voltaphene"></div>
+      <div class="product-body">
+        <div class="product-eyebrow">Grid Storage &middot; Stack pilot</div>
+        <h4>Voltaphene</h4>
+        <div class="metric">Grid-scale storage</div>
+        <p>Graphene-enabled energy storage systems for grid and mobility applications.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Additional pilots</h3>
+  <ul>
+    <li><strong>Ignitron P</strong> — Petrol combustion, 15% efficiency improvement.</li>
+    <li><strong>Rustene</strong> — Graphene anti-corrosion shield for steel, marine and industrial assets.</li>
+    <li><strong>Gryogen</strong> — Hydrogen-selection membrane for clean fuel production.</li>
+    <li><strong>Mariphene</strong> — Low-energy graphene desalination membrane.</li>
+    <li><strong>Aerophenter</strong> — Atmospheric water harvesting via graphene surfaces.</li>
+    <li><strong>Fibrasphene</strong> — Reinforced graphene glass fibres for stronger composites.</li>
+  </ul>
+
+  <h3>R&amp;D &middot; Bench</h3>
+  <ul>
+    <li><strong>Armophene</strong> — Next-gen graphene ballistics: lighter, stronger armour.</li>
+    <li><strong>Hydrocell</strong> — Hydrogen fuel cell stack for clean power.</li>
+    <li><strong>Bitumax</strong> — Bitumen additive extending pavement life 1.5&ndash;2&times;.</li>
+    <li><strong>Pyronex</strong> — Multi-functional coating: fire, heat, UV, microbe shield.</li>
+    <li><strong>Graphyre</strong> — Graphene performance tyres for grip and mileage.</li>
+    <li><strong>Graphosite</strong> — Ultra-light, ultra-strong structural composites.</li>
+    <li><strong>Thermaphene</strong> — Smart thermal fabrics with active temperature regulation.</li>
+  </ul>
+</div>
+
+<!-- =========================================================
+     CHAPTER 03 · INDUSTRIAL TRANSLATION
+========================================================= -->
+<div class="chapter ch-industrial">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 03</div>
+    <h1 class="chapter-title">Industrial<br>Translation</h1>
+    <p class="chapter-lead">
+      Frontier science only matters when it reaches the industrial world.
+      Five ways the desk opens for collaboration, advisory, and partnership.
     </p>
-  </section>
+    <div class="chapter-rule"></div>
+  </div>
+</div>
 
-  <section>
-    <h2>08 &middot; Contact</h2>
-    <p class="section-title">A short note, read by the founder.</p>
-    <p class="meta">Open to industrial partnerships, capital co-architecture, research collaboration, advisory/board work, and editorial/speaking.</p>
-    <p class="meta">Email: <a href="mailto:me@sushanthpaatnaik.com">me@sushanthpaatnaik.com</a></p>
-    <p class="meta">LinkedIn: linkedin.com/in/sushanthpaatnaik</p>
-    <p class="meta">X / Twitter: x.com/sushantinthinks</p>
-    <p class="meta">YouTube: youtube.com/@Susantinventions</p>
-    <p class="meta">Instagram: instagram.com/sushanthpaatnaik</p>
-    <p class="meta">Facebook: facebook.com/sushanthpaatnaik</p>
-  </section>
+<div class="content pb-after">
+  <p class="page-eyebrow">03 &middot; Industrial Translation</p>
+  <h2 class="page-title">Five ways the desk opens.</h2>
+  <p class="lede">
+    A single selective desk for collaboration across industry, research,
+    ventures, speaking, and global partnerships. Invitation-based, mandate-led,
+    designed to move frontier materials further into the industrial world.
+  </p>
+
+  <div class="lane no-break">
+    <div class="lane-num">01</div>
+    <div class="lane-body">
+      <div class="lane-cat">Industrial Collaboration</div>
+      <h3>Materials, infrastructure, manufacturing systems.</h3>
+      <p>Co-development with incumbents integrating graphene, advanced coatings, and nano-additives into existing product lines and industrial infrastructure — without re-engineering supply chains.</p>
+      <div class="lane-meta">Fit &middot; Manufacturers, materials buyers, operators &nbsp;&middot;&nbsp; Horizon &middot; 12&ndash;36 months</div>
+    </div>
+  </div>
+
+  <div class="lane no-break">
+    <div class="lane-num">02</div>
+    <div class="lane-body">
+      <div class="lane-cat">Research &amp; Deep-Tech</div>
+      <h3>R&amp;D direction, applied science, lab collaboration.</h3>
+      <p>Embedded research direction with universities, national labs, and corporate R&amp;D groups working on materials, energy storage, water systems, and climate infrastructure.</p>
+      <div class="lane-meta">Fit &middot; Universities, national labs, corporate R&amp;D &nbsp;&middot;&nbsp; Horizon &middot; 24&ndash;60 months</div>
+    </div>
+  </div>
+
+  <div class="lane no-break">
+    <div class="lane-num">03</div>
+    <div class="lane-body">
+      <div class="lane-cat">Venture &amp; Strategic Advisory</div>
+      <h3>Commercialization, innovation systems, venture architecture.</h3>
+      <p>Founder-to-founder advisory, selective board seats, and capital co-architecture for deep-tech ventures at the materials, climate, and industrial interface.</p>
+      <div class="lane-meta">Fit &middot; Founders, operators, boards, strategic LPs &nbsp;&middot;&nbsp; Horizon &middot; multi-year vehicles</div>
+    </div>
+  </div>
+
+  <div class="lane no-break">
+    <div class="lane-num">04</div>
+    <div class="lane-body">
+      <div class="lane-cat">Speaking &amp; Thought Leadership</div>
+      <h3>Keynotes, institutional stages, editorial voice.</h3>
+      <p>Keynotes, long-form interviews, panels, and stage conversations on invention, deep-tech, the carbon century, and India's industrial trajectory.</p>
+      <div class="lane-meta">Fit &middot; Conferences, ministries, publications &nbsp;&middot;&nbsp; Horizon &middot; quarterly by invitation</div>
+    </div>
+  </div>
+
+  <div class="lane no-break">
+    <div class="lane-num">05</div>
+    <div class="lane-body">
+      <div class="lane-cat">Global Partnerships</div>
+      <h3>Academia, climate systems, cross-border collaboration.</h3>
+      <p>Cross-border partnerships with academic institutions, climate organisations, and industrial transition programmes across India and the international ecosystem.</p>
+      <div class="lane-meta">Fit &middot; Academia, climate bodies, sovereign, multilateral &nbsp;&middot;&nbsp; Horizon &middot; multi-year</div>
+    </div>
+  </div>
+
+  <p class="pull">
+    Building systems for industrial futures and material intelligence.
+    When the work is right, the desk opens.
+  </p>
+</div>
+
+<!-- =========================================================
+     CHAPTER 04 · RECOGNITION
+========================================================= -->
+<div class="chapter ch-recognition">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 04</div>
+    <h1 class="chapter-title">Recognition</h1>
+    <p class="chapter-lead">
+      Twenty-seven honors of record. Three Presidents of India. Six citations.
+      From a school-bench prototype to Rashtrapati Bhavan, MIT, NASA, TED, and
+      Silicon Valley.
+    </p>
+    <div class="chapter-rule"></div>
+  </div>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">04 &middot; Recognition &middot; Hall of Fame</p>
+  <h2 class="page-title">A continuous reel of recognition.</h2>
+  <p class="lede">
+    Presidential demonstrations, mainstage keynotes, diplomatic honours, and
+    institutional citations — a photographic archive of two decades on stage,
+    in the lab, and in conversation with institutions.
+  </p>
+
+  <div class="hof">
+    <div class="hof-row">
+      <div class="hof-cell">
+        <img src="images/award-kalam.jpg" alt="Dr. A.P.J. Abdul Kalam">
+        <p class="cap">With Dr. A.P.J. Abdul Kalam &middot; 2008</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/award-patil.jpg" alt="President Pratibha Patil">
+        <p class="cap">With Smt. Pratibha Patil &middot; 2009</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/award-pranab.jpg" alt="President Pranab Mukherjee">
+        <p class="cap">With Shri Pranab Mukherjee &middot; 2013</p>
+      </div>
+    </div>
+    <div class="hof-row">
+      <div class="hof-cell">
+        <img src="images/ted.jpg" alt="TED-India">
+        <p class="cap">TED-India &middot; Bangalore &middot; 2012</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/nasa.jpg" alt="NASA">
+        <p class="cap">NASA &middot; Kennedy Space Center &middot; 2011</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/mit-tr35.jpg" alt="MIT TR-35">
+        <p class="cap">MIT TR-35 &middot; Tech Review &middot; 2010</p>
+      </div>
+    </div>
+    <div class="hof-row">
+      <div class="hof-cell">
+        <img src="images/intel-iris.jpg" alt="Intel IRIS">
+        <p class="cap">Intel IRIS &middot; Best Popular Invention &middot; 2010</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/silicon-valley.jpg" alt="Silicon Valley">
+        <p class="cap">Silicon Valley Address &middot; 2024</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/brics.jpg" alt="BRICS Roundtable">
+        <p class="cap">BRICS Roundtable &middot; New Delhi &middot; 2022</p>
+      </div>
+    </div>
+    <div class="hof-row">
+      <div class="hof-cell">
+        <img src="images/g20.jpg" alt="Startup20 G20">
+        <p class="cap">Startup20 &middot; G20 India &middot; 2023</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/italian.jpg" alt="Embassy of Italy">
+        <p class="cap">Embassy of Italy &middot; H.E. Bartoli</p>
+      </div>
+      <div class="hof-cell">
+        <img src="images/gadkari.jpg" alt="Nitin Gadkari">
+        <p class="cap">Shri Nitin Gadkari &middot; Transport Bhawan</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">04 &middot; Recognition &middot; Ledger</p>
+  <h2 class="page-title">Twenty-seven honors of record.</h2>
+
+  <h3>Defining honors</h3>
+  <ul>
+    <li><strong>Six-Time Indian Presidential Awardee (2008&ndash;2013)</strong> — Three Presidents of India: Dr. A.P.J. Abdul Kalam, Smt. Pratibha Patil, Shri Pranab Mukherjee &middot; National Innovation Foundation.</li>
+    <li><strong>MIT TR-35 Awardee (2010)</strong> — Among the world's leading young innovators under 35 &middot; MIT Technology Review.</li>
+    <li><strong>Intel IRIS National Recognition (2010)</strong> — Best Popular Invention &middot; the breath-operated wheelchair.</li>
+    <li><strong>NASA Recognition (2011)</strong> — Kennedy Space Center / U.S. Space &amp; Rocket Center, Huntsville.</li>
+    <li><strong>TED-India Speaker (2012)</strong> — Among the youngest speakers ever featured.</li>
+    <li><strong>MIT Fab-10 &amp; Fab-11 (2013&ndash;14)</strong> — Center for Bits and Atoms.</li>
+  </ul>
+
+  <h3>Achievement ledger (selected)</h3>
+  <ul>
+    <li>2008 — Presidential Award (A.P.J. Abdul Kalam, NIF); Jawaharlal Nehru &amp; CBSE National Science Exhibition Awards.</li>
+    <li>2009 — Presidential Awards (Pratibha Patil &amp; A.P.J. Abdul Kalam, NIF); KVPY Fellow; NCSC Award.</li>
+    <li>2010 — MIT TR-35; INK Fellow; Intel IRIS Best Popular Invention.</li>
+    <li>2011 — NASA Award; DLF&ndash;Pramerica Spirit of Community Award; Eureka-11 IIT-Bombay.</li>
+    <li>2012 — Golden Book of World Record; TED-India Speaker; IDEAS-12 IIT-Kanpur.</li>
+    <li>2013 — Presidential Award (Pranab Mukherjee, NIF); ICAI Abu Dhabi Speaker.</li>
+    <li>2014 — Under-35 CEO Award.</li>
+    <li>2021 — STPI-Chunauti Winner.</li>
+    <li>2024 — ELECRAMA Winner (IEEMA); Silicon Valley Speaker.</li>
+    <li>2025 — CEO Club Speaker, Hyderabad.</li>
+  </ul>
+
+  <h3>Diplomatic &amp; institutional engagement</h3>
+  <p>
+    BRICS Roundtables &middot; Startup20 at G20 India &middot; Ministry of Power &middot;
+    DRIIV (PSA, Govt of India) &middot; Embassies of Italy and Mauritius &middot;
+    British High Commission &middot; Indian Oil Corporation.
+  </p>
+</div>
+
+<!-- =========================================================
+     CHAPTER 05 · ECOSYSTEM
+========================================================= -->
+<div class="chapter ch-ecosystem">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 05</div>
+    <h1 class="chapter-title">Ecosystem</h1>
+    <p class="chapter-lead">
+      Six operating vehicles and a five-mark advisory roster.
+      Independently viable. Together, a closed loop from atom to invoice.
+    </p>
+    <div class="chapter-rule"></div>
+  </div>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">05 &middot; Ecosystem &middot; Operating Group</p>
+  <h2 class="page-title">A portfolio engineered for planetary impact.</h2>
+  <p class="lede">
+    Research at Monoatom feeds materials at Grafillium, which feed industrial
+    products at SPI. InThinks runs the intelligence layer. Starunico is the
+    patient capital underneath. Magppie is the field deployment.
+  </p>
+
+  <div class="venture no-break">
+    <div class="venture-tag">01 &middot; 2025 &middot; Materials</div>
+    <h3>Monoatom Labs</h3>
+    <div class="role">Co-Founder &amp; CEO &middot; Graphene at scale</div>
+    <p>An innovative, scalable and economical method to manufacture graphene — and the applications that turn it into real-world performance gains. <em>monoatomlabs.com</em></p>
+  </div>
+
+  <div class="venture no-break">
+    <div class="venture-tag">02 &middot; 2025 &middot; Materials</div>
+    <h3>Grafillium</h3>
+    <div class="role">Co-Founder &amp; CIO &middot; Eco nano additives</div>
+    <p>Deep-tech nanomaterial additive technologies that boost efficiency and cut carbon emissions across power, logistics and heavy industry. <em>grafillium.com</em></p>
+  </div>
+
+  <div class="venture no-break">
+    <div class="venture-tag">03 &middot; 2024 &middot; Industrial Systems</div>
+    <h3>SPI Industries</h3>
+    <div class="role">Founder &amp; CEO &middot; R&amp;D industrial solutions</div>
+    <p>Innovative R&amp;D-led industrial solutions in nanomaterial engineering — translating advanced materials science into deployable systems. <em>spiindustries.co</em></p>
+  </div>
+
+  <div class="venture no-break">
+    <div class="venture-tag">04 &middot; 2026 &middot; Innovation Studio</div>
+    <h3>InThinks</h3>
+    <div class="role">Co-Founder &middot; Ideation &amp; IP transfer</div>
+    <p>An ideation and innovation studio that shapes early-stage thinking into products, then transfers or licenses the technology to partner organisations. <em>inthinks.com</em></p>
+  </div>
+
+  <div class="venture no-break">
+    <div class="venture-tag">05 &middot; 2026 &middot; Deep-Tech Capital</div>
+    <h3>Starunico Capital</h3>
+    <div class="role">Co-Founder &middot; Materials &amp; energy</div>
+    <p>Backing founders building the materials and energy layer of the next century. <em>starunico.com</em></p>
+  </div>
+
+  <div class="venture no-break">
+    <div class="venture-tag">06 &middot; 2025 &middot; Design + Living</div>
+    <h3>Magppie</h3>
+    <div class="role">Chief Innovation Officer &middot; Stone wellness kitchens</div>
+    <p>Pioneering the world's first 100% stone-built modular kitchen — transforming ordinary homes into wellness homes that protect family and planet. <em>magppie.com</em></p>
+  </div>
+
+  <hr class="hair">
+
+  <h3>Advisory Roster &middot; Five industry layers</h3>
+  <ul>
+    <li><strong>Vinrox</strong> &middot; Materials</li>
+    <li><strong>VPRPL</strong> &middot; Industrial Systems</li>
+    <li><strong>WeHear</strong> &middot; Consumer Tech</li>
+    <li><strong>Tileopedia</strong> &middot; Surface Technologies</li>
+    <li><strong>Magppie</strong> &middot; Design + Living</li>
+  </ul>
+</div>
+
+<!-- =========================================================
+     CHAPTER 06 · VOICES
+========================================================= -->
+<div class="chapter ch-voices">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 06</div>
+    <h1 class="chapter-title">Voices</h1>
+    <p class="chapter-lead">
+      Institutional endorsements, on-record recognition, and editorial coverage.
+      How sovereign bodies, foundations, global platforms, and the press have
+      framed two decades of invention.
+    </p>
+    <div class="chapter-rule"></div>
+  </div>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">06 &middot; Voices &middot; Institutional</p>
+  <h2 class="page-title">What the institutions have on record.</h2>
+
+  <div class="voice no-break">
+    <div class="voice-logo-cell"><img src="images/logo-nif.jpg" alt="NIF"></div>
+    <div class="voice-body">
+      <div class="voice-role">Government of India &middot; Presidential Recognition</div>
+      <h3>National Innovation Foundation &middot; Six laureate cycles</h3>
+      <p>"Honored by Presidents Pratibha Patil and Pranab Mukherjee across IGNITE, NIF and National Inspire platforms — among the youngest multi-cycle Presidential awardees."</p>
+    </div>
+  </div>
+
+  <div class="voice no-break">
+    <div class="voice-logo-cell"><img src="images/logo-mit.jpg" alt="MIT TR"></div>
+    <div class="voice-body">
+      <div class="voice-role">MIT Technology Review</div>
+      <h3>Editorial coverage &middot; Innovators track</h3>
+      <p>"Featured in the global innovators discourse for graphene-anchored material work emerging from India's deep-tech bench."</p>
+    </div>
+  </div>
+
+  <div class="voice no-break">
+    <div class="voice-logo-cell"><img src="images/logo-ted.jpg" alt="TED"></div>
+    <div class="voice-body">
+      <div class="voice-role">TED &middot; TED-India</div>
+      <h3>Speaker &middot; Long-form stage</h3>
+      <p>"On-stage at TED-India and allied platforms on invention, materials, and the industrial future of the carbon century."</p>
+    </div>
+  </div>
+
+  <div class="voice no-break">
+    <div class="voice-logo-cell"><img src="images/logo-ink.jpg" alt="INK Talks"></div>
+    <div class="voice-body">
+      <div class="voice-role">INK Talks &middot; INK Fellows Retreat</div>
+      <h3>INK Fellow &middot; Speaker</h3>
+      <p>"Selected as an INK Fellow and featured speaker — part of a curated cohort of inventors, founders, and public thinkers."</p>
+    </div>
+  </div>
+
+  <div class="voice no-break">
+    <div class="voice-logo-cell"><img src="images/logo-iocl.jpg" alt="IOCL"></div>
+    <div class="voice-body">
+      <div class="voice-role">Indian Oil Corporation</div>
+      <h3>Industrial Recognition &middot; Sujoy Choudhury, Director</h3>
+      <p>"Recognized at IOCL's R&amp;D forum for advanced-materials work at the energy interface."</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px;">News &amp; Press &middot; Selected Headlines</h3>
+  <div class="press"><div class="outlet">India Today</div><div class="headline">New achiever on the block: At 20, Susant Pattnaik is a serial entrepreneur.</div></div>
+  <div class="press"><div class="outlet">The Telegraph India</div><div class="headline">Wonderboy innovates technological marvel — a device that can change lives of disabled people.</div></div>
+  <div class="press"><div class="outlet">The New Indian Express</div><div class="headline">Inspired to help poor techies — the teen innovator with the President's ear.</div></div>
+  <div class="press"><div class="outlet">YourStory</div><div class="headline">Capattery — pioneering graphene-based energy storage from India.</div></div>
+  <div class="press"><div class="outlet">Business Standard &middot; ANI</div><div class="headline">Game-changing innovation in battery charging technology by 6-times President awardee.</div></div>
+  <div class="press"><div class="outlet">Rediff &middot; PTI</div><div class="headline">India hosts GraphIN 2026 to explore graphene's potential.</div></div>
+  <div class="press"><div class="outlet">Golden Book of World Records</div><div class="headline">Youngest Inventor and Social Entrepreneur.</div></div>
+</div>
+
+<!-- =========================================================
+     CHAPTER 07 · FUTURE SYSTEMS
+========================================================= -->
+<div class="chapter ch-future">
+  <div class="chapter-inner">
+    <div class="chapter-num">Chapter 07</div>
+    <h1 class="chapter-title">Future<br>Systems</h1>
+    <p class="chapter-lead">
+      Built in India. Designed for the world.
+      Patient industrial capital, vertically integrated science, and the long
+      arc of making Indian deep-tech globally inevitable.
+    </p>
+    <div class="chapter-rule"></div>
+  </div>
+</div>
+
+<div class="content pb-after">
+  <p class="page-eyebrow">07 &middot; Future Systems</p>
+  <h2 class="page-title">Built in India. Designed for the world.</h2>
+  <p class="lede">
+    India has the talent, the demand, and the urgency to lead the carbon
+    century. What remains is patience — the institutional patience to translate
+    Indian invention into global industrial deployment.
+  </p>
+  <p>
+    These ventures, taken together, are one answer: a vertically integrated
+    stack from atom-scale research to capital and commercialization, designed
+    to make Indian deep-tech globally inevitable.
+  </p>
+
+  <p class="pull">
+    Engineer matter. Engineer capital. Engineer scale.<br>
+    Hold all three in one hand long enough for the work to outlive the inventor.
+  </p>
+
+  <h3>The arc, in one sentence</h3>
+  <p>
+    The first decade was about inventions. The second is about systems. The
+    third will be about handing the work to the next generation of Indian
+    builders who never had to ask permission.
+  </p>
+
+  <h3>What the desk is open for</h3>
+  <ul>
+    <li>Industrial partnerships in advanced materials.</li>
+    <li>Capital co-architecture for deep-tech.</li>
+    <li>Research collaboration in graphene, energy, water, or climate systems.</li>
+    <li>Advisory and board work.</li>
+    <li>Editorial, press, and speaking.</li>
+  </ul>
+
+  <h3>What is kept off the desk</h3>
+  <p>
+    Generic outreach, mass campaigns, or unsolicited fundraising decks. The
+    inbox is small on purpose, so signal can survive.
+  </p>
+</div>
+
+<!-- =========================================================
+     THANK YOU / CONTACT
+========================================================= -->
+<div class="thanks">
+  <div class="thanks-inner">
+    <p class="eyebrow" style="text-align:center;">Thank You &middot; Open The Dialogue</p>
+    <h1>Let's build.</h1>
+    <p class="signoff">
+      A short, specific note moves faster than a long one. One paragraph on
+      context. One paragraph on why a conversation would change the trajectory.
+    </p>
+    <div class="rule"></div>
+    <div class="contact">
+      <a href="mailto:me@sushanthpaatnaik.com">me@sushanthpaatnaik.com</a><br>
+      sushanthpaatnaik.com<br>
+      Bhubaneswar &middot; New Delhi &middot; Ahmedabad
+    </div>
+    <div class="rule"></div>
+    <div class="contact" style="font-size:9px;">
+      LinkedIn &middot; X &middot; YouTube &middot; Instagram &middot; Facebook<br>
+      @sushanthpaatnaik
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
