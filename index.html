@@ -6,21 +6,19 @@
   <title>Sushanth Paatnaik | Corporate Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --gold: #C5A059;
-      --gold-dim: rgba(197,160,89,.18);
+      --gold-dim: rgba(197,160,89,.15);
       --cream: #E8E3D7;
-      --cream-dim: #C8C3B7;
-      --muted: #8A8A8C;
-      --dark: #050505;
-      --dark2: #0a0a0a;
-      --border: rgba(39,39,42,.55);
-      --border-g: rgba(197,160,89,.22);
-      --glow-bg: radial-gradient(circle, rgba(30,58,138,.22), transparent 70%);
+      --cream-dim: #B8B3A7;
+      --muted: #6A6A6C;
+      --dark: #030303;
+      --border: rgba(255,255,255,.07);
+      --border-g: rgba(197,160,89,.2);
     }
 
     html { background: #030303; scroll-behavior: smooth; }
@@ -29,122 +27,107 @@
       font-family: 'Inter', sans-serif;
       background: #030303;
       color: var(--cream);
-      padding: 2.5rem 1.25rem;
+      padding: 3rem 1.5rem;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 0;
-      background: url('images/bg-origin.jpg') center / cover no-repeat;
-      opacity: .08; mix-blend-mode: screen; pointer-events: none;
     }
 
     /* ── PAGE SHELL ── */
     .page {
       position: relative; overflow: hidden;
-      background: rgba(3,3,3,.92);
-      width: 100%; max-width: 1380px;
-      margin: 0 auto 3.5rem;
-      min-height: 600px;
-      border: 1px solid var(--border);
-      box-shadow: 0 24px 64px -12px rgba(0,0,0,.85);
-      display: flex; flex-direction: column;
+      width: 100%; max-width: 1440px;
+      margin: 0 auto 4rem;
+      background: #030303;
+      box-shadow: 0 32px 80px -16px rgba(0,0,0,.9);
     }
-
-    /* per-page background image layer */
-    .page-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background-size: cover; background-position: center;
-      pointer-events: none;
+    @media (min-width: 1100px) {
+      .page { aspect-ratio: 16/9; }
     }
-    .page > *:not(.page-bg) { position: relative; z-index: 1; }
-    @media (min-width: 1100px) { .page { aspect-ratio: 16/9; min-height: unset; } }
+    @media (max-width: 1099px) {
+      .page { min-height: 600px; }
+    }
 
     /* ── TYPOGRAPHY ── */
-    .ey   { font-size: .7rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
-    .ey-g { font-size: .7rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
-    .t-hero { font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -.03em; color: var(--cream); }
-    .t-title { font-size: clamp(1.4rem, 2.8vw, 2.2rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; color: var(--cream); }
-    .t-sub { font-size: clamp(1rem, 1.8vw, 1.4rem); font-weight: 500; letter-spacing: -.02em; line-height: 1.2; color: var(--cream); }
-    .t-serif { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 2.2vw, 1.8rem); font-style: italic; line-height: 1.4; color: var(--cream); }
-    .t-body { font-size: clamp(.78rem, 1.1vw, .92rem); font-weight: 300; line-height: 1.85; color: var(--cream-dim); }
-    .t-muted { font-size: clamp(.72rem, 1vw, .85rem); font-weight: 300; line-height: 1.75; color: var(--muted); }
-    .t-num { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -.03em; line-height: 1; color: var(--cream); }
-
-    /* ── STRUCTURE ── */
-    .ph {
-      padding: 1.25rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0; gap: 1rem;
-    }
-    .pf {
-      padding: .9rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--border);
-      flex-shrink: 0; margin-top: auto; gap: 1rem;
-    }
-    .body-pad { flex: 1; padding: 1.5rem 2rem; overflow: hidden; }
+    .eyebrow { font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); }
+    .eyebrow-w { font-size: .65rem; letter-spacing: .4em; text-transform: uppercase; color: rgba(232,227,215,.5); }
+    .t-display { font-family: 'Playfair Display', serif; font-size: clamp(3rem,6vw,6rem); font-weight: 400; line-height: 1.0; color: var(--cream); }
+    .t-editorial { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3.5vw,3.2rem); font-weight: 400; line-height: 1.1; color: var(--cream); }
+    .t-chapter { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,2.5vw,2.2rem); font-weight: 500; line-height: 1.15; color: var(--cream); }
+    .t-headline { font-family: 'Playfair Display', serif; font-size: clamp(1rem,1.8vw,1.6rem); font-weight: 400; line-height: 1.25; color: var(--cream); }
+    .t-serif-i { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem,1.6vw,1.4rem); line-height: 1.45; color: var(--cream); }
+    .t-body { font-size: clamp(.78rem,1vw,.9rem); font-weight: 300; line-height: 2; color: var(--cream-dim); letter-spacing: .01em; }
+    .t-num-lg { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3.5rem); font-weight: 400; line-height: 1; color: var(--cream); }
+    .t-num { font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 200; line-height: 1; color: var(--cream); letter-spacing: -.02em; }
 
     /* ── DECORATIVE ── */
-    .g-bar  { width: 2.5rem; height: 2px; background: var(--gold); flex-shrink: 0; }
-    .g-rule { height: 1px; background: linear-gradient(90deg, var(--gold), rgba(197,160,89,.08) 65%, transparent); }
-    .glow   { position: absolute; border-radius: 50%; background: var(--glow-bg); pointer-events: none; }
+    .gold-rule { width: 3rem; height: 1px; background: var(--gold); margin: 1.2rem 0; }
+    .gold-rule-h { height: 1px; background: linear-gradient(90deg, var(--gold), rgba(197,160,89,.06) 70%, transparent); }
+    .gold-dot { display: inline-block; width: .35rem; height: .35rem; border-radius: 50%; background: var(--gold); }
+
+    /* ── SECTION LABEL ── */
+    .section-label { display: flex; align-items: center; gap: 1rem; }
+    .section-label::before { content: ''; display: block; width: 2.5rem; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+    /* ── PAGE NUMBER ── */
+    .pg-num { font-size: .6rem; letter-spacing: .3em; color: rgba(255,255,255,.2); }
+
+    /* ── FULL BLEED BG ── */
+    .full-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── IMAGE OVERLAYS ── */
+    .overlay-b { position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,3,3,.95) 0%, rgba(3,3,3,.4) 50%, transparent 100%); }
+    .overlay-l { position: absolute; inset: 0; background: linear-gradient(to right, #030303 0%, rgba(3,3,3,.85) 30%, transparent 60%); }
+    .overlay-r { position: absolute; inset: 0; background: linear-gradient(to left, #030303 0%, rgba(3,3,3,.7) 30%, transparent 60%); }
+    .overlay-dark { position: absolute; inset: 0; background: rgba(3,3,3,.55); }
 
     /* ── CARDS ── */
-    .card   { background: rgba(255,255,255,.025); border: 1px solid var(--border); border-radius: 3px; }
-    .card-g { background: rgba(197,160,89,.04); border: 1px solid var(--border-g); border-radius: 3px; }
+    .card { background: rgba(255,255,255,.025); border: 1px solid var(--border); }
+    .card-g { background: rgba(197,160,89,.04); border: 1px solid var(--border-g); }
 
     /* ── TAGS ── */
-    .tag   { font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; padding: .22rem .55rem; border: 1px solid rgba(255,255,255,.18); border-radius: 2px; color: var(--cream-dim); }
-    .tag-g { font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; padding: .22rem .55rem; border: 1px solid var(--border-g); border-radius: 2px; color: var(--gold); }
-
-    /* ── AWARD ENTRY ── */
-    .award-entry { padding: .6rem .8rem; border-left: 2px solid var(--border); }
-    .award-entry.gold { border-left-color: var(--gold); background: rgba(197,160,89,.03); }
-    .award-num { font-size: .65rem; color: var(--muted); display: block; margin-bottom: .2rem; }
-    .award-entry.gold .award-num { color: var(--gold); }
-    .award-title { font-size: .85rem; font-weight: 500; color: var(--cream); line-height: 1.3; }
-    .award-sub { font-size: .72rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .tag { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; padding: .2rem .6rem; border: 1px solid rgba(255,255,255,.15); color: var(--cream-dim); }
+    .tag-g { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; padding: .2rem .6rem; border: 1px solid var(--border-g); color: var(--gold); }
 
     /* ── PRODUCT CARD ── */
     .prod-card { display: flex; flex-direction: column; overflow: hidden; }
-    .prod-img { flex-shrink: 0; height: 38%; min-height: 100px; position: relative; overflow: hidden; }
+    .prod-img { flex-shrink: 0; height: 50%; min-height: 110px; position: relative; overflow: hidden; }
     .prod-img img { width: 100%; height: 100%; object-fit: cover; }
-    .prod-img-fade { position: absolute; inset: 0; background: linear-gradient(to top, var(--dark) 0%, transparent 55%); }
+    .prod-img-fade { position: absolute; inset: 0; background: linear-gradient(to top, var(--dark) 0%, transparent 60%); }
     .prod-body { flex: 1; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .45rem; }
-    .prod-name { font-size: .95rem; font-weight: 600; color: var(--cream); line-height: 1.2; }
-    .prod-kpi  { font-size: .72rem; color: var(--gold); }
-    .prod-desc { font-size: .75rem; color: var(--cream-dim); line-height: 1.7; flex: 1; }
-    .prod-stats { display: flex; gap: .5rem; margin-top: auto; padding-top: .5rem; }
+    .prod-name { font-family: 'Playfair Display', serif; font-size: clamp(.95rem,1.5vw,1.2rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
+    .prod-kpi { font-size: .7rem; color: var(--gold); letter-spacing: .04em; }
+    .prod-desc { font-size: .75rem; font-weight: 300; color: var(--cream-dim); line-height: 1.8; flex: 1; }
     .stat-chip { flex: 1; padding: .4rem .5rem; text-align: center; }
-    .stat-chip-val { font-size: .95rem; font-weight: 700; color: var(--cream); display: block; }
-    .stat-chip-lbl { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); display: block; margin-top: .1rem; }
+    .stat-chip-val { font-size: 1rem; font-weight: 600; color: var(--cream); display: block; }
+    .stat-chip-lbl { font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); display: block; margin-top: .1rem; }
 
     /* ── VENTURE CARD ── */
-    .vc { padding: 1.5rem 1.4rem; display: flex; flex-direction: column; gap: .6rem; }
-    .vc-num { font-size: .68rem; color: var(--gold); letter-spacing: .2em; text-transform: uppercase; }
-    .vc-name { font-size: 1.15rem; font-weight: 600; color: var(--cream); line-height: 1.2; }
-    .vc-role { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-    .vc-desc { font-size: .78rem; color: var(--cream-dim); line-height: 1.8; }
+    .vc { padding: 1.5rem 1.6rem; display: flex; flex-direction: column; gap: .6rem; }
+    .vc-num { font-size: .62rem; color: var(--gold); letter-spacing: .25em; text-transform: uppercase; }
+    .vc-name { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem,2vw,1.7rem); font-weight: 400; color: var(--cream); line-height: 1.15; }
+    .vc-role { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .vc-desc { font-size: .78rem; font-weight: 300; color: var(--cream-dim); line-height: 1.85; }
 
-    /* ── IMAGE HELPERS ── */
-    .img-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .overlay-b { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,.95) 0%, rgba(5,5,5,.3) 50%, transparent 100%); }
-    .overlay-l { position: absolute; inset: 0; background: linear-gradient(to right, var(--dark) 0%, transparent 40%); }
-    .overlay-r { position: absolute; inset: 0; background: linear-gradient(to left, var(--dark) 0%, transparent 40%); }
+    /* ── AWARD ENTRY ── */
+    .award-entry { padding: .55rem .85rem; border-left: 1px solid var(--border); }
+    .award-entry.gold { border-left-color: var(--gold); background: rgba(197,160,89,.025); }
+    .award-num-badge { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; color: var(--gold); opacity: .25; line-height: 1; }
+    .award-title { font-size: .85rem; font-weight: 400; color: var(--cream); line-height: 1.3; }
+    .award-sub { font-size: .7rem; font-weight: 300; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+    .award-year { font-size: .58rem; letter-spacing: .2em; color: var(--gold); display: block; margin-bottom: .25rem; }
 
     /* ── SHARE BUTTON ── */
-    @media print { .share-fab, .share-toast { display: none !important; } }
+    @media print {
+      .share-fab, .share-toast { display: none !important; }
+      .page { aspect-ratio: unset; height: 100vh; page-break-after: always; }
+    }
     .share-fab {
       position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9999;
       display: flex; align-items: center; gap: .5rem;
       background: linear-gradient(135deg, #9a7a3a, var(--gold));
       color: var(--cream); border: none; border-radius: 50px;
       padding: .7rem 1.25rem .7rem 1rem;
-      font-family: 'Inter', sans-serif; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      font-family: 'Inter', sans-serif; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
       cursor: pointer; box-shadow: 0 4px 24px rgba(197,160,89,.35);
       transition: transform .15s, box-shadow .15s;
     }
@@ -152,22 +135,19 @@
     .share-toast {
       position: fixed; bottom: 4.5rem; right: 1.75rem; z-index: 9999;
       background: #0a0a0a; border: 1px solid var(--gold); color: var(--gold);
-      font-family: 'Inter', sans-serif; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
-      padding: .65rem 1.1rem; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity .3s;
+      font-family: 'Inter', sans-serif; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+      padding: .65rem 1.1rem; opacity: 0; pointer-events: none; transition: opacity .3s;
     }
     .share-toast.show { opacity: 1; }
 
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #030303; }
-    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #1a1a1a; }
     ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      body { padding: 1.25rem .75rem; }
-      .page { margin-bottom: 2rem; }
-      .ph, .pf { padding: 1rem 1.25rem; }
-      .body-pad { padding: 1.25rem; }
+      body { padding: 1.5rem .75rem; }
+      .page { margin-bottom: 2.5rem; }
     }
   </style>
 </head>
@@ -176,70 +156,122 @@
 <!-- ══════════════════════════════════════════
      PAGE 01 · COVER
 ══════════════════════════════════════════ -->
-<section class="page" id="cover" style="background:#030303; min-height:520px">
-  <div class="page-bg" style="background-image:url('images/bg-origin.jpg');opacity:.55"></div>
-  <div class="page-bg" style="background-image:none;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.7) 100%)"></div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(30,58,138,.25) 0%,transparent 65%)"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.7) 0%,transparent 35%,transparent 65%,rgba(3,3,3,.85) 100%)"></div>
+<section class="page" id="cover">
+  <!-- Full-bleed background -->
+  <img class="full-bg" src="images/bg-origin.jpg" alt="" style="opacity:.6;object-position:center">
+  <!-- Cinematic gradients -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.75) 0%,rgba(3,3,3,.15) 35%,rgba(3,3,3,.15) 65%,rgba(3,3,3,.88) 100%)"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(30,58,138,.18) 0%,transparent 65%)"></div>
 
-  <!-- header -->
-  <div style="position:relative;z-index:2;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center">
-    <img src="images/sp-logo.svg" alt="SP" style="height:1.8rem;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg)" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;color:var(--gold);font-size:1.6rem;font-style:italic\'>SP</span>'">
+  <!-- Top bar -->
+  <div style="position:relative;z-index:2;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center">
+    <img src="images/sp-logo.svg" alt="SP" style="height:1.9rem;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg)" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;color:var(--gold);font-size:1.8rem;font-style:italic\'>SP</span>'">
     <div style="text-align:right">
-      <span class="ey" style="display:block;color:var(--cream)">Corporate Profile</span>
-      <span class="ey" style="display:block;color:#444;margin-top:.25rem">Edition V06 · 2025</span>
+      <span class="eyebrow-w" style="display:block">Corporate Profile</span>
+      <span style="display:block;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:.25rem">Edition VI · 2025</span>
     </div>
   </div>
 
-  <!-- hero -->
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:1rem 2rem 1.5rem">
-    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem">
-      <div style="width:2rem;height:1px;background:rgba(197,160,89,.5)"></div>
-      <span class="ey" style="color:rgba(232,227,215,.6)">Bhubaneswar, Odisha · India</span>
+  <!-- Hero content -->
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:1rem 2.5rem 1.5rem">
+    <div style="display:flex;align-items:center;gap:.85rem;margin-bottom:1.5rem">
+      <div style="width:2.5rem;height:1px;background:var(--gold)"></div>
+      <span class="eyebrow-w">Bhubaneswar, Odisha · India</span>
     </div>
-    <div class="t-hero" style="margin-bottom:1.1rem">I build<br>what does not<br>yet exist.</div>
-    <p class="t-body" style="max-width:32rem;font-size:clamp(.85rem,1.3vw,.98rem)">
+    <div class="t-display" style="margin-bottom:1.5rem;max-width:18ch">I build<br>what does not<br>yet exist.</div>
+    <p class="t-body" style="max-width:34rem;font-size:clamp(.85rem,1.1vw,.95rem);line-height:1.9">
       Inventor and deep-tech founder.<br>
       Translating scientific breakthroughs into scalable, socially meaningful technology.
     </p>
   </div>
 
-  <!-- stats footer -->
-  <div style="position:relative;z-index:2;padding:1.1rem 2rem;border-top:1px solid rgba(39,39,42,.5);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
-    <div style="display:flex;gap:2.5rem;flex-wrap:wrap">
-      <div><div style="font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--cream);line-height:1">06</div><div class="ey-g" style="margin-top:.25rem">Presidential Awards</div></div>
-      <div><div style="font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--cream);line-height:1">23</div><div class="ey-g" style="margin-top:.25rem">Deep-Tech Innovations</div></div>
-      <div><div style="font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--cream);line-height:1">06</div><div class="ey-g" style="margin-top:.25rem">Ventures Founded</div></div>
-      <div><div style="font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--cream);line-height:1">60+</div><div class="ey-g" style="margin-top:.25rem">Global Keynotes</div></div>
+  <!-- Stats bar -->
+  <div style="position:relative;z-index:2;padding:1.25rem 2.5rem;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+    <div style="display:flex;gap:3rem;flex-wrap:wrap">
+      <div>
+        <div class="t-num-lg" style="font-family:'Playfair Display',serif;color:var(--cream)">06</div>
+        <div class="eyebrow" style="margin-top:.35rem">Presidential Awards</div>
+      </div>
+      <div>
+        <div class="t-num-lg" style="font-family:'Playfair Display',serif;color:var(--cream)">23</div>
+        <div class="eyebrow" style="margin-top:.35rem">Deep-Tech Innovations</div>
+      </div>
+      <div>
+        <div class="t-num-lg" style="font-family:'Playfair Display',serif;color:var(--cream)">06</div>
+        <div class="eyebrow" style="margin-top:.35rem">Ventures Founded</div>
+      </div>
+      <div>
+        <div class="t-num-lg" style="font-family:'Playfair Display',serif;color:var(--cream)">60+</div>
+        <div class="eyebrow" style="margin-top:.35rem">Global Keynotes</div>
+      </div>
     </div>
-    <span class="ey" style="color:#333">01 / 16</span>
+    <span class="pg-num">01 / 16</span>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 02 · ABOUT & JOURNEY
+     PAGE 02 · MANIFESTO
 ══════════════════════════════════════════ -->
-<section class="page" id="about">
-  <div class="page-bg" style="background-image:url('images/founder-lab.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">01 / About</div>
-      <div class="t-sub">The Journey</div>
+<section class="page" id="manifesto" style="background:#000">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,160,89,.04) 0%,transparent 65%)"></div>
+  <!-- Pure centered manifesto -->
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:3rem 2.5rem">
+    <div style="width:1.5rem;height:1px;background:var(--gold);margin:0 auto 2.5rem"></div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,5rem);font-weight:400;line-height:1.05;color:var(--cream);max-width:22ch;letter-spacing:-.01em">
+      "I build what<br>does not yet exist."
     </div>
-    <span class="ey">2008 — Present</span>
+    <div style="width:1.5rem;height:1px;background:var(--gold);margin:2.5rem auto 2rem"></div>
+    <div>
+      <div style="font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Sushanth Paatnaik</div>
+      <div style="font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)">Inventor · Founder · Awardee</div>
+    </div>
+    <div style="position:absolute;bottom:1.5rem;right:2rem"><span class="pg-num">02 / 16</span></div>
   </div>
+</section>
 
-  <div style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden">
-    <!-- text -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:1.75rem 1.75rem 1.75rem 2rem;gap:1rem;overflow:hidden">
-      <div class="g-bar"></div>
-      <div class="t-title" style="max-width:28rem">An innovation journey that evolved from empathy-driven design into applied deep-tech systems.</div>
-      <div style="display:flex;flex-direction:column;gap:.7rem">
-        <p class="t-body">Born in Bhubaneswar, Odisha, Sushanth was recognised by the Government of India as a <strong style="color:var(--cream);font-weight:500">six-time Presidential Awardee</strong> between 2008 and 2013 — among the youngest innovators to receive that honour multiple times.</p>
+<!-- ══════════════════════════════════════════
+     PAGE 03 · ORIGIN
+══════════════════════════════════════════ -->
+<section class="page" id="origin">
+  <div style="position:absolute;inset:0;background:#030303"></div>
+
+  <div style="position:relative;z-index:2;height:100%;display:grid;grid-template-columns:1fr 45%">
+    <!-- Left: editorial text -->
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2.5rem 2rem 2.5rem;gap:.9rem;overflow:hidden">
+      <!-- Corner label -->
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem">
+        <div style="width:2.5rem;height:1px;background:var(--gold)"></div>
+        <span class="eyebrow">Origin</span>
+        <span class="pg-num" style="margin-left:auto">03 / 16</span>
+      </div>
+
+      <div class="t-chapter" style="max-width:26rem;line-height:1.15">An innovation journey that evolved from empathy-driven design into applied deep-tech systems.</div>
+
+      <div class="gold-rule"></div>
+
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <p class="t-body">Born in Bhubaneswar, Odisha, Sushanth was recognised by the Government of India as a <em style="color:var(--cream);font-style:normal;font-weight:400">six-time Presidential Awardee</em> between 2008 and 2013 — among the youngest innovators to receive that honour multiple times.</p>
         <p class="t-body">His work began with a paralysed elderly man unable to communicate. That encounter became a breath-powered wheelchair — and from there, a career devoted to engineering empathy at the level of materials and systems.</p>
-        <p class="t-body">He holds a BSc from IISER Bhopal (KVPY-SP) and a BEd from OCT, Bhopal. Today he leads <strong style="color:var(--cream);font-weight:500">Monoatom Labs, Grafillium, SPI Industries, InThinks,</strong> and <strong style="color:var(--cream);font-weight:500">Starunico Capital</strong> — while serving as CIO at Magppie.</p>
+        <p class="t-body">He holds a BSc from IISER Bhopal (KVPY-SP) and a BEd from OCT, Bhopal. Today he leads <em style="color:var(--cream);font-style:normal">Monoatom Labs, Grafillium, SPI Industries, InThinks,</em> and <em style="color:var(--cream);font-style:normal">Starunico Capital</em> — while serving as CIO at Magppie.</p>
         <p class="t-body">He was among the youngest speakers invited to TED-India, a TEDx speaker on multiple occasions, and a fellow of MIT, INK, and NASA programmes.</p>
       </div>
+
+      <!-- Timeline markers -->
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.5rem">
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <div class="gold-dot"></div>
+          <span style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">2008 — First Presidential Award</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <div class="gold-dot"></div>
+          <span style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">2010 — MIT TR35 · TED India</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <div class="gold-dot"></div>
+          <span style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">2025 — Graphene at Scale</span>
+        </div>
+      </div>
+
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.25rem">
         <span class="tag">IISER Bhopal · KVPY-SP</span>
         <span class="tag">MIT Fab-10 Fellow</span>
@@ -247,921 +279,1056 @@
         <span class="tag">6× Presidential Awardee</span>
       </div>
     </div>
-    <!-- photo -->
+
+    <!-- Right: portrait -->
     <div style="position:relative;overflow:hidden">
-      <img class="img-cover" src="images/founder.jpg" alt="Sushanth Paatnaik" style="filter:brightness(.88) contrast(1.05)">
-      <div class="overlay-l"></div>
+      <img src="images/founder.jpg" alt="Sushanth Paatnaik" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.95) contrast(1.05)">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,#030303 0%,rgba(3,3,3,.2) 25%,transparent 50%)"></div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Inventor · Founder · Awardee</span><span class="ey" style="color:#333">02 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 03 · HONOURS LEDGER
+     PAGE 04 · HONOURS LEDGER
 ══════════════════════════════════════════ -->
 <section class="page" id="honours">
-  <div class="page-bg" style="background-image:url('images/bg-recognition.jpg');opacity:.13"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">02 / Honours</div>
-      <div class="t-sub">27 Honours of Record</div>
-    </div>
-    <span class="ey">2008 — 2025</span>
-  </div>
+  <img class="full-bg" src="images/bg-recognition.jpg" alt="" style="opacity:.12;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.8)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:0;overflow:hidden">
-    <!-- Col 1 -->
-    <div style="border-right:1px solid var(--border);padding:1.25rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden">
-      <div class="ey" style="margin-bottom:.15rem">2008 — 2009</div>
-      <div class="award-entry gold"><span class="award-num">#01 · 2008</span><div class="award-title">Former President Award</div><div class="award-sub">Dr. APJ Abdul Kalam · NIF</div></div>
-      <div class="award-entry"><span class="award-num">#02 · 2008</span><div class="award-title">JN National Science</div><div class="award-sub">Exhibition · NCERT</div></div>
-      <div class="award-entry gold"><span class="award-num">#05 · 2009</span><div class="award-title">President of India Award</div><div class="award-sub">Smt. Pratibha Patil · NIF</div></div>
-      <div class="award-entry"><span class="award-num">#07 · 2009</span><div class="award-title">KVPY Fellow</div><div class="award-sub">Dept. of Science &amp; Technology</div></div>
-      <div class="award-entry"><span class="award-num">#08 · 2009</span><div class="award-title">NIF National Award</div><div class="award-sub">Second consecutive</div></div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <!-- Header -->
+    <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Honours Ledger</span></div>
+        <div class="t-chapter">27 Honours of Record</div>
+      </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">2008 — 2025</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">04 / 16</span>
+      </div>
     </div>
-    <!-- Col 2 -->
-    <div style="border-right:1px solid var(--border);padding:1.25rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden">
-      <div class="ey" style="margin-bottom:.15rem">2010 — 2012</div>
-      <div class="award-entry gold"><span class="award-num">#09 · 2010</span><div class="award-title">TR-35 Top Innovator</div><div class="award-sub">MIT Technology Review</div></div>
-      <div class="award-entry gold"><span class="award-num">#10 · 2010</span><div class="award-title">INK Fellow</div><div class="award-sub">INK Conference</div></div>
-      <div class="award-entry"><span class="award-num">#11 · 2010</span><div class="award-title">TED-India Speaker</div><div class="award-sub">Youngest at time of selection</div></div>
-      <div class="award-entry"><span class="award-num">#12 · 2011</span><div class="award-title">NASA Award</div><div class="award-sub">NASA Mobile Quarantine</div></div>
-      <div class="award-entry"><span class="award-num">#16 · 2012</span><div class="award-title">Intel ISEF Award</div><div class="award-sub">International Science &amp; Engineering</div></div>
-    </div>
-    <!-- Col 3 -->
-    <div style="border-right:1px solid var(--border);padding:1.25rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden">
-      <div class="ey" style="margin-bottom:.15rem">2013 — 2021</div>
-      <div class="award-entry gold"><span class="award-num">#20 · 2013</span><div class="award-title">President of India Award</div><div class="award-sub">Shri Pranab Mukherjee · NIF</div></div>
-      <div class="award-entry"><span class="award-num">#22 · 2014</span><div class="award-title">MIT Fab-10 Fellow</div><div class="award-sub">Massachusetts Institute of Technology</div></div>
-      <div class="award-entry"><span class="award-num">#23 · 2014</span><div class="award-title">Under-35 CEO Award</div><div class="award-sub">Yinka Brand</div></div>
-      <div class="award-entry"><span class="award-num">#24 · 2021</span><div class="award-title">STPI-Chunauti Winner</div><div class="award-sub">Ministry of Electronics &amp; IT</div></div>
-      <div class="award-entry"><span class="award-num">#25 · 2021</span><div class="award-title">BRICS Young Scientist</div><div class="award-sub">BRICS Forum</div></div>
-    </div>
-    <!-- Col 4 -->
-    <div style="padding:1.25rem 1.1rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden">
-      <div class="ey" style="margin-bottom:.15rem">2024 — 2025</div>
-      <div class="award-entry gold"><span class="award-num">#25 · 2024</span><div class="award-title">G20 Innovation Track</div><div class="award-sub">India Presidency · Speaker</div></div>
-      <div class="award-entry gold"><span class="award-num">#26 · 2024</span><div class="award-title">ELECRAMA Winner</div><div class="award-sub">IEEMA · Energy Innovation</div></div>
-      <div class="award-entry gold"><span class="award-num">#27 · 2024</span><div class="award-title">Silicon Valley Speaker</div><div class="award-sub">SV Forum · Technology</div></div>
-      <div class="award-entry"><span class="award-num">2024</span><div class="award-title">Italian Senate Innovation</div><div class="award-sub">Rome · Featured Delegate</div></div>
-      <div class="award-entry"><span class="award-num">2025</span><div class="award-title">CEO Club Speaker</div><div class="award-sub">CEO Club · Keynote</div></div>
+
+    <div class="gold-rule-h" style="margin:0 2.5rem"></div>
+
+    <!-- 4-column award layout -->
+    <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;padding:.75rem 1.5rem 1.5rem;gap:.5rem">
+      <!-- Col 1 -->
+      <div style="display:flex;flex-direction:column;gap:.55rem;padding:.75rem .85rem;border-right:1px solid var(--border)">
+        <div class="eyebrow" style="color:var(--muted);margin-bottom:.2rem">2008 — 2009</div>
+        <div class="award-entry gold">
+          <span class="award-year">#01 · 2008</span>
+          <div class="award-title">Former President Award</div>
+          <div class="award-sub">Dr. APJ Abdul Kalam · NIF</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#02 · 2008</span>
+          <div class="award-title">JN National Science Exhibition</div>
+          <div class="award-sub">NCERT · Ministry of Education</div>
+        </div>
+        <div class="award-entry gold">
+          <span class="award-year">#03 · 2009</span>
+          <div class="award-title">President of India Award</div>
+          <div class="award-sub">Smt. Pratibha Patil · NIF</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#04 · 2009</span>
+          <div class="award-title">KVPY Fellow</div>
+          <div class="award-sub">Dept. of Science &amp; Technology</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#05 · 2009</span>
+          <div class="award-title">NIF National Award</div>
+          <div class="award-sub">Second consecutive</div>
+        </div>
+      </div>
+      <!-- Col 2 -->
+      <div style="display:flex;flex-direction:column;gap:.55rem;padding:.75rem .85rem;border-right:1px solid var(--border)">
+        <div class="eyebrow" style="color:var(--muted);margin-bottom:.2rem">2010 — 2012</div>
+        <div class="award-entry gold">
+          <span class="award-year">#06 · 2010</span>
+          <div class="award-title">TR-35 Top Innovator</div>
+          <div class="award-sub">MIT Technology Review · Asia Pacific</div>
+        </div>
+        <div class="award-entry gold">
+          <span class="award-year">#07 · 2010</span>
+          <div class="award-title">INK Fellow</div>
+          <div class="award-sub">INK Conference</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#08 · 2010</span>
+          <div class="award-title">TED-India Speaker</div>
+          <div class="award-sub">Youngest at time of selection</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#09 · 2011</span>
+          <div class="award-title">NASA Award</div>
+          <div class="award-sub">NASA Mobile Quarantine</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#10 · 2012</span>
+          <div class="award-title">Intel ISEF Award</div>
+          <div class="award-sub">International Science &amp; Engineering</div>
+        </div>
+      </div>
+      <!-- Col 3 -->
+      <div style="display:flex;flex-direction:column;gap:.55rem;padding:.75rem .85rem;border-right:1px solid var(--border)">
+        <div class="eyebrow" style="color:var(--muted);margin-bottom:.2rem">2013 — 2021</div>
+        <div class="award-entry gold">
+          <span class="award-year">#11 · 2013</span>
+          <div class="award-title">President of India Award</div>
+          <div class="award-sub">Shri Pranab Mukherjee · NIF</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#12 · 2014</span>
+          <div class="award-title">MIT Fab-10 Fellow</div>
+          <div class="award-sub">Massachusetts Institute of Technology</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#13 · 2014</span>
+          <div class="award-title">Under-35 CEO Award</div>
+          <div class="award-sub">Yinka Brand</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#14 · 2021</span>
+          <div class="award-title">STPI-Chunauti Winner</div>
+          <div class="award-sub">Ministry of Electronics &amp; IT</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#15 · 2021</span>
+          <div class="award-title">BRICS Young Scientist</div>
+          <div class="award-sub">BRICS Forum</div>
+        </div>
+      </div>
+      <!-- Col 4 -->
+      <div style="display:flex;flex-direction:column;gap:.55rem;padding:.75rem .85rem">
+        <div class="eyebrow" style="color:var(--muted);margin-bottom:.2rem">2024 — 2025</div>
+        <div class="award-entry gold">
+          <span class="award-year">#16 · 2023</span>
+          <div class="award-title">G20 Innovation Track</div>
+          <div class="award-sub">India Presidency · Speaker</div>
+        </div>
+        <div class="award-entry gold">
+          <span class="award-year">#17 · 2024</span>
+          <div class="award-title">ELECRAMA Winner</div>
+          <div class="award-sub">IEEMA · Energy Innovation</div>
+        </div>
+        <div class="award-entry gold">
+          <span class="award-year">#18 · 2024</span>
+          <div class="award-title">Silicon Valley Speaker</div>
+          <div class="award-sub">SV Forum · Technology</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">#19 · 2024</span>
+          <div class="award-title">Italian Senate Innovation</div>
+          <div class="award-sub">Rome · Featured Delegate</div>
+        </div>
+        <div class="award-entry">
+          <span class="award-year">2025</span>
+          <div class="award-title">CEO Club Speaker</div>
+          <div class="award-sub">CEO Club · Keynote</div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">27 Honours · Three Decades · Five Presidents</span><span class="ey" style="color:#333">03 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 04 · PRESIDENTIAL AWARDS
+     PAGE 05 · PRESIDENTIAL AWARDS
 ══════════════════════════════════════════ -->
-<section class="page" id="presidential" style="background:#030303">
-  <div class="page-bg" style="background-image:url('images/bg-origin.jpg');opacity:.18"></div>
-  <img class="img-cover" src="images/presidential-trio.jpg" alt="" style="opacity:.15;mix-blend-mode:luminosity">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,rgba(3,3,3,.25) 50%,#030303 100%)"></div>
-  <div class="glow" style="width:60%;padding-top:60%;top:20%;left:20%;"></div>
+<section class="page" id="presidential">
+  <img class="full-bg" src="images/presidential-trio.jpg" alt="" style="opacity:.28;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.85) 0%,rgba(3,3,3,.3) 45%,rgba(3,3,3,.8) 100%)"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,160,89,.06) 0%,transparent 70%)"></div>
 
-  <div class="ph" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">03 / Presidential Awards</div>
-      <div class="t-sub">Six Awards · Five Presidents of India</div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <!-- Header -->
+    <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Presidential Awards</span></div>
+        <div class="t-chapter">Six Awards · Five Presidents of India</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1.5rem">
+        <img src="images/logo-nif.jpg" alt="NIF" style="height:2rem;object-fit:contain;opacity:.55">
+        <span class="pg-num">05 / 16</span>
+      </div>
     </div>
-    <img src="images/logo-nif.jpg" alt="NIF" style="height:2.2rem;object-fit:contain;opacity:.65">
+
+    <div class="gold-rule-h" style="margin:0 2.5rem"></div>
+
+    <!-- Top row: 3 presidential award cards -->
+    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:1.1rem 1.5rem .75rem;overflow:hidden">
+      <!-- Kalam -->
+      <div style="display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--border);padding-right:1rem">
+        <div style="position:relative;height:50%;min-height:90px;overflow:hidden">
+          <img src="images/award-kalam.jpg" alt="Dr. Kalam" style="width:100%;height:100%;object-fit:cover;object-position:top">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,3,.9) 0%,transparent 60%)"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Award #01</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.4)">2008</span>
+        </div>
+        <div style="padding:.85rem .5rem;display:flex;flex-direction:column;gap:.4rem">
+          <div class="eyebrow" style="font-size:.58rem">Dr. APJ Abdul Kalam</div>
+          <div class="t-headline">Former President Award</div>
+          <div style="font-size:.72rem;font-weight:300;color:var(--muted)">11th President of India · National Innovation Foundation</div>
+          <div style="font-size:.7rem;font-style:italic;color:var(--gold);margin-top:.25rem;font-family:'Playfair Display',serif">"The Enabler — Breath-Powered Wheelchair"</div>
+        </div>
+      </div>
+
+      <!-- Patil -->
+      <div style="display:flex;flex-direction:column;overflow:hidden;padding:0 1rem;border-right:1px solid var(--border)">
+        <div style="position:relative;height:50%;min-height:90px;overflow:hidden">
+          <img src="images/award-patil.jpg" alt="Smt. Patil" style="width:100%;height:100%;object-fit:cover;object-position:top">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,3,.9) 0%,transparent 60%)"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Award #03</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.4)">2009</span>
+        </div>
+        <div style="padding:.85rem .5rem;display:flex;flex-direction:column;gap:.4rem">
+          <div class="eyebrow" style="font-size:.58rem">Smt. Pratibha Patil</div>
+          <div class="t-headline">President of India Award</div>
+          <div style="font-size:.72rem;font-weight:300;color:var(--muted)">12th President of India · National Innovation Foundation</div>
+          <div style="font-size:.7rem;font-style:italic;color:var(--gold);margin-top:.25rem;font-family:'Playfair Display',serif">"Accident-Proof Retrofit System"</div>
+        </div>
+      </div>
+
+      <!-- Pranab -->
+      <div style="display:flex;flex-direction:column;overflow:hidden;padding-left:1rem">
+        <div style="position:relative;height:50%;min-height:90px;overflow:hidden">
+          <img src="images/award-pranab.jpg" alt="Pranab Mukherjee" style="width:100%;height:100%;object-fit:cover;object-position:top">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,3,.9) 0%,transparent 60%)"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Award #06</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.4)">2013</span>
+        </div>
+        <div style="padding:.85rem .5rem;display:flex;flex-direction:column;gap:.4rem">
+          <div class="eyebrow" style="font-size:.58rem">Shri Pranab Mukherjee</div>
+          <div class="t-headline">President of India Award</div>
+          <div style="font-size:.72rem;font-weight:300;color:var(--muted)">13th President of India · National Innovation Foundation</div>
+          <div style="font-size:.7rem;font-style:italic;color:var(--gold);margin-top:.25rem;font-family:'Playfair Display',serif">"Advanced Materials Innovation"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: 3 supporting awards -->
+    <div class="gold-rule-h" style="margin:0 1.5rem .75rem"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0 1.5rem 1.5rem">
+      <div class="card" style="padding:.85rem 1rem;display:flex;gap:.85rem;align-items:center;border-radius:0;border-right:none">
+        <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
+          <span class="eyebrow" style="font-size:.5rem">02</span>
+        </div>
+        <div>
+          <div class="eyebrow" style="font-size:.55rem;margin-bottom:.2rem">Award #02 · 2008</div>
+          <div style="font-size:.85rem;font-weight:400;color:var(--cream)">JN National Science Exhibition</div>
+          <div style="font-size:.7rem;color:var(--muted);margin-top:.1rem">NCERT · Ministry of Education</div>
+        </div>
+      </div>
+      <div class="card" style="padding:.85rem 1rem;display:flex;gap:.85rem;align-items:center;border-radius:0">
+        <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
+          <span class="eyebrow" style="font-size:.5rem">04</span>
+        </div>
+        <div>
+          <div class="eyebrow" style="font-size:.55rem;margin-bottom:.2rem">Award #04 · 2009</div>
+          <div style="font-size:.85rem;font-weight:400;color:var(--cream)">KVPY Fellowship</div>
+          <div style="font-size:.7rem;color:var(--muted);margin-top:.1rem">Dept. of Science &amp; Technology, Govt. of India</div>
+        </div>
+      </div>
+      <div class="card-g" style="padding:.85rem 1rem;display:flex;gap:.85rem;align-items:center;border-radius:0;border-left:none">
+        <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
+          <span class="eyebrow" style="font-size:.5rem">05</span>
+        </div>
+        <div>
+          <div class="eyebrow" style="font-size:.55rem;margin-bottom:.2rem">Award #05 · 2009</div>
+          <div style="font-size:.85rem;font-weight:400;color:var(--cream)">NIF National Award (2nd)</div>
+          <div style="font-size:.7rem;color:var(--muted);margin-top:.1rem">National Innovation Foundation · Second consecutive</div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Top row: 3 main awards -->
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:1.1rem 1.75rem;gap:.9rem">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;flex:1">
-      <div class="card-g" style="display:flex;flex-direction:column;overflow:hidden">
-        <img src="images/award-kalam.jpg" alt="Dr. Kalam" style="width:100%;height:8rem;object-fit:cover;object-position:top">
-        <div style="padding:.9rem 1rem;display:flex;flex-direction:column;gap:.4rem">
-          <div class="ey-g" style="font-size:.62rem">Award #01 · 2008</div>
-          <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">Dr. APJ Abdul Kalam</div>
-          <div class="t-muted" style="font-size:.75rem">11th President of India · National Innovation Foundation · National Award for Grassroots Innovation</div>
-          <div style="font-size:.72rem;color:var(--gold);font-style:italic;margin-top:.25rem">"The Enabler — Breath-Powered Wheelchair"</div>
-        </div>
-      </div>
-      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
-        <div style="height:8rem;background:rgba(197,160,89,.04);border-bottom:1px solid var(--border-g);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:.75rem">
-          <div class="ey-g" style="font-size:.62rem;text-align:center">JN National Science Exhibition</div>
-          <div style="width:2rem;height:1px;background:var(--gold);opacity:.4"></div>
-          <div class="t-muted" style="font-size:.7rem;text-align:center">NCERT · Ministry of Education</div>
-        </div>
-        <div style="padding:.9rem 1rem;display:flex;flex-direction:column;gap:.4rem">
-          <div class="ey-g" style="font-size:.62rem">Award #02 · 2008</div>
-          <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">JN National Science Exhibition</div>
-          <div class="t-muted" style="font-size:.75rem">NCERT · Ministry of Education · National Recognition for Science Innovation</div>
-          <div style="font-size:.72rem;color:var(--gold);font-style:italic;margin-top:.25rem">"She Watch — Women's Safety Wearable"</div>
-        </div>
-      </div>
-      <div class="card-g" style="display:flex;flex-direction:column;overflow:hidden">
-        <img src="images/award-patil.jpg" alt="Smt. Patil" style="width:100%;height:8rem;object-fit:cover;object-position:top">
-        <div style="padding:.9rem 1rem;display:flex;flex-direction:column;gap:.4rem">
-          <div class="ey-g" style="font-size:.62rem">Award #03 · 2009</div>
-          <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">Smt. Pratibha Patil</div>
-          <div class="t-muted" style="font-size:.75rem">12th President of India · National Innovation Foundation · National Award</div>
-          <div style="font-size:.72rem;color:var(--gold);font-style:italic;margin-top:.25rem">"Accident-Proof Retrofit System"</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom row: 3 smaller awards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
-      <div class="card" style="padding:.85rem 1rem;display:flex;gap:.85rem;align-items:center">
-        <div style="flex-shrink:0;width:2.75rem;height:2.75rem;border-radius:50%;background:var(--gold-dim);border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center"><span class="ey-g" style="font-size:.55rem">04</span></div>
-        <div>
-          <div class="ey-g" style="font-size:.6rem;margin-bottom:.2rem">Award #04 · 2009</div>
-          <div class="award-title">KVPY Fellowship</div>
-          <div class="award-sub">Dept. of Science &amp; Technology, Govt. of India</div>
-        </div>
-      </div>
-      <div class="card" style="padding:.85rem 1rem;display:flex;gap:.85rem;align-items:center">
-        <div style="flex-shrink:0;width:2.75rem;height:2.75rem;border-radius:50%;background:var(--gold-dim);border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center"><span class="ey-g" style="font-size:.55rem">05</span></div>
-        <div>
-          <div class="ey-g" style="font-size:.6rem;margin-bottom:.2rem">Award #05 · 2011</div>
-          <div class="award-title">NIF National Award (2nd)</div>
-          <div class="award-sub">National Innovation Foundation · Second consecutive</div>
-        </div>
-      </div>
-      <div class="card-g" style="padding:.85rem 1rem;display:flex;gap:.85rem;align-items:center">
-        <img src="images/award-pranab.jpg" alt="Pranab" style="width:2.75rem;height:2.75rem;object-fit:cover;border-radius:50%;border:1px solid var(--border-g);flex-shrink:0">
-        <div>
-          <div class="ey-g" style="font-size:.6rem;margin-bottom:.2rem">Award #06 · 2013</div>
-          <div class="award-title">Shri Pranab Mukherjee</div>
-          <div class="award-sub">13th President of India · NIF</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="pf" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)"><span class="ey-g">National Innovation Foundation · Govt. of India</span><span class="ey" style="color:#333">04 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 05 · HALL OF FAME
+     PAGE 06 · HALL OF FAME
 ══════════════════════════════════════════ -->
 <section class="page" id="halloffame">
-  <div class="page-bg" style="background-image:url('images/bg-recognition.jpg');opacity:.15"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">04 / Hall of Fame</div>
-      <div class="t-sub">MIT · TED · NASA · INK · Global Institutions</div>
-    </div>
-    <span class="ey">Elite Recognition</span>
-  </div>
-
-  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;overflow:hidden">
+  <!-- Pure 2×2 full-bleed grid -->
+  <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
     <!-- MIT TR35 -->
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
-      <img class="img-cover" src="images/mit-tr35.jpg" alt="MIT TR35" style="opacity:.45;mix-blend-mode:luminosity">
+    <div style="position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+      <img src="images/mit-tr35.jpg" alt="MIT TR35" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity">
       <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem">
-        <img src="images/logo-mit.jpg" alt="MIT" style="height:1.75rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.65;margin-bottom:.5rem;display:block">
-        <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">TR35 — Innovators Under 35</div>
-        <div class="t-muted" style="font-size:.75rem;margin-top:.2rem">MIT Technology Review · Asia Pacific</div>
+      <div style="position:absolute;inset:0;background:rgba(3,3,3,.25)"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem 2rem">
+        <img src="images/logo-mit.jpg" alt="MIT" style="height:1.6rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;margin-bottom:.6rem;display:block">
+        <div class="t-headline">TR35 — Innovators Under 35</div>
+        <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim);margin-top:.25rem">MIT Technology Review · Asia Pacific</div>
       </div>
-      <span class="ey-g" style="position:absolute;top:1rem;right:1rem">2010</span>
+      <span class="eyebrow" style="position:absolute;top:1.25rem;right:1.5rem;color:rgba(255,255,255,.35)">2010</span>
     </div>
     <!-- TED -->
-    <div style="position:relative;overflow:hidden;border-bottom:1px solid var(--border)">
-      <img class="img-cover" src="images/ted.jpg" alt="TED" style="opacity:.45;mix-blend-mode:luminosity">
+    <div style="position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)">
+      <img src="images/ted.jpg" alt="TED" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity">
       <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem">
-        <img src="images/logo-ted.jpg" alt="TED" style="height:1.75rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.65;margin-bottom:.5rem;display:block">
-        <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">TED-India Speaker</div>
-        <div class="t-muted" style="font-size:.75rem;margin-top:.2rem">Youngest speaker at time of selection · Multiple TEDx</div>
+      <div style="position:absolute;inset:0;background:rgba(3,3,3,.25)"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem 2rem">
+        <img src="images/logo-ted.jpg" alt="TED" style="height:1.6rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;margin-bottom:.6rem;display:block">
+        <div class="t-headline">TED-India Speaker</div>
+        <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim);margin-top:.25rem">Youngest speaker at time of selection · Multiple TEDx</div>
       </div>
-      <span class="ey-g" style="position:absolute;top:1rem;right:1rem">2010</span>
+      <span class="eyebrow" style="position:absolute;top:1.25rem;right:1.5rem;color:rgba(255,255,255,.35)">2010</span>
     </div>
     <!-- NASA -->
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/nasa.jpg" alt="NASA" style="opacity:.45;mix-blend-mode:luminosity">
+    <div style="position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,.06)">
+      <img src="images/nasa.jpg" alt="NASA" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity">
       <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem">
-        <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">NASA Award</div>
-        <div class="t-muted" style="font-size:.75rem;margin-top:.2rem">NASA Mobile Quarantine · Technology Recognition</div>
+      <div style="position:absolute;inset:0;background:rgba(3,3,3,.25)"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem 2rem">
+        <div class="t-headline">NASA Award</div>
+        <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim);margin-top:.25rem">NASA Mobile Quarantine · Technology Recognition</div>
       </div>
-      <span class="ey-g" style="position:absolute;top:1rem;right:1rem">2011</span>
+      <span class="eyebrow" style="position:absolute;top:1.25rem;right:1.5rem;color:rgba(255,255,255,.35)">2011</span>
     </div>
     <!-- INK -->
     <div style="position:relative;overflow:hidden">
-      <img class="img-cover" src="images/lea-dia.jpg" alt="INK" style="opacity:.45;mix-blend-mode:luminosity">
+      <img src="images/lea-dia.jpg" alt="INK" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity">
       <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem">
-        <img src="images/logo-ink.jpg" alt="INK" style="height:1.75rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.65;margin-bottom:.5rem;display:block">
-        <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">INK Fellow</div>
-        <div class="t-muted" style="font-size:.75rem;margin-top:.2rem">INK Conference · India's TED · Innovation Spotlight</div>
+      <div style="position:absolute;inset:0;background:rgba(3,3,3,.25)"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem 2rem">
+        <img src="images/logo-ink.jpg" alt="INK" style="height:1.6rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;margin-bottom:.6rem;display:block">
+        <div class="t-headline">INK Fellow</div>
+        <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim);margin-top:.25rem">INK Conference · India's TED · Innovation Spotlight</div>
       </div>
-      <span class="ey-g" style="position:absolute;top:1rem;right:1rem">2010</span>
+      <span class="eyebrow" style="position:absolute;top:1.25rem;right:1.5rem;color:rgba(255,255,255,.35)">2010</span>
     </div>
   </div>
 
-  <div class="pf"><span class="ey-g">Hall of Fame · Global Institutions</span><span class="ey" style="color:#333">05 / 16</span></div>
+  <!-- Page header overlay -->
+  <div style="position:relative;z-index:3;padding:1.75rem 2rem;display:flex;justify-content:space-between;align-items:flex-start">
+    <div>
+      <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Hall of Fame</span></div>
+      <div style="font-size:.72rem;font-weight:300;color:rgba(255,255,255,.3)">MIT · TED · NASA · INK · Global Institutions</div>
+    </div>
+    <span class="pg-num">06 / 16</span>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 06 · GLOBAL RECOGNITION
+     PAGE 07 · GLOBAL RECOGNITION
 ══════════════════════════════════════════ -->
 <section class="page" id="global">
-  <div class="page-bg" style="background-image:url('images/bg-recognition.jpg');opacity:.15"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">05 / Global Recognition</div>
-      <div class="t-sub">G20 · BRICS · Silicon Valley · IEEMA · Italian Senate</div>
-    </div>
-    <span class="ey">2021 — 2025</span>
-  </div>
+  <img class="full-bg" src="images/bg-recognition.jpg" alt="" style="opacity:.1">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.7)"></div>
 
-  <!-- 5 images in a row -->
-  <div style="flex:1;display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden">
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/g20.jpg" alt="G20" style="filter:brightness(.45) contrast(1.1)">
-      <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(5,5,5,.9) 0%,transparent 100%)">
-        <div class="ey-g" style="font-size:.62rem;margin-bottom:.35rem">2023</div>
-        <div style="font-size:.88rem;font-weight:600;color:var(--cream);line-height:1.2">G20 Innovation</div>
-        <div class="t-muted" style="font-size:.7rem;margin-top:.2rem">India Presidency · Featured Speaker</div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <!-- Header -->
+    <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Global Recognition</span></div>
+        <div class="t-chapter">G20 · BRICS · Silicon Valley · IEEMA · Italian Senate</div>
+      </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">2021 — 2025</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">07 / 16</span>
       </div>
     </div>
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/brics.jpg" alt="BRICS" style="filter:brightness(.45) contrast(1.1)">
-      <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem">
-        <div class="ey-g" style="font-size:.62rem;margin-bottom:.35rem">2022</div>
-        <div style="font-size:.88rem;font-weight:600;color:var(--cream);line-height:1.2">BRICS Young Scientist</div>
-        <div class="t-muted" style="font-size:.7rem;margin-top:.2rem">Science &amp; Technology Forum</div>
-      </div>
-    </div>
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/silicon-valley.jpg" alt="Silicon Valley" style="filter:brightness(.45) contrast(1.1)">
-      <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem">
-        <div class="ey-g" style="font-size:.62rem;margin-bottom:.35rem">2024</div>
-        <div style="font-size:.88rem;font-weight:600;color:var(--cream);line-height:1.2">Silicon Valley</div>
-        <div class="t-muted" style="font-size:.7rem;margin-top:.2rem">SV Forum · Keynote Speaker</div>
-      </div>
-    </div>
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/ieema.jpg" alt="IEEMA" style="filter:brightness(.45) contrast(1.1)">
-      <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem">
-        <div class="ey-g" style="font-size:.62rem;margin-bottom:.35rem">2024</div>
-        <div style="font-size:.88rem;font-weight:600;color:var(--cream);line-height:1.2">ELECRAMA · IEEMA</div>
-        <div class="t-muted" style="font-size:.7rem;margin-top:.2rem">Energy Innovation Winner</div>
-      </div>
-    </div>
-    <div style="position:relative;overflow:hidden">
-      <img class="img-cover" src="images/italian.jpg" alt="Italian Senate" style="filter:brightness(.45) contrast(1.1)">
-      <div class="overlay-b"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem">
-        <div class="ey-g" style="font-size:.62rem;margin-bottom:.35rem">2024</div>
-        <div style="font-size:.88rem;font-weight:600;color:var(--cream);line-height:1.2">Italian Senate</div>
-        <div class="t-muted" style="font-size:.7rem;margin-top:.2rem">Rome · Innovation Delegate</div>
-      </div>
-    </div>
-  </div>
+    <div class="gold-rule-h" style="margin:0 2.5rem .5rem"></div>
 
-  <!-- Advisory row -->
-  <div style="padding:.75rem 2rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-    <span class="ey" style="flex-shrink:0">Advisory Partners:</span>
-    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-      <span class="tag">Vinrox</span><span class="tag">Tilepedia</span><span class="tag">Eurogres</span><span class="tag">WeHear</span><span class="tag">VPRPL</span><span class="tag">IOCL</span><span class="tag">Intel IRIS</span>
+    <!-- 5-column full-height images -->
+    <div style="flex:1;display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden">
+      <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
+        <img src="images/g20.jpg" alt="G20" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+        <div class="overlay-b"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+          <div class="eyebrow" style="font-size:.58rem;margin-bottom:.4rem">2023</div>
+          <div style="font-size:.95rem;font-family:'Playfair Display',serif;color:var(--cream);line-height:1.2">G20 Innovation</div>
+          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:.3rem">India Presidency · Featured Speaker</div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
+        <img src="images/brics.jpg" alt="BRICS" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+        <div class="overlay-b"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+          <div class="eyebrow" style="font-size:.58rem;margin-bottom:.4rem">2022</div>
+          <div style="font-size:.95rem;font-family:'Playfair Display',serif;color:var(--cream);line-height:1.2">BRICS Young Scientist</div>
+          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:.3rem">Science &amp; Technology Forum</div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
+        <img src="images/silicon-valley.jpg" alt="Silicon Valley" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+        <div class="overlay-b"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+          <div class="eyebrow" style="font-size:.58rem;margin-bottom:.4rem">2024</div>
+          <div style="font-size:.95rem;font-family:'Playfair Display',serif;color:var(--cream);line-height:1.2">Silicon Valley</div>
+          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:.3rem">SV Forum · Keynote Speaker</div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
+        <img src="images/ieema.jpg" alt="IEEMA" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+        <div class="overlay-b"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+          <div class="eyebrow" style="font-size:.58rem;margin-bottom:.4rem">2024</div>
+          <div style="font-size:.95rem;font-family:'Playfair Display',serif;color:var(--cream);line-height:1.2">ELECRAMA · IEEMA</div>
+          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:.3rem">Energy Innovation Winner</div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden">
+        <img src="images/italian.jpg" alt="Italian Senate" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+        <div class="overlay-b"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1rem">
+          <div class="eyebrow" style="font-size:.58rem;margin-bottom:.4rem">2024</div>
+          <div style="font-size:.95rem;font-family:'Playfair Display',serif;color:var(--cream);line-height:1.2">Italian Senate</div>
+          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim);margin-top:.3rem">Rome · Innovation Delegate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advisory partners -->
+    <div style="padding:.75rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <span style="font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);flex-shrink:0">Advisory Partners:</span>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <span class="tag">Vinrox</span><span class="tag">Tilepedia</span><span class="tag">Eurogres</span><span class="tag">WeHear</span><span class="tag">VPRPL</span><span class="tag">IOCL</span><span class="tag">Intel IRIS</span>
+      </div>
     </div>
   </div>
-  <div class="pf" style="padding-top:.6rem;border-top:none"><span class="ey-g">Global · 3 Continents · Heads of State</span><span class="ey" style="color:#333">06 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 07 · INNOVATIONS — COMMERCIAL
+     PAGE 08 · INNOVATIONS: MATERIAL INTELLIGENCE
 ══════════════════════════════════════════ -->
-<section class="page" id="innovations-1">
-  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">06 / Innovations (1 of 4) · Commercial</div>
-      <div class="t-sub">Deployed Graphene Solutions</div>
-    </div>
-    <span class="ey">Construction · Energy · Surface Science</span>
-  </div>
+<section class="page" id="innovations-material">
+  <img class="full-bg" src="images/bg-material.jpg" alt="" style="opacity:.12;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.82)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden">
-    <!-- Graphacrete -->
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-graphacrete.jpg" alt="Graphacrete">
-        <div class="prod-img-fade"></div>
-        <span class="tag" style="position:absolute;top:.75rem;left:.75rem">Commercial</span>
-        <span class="ey" style="position:absolute;top:.75rem;right:.75rem">Construction</span>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <!-- Header -->
+    <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Material Intelligence</span></div>
+        <div class="t-chapter">Graphene-Enhanced Construction &amp; Surface Science</div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g">GRAPHACRETE™</div>
-        <div class="prod-name">Graphene-Enhanced Concrete</div>
-        <div class="prod-kpi">49.5 MPa · −40 kg/m³ cement</div>
-        <p class="prod-desc">Graphene nano-platelet admixture turning standard concrete into a high-performance structural material — stronger, lighter, lower cement content.</p>
-        <div class="prod-stats">
-          <div class="card-g stat-chip"><span class="stat-chip-val">49.5</span><span class="stat-chip-lbl">MPa Strength</span></div>
-          <div class="card stat-chip"><span class="stat-chip-val">−40</span><span class="stat-chip-lbl">kg/m³ Cement</span></div>
-        </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">Commercial · Deployed</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">08 / 16</span>
       </div>
     </div>
-    <!-- Graffisol -->
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-graffisol.jpg" alt="Graffisol">
-        <div class="prod-img-fade"></div>
-        <span class="tag" style="position:absolute;top:.75rem;left:.75rem">Commercial</span>
-        <span class="ey" style="position:absolute;top:.75rem;right:.75rem">Solar Energy</span>
-      </div>
-      <div class="prod-body">
-        <div class="ey-g">GRAFFISOL™</div>
-        <div class="prod-name">Graphene Solar Coating</div>
-        <div class="prod-kpi">+10–12% annual yield</div>
-        <p class="prod-desc">Solar panel coating boosting annual energy yield through panel cooling and a superhydrophobic surface that sheds dust passively — no cleaning required.</p>
-        <div class="prod-stats">
-          <div class="card-g stat-chip"><span class="stat-chip-val">+12%</span><span class="stat-chip-lbl">Annual Yield</span></div>
-          <div class="card stat-chip"><span class="stat-chip-val">2×</span><span class="stat-chip-lbl">Panel Life</span></div>
+    <div class="gold-rule-h" style="margin:0 2.5rem .25rem"></div>
+
+    <!-- 3-column product grid -->
+    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden">
+      <!-- Graphacrete -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-graphacrete.jpg" alt="Graphacrete">
+          <div class="prod-img-fade"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Commercial</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.3)">Construction</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.6rem">GRAPHACRETE™</div>
+          <div class="prod-name">Graphene-Enhanced Concrete</div>
+          <div class="prod-kpi">49.5 MPa · −40 kg/m³ cement</div>
+          <p class="prod-desc">Graphene nano-platelet admixture turning standard concrete into a high-performance structural material — stronger, lighter, lower cement content.</p>
+          <div style="display:flex;gap:.5rem;margin-top:auto">
+            <div class="card-g stat-chip"><span class="stat-chip-val">49.5</span><span class="stat-chip-lbl">MPa Strength</span></div>
+            <div class="card stat-chip"><span class="stat-chip-val">−40</span><span class="stat-chip-lbl">kg/m³ Cement</span></div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Ceraphene -->
-    <div class="prod-card">
-      <div class="prod-img">
-        <img src="images/p-ceraphene.jpg" alt="Ceraphene">
-        <div class="prod-img-fade"></div>
-        <span class="tag" style="position:absolute;top:.75rem;left:.75rem">Commercial</span>
-        <span class="ey" style="position:absolute;top:.75rem;right:.75rem">Materials</span>
+      <!-- Graffisol -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-graffisol.jpg" alt="Graffisol">
+          <div class="prod-img-fade"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Commercial</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.3)">Solar Energy</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.6rem">GRAFFISOL™</div>
+          <div class="prod-name">Graphene Solar Coating</div>
+          <div class="prod-kpi">+10–12% annual yield</div>
+          <p class="prod-desc">Solar panel coating boosting annual energy yield through panel cooling and a superhydrophobic surface that sheds dust passively — no cleaning required.</p>
+          <div style="display:flex;gap:.5rem;margin-top:auto">
+            <div class="card-g stat-chip"><span class="stat-chip-val">+12%</span><span class="stat-chip-lbl">Annual Yield</span></div>
+            <div class="card stat-chip"><span class="stat-chip-val">2×</span><span class="stat-chip-lbl">Panel Life</span></div>
+          </div>
+        </div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g">CERAPHENE™</div>
-        <div class="prod-name">Graphene Ceramic Coating</div>
-        <div class="prod-kpi">9H+ hardness · −80% corrosion</div>
-        <p class="prod-desc">Graphene-enhanced ceramic coating delivering exceptional surface hardness and chemical resistance for automotive, aerospace, and industrial applications.</p>
-        <div class="prod-stats">
-          <div class="card-g stat-chip"><span class="stat-chip-val">9H+</span><span class="stat-chip-lbl">Hardness</span></div>
-          <div class="card stat-chip"><span class="stat-chip-val">−80%</span><span class="stat-chip-lbl">Corrosion</span></div>
+      <!-- Ceraphene -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="images/p-ceraphene.jpg" alt="Ceraphene">
+          <div class="prod-img-fade"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Commercial</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.3)">Materials</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.6rem">CERAPHENE™</div>
+          <div class="prod-name">Graphene Ceramic Coating</div>
+          <div class="prod-kpi">9H+ hardness · −80% corrosion</div>
+          <p class="prod-desc">Graphene-enhanced ceramic coating delivering exceptional surface hardness and chemical resistance for automotive, aerospace, and industrial applications.</p>
+          <div style="display:flex;gap:.5rem;margin-top:auto">
+            <div class="card-g stat-chip"><span class="stat-chip-val">9H+</span><span class="stat-chip-lbl">Hardness</span></div>
+            <div class="card stat-chip"><span class="stat-chip-val">−80%</span><span class="stat-chip-lbl">Corrosion</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Innovations · Commercial · Deployed</span><span class="ey" style="color:#333">07 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 08 · INNOVATIONS — MOBILITY & FUELS
+     PAGE 09 · INNOVATIONS: MOBILITY & FUELS
 ══════════════════════════════════════════ -->
-<section class="page" id="innovations-2">
-  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">07 / Innovations (2 of 4) · Mobility</div>
-      <div class="t-sub">Fuels · Lubrication · Coal Treatment</div>
-    </div>
-    <span class="ey">Nano-Catalytic Additives</span>
-  </div>
+<section class="page" id="innovations-mobility">
+  <img class="full-bg" src="images/bg-material.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.85)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden">
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-ignitron-d.jpg" alt="Ignitron D">
-        <div class="prod-img-fade"></div>
-        <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Pilot</span>
-        <span class="ey" style="position:absolute;top:.75rem;right:.75rem">Diesel</span>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <!-- Header -->
+    <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Mobility &amp; Fuels</span></div>
+        <div class="t-chapter">Nano-Catalytic Additives · Fuels · Lubrication · Coal</div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g">IGNITRON D™</div>
-        <div class="prod-name">Nano-Catalytic Diesel Additive</div>
-        <div class="prod-kpi">+15% economy · −15% emissions</div>
-        <p class="prod-desc">Nano-catalytic additive improving atomisation and combustion efficiency. Drop-in for any diesel fleet — no engine modification, no new equipment required.</p>
-        <div class="prod-stats">
-          <div class="card-g stat-chip"><span class="stat-chip-val">+15%</span><span class="stat-chip-lbl">Economy</span></div>
-          <div class="card stat-chip"><span class="stat-chip-val">−15%</span><span class="stat-chip-lbl">Emissions</span></div>
-        </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">Pilot Stage</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">09 / 16</span>
       </div>
     </div>
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-lubritron.jpg" alt="Lubritron">
-        <div class="prod-img-fade"></div>
-        <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Pilot</span>
-        <span class="ey" style="position:absolute;top:.75rem;right:.75rem">Lubricants</span>
-      </div>
-      <div class="prod-body">
-        <div class="ey-g">LUBRITRON™</div>
-        <div class="prod-name">Graphene Oil Additive</div>
-        <div class="prod-kpi">+6% fuel savings · −40% wear</div>
-        <p class="prod-desc">Graphene nano-platelets in engine oil self-assemble at friction surfaces, creating a protective nano-layer that dramatically reduces wear and returns measurable fuel savings.</p>
-        <div class="prod-stats">
-          <div class="card-g stat-chip"><span class="stat-chip-val">+6%</span><span class="stat-chip-lbl">Fuel Savings</span></div>
-          <div class="card stat-chip"><span class="stat-chip-val">−40%</span><span class="stat-chip-lbl">Wear Rate</span></div>
+    <div class="gold-rule-h" style="margin:0 2.5rem .25rem"></div>
+
+    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden">
+      <!-- Ignitron-D -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-ignitron-d.jpg" alt="Ignitron D">
+          <div class="prod-img-fade"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Pilot</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.3)">Diesel</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.6rem">IGNITRON D™</div>
+          <div class="prod-name">Nano-Catalytic Diesel Additive</div>
+          <div class="prod-kpi">+15% economy · −15% emissions</div>
+          <p class="prod-desc">Nano-catalytic additive improving atomisation and combustion efficiency. Drop-in for any diesel fleet — no engine modification, no new equipment required.</p>
+          <div style="display:flex;gap:.5rem;margin-top:auto">
+            <div class="card-g stat-chip"><span class="stat-chip-val">+15%</span><span class="stat-chip-lbl">Economy</span></div>
+            <div class="card stat-chip"><span class="stat-chip-val">−15%</span><span class="stat-chip-lbl">Emissions</span></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img">
-        <img src="images/p-coalorix.png" alt="CoaLorix">
-        <div class="prod-img-fade"></div>
-        <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Pilot</span>
-        <span class="ey" style="position:absolute;top:.75rem;right:.75rem">Coal</span>
+      <!-- Lubritron -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-lubritron.jpg" alt="Lubritron">
+          <div class="prod-img-fade"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Pilot</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.3)">Lubricants</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.6rem">LUBRITRON™</div>
+          <div class="prod-name">Graphene Oil Additive</div>
+          <div class="prod-kpi">+6% fuel savings · −40% wear</div>
+          <p class="prod-desc">Graphene nano-platelets in engine oil self-assemble at friction surfaces, creating a protective nano-layer that dramatically reduces wear and returns measurable fuel savings.</p>
+          <div style="display:flex;gap:.5rem;margin-top:auto">
+            <div class="card-g stat-chip"><span class="stat-chip-val">+6%</span><span class="stat-chip-lbl">Fuel Savings</span></div>
+            <div class="card stat-chip"><span class="stat-chip-val">−40%</span><span class="stat-chip-lbl">Wear Rate</span></div>
+          </div>
+        </div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g">COALIX™</div>
-        <div class="prod-name">Nano-Catalytic Coal Treatment</div>
-        <div class="prod-kpi">+18% efficiency · −30% particulates</div>
-        <p class="prod-desc">Graphene-derived nano-catalysts applied to coal combustion chemistry, improving burn efficiency and reducing harmful particulate and SO₂ formation at point of combustion.</p>
-        <div class="prod-stats">
-          <div class="card-g stat-chip"><span class="stat-chip-val">+18%</span><span class="stat-chip-lbl">Efficiency</span></div>
-          <div class="card stat-chip"><span class="stat-chip-val">−30%</span><span class="stat-chip-lbl">Emissions</span></div>
+      <!-- Coalix -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="images/p-coalorix.png" alt="Coalix">
+          <div class="prod-img-fade"></div>
+          <span class="tag-g" style="position:absolute;top:.75rem;left:.75rem">Pilot</span>
+          <span class="eyebrow" style="position:absolute;top:.75rem;right:.75rem;color:rgba(255,255,255,.3)">Coal</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.6rem">COALIX™</div>
+          <div class="prod-name">Nano-Catalytic Coal Treatment</div>
+          <div class="prod-kpi">+18% efficiency · −30% particulates</div>
+          <p class="prod-desc">Graphene-derived nano-catalysts applied to coal combustion chemistry, improving burn efficiency and reducing harmful particulate and SO₂ formation at point of combustion.</p>
+          <div style="display:flex;gap:.5rem;margin-top:auto">
+            <div class="card-g stat-chip"><span class="stat-chip-val">+18%</span><span class="stat-chip-lbl">Efficiency</span></div>
+            <div class="card stat-chip"><span class="stat-chip-val">−30%</span><span class="stat-chip-lbl">Emissions</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Innovations · Mobility &amp; Fuels</span><span class="ey" style="color:#333">08 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 09 · INNOVATIONS — ADVANCED SYSTEMS
+     PAGE 10 · INNOVATIONS: ADVANCED SYSTEMS
 ══════════════════════════════════════════ -->
-<section class="page" id="innovations-3">
-  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">08 / Innovations (3 of 4) · Advanced</div>
-      <div class="t-sub">Water · Energy Storage · Defence · Hydrogen</div>
-    </div>
-    <span class="ey">AquaMax · VoltaPhene · ArmoPHene · HydroCell</span>
-  </div>
+<section class="page" id="innovations-advanced">
+  <img class="full-bg" src="images/bg-future.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.88)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden">
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-aquamax.jpg" alt="AquaMax">
-        <div class="prod-img-fade"></div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Advanced Systems</span></div>
+        <div class="t-chapter">Water · Energy Storage · Defence · Hydrogen</div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g" style="font-size:.62rem">Water</div>
-        <div class="prod-name">AquaMax™</div>
-        <div class="prod-kpi">99.9% purity · 3× flow rate</div>
-        <p class="prod-desc" style="font-size:.73rem">Graphene oxide membranes removing contaminants, heavy metals and pathogens at 3× conventional RO flow — at a fraction of the energy.</p>
-        <div class="card-g stat-chip" style="margin-top:auto;padding:.4rem;text-align:center"><span style="font-size:.7rem;color:var(--gold)">Commercial Pilot</span></div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">AquaMax · VoltaPhene · ArmoPHene · HydroCell</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">10 / 16</span>
       </div>
     </div>
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-voltaphene.jpg" alt="VoltaPhene">
-        <div class="prod-img-fade"></div>
+    <div class="gold-rule-h" style="margin:0 2.5rem .25rem"></div>
+
+    <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden">
+      <!-- AquaMax -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-aquamax.jpg" alt="AquaMax">
+          <div class="prod-img-fade"></div>
+          <span class="eyebrow" style="position:absolute;top:.75rem;left:.75rem;color:rgba(255,255,255,.4)">Water</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.58rem">AQUAMAX™</div>
+          <div class="prod-name">Graphene Water Filtration</div>
+          <div class="prod-kpi">99.9% purity · 3× flow rate</div>
+          <p class="prod-desc" style="font-size:.72rem">Graphene oxide membranes removing contaminants, heavy metals and pathogens at 3× conventional RO flow — at a fraction of the energy.</p>
+          <div class="card-g" style="padding:.4rem .6rem;margin-top:auto;text-align:center"><span style="font-size:.65rem;color:var(--gold)">Commercial Pilot</span></div>
+        </div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g" style="font-size:.62rem">Energy Storage</div>
-        <div class="prod-name">VoltaPhene™</div>
-        <div class="prod-kpi">5× charge speed · +40% cycle life</div>
-        <p class="prod-desc" style="font-size:.73rem">Graphene-enhanced electrode-electrolyte interface achieving supercapacitor-level charge rates within battery-level energy density — for EV and grid applications.</p>
-        <div class="card stat-chip" style="margin-top:auto;padding:.4rem;text-align:center"><span style="font-size:.7rem;color:var(--muted)">Advanced R&amp;D</span></div>
+      <!-- VoltaPhene -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-voltaphene.jpg" alt="VoltaPhene">
+          <div class="prod-img-fade"></div>
+          <span class="eyebrow" style="position:absolute;top:.75rem;left:.75rem;color:rgba(255,255,255,.4)">Energy Storage</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.58rem">VOLTAPHENE™</div>
+          <div class="prod-name">Graphene Battery Enhancement</div>
+          <div class="prod-kpi">5× charge speed · +40% cycle life</div>
+          <p class="prod-desc" style="font-size:.72rem">Graphene-enhanced electrode-electrolyte interface achieving supercapacitor-level charge rates within battery-level energy density — for EV and grid applications.</p>
+          <div class="card" style="padding:.4rem .6rem;margin-top:auto;text-align:center"><span style="font-size:.65rem;color:var(--muted)">Advanced R&amp;D</span></div>
+        </div>
       </div>
-    </div>
-    <div class="prod-card" style="border-right:1px solid var(--border)">
-      <div class="prod-img">
-        <img src="images/p-armophene.jpg" alt="ArmoPHene">
-        <div class="prod-img-fade"></div>
+      <!-- ArmoPHene -->
+      <div class="prod-card" style="border-right:1px solid var(--border)">
+        <div class="prod-img">
+          <img src="images/p-armophene.jpg" alt="ArmoPHene">
+          <div class="prod-img-fade"></div>
+          <span class="eyebrow" style="position:absolute;top:.75rem;left:.75rem;color:rgba(255,255,255,.4)">Defence</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.58rem">ARMOPHENE™</div>
+          <div class="prod-name">Graphene Composite Armour</div>
+          <div class="prod-kpi">NIJ IV · −35% weight vs ceramic</div>
+          <p class="prod-desc" style="font-size:.72rem">Graphene-composite armour panel at significantly reduced areal density vs ceramic or steel — lighter, higher protection, lower logistics burden.</p>
+          <div class="card" style="padding:.4rem .6rem;margin-top:auto;text-align:center"><span style="font-size:.65rem;color:var(--muted)">Defence Pilot</span></div>
+        </div>
       </div>
-      <div class="prod-body">
-        <div class="ey-g" style="font-size:.62rem">Defence</div>
-        <div class="prod-name">ArmoPHene™</div>
-        <div class="prod-kpi">NIJ IV · −35% weight vs ceramic</div>
-        <p class="prod-desc" style="font-size:.73rem">Graphene-composite armour panel at significantly reduced areal density vs ceramic or steel — lighter, higher protection, lower logistics burden.</p>
-        <div class="card stat-chip" style="margin-top:auto;padding:.4rem;text-align:center"><span style="font-size:.7rem;color:var(--muted)">Defence Pilot</span></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img">
-        <img src="images/p-hydrocell.jpg" alt="HydroCell">
-        <div class="prod-img-fade"></div>
-      </div>
-      <div class="prod-body">
-        <div class="ey-g" style="font-size:.62rem">Hydrogen Economy</div>
-        <div class="prod-name">HydroCell™</div>
-        <div class="prod-kpi">−60% Pt load · +25% power density</div>
-        <p class="prod-desc" style="font-size:.73rem">Graphene-enhanced PEM membranes reducing platinum catalyst by 60% while exceeding conventional fuel cell power density — enabling cost-viable H₂ mobility.</p>
-        <div class="card stat-chip" style="margin-top:auto;padding:.4rem;text-align:center"><span style="font-size:.7rem;color:var(--muted)">Advanced R&amp;D</span></div>
+      <!-- HydroCell -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="images/p-hydrocell.jpg" alt="HydroCell">
+          <div class="prod-img-fade"></div>
+          <span class="eyebrow" style="position:absolute;top:.75rem;left:.75rem;color:rgba(255,255,255,.4)">Hydrogen</span>
+        </div>
+        <div class="prod-body">
+          <div class="eyebrow" style="font-size:.58rem">HYDROCELL™</div>
+          <div class="prod-name">Graphene Fuel Cell Membrane</div>
+          <div class="prod-kpi">−60% Pt load · +25% power density</div>
+          <p class="prod-desc" style="font-size:.72rem">Graphene-enhanced PEM membranes reducing platinum catalyst by 60% while exceeding conventional fuel cell power density — enabling cost-viable H₂ mobility.</p>
+          <div class="card" style="padding:.4rem .6rem;margin-top:auto;text-align:center"><span style="font-size:.65rem;color:var(--muted)">Advanced R&amp;D</span></div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Innovations · Advanced Systems</span><span class="ey" style="color:#333">09 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 10 · INNOVATIONS — BITUMAX + EARLY WORKS
+     PAGE 11 · INNOVATIONS: EARLY WORKS
 ══════════════════════════════════════════ -->
-<section class="page" id="innovations-4">
-  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">09 / Innovations (4 of 4) · Infrastructure &amp; Early Works</div>
-      <div class="t-sub">Bitumax · Enabler · Accident-Proof Retrofit · She Watch</div>
-    </div>
-    <span class="ey">Roads · Assistive Tech · Safety</span>
-  </div>
+<section class="page" id="innovations-early">
+  <img class="full-bg" src="images/founder-archival.jpg" alt="" style="opacity:.18;object-position:center">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.82)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;overflow:hidden">
-    <!-- Bitumax -->
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/bg-industrial.jpg" alt="Bitumax" style="filter:brightness(.3) contrast(1.1)">
-      <div class="overlay-l"></div>
-      <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem">
-        <div class="ey-g" style="margin-bottom:.5rem">BITUMAX™ · Infrastructure</div>
-        <div class="g-bar" style="margin-bottom:.8rem"></div>
-        <div class="t-title" style="font-size:clamp(1.2rem,2vw,1.6rem);margin-bottom:.6rem">Graphene Bitumen Additive</div>
-        <div class="prod-kpi" style="margin-bottom:.8rem">1.5–2× pavement life · −50% maintenance cost</div>
-        <p class="t-body" style="margin-bottom:1.1rem">Graphene in bituminous road construction. Roads resist rutting, cracking and thermal fatigue at higher loads — without changes to laying equipment or process. Drop-in for any asphalt plant.</p>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem">
-          <div class="card-g" style="padding:.65rem;text-align:center"><div class="t-num" style="font-size:1.3rem">2×</div><div class="ey-g" style="font-size:.58rem;margin-top:.25rem">Pavement Life</div></div>
-          <div class="card" style="padding:.65rem;text-align:center"><div class="t-num" style="font-size:1.3rem">−50%</div><div class="ey-g" style="font-size:.58rem;margin-top:.25rem">Maintenance</div></div>
-          <div class="card" style="padding:.65rem;text-align:center"><div class="t-num" style="font-size:1.3rem">Drop-In</div><div class="ey-g" style="font-size:.58rem;margin-top:.25rem">Zero New Capex</div></div>
-        </div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Early Works</span></div>
+        <div class="t-chapter">Where it all began · Empathy as engineering</div>
+      </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">2008 — 2012 · Presidential Awards</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">11 / 16</span>
       </div>
     </div>
-    <!-- Early Works -->
-    <div style="display:flex;flex-direction:column;overflow:hidden">
-      <div style="flex:1;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;gap:.5rem">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
-          <div class="ey-g">THE ENABLER · 2008</div>
-          <span class="tag-g">Presidential Award</span>
+    <div class="gold-rule-h" style="margin:0 2.5rem .5rem"></div>
+
+    <div style="flex:1;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden">
+      <!-- Left: Bitumax large feature -->
+      <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
+        <img src="images/bg-industrial.jpg" alt="Bitumax" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.28) contrast(1.1)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,#030303 0%,rgba(3,3,3,.6) 50%,transparent 100%)"></div>
+        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
+          <div class="eyebrow" style="margin-bottom:.85rem">BITUMAX™ · Infrastructure</div>
+          <div class="gold-rule"></div>
+          <div class="t-chapter" style="font-size:clamp(1.2rem,2.2vw,1.8rem);margin-bottom:.6rem">Graphene Bitumen Additive</div>
+          <div class="prod-kpi" style="margin-bottom:.85rem">1.5–2× pavement life · −50% maintenance cost</div>
+          <p class="t-body" style="margin-bottom:1.25rem">Graphene in bituminous road construction. Roads resist rutting, cracking and thermal fatigue at higher loads — without changes to laying equipment or process. Drop-in for any asphalt plant.</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem">
+            <div class="card-g" style="padding:.65rem;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--cream)">2×</div><div class="eyebrow" style="font-size:.52rem;margin-top:.25rem">Pavement Life</div></div>
+            <div class="card" style="padding:.65rem;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--cream)">−50%</div><div class="eyebrow" style="font-size:.52rem;margin-top:.25rem">Maintenance</div></div>
+            <div class="card" style="padding:.65rem;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream);line-height:1.2">Drop-In</div><div class="eyebrow" style="font-size:.52rem;margin-top:.25rem">Zero New Capex</div></div>
+          </div>
         </div>
-        <div class="t-sub" style="font-size:clamp(.9rem,1.5vw,1.1rem)">Breath-Powered Wheelchair</div>
-        <p class="t-body" style="font-size:.78rem">A wheelchair operated entirely through breath patterns — puff/sip pneumatic signals — built to empower individuals with severe paralysis. Presented to President Dr. APJ Abdul Kalam at the National Innovation Foundation.</p>
       </div>
-      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;overflow:hidden">
-        <div style="padding:1.1rem 1.25rem;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;gap:.45rem">
-          <div class="ey-g" style="font-size:.62rem">Accident-Proof Retrofit · 2009</div>
-          <div class="t-sub" style="font-size:clamp(.85rem,1.4vw,1rem)">Vehicle Safety System</div>
-          <p class="t-muted" style="font-size:.75rem;line-height:1.7">A retrofittable safety kit transforming any existing vehicle — without replacement or new manufacturing.</p>
-          <span class="tag-g" style="width:fit-content">Presidential Award</span>
+
+      <!-- Right: The Enabler + early works -->
+      <div style="display:flex;flex-direction:column;overflow:hidden">
+        <!-- The Enabler -->
+        <div style="flex:1;padding:1.5rem 1.75rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;gap:.5rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+            <div class="eyebrow" style="font-size:.6rem">The Enabler · 2008</div>
+            <span class="tag-g">Presidential Award</span>
+          </div>
+          <div class="t-headline" style="font-size:clamp(1rem,1.6vw,1.3rem)">Breath-Powered Wheelchair</div>
+          <p class="t-body" style="font-size:.77rem">A wheelchair operated entirely through breath patterns — puff/sip pneumatic signals — built to empower individuals with severe paralysis. Presented to President Dr. APJ Abdul Kalam at the National Innovation Foundation.</p>
         </div>
-        <div style="padding:1.1rem 1.25rem;display:flex;flex-direction:column;justify-content:center;gap:.45rem">
-          <div class="ey-g" style="font-size:.62rem">She Watch · 2010</div>
-          <div class="t-sub" style="font-size:clamp(.85rem,1.4vw,1rem)">Women's Safety Wearable</div>
-          <p class="t-muted" style="font-size:.75rem;line-height:1.7">Discreet wristwatch sending silent distress signals to emergency contacts — affordable, invisible, immediate.</p>
-          <span class="tag-g" style="width:fit-content">Presidential Award</span>
+        <!-- Bottom two -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;flex:1;overflow:hidden">
+          <div style="padding:1.1rem 1.25rem;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;gap:.45rem">
+            <div class="eyebrow" style="font-size:.58rem">Accident-Proof Retrofit · 2009</div>
+            <div class="t-headline" style="font-size:clamp(.85rem,1.3vw,1rem)">Vehicle Safety System</div>
+            <p class="t-body" style="font-size:.72rem;line-height:1.75">A retrofittable safety kit transforming any existing vehicle — without replacement or new manufacturing.</p>
+            <span class="tag-g" style="width:fit-content;margin-top:.25rem">Presidential Award</span>
+          </div>
+          <div style="padding:1.1rem 1.25rem;display:flex;flex-direction:column;justify-content:center;gap:.45rem">
+            <div class="eyebrow" style="font-size:.58rem">She Watch · 2010</div>
+            <div class="t-headline" style="font-size:clamp(.85rem,1.3vw,1rem)">Women's Safety Wearable</div>
+            <p class="t-body" style="font-size:.72rem;line-height:1.75">Discreet wristwatch sending silent distress signals to emergency contacts — affordable, invisible, immediate.</p>
+            <span class="tag-g" style="width:fit-content;margin-top:.25rem">Presidential Award</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">23 Innovations · 7 Sectors · Graphene to Market</span><span class="ey" style="color:#333">10 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 11 · VENTURES PART 1
+     PAGE 12 · INDUSTRIAL TRANSLATION
+══════════════════════════════════════════ -->
+<section class="page" id="industrial-translation">
+  <img class="full-bg" src="images/bg-industrial.jpg" alt="" style="opacity:.5;object-position:center">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.88) 0%,rgba(3,3,3,.5) 40%,rgba(3,3,3,.75) 100%)"></div>
+
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2.5rem">
+    <!-- Section label + page num -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem">
+      <div class="section-label"><span class="eyebrow">Industrial Translation</span></div>
+      <span class="pg-num">12 / 16</span>
+    </div>
+
+    <!-- Big headline -->
+    <div class="t-editorial" style="max-width:28ch;margin-bottom:1rem">One lattice.<br>Many industries.</div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(.9rem,1.5vw,1.2rem);font-style:italic;color:var(--gold);margin-bottom:1.75rem;max-width:38ch">"The same graphene that strengthens concrete also lubricates engines, coats solar panels, purifies water, and armours soldiers."</div>
+
+    <div class="gold-rule" style="margin-bottom:1.5rem"></div>
+
+    <!-- 4-column framework -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:900px">
+      <div class="card-g" style="padding:1.1rem">
+        <div class="eyebrow" style="font-size:.58rem;margin-bottom:.6rem">Stage 01</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:.4rem">Synthesis</div>
+        <p style="font-size:.72rem;font-weight:300;color:var(--cream-dim);line-height:1.75">High-purity graphene produced at Monoatom Labs in precise morphologies.</p>
+      </div>
+      <div class="card" style="padding:1.1rem">
+        <div class="eyebrow" style="font-size:.58rem;margin-bottom:.6rem">Stage 02</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:.4rem">Formulation</div>
+        <p style="font-size:.72rem;font-weight:300;color:var(--cream-dim);line-height:1.75">Customised dispersions and masterbatches tailored to each industrial matrix.</p>
+      </div>
+      <div class="card" style="padding:1.1rem">
+        <div class="eyebrow" style="font-size:.58rem;margin-bottom:.6rem">Stage 03</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:.4rem">Integration</div>
+        <p style="font-size:.72rem;font-weight:300;color:var(--cream-dim);line-height:1.75">Drop-in compatibility with existing equipment, processes, supply chains — zero new capex.</p>
+      </div>
+      <div class="card-g" style="padding:1.1rem">
+        <div class="eyebrow" style="font-size:.58rem;margin-bottom:.6rem">Stage 04</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:.4rem">Scale</div>
+        <p style="font-size:.72rem;font-weight:300;color:var(--cream-dim);line-height:1.75">Validated at industrial scale through Grafillium — pan-Asian distribution network.</p>
+      </div>
+    </div>
+
+    <!-- Industry tags -->
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem">
+      <span class="tag">Construction</span>
+      <span class="tag">Solar Energy</span>
+      <span class="tag">Automotive</span>
+      <span class="tag">Water Treatment</span>
+      <span class="tag">Defence</span>
+      <span class="tag">Roads &amp; Infrastructure</span>
+      <span class="tag">Hydrogen Economy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAGE 13 · VENTURES PART 1
 ══════════════════════════════════════════ -->
 <section class="page" id="ventures-1">
-  <div class="page-bg" style="background-image:url('images/bg-ecosystem.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">10 / Ventures (1 of 2)</div>
-      <div class="t-sub">6 Companies Built for Planetary Impact</div>
-    </div>
-    <span class="ey">Founder · Co-Founder · CIO</span>
-  </div>
+  <img class="full-bg" src="images/bg-ecosystem.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.88)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:1.15fr 1fr;overflow:hidden">
-    <!-- Monoatom Labs -->
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/founder-lab.jpg" alt="Monoatom Labs" style="filter:brightness(.28) contrast(1.1)">
-      <div class="glow" style="width:70%;padding-top:70%;top:15%;left:15%;"></div>
-      <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.6rem">
-          <span class="ey-g">01 · 2025</span>
-          <span class="tag">Graphene at Scale</span>
-        </div>
-        <div class="g-bar" style="margin-bottom:.8rem"></div>
-        <div class="t-title" style="margin-bottom:.25rem">Monoatom Labs</div>
-        <div class="ey" style="margin-bottom:1rem">Co-Founder &amp; CEO</div>
-        <p class="t-body" style="margin-bottom:1rem">The primary R&D and translation engine for the entire graphene portfolio. Scalable graphene manufacturing — high-purity, high-volume nanomaterial production — translating real-world performance from 23 innovations into commercial deployments.</p>
-        <div style="display:flex;flex-direction:column;gap:.45rem">
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.25rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">Synthesis · Characterisation · Formulation</span></div>
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.25rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">Industrial Translation Framework</span></div>
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.25rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">23 Products in Active Portfolio</span></div>
-        </div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Ventures · Part 1</span></div>
+        <div class="t-chapter">6 Companies Built for Planetary Impact</div>
+      </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">Founder · Co-Founder · CIO</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">13 / 16</span>
       </div>
     </div>
-    <!-- Grafillium + SPI -->
-    <div style="display:flex;flex-direction:column;overflow:hidden">
-      <div class="vc" style="flex:1;border-bottom:1px solid var(--border)">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
-          <span class="vc-num">02 · 2025</span><span class="tag">Eco Nano Additives</span>
+    <div class="gold-rule-h" style="margin:0 2.5rem .25rem"></div>
+
+    <div style="flex:1;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden">
+      <!-- Monoatom Labs -->
+      <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
+        <img src="images/founder-lab.jpg" alt="Monoatom Labs" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.25) contrast(1.1)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(3,3,3,.7) 0%,transparent 60%)"></div>
+        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.85rem">
+            <span class="eyebrow" style="font-size:.58rem">01 · 2025</span>
+            <span class="tag">Graphene at Scale</span>
+          </div>
+          <div class="gold-rule"></div>
+          <div class="vc-name" style="margin-bottom:.3rem">Monoatom Labs</div>
+          <div class="vc-role" style="margin-bottom:1rem">Co-Founder &amp; CEO</div>
+          <p class="vc-desc">The primary R&D and translation engine for the entire graphene portfolio. Scalable graphene manufacturing — high-purity, high-volume nanomaterial production — translating real-world performance from 23 innovations into commercial deployments.</p>
+          <div style="display:flex;flex-direction:column;gap:.45rem;margin-top:1rem">
+            <div style="display:flex;gap:.6rem;align-items:center">
+              <div style="width:1.25rem;height:1px;background:var(--gold);flex-shrink:0"></div>
+              <span style="font-size:.75rem;font-weight:300;color:var(--cream-dim)">Synthesis · Characterisation · Formulation</span>
+            </div>
+            <div style="display:flex;gap:.6rem;align-items:center">
+              <div style="width:1.25rem;height:1px;background:var(--gold);flex-shrink:0"></div>
+              <span style="font-size:.75rem;font-weight:300;color:var(--cream-dim)">Industrial Translation Framework</span>
+            </div>
+            <div style="display:flex;gap:.6rem;align-items:center">
+              <div style="width:1.25rem;height:1px;background:var(--gold);flex-shrink:0"></div>
+              <span style="font-size:.75rem;font-weight:300;color:var(--cream-dim)">23 Products in Active Portfolio</span>
+            </div>
+          </div>
         </div>
-        <div class="vc-name">Grafillium</div>
-        <div class="vc-role">Co-Founder &amp; CIO · Graphene Distribution</div>
-        <p class="vc-desc">Deep-tech nanomaterial additives boosting efficiency and cutting emissions across fuels, lubricants, and coatings. Commercial distribution arm for graphene supply with technical integration support for industrial buyers across construction, energy, and automotive.</p>
       </div>
-      <div class="vc" style="flex:1">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
-          <span class="vc-num">03 · 2024</span><span class="tag">R&amp;D Industrial</span>
+
+      <!-- Grafillium + SPI -->
+      <div style="display:flex;flex-direction:column;overflow:hidden">
+        <div class="vc" style="flex:1;border-bottom:1px solid var(--border)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
+            <span class="vc-num">02 · 2025</span><span class="tag">Eco Nano Additives</span>
+          </div>
+          <div class="gold-rule"></div>
+          <div class="vc-name">Grafillium</div>
+          <div class="vc-role">Co-Founder &amp; CIO · Graphene Distribution</div>
+          <p class="vc-desc">Deep-tech nanomaterial additives boosting efficiency and cutting emissions across fuels, lubricants, and coatings. Commercial distribution arm for graphene supply with technical integration support for industrial buyers across construction, energy, and automotive.</p>
         </div>
-        <div class="vc-name">SPI Industries</div>
-        <div class="vc-role">Founder &amp; CEO · Industrial Products</div>
-        <p class="vc-desc">R&D-led industrial solutions in nanomaterial engineering. Manages commercial programmes for Lubritron, Ignitron D, Graphacrete, Graffisol, and Bitumax — from formulated material to market-ready industrial product at scale.</p>
+        <div class="vc" style="flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
+            <span class="vc-num">03 · 2024</span><span class="tag">R&amp;D Industrial</span>
+          </div>
+          <div class="gold-rule"></div>
+          <div class="vc-name">SPI Industries</div>
+          <div class="vc-role">Founder &amp; CEO · Industrial Products</div>
+          <p class="vc-desc">R&D-led industrial solutions in nanomaterial engineering. Manages commercial programmes for Lubritron, Ignitron D, Graphacrete, Graffisol, and Bitumax — from formulated material to market-ready industrial product at scale.</p>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Ventures · Deep-Tech Ecosystem</span><span class="ey" style="color:#333">11 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 12 · VENTURES PART 2
+     PAGE 14 · VENTURES PART 2
 ══════════════════════════════════════════ -->
 <section class="page" id="ventures-2">
-  <div class="page-bg" style="background-image:url('images/bg-ecosystem.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">11 / Ventures (2 of 2)</div>
-      <div class="t-sub">Consulting · Capital · Consumer</div>
-    </div>
-    <span class="ey">InThinks · Starunico Capital · Magppie</span>
-  </div>
+  <img class="full-bg" src="images/bg-ecosystem.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:rgba(3,3,3,.9)"></div>
 
-  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden">
-    <div class="vc card" style="border-radius:0;border-top:none;border-bottom:none;border-left:none;border-right:1px solid var(--border)">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
-        <span class="vc-num">04 · 2023</span><span class="tag">Innovation Consulting</span>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div>
+        <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Ventures · Part 2</span></div>
+        <div class="t-chapter">Consulting · Capital · Consumer</div>
       </div>
-      <div class="g-bar"></div>
-      <div class="vc-name">InThinks</div>
-      <div class="vc-role">Founder · Strategic Advisory</div>
-      <p class="vc-desc">Strategic innovation advisory to corporations, governments, and development organisations navigating the deep-tech landscape. Drawing on Sushanth's unique combination of hands-on innovation and policy exposure — from NIF to G20 to BRICS — bridging technology ambition and commercialisation reality.</p>
-      <div class="card" style="padding:.75rem;margin-top:.5rem">
-        <div class="ey-g" style="font-size:.6rem;margin-bottom:.3rem">Services</div>
-        <div class="t-muted" style="font-size:.75rem">Innovation strategy · Technology scouting · Commercialisation roadmaps · Policy interface</div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">InThinks · Starunico Capital · Magppie</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">14 / 16</span>
       </div>
     </div>
-    <div class="vc card-g" style="border-radius:0;border-top:none;border-bottom:none;border-left:none;border-right:1px solid var(--border)">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
-        <span class="vc-num">05 · 2024</span><span class="tag">Deep-Tech Investment</span>
+    <div class="gold-rule-h" style="margin:0 2.5rem .25rem"></div>
+
+    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden">
+      <!-- InThinks -->
+      <div class="vc" style="border-right:1px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
+          <span class="vc-num">04 · 2023</span><span class="tag">Innovation Consulting</span>
+        </div>
+        <div class="gold-rule"></div>
+        <div class="vc-name">InThinks</div>
+        <div class="vc-role">Founder · Strategic Advisory</div>
+        <p class="vc-desc">Strategic innovation advisory to corporations, governments, and development organisations navigating the deep-tech landscape. Drawing on Sushanth's unique combination of hands-on innovation and policy exposure — from NIF to G20 to BRICS — bridging technology ambition and commercialisation reality.</p>
+        <div class="card" style="padding:.75rem;margin-top:.5rem">
+          <div class="eyebrow" style="font-size:.55rem;margin-bottom:.35rem">Services</div>
+          <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">Innovation strategy · Technology scouting · Commercialisation roadmaps · Policy interface</div>
+        </div>
       </div>
-      <div class="g-bar"></div>
-      <div class="vc-name">Starunico Capital</div>
-      <div class="vc-role">Founder · Investment Vehicle</div>
-      <p class="vc-desc">Co-investment and co-development vehicle for deep-tech startups at the intersection of materials science, clean energy, and advanced manufacturing. Provides not just capital but laboratory infrastructure, industry relationships, and commercialisation expertise that early-stage deep-tech rarely has access to.</p>
-      <div class="card" style="padding:.75rem;margin-top:.5rem">
-        <div class="ey-g" style="font-size:.6rem;margin-bottom:.3rem">Thesis</div>
-        <div class="t-muted" style="font-size:.75rem">Materials science · Cleantech · Advanced manufacturing · Graphene-adjacent technologies</div>
+      <!-- Starunico Capital -->
+      <div class="vc" style="border-right:1px solid var(--border);background:rgba(197,160,89,.02)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
+          <span class="vc-num">05 · 2024</span><span class="tag">Deep-Tech Investment</span>
+        </div>
+        <div class="gold-rule"></div>
+        <div class="vc-name">Starunico Capital</div>
+        <div class="vc-role">Founder · Investment Vehicle</div>
+        <p class="vc-desc">Co-investment and co-development vehicle for deep-tech startups at the intersection of materials science, clean energy, and advanced manufacturing. Provides not just capital but laboratory infrastructure, industry relationships, and commercialisation expertise that early-stage deep-tech rarely has access to.</p>
+        <div class="card-g" style="padding:.75rem;margin-top:.5rem">
+          <div class="eyebrow" style="font-size:.55rem;margin-bottom:.35rem">Thesis</div>
+          <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">Materials science · Cleantech · Advanced manufacturing · Graphene-adjacent technologies</div>
+        </div>
+      </div>
+      <!-- Magppie -->
+      <div class="vc">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
+          <span class="vc-num">06 · 2022</span><span class="tag">Consumer Lifestyle</span>
+        </div>
+        <div class="gold-rule"></div>
+        <div class="vc-name">Magppie</div>
+        <div class="vc-role">Chief Innovation Officer</div>
+        <p class="vc-desc">Brings materials intelligence developed at Monoatom Labs into the consumer market — through a curated lifestyle and home products brand embedding graphene-enhanced performance into everyday objects. The downstream consumer end of a vertically integrated graphene ecosystem.</p>
+        <div class="card-g" style="padding:.75rem;margin-top:.5rem">
+          <div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">From nano-synthesis at Monoatom Labs → finished products in the consumer's hands.</div>
+        </div>
       </div>
     </div>
-    <div class="vc card" style="border-radius:0;border:none">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem">
-        <span class="vc-num">06 · 2022</span><span class="tag">Consumer Lifestyle</span>
-      </div>
-      <div class="g-bar"></div>
-      <div class="vc-name">Magppie</div>
-      <div class="vc-role">Chief Innovation Officer</div>
-      <p class="vc-desc">Brings materials intelligence developed at Monoatom Labs into the consumer market — through a curated lifestyle and home products brand embedding graphene-enhanced performance into everyday objects. The downstream consumer end of a vertically integrated graphene ecosystem.</p>
-      <div class="card-g" style="padding:.75rem;margin-top:.5rem">
-        <div class="t-muted" style="font-size:.75rem">From nano-synthesis at Monoatom Labs → finished products in the consumer's hands.</div>
+
+    <!-- Advisory footer -->
+    <div style="padding:.75rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <span style="font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);flex-shrink:0">Advisory:</span>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <span class="tag">Vinrox</span><span class="tag">Tilepedia</span><span class="tag">Eurogres</span><span class="tag">WeHear</span><span class="tag">VPRPL</span>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Advisory: Vinrox · Tilepedia · Eurogres · WeHear · VPRPL</span><span class="ey" style="color:#333">12 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     PAGE 13 · MEDIA & KEYNOTES
+     PAGE 15 · MEDIA & KEYNOTES
 ══════════════════════════════════════════ -->
-<section class="page" id="media" style="background:#030303">
-  <div class="page-bg" style="background-image:url('images/bg-voices.jpg');opacity:.18"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,rgba(3,3,3,.3) 50%,#030303 100%)"></div>
+<section class="page" id="media">
+  <img class="full-bg" src="images/bg-voices.jpg" alt="" style="opacity:.4;object-position:center">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.9) 0%,rgba(3,3,3,.5) 40%,rgba(3,3,3,.75) 100%)"></div>
 
-  <div class="ph" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">12 / Media &amp; Keynotes</div>
-      <div class="t-sub">60+ Addresses · National Media · International Press</div>
-    </div>
-    <span class="ey">Television · Print · Stage</span>
-  </div>
-
-  <div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr 1.25fr;overflow:hidden">
-    <!-- Left: stats + topics -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:1.75rem 1.75rem 1.75rem 2rem;border-right:1px solid rgba(39,39,42,.4);gap:1rem">
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+    <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
-        <div class="t-num" style="font-size:clamp(2.5rem,5vw,3.5rem);color:var(--gold);line-height:1">60+</div>
-        <div class="ey-g" style="margin-top:.4rem">Keynote addresses across 3 continents</div>
+        <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Media &amp; Keynotes</span></div>
+        <div class="t-chapter">60+ Addresses · National Media · International Press</div>
       </div>
-      <p class="t-body">As one of India's most sought-after voices on graphene and deep-tech innovation, Sushanth has addressed Fortune 500 executives, government ministers, startup founders, and students — translating nano-scale science into strategic business and policy language.</p>
-      <div class="g-rule"></div>
-      <div>
-        <div class="t-muted" style="font-size:.78rem;font-weight:500;color:var(--cream);margin-bottom:.65rem">Signature Keynote Topics</div>
-        <div style="display:flex;flex-direction:column;gap:.45rem">
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">Graphene &amp; the Future of Advanced Materials</span></div>
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">Deep-Tech Commercialisation: From Lab to Market</span></div>
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">India's Innovation Potential at the Global Frontier</span></div>
-          <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span class="t-muted" style="font-size:.78rem">Materials Science as Climate Action</span></div>
-        </div>
+      <div style="text-align:right">
+        <div class="eyebrow" style="color:var(--muted)">Television · Print · Stage</div>
+        <span class="pg-num" style="display:block;margin-top:.25rem">15 / 16</span>
       </div>
     </div>
-    <!-- Right: stage images + coverage -->
-    <div style="display:flex;flex-direction:column;overflow:hidden">
-      <div style="flex:1.1;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(39,39,42,.4)">
-        <div style="position:relative;overflow:hidden;border-right:1px solid rgba(39,39,42,.4)">
-          <img class="img-cover" src="images/ted.jpg" alt="TED" style="filter:brightness(.5) contrast(1.1)">
-          <div class="overlay-b"></div>
-          <div style="position:absolute;bottom:.9rem;left:.9rem">
-            <img src="images/logo-ted.jpg" alt="TED" style="height:1.4rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;margin-bottom:.4rem;display:block">
-            <div style="font-size:.82rem;font-weight:600;color:var(--cream)">TED-India · TEDx</div>
-            <div class="t-muted" style="font-size:.68rem">Multiple editions</div>
-          </div>
-        </div>
-        <div style="position:relative;overflow:hidden">
-          <img class="img-cover" src="images/lea-dia.jpg" alt="INK" style="filter:brightness(.5) contrast(1.1)">
-          <div class="overlay-b"></div>
-          <div style="position:absolute;bottom:.9rem;left:.9rem">
-            <img src="images/logo-ink.jpg" alt="INK" style="height:1.4rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;margin-bottom:.4rem;display:block">
-            <div style="font-size:.82rem;font-weight:600;color:var(--cream)">INK Conference</div>
-            <div class="t-muted" style="font-size:.68rem">India's TED · Fellow</div>
-          </div>
-        </div>
-      </div>
-      <div style="flex:1;padding:1.1rem 1.25rem;display:flex;flex-direction:column;justify-content:center;gap:.6rem">
-        <div class="t-muted" style="font-size:.8rem;font-weight:500;color:var(--cream)">Media Coverage</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem">
-          <div class="card" style="padding:.6rem .85rem"><div class="ey-g" style="font-size:.6rem;margin-bottom:.25rem">National Television</div><div class="t-muted" style="font-size:.72rem">DD National · NDTV · Times Now · ET Now</div></div>
-          <div class="card-g" style="padding:.6rem .85rem"><div class="ey-g" style="font-size:.6rem;margin-bottom:.25rem">Print &amp; Digital</div><div class="t-muted" style="font-size:.72rem">Economic Times · Business Standard · Mint · YourStory</div></div>
-          <div class="card" style="padding:.6rem .85rem"><div class="ey-g" style="font-size:.6rem;margin-bottom:.25rem">International</div><div class="t-muted" style="font-size:.72rem">MIT Technology Review · Forbes Asia · BBC</div></div>
-          <div class="card" style="padding:.6rem .85rem"><div class="ey-g" style="font-size:.6rem;margin-bottom:.25rem">Policy Forums</div><div class="t-muted" style="font-size:.72rem">G20 · BRICS · Silicon Valley Forum · IEEMA</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="gold-rule-h" style="margin:0 2.5rem .25rem"></div>
 
-  <div class="pf" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)"><span class="ey-g">Media · Keynotes · Speaking</span><span class="ey" style="color:#333">13 / 16</span></div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     PAGE 14 · INDUSTRIAL TRANSLATION & FUTURE SYSTEMS
-══════════════════════════════════════════ -->
-<section class="page" id="future">
-  <div class="page-bg" style="background-image:url('images/bg-future.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">13 / Industrial Translation &amp; Future Systems</div>
-      <div class="t-sub">From Lab to Market · What Comes Next</div>
-    </div>
-    <span class="ey">Drop-In · Zero Capex · 7 Sectors</span>
-  </div>
-
-  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;overflow:hidden">
-    <!-- Industrial Translation -->
-    <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
-      <img class="img-cover" src="images/bg-industrial.jpg" alt="Industrial" style="filter:brightness(.22) contrast(1.1)">
-      <div class="overlay-l"></div>
-      <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem;gap:.85rem">
-        <div class="ey-g" style="letter-spacing:.3em">Industrial Translation</div>
-        <div class="g-bar"></div>
-        <div class="t-title" style="font-size:clamp(1.15rem,2vw,1.55rem)">Drop-in graphene.<br>No new factories.</div>
-        <p class="t-body">Sushanth's most consequential contribution is the system of industrial translation he has built around graphene — the framework crossing the barrier between lab results and commercial manufacturing. Every innovation integrates with existing processes, equipment, and supply chains.</p>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem">
-          <div class="card-g" style="padding:.75rem;text-align:center"><div class="t-num" style="font-size:1.2rem">Drop-In</div><div class="ey-g" style="font-size:.58rem;margin-top:.2rem">Integration Model</div></div>
-          <div class="card" style="padding:.75rem;text-align:center"><div class="t-num" style="font-size:1.2rem">Zero</div><div class="ey-g" style="font-size:.58rem;margin-top:.2rem">New Capex</div></div>
-          <div class="card" style="padding:.75rem;text-align:center"><div class="t-num" style="font-size:1.2rem">7+</div><div class="ey-g" style="font-size:.58rem;margin-top:.2rem">Industries</div></div>
-          <div class="card-g" style="padding:.75rem;text-align:center"><div class="t-num" style="font-size:1.2rem">4</div><div class="ey-g" style="font-size:.58rem;margin-top:.2rem">Stage Framework</div></div>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1.3fr;overflow:hidden">
+      <!-- Left: stats -->
+      <div style="display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem 1.75rem 2.5rem;border-right:1px solid rgba(255,255,255,.07);gap:1rem">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5rem);font-weight:400;color:var(--gold);line-height:1">60+</div>
+          <div class="eyebrow" style="margin-top:.45rem">Keynote addresses across 3 continents</div>
+        </div>
+        <p class="t-body">As one of India's most sought-after voices on graphene and deep-tech innovation, Sushanth has addressed Fortune 500 executives, government ministers, startup founders, and students — translating nano-scale science into strategic business and policy language.</p>
+        <div class="gold-rule-h"></div>
+        <div>
+          <div style="font-size:.78rem;font-weight:400;color:var(--cream);margin-bottom:.65rem">Signature Keynote Topics</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span style="font-size:.78rem;font-weight:300;color:var(--cream-dim)">Graphene &amp; the Future of Advanced Materials</span></div>
+            <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span style="font-size:.78rem;font-weight:300;color:var(--cream-dim)">Deep-Tech Commercialisation: From Lab to Market</span></div>
+            <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span style="font-size:.78rem;font-weight:300;color:var(--cream-dim)">India's Innovation Potential at the Global Frontier</span></div>
+            <div style="display:flex;gap:.6rem;align-items:center"><div style="width:1.5rem;height:1px;background:var(--gold);flex-shrink:0"></div><span style="font-size:.78rem;font-weight:300;color:var(--cream-dim)">Materials Science as Climate Action</span></div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Future Systems -->
-    <div style="position:relative;overflow:hidden;background:#030303">
-      <div style="position:absolute;inset:0;background-image:url('images/bg-future.jpg');background-size:cover;background-position:center;opacity:.18;z-index:0"></div>
-      <div class="glow" style="width:75%;padding-top:75%;top:12%;left:12%;"></div>
-      <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem;gap:.85rem">
-        <div class="ey-g" style="letter-spacing:.3em">Future Systems · 2025–2035</div>
-        <div class="g-bar"></div>
-        <div class="t-title" style="font-size:clamp(1.15rem,2vw,1.55rem)">Platforms,<br>not just products.</div>
-        <p class="t-body">The next phase moves from individual innovations to integrated systems — multiple graphene technologies combining into planetary-scale infrastructure solutions.</p>
-        <div style="display:flex;flex-direction:column;gap:.55rem">
-          <div class="card" style="padding:.7rem .9rem;display:flex;gap:.85rem;align-items:flex-start">
-            <div class="ey-g" style="font-size:.6rem;min-width:4rem;flex-shrink:0;margin-top:.1rem">2025–27</div>
-            <div class="t-muted" style="font-size:.75rem">Complete commercial deployment across 7 sectors. Pan-Asian graphene supply network via Grafillium.</div>
+
+      <!-- Right: stage images + coverage -->
+      <div style="display:flex;flex-direction:column;overflow:hidden">
+        <div style="flex:1.1;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.07)">
+          <div style="position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,.07)">
+            <img src="images/ted.jpg" alt="TED" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+            <div class="overlay-b"></div>
+            <div style="position:absolute;bottom:.9rem;left:.9rem">
+              <img src="images/logo-ted.jpg" alt="TED" style="height:1.4rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;margin-bottom:.4rem;display:block">
+              <div style="font-size:.85rem;font-weight:400;color:var(--cream)">TED-India · TEDx</div>
+              <div style="font-size:.68rem;font-weight:300;color:var(--muted)">Multiple editions</div>
+            </div>
           </div>
-          <div class="card-g" style="padding:.7rem .9rem;display:flex;gap:.85rem;align-items:flex-start">
-            <div class="ey-g" style="font-size:.6rem;min-width:4rem;flex-shrink:0;margin-top:.1rem">2027–30</div>
-            <div class="t-muted" style="font-size:.75rem">Launch integrated H₂ stack and urban construction platform. First Starunico Capital portfolio exits.</div>
+          <div style="position:relative;overflow:hidden">
+            <img src="images/lea-dia.jpg" alt="INK" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1)">
+            <div class="overlay-b"></div>
+            <div style="position:absolute;bottom:.9rem;left:.9rem">
+              <img src="images/logo-ink.jpg" alt="INK" style="height:1.4rem;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;margin-bottom:.4rem;display:block">
+              <div style="font-size:.85rem;font-weight:400;color:var(--cream)">INK Conference</div>
+              <div style="font-size:.68rem;font-weight:300;color:var(--muted)">India's TED · Fellow</div>
+            </div>
           </div>
-          <div class="card" style="padding:.7rem .9rem;display:flex;gap:.85rem;align-items:flex-start">
-            <div class="ey-g" style="font-size:.6rem;min-width:4rem;flex-shrink:0;margin-top:.1rem">2030–35</div>
-            <div class="t-muted" style="font-size:.75rem">Open graphene translation platform to third-party innovators globally. Distributed manufacturing for emerging markets.</div>
+        </div>
+        <!-- Coverage grid -->
+        <div style="flex:1;padding:1.1rem 1.25rem;display:flex;flex-direction:column;justify-content:center;gap:.6rem">
+          <div style="font-size:.8rem;font-weight:400;color:var(--cream)">Media Coverage</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem">
+            <div class="card" style="padding:.6rem .85rem"><div class="eyebrow" style="font-size:.55rem;margin-bottom:.25rem">National Television</div><div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">DD National · NDTV · Times Now · ET Now</div></div>
+            <div class="card-g" style="padding:.6rem .85rem"><div class="eyebrow" style="font-size:.55rem;margin-bottom:.25rem">Print &amp; Digital</div><div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">Economic Times · Business Standard · Mint · YourStory</div></div>
+            <div class="card" style="padding:.6rem .85rem"><div class="eyebrow" style="font-size:.55rem;margin-bottom:.25rem">International</div><div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">MIT Technology Review · Forbes Asia · BBC</div></div>
+            <div class="card" style="padding:.6rem .85rem"><div class="eyebrow" style="font-size:.55rem;margin-bottom:.25rem">Policy Forums</div><div style="font-size:.72rem;font-weight:300;color:var(--cream-dim)">G20 · BRICS · Silicon Valley Forum · IEEMA</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="pf"><span class="ey-g">Industrial Translation · Future Systems</span><span class="ey" style="color:#333">14 / 16</span></div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     PAGE 15 · BUILD WITH SUSHANTH
-══════════════════════════════════════════ -->
-<section class="page" id="build">
-  <div class="page-bg" style="background-image:url('images/bg-industrial.jpg');opacity:.18"></div>
-  <div class="ph">
-    <div>
-      <div class="ey-g" style="margin-bottom:.3rem">14 / Build With Sushanth</div>
-      <div class="t-sub">Collaboration · Partnership · Co-Development</div>
-    </div>
-    <span class="ey">Corporates · Investors · Governments · Institutions</span>
-  </div>
-
-  <div style="flex:1;display:grid;grid-template-columns:1.05fr 1fr;overflow:hidden">
-    <!-- Engagement modes -->
-    <div style="padding:1.5rem 1.75rem 1.5rem 2rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);gap:1rem">
-      <div class="t-serif" style="font-size:clamp(1rem,1.8vw,1.4rem);max-width:28rem">If you are building at the frontier, this is the conversation you need to have.</div>
-      <div class="g-rule"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
-        <div class="card-g" style="padding:.9rem 1rem">
-          <div class="ey-g" style="margin-bottom:.4rem">For Corporates</div>
-          <p class="t-muted" style="font-size:.76rem;line-height:1.75">Integrate graphene innovations into your manufacturing process. Lubritron, Ignitron D, Graphacrete, Graffisol, and Bitumax are all drop-in ready.</p>
-          <div class="t-muted" style="font-size:.66rem;margin-top:.4rem;color:#555">Construction · Energy · Automotive · Defence</div>
-        </div>
-        <div class="card" style="padding:.9rem 1rem">
-          <div class="ey-g" style="margin-bottom:.4rem">For Investors</div>
-          <p class="t-muted" style="font-size:.76rem;line-height:1.75">Starunico Capital co-invests in deep-tech ventures at the intersection of materials science, clean energy, and advanced manufacturing.</p>
-          <div class="t-muted" style="font-size:.66rem;margin-top:.4rem;color:#555">Materials · Cleantech · Advanced Mfg.</div>
-        </div>
-        <div class="card" style="padding:.9rem 1rem">
-          <div class="ey-g" style="margin-bottom:.4rem">For Governments</div>
-          <p class="t-muted" style="font-size:.76rem;line-height:1.75">Policy advisory, national innovation programmes, and public infrastructure pilots. G20, BRICS, and ministerial-level engagement via InThinks.</p>
-          <div class="t-muted" style="font-size:.66rem;margin-top:.4rem;color:#555">Policy · Infrastructure · Innovation</div>
-        </div>
-        <div class="card-g" style="padding:.9rem 1rem">
-          <div class="ey-g" style="margin-bottom:.4rem">For Researchers</div>
-          <p class="t-muted" style="font-size:.76rem;line-height:1.75">Joint R&D programmes with Monoatom Labs. Access to lab infrastructure, synthesis capabilities, and translation expertise.</p>
-          <div class="t-muted" style="font-size:.66rem;margin-top:.4rem;color:#555">Universities · National Labs · Institutes</div>
-        </div>
-      </div>
-    </div>
-    <!-- Philosophy -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem;gap:1.1rem">
-      <div>
-        <div class="ey-g" style="margin-bottom:.6rem">The Philosophy</div>
-        <div class="t-serif" style="font-size:clamp(1rem,1.7vw,1.3rem);margin-bottom:.4rem">"Innovation is not just about creating what's new, but about building what truly matters."</div>
-        <div class="t-muted" style="font-size:.72rem;color:var(--gold)">Sushanth Paatnaik — Founder &amp; Innovator</div>
-      </div>
-      <div class="g-rule"></div>
-      <div>
-        <div class="t-serif" style="font-size:clamp(.95rem,1.5vw,1.15rem)">"The people I want to work with are the ones who think the problem is too hard. That is precisely where graphene belongs."</div>
-      </div>
-      <div class="g-rule"></div>
-      <div>
-        <div class="ey-g" style="font-size:.6rem;margin-bottom:.6rem">What Sushanth brings to every engagement</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <div class="t-muted" style="font-size:.76rem">→ 23 commercially-relevant graphene innovations</div>
-          <div class="t-muted" style="font-size:.76rem">→ 6 Presidential Awards validating technical excellence</div>
-          <div class="t-muted" style="font-size:.76rem">→ G20, BRICS, MIT, TED — verified global standing</div>
-          <div class="t-muted" style="font-size:.76rem">→ Full ecosystem: R&amp;D · Distribution · Capital · Advisory</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="pf"><span class="ey-g">Build With Sushanth</span><span class="ey" style="color:#333">15 / 16</span></div>
 </section>
 
 <!-- ══════════════════════════════════════════
      PAGE 16 · CONTACT / BACK COVER
 ══════════════════════════════════════════ -->
-<section class="page" id="contact" style="background:#030303">
-  <div class="page-bg" style="background-image:url('images/bg-origin.jpg');opacity:.45"></div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,#030303 80%)"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,transparent 30%,transparent 70%,#030303 100%)"></div>
-  <div class="glow" style="width:60%;padding-top:60%;top:20%;left:20%;"></div>
+<section class="page" id="contact">
+  <img class="full-bg" src="images/bg-origin.jpg" alt="" style="opacity:.65;object-position:center">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(3,3,3,.3) 0%,rgba(3,3,3,.82) 75%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.85) 0%,transparent 25%,transparent 75%,rgba(3,3,3,.92) 100%)"></div>
 
-  <!-- header -->
-  <div style="position:relative;z-index:2;padding:1.5rem 2rem;display:flex;justify-content:center">
-    <img src="images/sp-logo.svg" alt="SP" style="height:1.8rem;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);opacity:.45" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;color:var(--gold);font-size:1.6rem;font-style:italic;opacity:.45\'>SP</span>'">
+  <!-- Logo -->
+  <div style="position:relative;z-index:2;padding:2rem 2.5rem;display:flex;justify-content:center">
+    <img src="images/sp-logo.svg" alt="SP" style="height:2rem;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);opacity:.4" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;color:var(--gold);font-size:1.8rem;font-style:italic;opacity:.4\'>SP</span>'">
   </div>
 
-  <!-- center -->
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem 2rem;text-align:center;gap:1.25rem">
+  <!-- Centered contact -->
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1rem 2.5rem;text-align:center;gap:1.5rem">
     <div>
-      <div class="ey-g" style="margin-bottom:.75rem;letter-spacing:.45em">15 / Contact &amp; Engage</div>
-      <div class="g-bar" style="margin:0 auto .85rem"></div>
-      <div class="t-hero" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:.75rem">Let's build a future<br>that outlasts the news cycle.</div>
-      <p class="t-body" style="max-width:30rem;margin:0 auto;font-size:clamp(.82rem,1.2vw,.92rem)">Open to meaningful conversations with corporates, investors, governments, institutions, and fellow innovators serious about the deep-tech future.</p>
+      <div class="section-label" style="justify-content:center;margin-bottom:.85rem">
+        <span class="eyebrow">Engage</span>
+      </div>
+      <div class="t-editorial" style="margin-bottom:.85rem">Let's build a future<br>that outlasts the news cycle.</div>
+      <p class="t-body" style="max-width:32rem;margin:0 auto">Open to meaningful conversations with corporates, investors, governments, institutions, and fellow innovators serious about the deep-tech future.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;width:100%;max-width:42rem">
-      <div class="card-g" style="padding:.9rem 1rem">
-        <span class="ey" style="display:block;margin-bottom:.4rem">Direct Inquiry</span>
-        <div style="font-size:.85rem;color:var(--cream);font-weight:400">me@sushanthpaatnaik.com</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;width:100%;max-width:44rem">
+      <div class="card-g" style="padding:1rem 1.1rem">
+        <span style="font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem">Direct Inquiry</span>
+        <div style="font-size:.88rem;color:var(--cream);font-weight:300">me@sushanthpaatnaik.com</div>
       </div>
-      <div class="card" style="padding:.9rem 1rem">
-        <span class="ey" style="display:block;margin-bottom:.4rem">Web &amp; Portfolio</span>
-        <div style="font-size:.85rem;color:var(--cream)">sushanthpaatnaik.com</div>
+      <div class="card" style="padding:1rem 1.1rem">
+        <span style="font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem">Web &amp; Portfolio</span>
+        <div style="font-size:.88rem;color:var(--cream);font-weight:300">sushanthpaatnaik.com</div>
       </div>
-      <div class="card" style="padding:.9rem 1rem">
-        <span class="ey" style="display:block;margin-bottom:.4rem">Headquarters</span>
-        <div style="font-size:.82rem;color:var(--cream);line-height:1.6">Bhubaneswar · New Delhi<br>Ahmedabad</div>
+      <div class="card" style="padding:1rem 1.1rem">
+        <span style="font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem">Headquarters</span>
+        <div style="font-size:.82rem;color:var(--cream);font-weight:300;line-height:1.65">Bhubaneswar · New Delhi<br>Ahmedabad</div>
       </div>
     </div>
 
@@ -1173,10 +1340,10 @@
     </div>
   </div>
 
-  <!-- footer -->
-  <div style="position:relative;z-index:2;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(39,39,42,.4);flex-wrap:wrap;gap:.75rem">
-    <span class="ey" style="color:#333">© 2025 Sushanth Paatnaik · All rights reserved</span>
-    <span class="ey-g" style="letter-spacing:.3em">End of Dossier · 16 / 16</span>
+  <!-- Footer -->
+  <div style="position:relative;z-index:2;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:.75rem">
+    <span style="font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.15)">© 2025 Sushanth Paatnaik · All rights reserved</span>
+    <span class="pg-num">16 / 16</span>
   </div>
 </section>
 
