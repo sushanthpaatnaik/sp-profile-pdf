@@ -37,14 +37,14 @@
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
-      background: url('images/bg-cover.jpg') center / cover no-repeat;
-      opacity: .06; mix-blend-mode: screen; pointer-events: none;
+      background: url('images/bg-origin.jpg') center / cover no-repeat;
+      opacity: .08; mix-blend-mode: screen; pointer-events: none;
     }
 
     /* ── PAGE SHELL ── */
     .page {
       position: relative; overflow: hidden;
-      background: rgba(5,5,5,.94);
+      background: rgba(3,3,3,.92);
       width: 100%; max-width: 1380px;
       margin: 0 auto 3.5rem;
       min-height: 600px;
@@ -52,6 +52,14 @@
       box-shadow: 0 24px 64px -12px rgba(0,0,0,.85);
       display: flex; flex-direction: column;
     }
+
+    /* per-page background image layer */
+    .page-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-size: cover; background-position: center;
+      pointer-events: none;
+    }
+    .page > *:not(.page-bg) { position: relative; z-index: 1; }
     @media (min-width: 1100px) { .page { aspect-ratio: 16/9; min-height: unset; } }
 
     /* ── TYPOGRAPHY ── */
@@ -169,7 +177,8 @@
      PAGE 01 · COVER
 ══════════════════════════════════════════ -->
 <section class="page" id="cover" style="background:#030303; min-height:520px">
-  <img class="img-cover" src="images/bg-cover.jpg" alt="" style="opacity:.35;mix-blend-mode:screen">
+  <div class="page-bg" style="background-image:url('images/bg-origin.jpg');opacity:.55"></div>
+  <div class="page-bg" style="background-image:none;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.7) 100%)"></div>
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(30,58,138,.25) 0%,transparent 65%)"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.7) 0%,transparent 35%,transparent 65%,rgba(3,3,3,.85) 100%)"></div>
 
@@ -211,6 +220,7 @@
      PAGE 02 · ABOUT & JOURNEY
 ══════════════════════════════════════════ -->
 <section class="page" id="about">
+  <div class="page-bg" style="background-image:url('images/founder-lab.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">01 / About</div>
@@ -251,6 +261,7 @@
      PAGE 03 · HONOURS LEDGER
 ══════════════════════════════════════════ -->
 <section class="page" id="honours">
+  <div class="page-bg" style="background-image:url('images/bg-recognition.jpg');opacity:.13"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">02 / Honours</div>
@@ -305,7 +316,7 @@
      PAGE 04 · PRESIDENTIAL AWARDS
 ══════════════════════════════════════════ -->
 <section class="page" id="presidential" style="background:#030303">
-  <img class="img-cover" src="images/bg-cover.jpg" alt="" style="opacity:.12;mix-blend-mode:screen">
+  <div class="page-bg" style="background-image:url('images/bg-origin.jpg');opacity:.18"></div>
   <img class="img-cover" src="images/presidential-trio.jpg" alt="" style="opacity:.15;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,rgba(3,3,3,.25) 50%,#030303 100%)"></div>
   <div class="glow" style="width:60%;padding-top:60%;top:20%;left:20%;"></div>
@@ -390,6 +401,7 @@
      PAGE 05 · HALL OF FAME
 ══════════════════════════════════════════ -->
 <section class="page" id="halloffame">
+  <div class="page-bg" style="background-image:url('images/bg-recognition.jpg');opacity:.15"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">04 / Hall of Fame</div>
@@ -451,6 +463,7 @@
      PAGE 06 · GLOBAL RECOGNITION
 ══════════════════════════════════════════ -->
 <section class="page" id="global">
+  <div class="page-bg" style="background-image:url('images/bg-recognition.jpg');opacity:.15"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">05 / Global Recognition</div>
@@ -522,6 +535,7 @@
      PAGE 07 · INNOVATIONS — COMMERCIAL
 ══════════════════════════════════════════ -->
 <section class="page" id="innovations-1">
+  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">06 / Innovations (1 of 4) · Commercial</div>
@@ -597,6 +611,7 @@
      PAGE 08 · INNOVATIONS — MOBILITY & FUELS
 ══════════════════════════════════════════ -->
 <section class="page" id="innovations-2">
+  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">07 / Innovations (2 of 4) · Mobility</div>
@@ -669,6 +684,7 @@
      PAGE 09 · INNOVATIONS — ADVANCED SYSTEMS
 ══════════════════════════════════════════ -->
 <section class="page" id="innovations-3">
+  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">08 / Innovations (3 of 4) · Advanced</div>
@@ -739,6 +755,7 @@
      PAGE 10 · INNOVATIONS — BITUMAX + EARLY WORKS
 ══════════════════════════════════════════ -->
 <section class="page" id="innovations-4">
+  <div class="page-bg" style="background-image:url('images/bg-material.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">09 / Innovations (4 of 4) · Infrastructure &amp; Early Works</div>
@@ -799,6 +816,7 @@
      PAGE 11 · VENTURES PART 1
 ══════════════════════════════════════════ -->
 <section class="page" id="ventures-1">
+  <div class="page-bg" style="background-image:url('images/bg-ecosystem.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">10 / Ventures (1 of 2)</div>
@@ -856,6 +874,7 @@
      PAGE 12 · VENTURES PART 2
 ══════════════════════════════════════════ -->
 <section class="page" id="ventures-2">
+  <div class="page-bg" style="background-image:url('images/bg-ecosystem.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">11 / Ventures (2 of 2)</div>
@@ -912,7 +931,7 @@
      PAGE 13 · MEDIA & KEYNOTES
 ══════════════════════════════════════════ -->
 <section class="page" id="media" style="background:#030303">
-  <img class="img-cover" src="images/bg-cover.jpg" alt="" style="opacity:.1;mix-blend-mode:screen">
+  <div class="page-bg" style="background-image:url('images/bg-voices.jpg');opacity:.18"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,rgba(3,3,3,.3) 50%,#030303 100%)"></div>
 
   <div class="ph" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)">
@@ -983,6 +1002,7 @@
      PAGE 14 · INDUSTRIAL TRANSLATION & FUTURE SYSTEMS
 ══════════════════════════════════════════ -->
 <section class="page" id="future">
+  <div class="page-bg" style="background-image:url('images/bg-future.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">13 / Industrial Translation &amp; Future Systems</div>
@@ -1011,7 +1031,7 @@
     </div>
     <!-- Future Systems -->
     <div style="position:relative;overflow:hidden;background:#030303">
-      <img class="img-cover" src="images/bg-cover.jpg" alt="" style="opacity:.12;mix-blend-mode:screen">
+      <div style="position:absolute;inset:0;background-image:url('images/bg-future.jpg');background-size:cover;background-position:center;opacity:.18;z-index:0"></div>
       <div class="glow" style="width:75%;padding-top:75%;top:12%;left:12%;"></div>
       <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem;gap:.85rem">
         <div class="ey-g" style="letter-spacing:.3em">Future Systems · 2025–2035</div>
@@ -1043,6 +1063,7 @@
      PAGE 15 · BUILD WITH SUSHANTH
 ══════════════════════════════════════════ -->
 <section class="page" id="build">
+  <div class="page-bg" style="background-image:url('images/bg-industrial.jpg');opacity:.18"></div>
   <div class="ph">
     <div>
       <div class="ey-g" style="margin-bottom:.3rem">14 / Build With Sushanth</div>
@@ -1110,7 +1131,7 @@
      PAGE 16 · CONTACT / BACK COVER
 ══════════════════════════════════════════ -->
 <section class="page" id="contact" style="background:#030303">
-  <img class="img-cover" src="images/bg-cover.jpg" alt="" style="opacity:.32;mix-blend-mode:screen">
+  <div class="page-bg" style="background-image:url('images/bg-origin.jpg');opacity:.45"></div>
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,#030303 80%)"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,transparent 30%,transparent 70%,#030303 100%)"></div>
   <div class="glow" style="width:60%;padding-top:60%;top:20%;left:20%;"></div>
