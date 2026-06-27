@@ -32,8 +32,20 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Fixed space/galaxy background — same as website */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('images/bg-cover.jpg') center center / cover no-repeat;
+      opacity: 0.07;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .page {
-      background: var(--dark);
+      background: rgba(5,5,5,0.92);
       width: 100%;
       max-width: 1400px;
       margin: 0 auto 3rem;
@@ -43,6 +55,7 @@
       box-shadow: 0 30px 60px -15px rgba(0,0,0,.9);
       display: flex;
       flex-direction: column;
+      backdrop-filter: blur(0px);
     }
     @media (min-width: 1200px) { .page { aspect-ratio: 16/9; } }
     @media (max-width: 1199px) { .page { min-height: 760px; } }
@@ -109,9 +122,10 @@
 <body>
 
 <!-- ═══ PAGE 01 · COVER ═══ -->
-<div class="page" id="cover" style="background:var(--navy)">
-  <img src="images/bg-cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;mix-blend-mode:luminosity">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--navy),rgba(3,10,26,.3) 50%,var(--navy))"></div>
+<div class="page" id="cover" style="background:#030303">
+  <img src="images/bg-cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;mix-blend-mode:screen">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,#030303 90%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,transparent 30%,transparent 70%,#030303 100%)"></div>
   <div class="glow" style="width:600px;height:600px;top:20%;left:60%;opacity:.7"></div>
 
   <header style="position:relative;z-index:2;padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:flex-start">
@@ -316,9 +330,10 @@
 </div>
 
 <!-- ═══ PAGE 04 · PRESIDENTIAL AWARDS ═══ -->
-<div class="page" id="presidential" style="background:var(--navy)">
-  <img src="images/presidential-trio.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2;mix-blend-mode:luminosity">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--navy) 0%,rgba(3,10,26,.3) 50%,var(--navy) 100%)"></div>
+<div class="page" id="presidential" style="background:#030303">
+  <img src="images/bg-cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.12;mix-blend-mode:screen">
+  <img src="images/presidential-trio.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;mix-blend-mode:luminosity">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,rgba(3,3,3,.3) 50%,#030303 100%)"></div>
   <div class="glow" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
 
   <div class="ph" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)">
@@ -866,7 +881,7 @@
 </div>
 
 <!-- ═══ PAGE 13 · MEDIA & KEYNOTES ═══ -->
-<div class="page" id="media" style="background:var(--navy)">
+<div class="page" id="media" style="background:#030303">
   <div class="b-glow" style="position:absolute;width:500px;height:500px;top:30%;right:10%;border-radius:50%;background:radial-gradient(circle,rgba(30,58,138,.2),transparent 70%);pointer-events:none"></div>
   <div class="ph" style="position:relative;z-index:2;border-color:rgba(39,39,42,.4)">
     <div><span class="ey-g" style="display:block;margin-bottom:.3rem">12 / Media &amp; Keynotes</span><span class="t-h">60+ Addresses · National Media · International Press</span></div>
@@ -974,7 +989,8 @@
       </div>
     </div>
     <!-- Future Systems -->
-    <div style="position:relative;overflow:hidden;background:var(--navy)">
+    <div style="position:relative;overflow:hidden;background:#030303">
+      <img src="images/bg-cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.1;mix-blend-mode:screen">
       <img src="images/bg-future.jpg" alt="Future" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.15) contrast(1.1)">
       <div class="glow" style="width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.8"></div>
       <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2rem">
@@ -1055,9 +1071,10 @@
 </div>
 
 <!-- ═══ PAGE 16 · CONTACT / BACK COVER ═══ -->
-<div class="page" id="contact" style="background:var(--navy)">
-  <img src="images/bg-cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.1;mix-blend-mode:luminosity">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--navy),rgba(3,10,26,.4) 50%,var(--navy))"></div>
+<div class="page" id="contact" style="background:#030303">
+  <img src="images/bg-cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;mix-blend-mode:screen">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,#030303 85%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#030303 0%,transparent 30%,transparent 70%,#030303 100%)"></div>
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.8;position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(30,58,138,.25),transparent 70%);pointer-events:none"></div>
 
   <header style="position:relative;z-index:2;padding:1.75rem 2.5rem;display:flex;justify-content:center">
