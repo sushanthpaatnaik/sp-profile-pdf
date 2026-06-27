@@ -39,12 +39,13 @@
       margin: 0 auto 4rem;
       background: #030303;
       box-shadow: 0 32px 80px -16px rgba(0,0,0,.9);
+      display: flex; flex-direction: column;
     }
     @media (min-width: 1100px) {
       .page { aspect-ratio: 16/9; }
     }
     @media (max-width: 1099px) {
-      .page { min-height: 600px; }
+      .page { min-height: 640px; }
     }
 
     /* ── TYPOGRAPHY ── */
@@ -90,7 +91,7 @@
 
     /* ── PRODUCT CARD ── */
     .prod-card { display: flex; flex-direction: column; overflow: hidden; }
-    .prod-img { flex-shrink: 0; height: 50%; min-height: 110px; position: relative; overflow: hidden; }
+    .prod-img { flex-shrink: 0; aspect-ratio: 16/9; min-height: 100px; position: relative; overflow: hidden; }
     .prod-img img { width: 100%; height: 100%; object-fit: cover; }
     .prod-img-fade { position: absolute; inset: 0; background: linear-gradient(to top, var(--dark) 0%, transparent 60%); }
     .prod-body { flex: 1; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .45rem; }
@@ -215,7 +216,7 @@
 <section class="page" id="manifesto" style="background:#000">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,160,89,.04) 0%,transparent 65%)"></div>
   <!-- Pure centered manifesto -->
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:3rem 2.5rem">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 3rem">
     <div style="width:1.5rem;height:1px;background:var(--gold);margin:0 auto 2.5rem"></div>
     <div style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,5rem);font-weight:400;line-height:1.05;color:var(--cream);max-width:22ch;letter-spacing:-.01em">
       "I build what<br>does not yet exist."
@@ -235,7 +236,7 @@
 <section class="page" id="origin">
   <div style="position:absolute;inset:0;background:#030303"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:grid;grid-template-columns:1fr 45%">
+  <div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr 45%">
     <!-- Left: editorial text -->
     <div style="display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2.5rem 2rem 2.5rem;gap:.9rem;overflow:hidden">
       <!-- Corner label -->
@@ -295,7 +296,7 @@
   <img class="full-bg" src="images/bg-recognition.jpg" alt="" style="opacity:.12;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.8)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <!-- Header -->
     <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
@@ -440,7 +441,7 @@
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.85) 0%,rgba(3,3,3,.3) 45%,rgba(3,3,3,.8) 100%)"></div>
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,160,89,.06) 0%,transparent 70%)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <!-- Header -->
     <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
@@ -548,7 +549,7 @@
 ══════════════════════════════════════════ -->
 <section class="page" id="halloffame">
   <!-- Pure 2×2 full-bleed grid -->
-  <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
+  <div style="position:absolute;inset:0;z-index:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
     <!-- MIT TR35 -->
     <div style="position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
       <img src="images/mit-tr35.jpg" alt="MIT TR35" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity">
@@ -615,7 +616,7 @@
   <img class="full-bg" src="images/bg-recognition.jpg" alt="" style="opacity:.1">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.7)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <!-- Header -->
     <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
@@ -695,7 +696,7 @@
   <img class="full-bg" src="images/bg-material.jpg" alt="" style="opacity:.12;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.82)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <!-- Header -->
     <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
@@ -779,7 +780,7 @@
   <img class="full-bg" src="images/bg-material.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.85)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <!-- Header -->
     <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
@@ -862,7 +863,7 @@
   <img class="full-bg" src="images/bg-future.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.88)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
         <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Advanced Systems</span></div>
@@ -947,7 +948,7 @@
   <img class="full-bg" src="images/founder-archival.jpg" alt="" style="opacity:.18;object-position:center">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.82)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <div style="padding:1.75rem 2.5rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
         <div class="section-label" style="margin-bottom:.5rem"><span class="eyebrow">Early Works</span></div>
@@ -965,7 +966,7 @@
       <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
         <img src="images/bg-industrial.jpg" alt="Bitumax" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.28) contrast(1.1)">
         <div style="position:absolute;inset:0;background:linear-gradient(to right,#030303 0%,rgba(3,3,3,.6) 50%,transparent 100%)"></div>
-        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
+        <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
           <div class="eyebrow" style="margin-bottom:.85rem">BITUMAX™ · Infrastructure</div>
           <div class="gold-rule"></div>
           <div class="t-chapter" style="font-size:clamp(1.2rem,2.2vw,1.8rem);margin-bottom:.6rem">Graphene Bitumen Additive</div>
@@ -1017,7 +1018,7 @@
   <img class="full-bg" src="images/bg-industrial.jpg" alt="" style="opacity:.5;object-position:center">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.88) 0%,rgba(3,3,3,.5) 40%,rgba(3,3,3,.75) 100%)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2.5rem">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2.5rem">
     <!-- Section label + page num -->
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem">
       <div class="section-label"><span class="eyebrow">Industrial Translation</span></div>
@@ -1074,7 +1075,7 @@
   <img class="full-bg" src="images/bg-ecosystem.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.88)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
         <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Ventures · Part 1</span></div>
@@ -1092,7 +1093,7 @@
       <div style="position:relative;overflow:hidden;border-right:1px solid var(--border)">
         <img src="images/founder-lab.jpg" alt="Monoatom Labs" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.25) contrast(1.1)">
         <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(3,3,3,.7) 0%,transparent 60%)"></div>
-        <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
+        <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:2rem 2.25rem">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.85rem">
             <span class="eyebrow" style="font-size:.58rem">01 · 2025</span>
             <span class="tag">Graphene at Scale</span>
@@ -1150,7 +1151,7 @@
   <img class="full-bg" src="images/bg-ecosystem.jpg" alt="" style="opacity:.1;mix-blend-mode:luminosity">
   <div style="position:absolute;inset:0;background:rgba(3,3,3,.9)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
         <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Ventures · Part 2</span></div>
@@ -1224,7 +1225,7 @@
   <img class="full-bg" src="images/bg-voices.jpg" alt="" style="opacity:.4;object-position:center">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,3,3,.9) 0%,rgba(3,3,3,.5) 40%,rgba(3,3,3,.75) 100%)"></div>
 
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column">
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column">
     <div style="padding:1.75rem 2.5rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
       <div>
         <div class="section-label" style="margin-bottom:.6rem"><span class="eyebrow">Media &amp; Keynotes</span></div>
