@@ -1,826 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sushanth Paatnaik | Corporate Profile</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --gold: #C5A059;
-      --gold-dim: rgba(197,160,89,.15);
-      --cream: #E8E3D7;
-      --cream-dim: #B8B3A7;
-      --muted: #6A6A6C;
-      --dark: #080808;
-      --border: rgba(255,255,255,.07);
-      --border-g: rgba(197,160,89,.22);
-    }
-    html { background: #0d0d0d; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0d0d0d;
-      color: var(--cream);
-      padding: 3rem 1.5rem;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    .page {
-      position: relative; overflow: hidden;
-      width: 100%; max-width: 1440px;
-      margin: 0 auto 4rem;
-      background: var(--dark);
-      box-shadow: 0 32px 80px -16px rgba(0,0,0,.95);
-      display: flex; flex-direction: column;
-    }
-    @media (min-width: 1100px) { .page { aspect-ratio: 16/9; } }
-    @media (max-width: 1099px) { .page { min-height: 640px; } }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sushanth Paatnaik — Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C5A059;
+  --cream:#E8E3D7;
+  --dark:#080808;
+  --grey:#888;
+  --ff:'Georgia',serif;
+  --fs:'Helvetica Neue','Arial',sans-serif;
+}
+body{background:#111;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;font-family:var(--fs)}
+.page{
+  width:100%;max-width:1280px;
+  aspect-ratio:16/9;
+  position:relative;overflow:hidden;
+  background:var(--dark);color:var(--cream);
+  display:flex;
+}
+.pgn{
+  position:absolute;top:28px;right:36px;
+  font-size:11px;letter-spacing:2px;color:#666;
+  z-index:10;
+}
+.sect{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.gold{color:var(--gold)}
+.cream{color:var(--cream)}
+.gold-rule{width:32px;height:2px;background:var(--gold);margin:14px 0}
 
-    /* page number top-right */
-    .pgn {
-      position: absolute; top: 1.25rem; right: 1.75rem;
-      font-size: .58rem; letter-spacing: .25em;
-      color: rgba(255,255,255,.3); z-index: 10;
-      font-family: 'Inter', sans-serif; font-weight: 300;
-    }
-    /* section label top-left */
-    .sect {
-      font-size: .55rem; letter-spacing: .38em;
-      text-transform: uppercase; color: var(--gold);
-      font-family: 'Inter', sans-serif;
-    }
-    .full-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .gold-rule { width: 2rem; height: 1px; background: var(--gold); }
-    .gold-hr { height: 1px; background: linear-gradient(90deg, var(--gold) 0%, rgba(197,160,89,.05) 80%, transparent); }
+/* SPARKLE */
+.sparkle-bg{position:relative}
+.sparkle-bg::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 15% 20%,rgba(197,160,89,.4) 0%,transparent 2%),
+    radial-gradient(circle at 80% 15%,rgba(197,160,89,.3) 0%,transparent 1.5%),
+    radial-gradient(circle at 50% 65%,rgba(197,160,89,.25) 0%,transparent 1.5%),
+    radial-gradient(circle at 85% 70%,rgba(197,160,89,.35) 0%,transparent 2%),
+    radial-gradient(circle at 30% 80%,rgba(197,160,89,.2) 0%,transparent 1.5%),
+    radial-gradient(circle at 92% 45%,rgba(197,160,89,.28) 0%,transparent 2%),
+    radial-gradient(circle at 60% 35%,rgba(197,160,89,.18) 0%,transparent 1%),
+    radial-gradient(circle at 10% 55%,rgba(197,160,89,.22) 0%,transparent 1.5%),
+    radial-gradient(circle at 65% 88%,rgba(197,160,89,.2) 0%,transparent 2%),
+    radial-gradient(circle at 40% 50%,rgba(197,160,89,.12) 0%,transparent 1%),
+    radial-gradient(circle at 5% 10%,rgba(197,160,89,.3) 0%,transparent 1.5%),
+    radial-gradient(circle at 95% 92%,rgba(197,160,89,.25) 0%,transparent 1.5%),
+    radial-gradient(circle at 45% 8%,rgba(197,160,89,.18) 0%,transparent 1%),
+    radial-gradient(circle at 55% 75%,rgba(197,160,89,.15) 0%,transparent 1%),
+    radial-gradient(circle at 20% 95%,rgba(197,160,89,.2) 0%,transparent 1.5%),
+    radial-gradient(circle at 75% 55%,rgba(197,160,89,.14) 0%,transparent 1%);
+}
 
-    /* sparkle bg helper */
-    .sparkle-bg {
-      background-image:
-        radial-gradient(circle at 15% 20%, rgba(197,160,89,.18) 0%, transparent 2%),
-        radial-gradient(circle at 80% 15%, rgba(197,160,89,.12) 0%, transparent 1.5%),
-        radial-gradient(circle at 45% 60%, rgba(197,160,89,.1) 0%, transparent 1%),
-        radial-gradient(circle at 70% 75%, rgba(197,160,89,.15) 0%, transparent 2%),
-        radial-gradient(circle at 25% 80%, rgba(197,160,89,.09) 0%, transparent 1.5%),
-        radial-gradient(circle at 90% 50%, rgba(197,160,89,.08) 0%, transparent 1%),
-        radial-gradient(circle at 55% 30%, rgba(197,160,89,.06) 0%, transparent 1%),
-        radial-gradient(circle at 10% 50%, rgba(197,160,89,.07) 0%, transparent 1.5%),
-        radial-gradient(circle at 60% 90%, rgba(197,160,89,.1) 0%, transparent 1.5%),
-        radial-gradient(circle at 35% 45%, rgba(197,160,89,.05) 0%, transparent 1%);
-    }
+/* ─── PAGE 01 COVER ─── */
+.p01{flex-direction:row}
+.p01-left{width:44%;position:relative;overflow:hidden}
+.p01-left img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.75)}
+.p01-left::after{content:'';position:absolute;right:0;top:0;bottom:0;width:70px;background:linear-gradient(90deg,transparent,var(--dark))}
+.p01-right{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:32px 40px 36px 24px;background:var(--dark)}
+.p01-logo{display:flex;justify-content:flex-end}
+.p01-logo img{width:50px;height:50px;object-fit:contain;filter:invert(1) sepia(1) saturate(3) hue-rotate(-5deg)}
+.p01-name{font-size:clamp(18px,2.8vw,34px);letter-spacing:7px;text-transform:uppercase;color:var(--cream);font-weight:300;line-height:1.5}
+.p01-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#666;margin-top:8px}
+.p01-rule{width:36px;height:1px;background:var(--gold);margin:10px 0}
 
-    /* share btn */
-    @media print {
-      .share-fab, .share-toast { display: none !important; }
-      .page { aspect-ratio: unset; height: 100vh; page-break-after: always; }
-    }
-    .share-fab {
-      position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9999;
-      display: flex; align-items: center; gap: .5rem;
-      background: linear-gradient(135deg, #9a7a3a, var(--gold));
-      color: var(--cream); border: none; border-radius: 50px;
-      padding: .7rem 1.25rem .7rem 1rem;
-      font-family: 'Inter', sans-serif; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
-      cursor: pointer; box-shadow: 0 4px 24px rgba(197,160,89,.35);
-      transition: transform .15s, box-shadow .15s;
-    }
-    .share-fab:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(197,160,89,.5); }
-    .share-toast {
-      position: fixed; bottom: 4.5rem; right: 1.75rem; z-index: 9999;
-      background: #0a0a0a; border: 1px solid var(--gold); color: var(--gold);
-      font-family: 'Inter', sans-serif; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
-      padding: .65rem 1.1rem; opacity: 0; pointer-events: none; transition: opacity .3s;
-    }
-    .share-toast.show { opacity: 1; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #0d0d0d; }
-    ::-webkit-scrollbar-thumb { background: #1a1a1a; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-    @media (max-width: 900px) { body { padding: 1.5rem .75rem; } .page { margin-bottom: 2.5rem; } }
-  </style>
+/* ─── PAGE 02 MANIFESTO ─── */
+.p02{flex-direction:row}
+.p02-left{width:54%;display:flex;flex-direction:column;justify-content:center;padding:48px 36px 48px 60px}
+.p02-manifesto{font-family:var(--ff);font-size:clamp(20px,3.6vw,44px);line-height:1.25;font-weight:400}
+.p02-sub{font-size:10.5px;line-height:1.7;color:#777;max-width:340px;margin-top:20px}
+.p02-right{flex:1;position:relative;overflow:hidden}
+.p02-right img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.p02-right::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,transparent 55%);z-index:1}
+
+/* ─── PAGE 03 ORIGIN ─── */
+.p03{flex-direction:row}
+.p03-left{width:46%;position:relative;overflow:hidden}
+.p03-left img{width:100%;height:100%;object-fit:cover;filter:brightness(.6) grayscale(.3)}
+.p03-left::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,transparent,var(--dark))}
+.p03-right{flex:1;display:flex;flex-direction:column;justify-content:center;padding:36px 50px 36px 28px}
+.p03-head{font-family:var(--ff);font-size:clamp(16px,2.8vw,34px);line-height:1.3;margin-bottom:22px}
+.p03-items{display:flex;flex-direction:column;gap:16px}
+.p03-item{display:flex;align-items:flex-start;gap:12px}
+.p03-icon{width:30px;height:30px;flex-shrink:0;border:1px solid rgba(197,160,89,.4);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.p03-icon svg{width:13px;height:13px;fill:var(--gold)}
+.p03-text strong{display:block;font-size:11px;color:var(--cream);margin-bottom:2px}
+.p03-text span{font-size:9.5px;color:#777;line-height:1.4}
+
+/* ─── PAGE 04 JOURNEY ─── */
+.p04{flex-direction:row}
+.p04-left{width:40%;position:relative;overflow:hidden}
+.p04-left img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.p04-left::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,transparent,var(--dark))}
+.p04-right{flex:1;display:flex;flex-direction:column;justify-content:center;padding:32px 50px 32px 28px}
+.p04-list{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.p04-item{display:flex;align-items:center;gap:14px}
+.p04-icon{width:34px;height:34px;flex-shrink:0;border:1px solid rgba(197,160,89,.3);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.p04-icon svg{width:13px;height:13px;fill:var(--gold)}
+.p04-num{font-size:20px;font-family:var(--ff);color:var(--gold);line-height:1}
+.p04-label{font-size:11px;font-weight:600;color:var(--cream);letter-spacing:.5px;text-transform:uppercase}
+.p04-sub{font-size:8.5px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
+
+/* ─── PAGE 05 PHILOSOPHY ─── */
+.p05{position:relative;background:var(--dark)}
+.p05-mol{position:absolute;inset:0;opacity:.4}
+.p05-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;height:100%;padding:50px 60px;max-width:54%}
+.p05-quote{font-family:var(--ff);font-size:clamp(22px,3.8vw,48px);line-height:1.28;color:var(--cream);font-weight:400}
+
+/* ─── PAGE 06 HONORS ─── */
+.p06{flex-direction:column;padding:36px 50px}
+.p06-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px;flex:1}
+.p06-card{border:1px solid rgba(197,160,89,.18);border-radius:3px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(255,255,255,.018);text-align:center}
+.p06-card img{height:32px;object-fit:contain;max-width:80px}
+.p06-card-title{font-size:12px;font-weight:700;color:var(--cream);letter-spacing:.5px;text-transform:uppercase}
+.p06-card-sub{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:#666}
+.p06-big{font-size:20px;font-weight:800;letter-spacing:1px}
+
+/* ─── PAGE 07 BY THE NUMBERS ─── */
+.p07{flex-direction:column;justify-content:center;padding:44px 60px;background:var(--dark)}
+.p07-grid{display:grid;grid-template-columns:repeat(2,1fr);margin-top:16px}
+.p07-cell{padding:20px 24px;border-bottom:1px solid rgba(197,160,89,.1);border-right:1px solid rgba(197,160,89,.1)}
+.p07-cell:nth-child(2n){border-right:none}
+.p07-cell:nth-last-child(-n+2){border-bottom:none}
+.p07-num{font-family:var(--ff);font-size:clamp(26px,4.2vw,54px);color:var(--gold);line-height:1}
+.p07-lbl{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:#666;margin-top:4px}
+
+/* ─── PAGE 08 INTELLIGENT MATTER ─── */
+.p08{flex-direction:row}
+.p08-left{width:40%;display:flex;flex-direction:column;justify-content:center;padding:40px 28px 40px 50px}
+.p08-right{flex:1;display:flex;flex-direction:column;justify-content:center;padding:28px 40px 28px 16px;gap:6px}
+.p08-row{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid rgba(197,160,89,.08)}
+.p08-row:last-child{border-bottom:none}
+.p08-img{width:68px;height:40px;object-fit:contain;flex-shrink:0;border-radius:2px}
+.p08-name{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--cream)}
+
+/* ─── PAGE 09 PORTFOLIO ─── */
+.p09{flex-direction:column;padding:34px 50px}
+.p09-list{display:flex;flex-direction:column;margin-top:10px;flex:1}
+.p09-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.p09-row:last-child{border-bottom:none}
+.p09-img{width:50px;height:40px;object-fit:contain;flex-shrink:0}
+.p09-name{font-size:11.5px;font-weight:700;color:var(--cream);letter-spacing:.5px;text-transform:uppercase}
+.p09-desc{font-size:8.5px;color:#666;margin-top:2px}
+.p09-val{font-size:17px;font-family:var(--ff);color:var(--gold);line-height:1;text-align:right}
+.p09-unit{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:#666;text-align:right;margin-top:2px}
+
+/* ─── PAGE 10 INDUSTRIAL TRANSLATION ─── */
+.p10{flex-direction:column;align-items:center;justify-content:center;padding:36px 50px}
+.p10-top{display:flex;justify-content:space-between;width:68%;max-width:640px;margin-bottom:4px}
+.p10-city{width:68%;max-width:640px;object-fit:contain}
+.p10-mid{display:flex;justify-content:space-between;width:68%;max-width:640px;margin-top:4px}
+.p10-bot{margin-top:6px}
+.sector{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#666;text-align:center}
+
+/* ─── PAGE 11 VENTURES ─── */
+.p11{flex-direction:column;padding:34px 50px;background:var(--dark)}
+.p11-list{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.p11-item{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(197,160,89,.08)}
+.p11-item:last-child{border-bottom:none;padding-bottom:0}
+.p11-icon{width:30px;height:30px;flex-shrink:0;border:1px solid rgba(197,160,89,.35);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.p11-icon svg{width:13px;height:13px;fill:var(--gold)}
+.p11-name{font-size:11.5px;font-weight:700;color:var(--cream);text-transform:uppercase;letter-spacing:.5px}
+.p11-desc{font-size:9px;color:#666;margin-top:1px}
+
+/* ─── PAGE 12 GLOBAL RECOGNITION ─── */
+.p12{flex-direction:column;padding:34px 50px}
+.p12-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;flex:1}
+.p12-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:brightness(.8) grayscale(.15)}
+.p12-caption{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-top:12px;text-align:center}
+
+/* ─── PAGE 13 SPEAKING ─── */
+.p13{flex-direction:row}
+.p13-left{width:40%;display:flex;flex-direction:column;justify-content:center;padding:38px 24px 38px 50px}
+.p13-right{flex:1;display:flex;flex-direction:column;gap:5px;padding:28px 40px 28px 14px;justify-content:center}
+.p13-row{display:flex;align-items:center;gap:12px}
+.p13-img{width:76px;height:48px;object-fit:cover;border-radius:2px;flex-shrink:0;filter:brightness(.7)}
+.p13-label{font-size:10px;color:var(--cream);text-transform:uppercase;letter-spacing:1px;font-weight:600;line-height:1.3}
+.p13-sub{font-size:8px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
+
+/* ─── PAGE 14 FUTURE SYSTEMS ─── */
+.p14{position:relative;background:var(--dark)}
+.p14-bg{position:absolute;inset:0;z-index:0}
+.p14-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.35)}
+.p14-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.92) 0%,rgba(8,8,8,.3) 100%)}
+.p14-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:34px 50px}
+.p14-icons{display:flex;gap:22px;margin-top:auto}
+.p14-sicon{display:flex;flex-direction:column;align-items:center;gap:5px}
+.p14-sicon svg{width:20px;height:20px;fill:var(--gold);opacity:.8}
+.p14-sicon span{font-size:6.5px;letter-spacing:2px;text-transform:uppercase;color:#666}
+.p14-quote{margin-top:14px;padding-top:12px;border-top:1px solid rgba(197,160,89,.2)}
+.p14-qmark{font-size:28px;color:var(--gold);line-height:1;opacity:.55;margin-bottom:3px}
+.p14-qtext{font-family:var(--ff);font-size:clamp(10px,1.3vw,15px);color:var(--cream);line-height:1.55;font-style:italic;max-width:580px}
+
+/* ─── PAGE 15 COLLABORATION ─── */
+.p15{flex-direction:column;justify-content:space-between;padding:38px 60px 34px;background:var(--dark)}
+.p15-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:16px 0;flex:1;align-items:stretch}
+.p15-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:18px 8px;border:1px solid rgba(197,160,89,.14);border-radius:3px;background:rgba(255,255,255,.018)}
+.p15-card svg{width:26px;height:26px;fill:var(--gold)}
+.p15-cname{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream);font-weight:600}
+.p15-cdesc{font-size:8px;color:#666;line-height:1.4;margin-top:1px}
+.p15-qr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.p15-cta{font-size:11.5px;color:var(--cream);letter-spacing:.5px}
+.p15-url{font-size:9.5px;color:var(--gold);letter-spacing:.5px}
+
+/* ─── PAGE 16 CLOSING ─── */
+.p16{flex-direction:row}
+.p16-left{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:48px 32px 48px 60px;background:var(--dark)}
+.p16-quote{font-family:var(--ff);font-size:clamp(16px,2.8vw,34px);line-height:1.35;color:var(--cream);max-width:360px}
+.p16-sp{display:flex;align-items:center;gap:14px;margin-top:18px}
+.p16-sp img{width:48px;height:48px;object-fit:contain;filter:invert(1) sepia(1) saturate(3) hue-rotate(-5deg)}
+.p16-spname{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--cream);font-weight:300;line-height:1.6}
+.p16-links{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+.p16-link{display:flex;align-items:center;gap:8px;font-size:9.5px;color:#777}
+.p16-link svg{width:13px;height:13px;fill:var(--gold);flex-shrink:0}
+.p16-right{width:42%;position:relative;overflow:hidden}
+.p16-right img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.65)}
+.p16-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,var(--dark),transparent);z-index:1}
+</style>
 </head>
 <body>
 
-<!-- ══ 01 · COVER ══ -->
-<section class="page" id="cover">
+<!-- 01 COVER -->
+<section class="page p01">
   <span class="pgn">01</span>
-  <!-- SP logo top-left -->
-  <div style="position:absolute;top:1.1rem;left:1.6rem;z-index:10">
-    <img src="images/sp-logo.svg" alt="SP" style="height:1.6rem;filter:invert(72%) sepia(43%) saturate(500%) hue-rotate(5deg)" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;font-style:italic;color:var(--gold);font-size:1.4rem\'>SP</span>'">
-  </div>
-  <img class="full-bg" src="images/founder.jpg" alt="Sushanth Paatnaik" style="object-position:center top;filter:brightness(.5) contrast(1.08) grayscale(.25)">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.55) 0%,rgba(8,8,8,.05) 35%,rgba(8,8,8,.1) 55%,rgba(8,8,8,.88) 100%)"></div>
-  <!-- bottom identity -->
-  <div style="position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.5rem 2rem 2rem">
-    <div style="font-size:clamp(1.5rem,3.5vw,3rem);letter-spacing:.35em;text-transform:uppercase;font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:.5rem">Sushanth<br>Paatnaik</div>
-    <div style="font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(232,227,215,.5);margin-bottom:.9rem">Inventor · Deep-Tech Founder</div>
-    <div style="width:1.5rem;height:1px;background:var(--gold);margin-bottom:.75rem"></div>
-    <div style="font-size:.6rem;letter-spacing:.18em;color:rgba(197,160,89,.7)">sushanthpaatnaik.com</div>
+  <div class="p01-left"><img src="images/founder.jpg" alt="Sushanth Paatnaik"></div>
+  <div class="p01-right">
+    <div class="p01-logo"><img src="images/sp-logo.svg" alt="SP"></div>
+    <div>
+      <div class="p01-rule"></div>
+      <div class="p01-name">Sushanth<br>Paatnaik</div>
+      <div class="p01-title">Inventor &nbsp;·&nbsp; Deep-Tech Founder</div>
+    </div>
   </div>
 </section>
 
-<!-- ══ 02 · MANIFESTO ══ -->
-<section class="page" id="manifesto">
+<!-- 02 MANIFESTO -->
+<section class="page p02">
   <span class="pgn">02</span>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 35% 55%,rgba(197,160,89,.04) 0%,transparent 60%)"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:3rem 3rem 2.5rem 3.5rem">
-    <div style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4.6rem);font-weight:700;line-height:1.08;letter-spacing:-.015em">
-      <span style="color:var(--cream)">Engineering</span><br>
-      <span style="color:var(--gold)">Matter.</span><br>
-      <span style="color:var(--cream)">Engineering</span><br>
-      <span style="color:var(--gold)">Capital.</span><br>
-      <span style="color:var(--cream)">Engineering</span><br>
-      <span style="color:var(--gold)">Scale.</span>
+  <div class="p02-left">
+    <div class="p02-manifesto">
+      <span class="cream">Engineering</span><br>
+      <span class="gold">Matter.</span><br>
+      <span class="cream">Engineering</span><br>
+      <span class="gold">Capital.</span><br>
+      <span class="cream">Engineering</span><br>
+      <span class="gold">Scale.</span>
     </div>
-    <div style="width:1.75rem;height:1px;background:var(--gold);margin:1.5rem 0 1.25rem"></div>
-    <p style="font-size:clamp(.72rem,.95vw,.88rem);font-weight:300;line-height:1.9;color:var(--cream-dim);max-width:36ch">From a maker's bench to global impact, this journey is about engineering breakthrough materials and ventures that build a more sustainable, abundant and equitable world.</p>
-    <!-- arrow -->
-    <div style="position:absolute;bottom:1.5rem;left:3.5rem">
-      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 9L1 2M8 9L15 2" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </div>
+    <div class="gold-rule"></div>
+    <div class="p02-sub">From a maker's bench to global impact. This journey is about engineering breakthrough materials and ventures that build a more sustainable, abundant and equitable world.</div>
   </div>
+  <div class="p02-right"><img src="images/bg-future.jpg" alt=""></div>
 </section>
 
-<!-- ══ 03 · ORIGIN ══ -->
-<section class="page" id="origin">
+<!-- 03 ORIGIN -->
+<section class="page p03">
   <span class="pgn">03</span>
-  <div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:52% 1fr">
-    <!-- Left -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2rem 2rem 2.5rem">
-      <div class="sect" style="margin-bottom:1.25rem">Origin</div>
-      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:400;line-height:1.1;color:var(--cream);margin-bottom:1.5rem">Every idea<br>has a birthplace.</div>
-      <div style="display:flex;flex-direction:column;gap:.9rem">
-        <div style="display:flex;align-items:flex-start;gap:.85rem">
-          <div style="flex-shrink:0;width:1.5rem;height:1.5rem;border:1px solid var(--border-g);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:.1rem">
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-          </div>
-          <div>
-            <div style="font-size:.78rem;font-weight:400;color:var(--cream);margin-bottom:.1rem">Childhood curiosity in a small town</div>
-            <div style="font-size:.68rem;font-weight:300;color:var(--muted);line-height:1.6">Born in Bhubaneswar, Odisha — engineering empathy from the very start.</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:.85rem">
-          <div style="flex-shrink:0;width:1.5rem;height:1.5rem;border:1px solid var(--border-g);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:.1rem">
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <div style="font-size:.78rem;font-weight:400;color:var(--cream);margin-bottom:.1rem">First workshop at age 14</div>
-            <div style="font-size:.68rem;font-weight:300;color:var(--muted);line-height:1.6">Hands-on making before theory — tools before textbooks.</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:.85rem">
-          <div style="flex-shrink:0;width:1.5rem;height:1.5rem;border:1px solid var(--border-g);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:.1rem">
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <div>
-            <div style="font-size:.78rem;font-weight:400;color:var(--cream);margin-bottom:.1rem">Breath-powered wheelchair that started it all</div>
-            <div style="font-size:.68rem;font-weight:300;color:var(--muted);line-height:1.6">First Presidential Award — presented to Dr. APJ Abdul Kalam at NIF.</div>
-          </div>
-        </div>
+  <div class="p03-left"><img src="images/founder-archival.jpg" alt="Origin"></div>
+  <div class="p03-right">
+    <div class="sect">Origin</div>
+    <div class="p03-head">Every idea<br>has a birthplace.</div>
+    <div class="gold-rule"></div>
+    <div class="p03-items">
+      <div class="p03-item">
+        <div class="p03-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div class="p03-text"><strong>Childhood curiosity in a small town</strong><span>Taking apart machines before understanding why they worked</span></div>
       </div>
-    </div>
-    <!-- Right photo -->
-    <div style="position:relative;overflow:hidden">
-      <img src="images/founder-archival.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.7) grayscale(.4)">
-      <div style="position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,rgba(8,8,8,.1) 25%,transparent 50%)"></div>
+      <div class="p03-item">
+        <div class="p03-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
+        <div class="p03-text"><strong>First workshop at age 14</strong><span>Built a breath-powered device that changed everything</span></div>
+      </div>
+      <div class="p03-item">
+        <div class="p03-icon"><svg viewBox="0 0 24 24"><path d="M7 11H1v2h6v-2zm2.17-3.24L7.05 5.64 5.64 7.05l2.12 2.12 1.41-1.41zM13 1h-2v6h2V1zm5.36 6.05l-1.41-1.41-2.12 2.12 1.41 1.41 2.12-2.12zM17 11v2h6v-2h-6zm-5-2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm2.83 7.24l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41zm-9.19.71l1.41 1.41 2.12-2.12-1.41-1.41-2.12 2.12zM11 23h2v-6h-2v6z"/></svg></div>
+        <div class="p03-text"><strong>Breath-powered wheelchair that started it all</strong><span>First invention that merged compassion with engineering</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 04 · JOURNEY ══ -->
-<section class="page" id="journey">
+<!-- 04 JOURNEY -->
+<section class="page p04">
   <span class="pgn">04</span>
-  <img class="full-bg" src="images/bg-origin.jpg" alt="" style="opacity:.2;object-position:center bottom;filter:grayscale(.6)">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,.92) 0%,rgba(8,8,8,.75) 55%,rgba(8,8,8,.5) 100%)"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:1.75rem 2.5rem">
-    <div class="sect" style="margin-bottom:1.35rem">Journey</div>
-    <div style="display:flex;flex-direction:column;gap:0">
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--border-g)">
-          <img src="images/award-kalam.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(.4)">
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">14</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">Years of Relentless Innovation</div>
-        </div>
+  <div class="p04-left"><img src="images/bg-origin.jpg" alt=""></div>
+  <div class="p04-right">
+    <div class="sect">Journey</div>
+    <div class="p04-list">
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+        <div><div class="p04-label"><span class="p04-num">14 </span>Years of Relentless Innovation</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--border-g)">
-          <img src="images/award-pranab.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(.4)">
-        </div>
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">Presidential Awards × 6</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">National Innovation Foundation</div>
-        </div>
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.5 7.5H22l-6.5 4.7 2.5 7.5L12 16.3 6 20.7l2.5-7.5L2 8.5h7.5z"/></svg></div>
+        <div><div class="p04-label">Presidential Awards ×6</div><div class="p04-sub">Highest civilian honours</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--border-g);background:#e62b1e">
-          <img src="images/logo-ted.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">TED</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">Speaker</div>
-        </div>
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.65 14.08c-.19.19-.51.19-.7 0L12 12.1l-3.95 3.98c-.19.19-.51.19-.7 0-.19-.19-.19-.51 0-.7l3.95-3.98-3.95-3.97c-.19-.19-.19-.51 0-.7.19-.19.51-.19.7 0L12 10.7l3.95-3.97c.19-.19.51-.19.7 0 .19.19.19.51 0 .7L12.7 11.4l3.95 3.98c.19.19.19.5 0 .7z"/></svg></div>
+        <div><div class="p04-label">TED Speaker</div><div class="p04-sub">Ideas worth spreading</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--border-g)">
-          <img src="images/logo-mit.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">MIT TR35</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">Global Innovator</div>
-        </div>
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+        <div><div class="p04-label">MIT TR35 — Global Innovator</div><div class="p04-sub">Technology Review 35 under 35</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--border-g)">
-          <img src="images/nasa.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(.3)">
-        </div>
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">NASA</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">Collaborator</div>
-        </div>
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><div class="p04-label">NASA Collaborator</div><div class="p04-sub">Advanced materials research</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--border-g)">
-          <img src="images/logo-ink.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(.5)">
-        </div>
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">Fab Labs &amp; Global Ecosystems</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">MIT Fab-10 · INK · G20 · BRICS</div>
-        </div>
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+        <div><div class="p04-label">Fab Labs &amp; Global Ecosystems</div><div class="p04-sub">International innovation hubs</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:1.1rem;padding:.62rem 0">
-        <div style="flex-shrink:0;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;background:var(--gold-dim)">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.12rem">Today</div>
-          <div style="font-size:.75rem;font-weight:400;color:var(--cream);letter-spacing:.05em;text-transform:uppercase">Building Industrial Systems That Outlive The Inventor</div>
-        </div>
+      <div class="p04-item">
+        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><div class="p04-label">Today</div><div class="p04-sub">Building industrial systems that outlive the inventor</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 05 · PHILOSOPHY ══ -->
-<section class="page" id="philosophy">
+<!-- 05 PHILOSOPHY -->
+<section class="page p05">
   <span class="pgn">05</span>
-  <!-- molecular network SVG pattern -->
-  <div style="position:absolute;inset:0;background:#080808">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="opacity:.18">
-      <defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C5A059" stop-opacity=".8"/><stop offset="100%" stop-color="#C5A059" stop-opacity="0"/></radialGradient></defs>
-      <!-- Lines -->
-      <line x1="20%" y1="30%" x2="35%" y2="50%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="35%" y1="50%" x2="55%" y2="35%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="55%" y1="35%" x2="70%" y2="55%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="70%" y1="55%" x2="85%" y2="40%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="35%" y1="50%" x2="45%" y2="70%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="45%" y1="70%" x2="65%" y2="75%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="65%" y1="75%" x2="70%" y2="55%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="20%" y1="30%" x2="15%" y2="55%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="15%" y1="55%" x2="35%" y2="50%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="55%" y1="35%" x2="60%" y2="15%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="85%" y1="40%" x2="90%" y2="65%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="90%" y1="65%" x2="65%" y2="75%" stroke="#C5A059" stroke-width=".5"/>
-      <line x1="45%" y1="70%" x2="35%" y2="85%" stroke="#C5A059" stroke-width=".5"/>
-      <!-- Nodes -->
-      <circle cx="20%" cy="30%" r="3" fill="#C5A059"/>
-      <circle cx="35%" cy="50%" r="4" fill="#C5A059"/>
-      <circle cx="55%" cy="35%" r="3" fill="#C5A059"/>
-      <circle cx="70%" cy="55%" r="3.5" fill="#C5A059"/>
-      <circle cx="85%" cy="40%" r="2.5" fill="#C5A059"/>
-      <circle cx="45%" cy="70%" r="3" fill="#C5A059"/>
-      <circle cx="65%" cy="75%" r="2.5" fill="#C5A059"/>
-      <circle cx="15%" cy="55%" r="2" fill="#C5A059"/>
-      <circle cx="60%" cy="15%" r="2" fill="#C5A059"/>
-      <circle cx="90%" cy="65%" r="2" fill="#C5A059"/>
-      <circle cx="35%" cy="85%" r="2" fill="#C5A059"/>
-    </svg>
-  </div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(197,160,89,.04) 0%,transparent 60%)"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:3rem 3.5rem">
-    <div class="sect" style="margin-bottom:1.75rem">Philosophy</div>
-    <div style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.8vw,4.4rem);font-style:italic;font-weight:400;line-height:1.12;color:var(--cream)">The future<br>is not<br>imagined.<br>It is<br>engineered<br>quietly.</div>
-    <div style="width:2rem;height:1px;background:var(--gold);margin-top:2rem"></div>
-  </div>
-</section>
-
-<!-- ══ 06 · HONORS & RECOGNITIONS ══ -->
-<section class="page" id="honors">
-  <span class="pgn">06</span>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:1.5rem 1.75rem 1.4rem">
-    <div class="sect" style="margin-bottom:1rem">Honors &amp; Recognitions</div>
-    <!-- 2×2 grid -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;flex:1">
-      <!-- President of India -->
-      <div style="position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06)">
-        <img src="images/award-kalam.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.38) grayscale(.25)">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.96) 0%,rgba(8,8,8,.2) 60%,transparent 100%)"></div>
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:.85rem 1rem">
-          <div style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem">2008 — 2013</div>
-          <div style="font-size:.88rem;font-weight:400;color:var(--cream);line-height:1.25">President of India<br>Awards × 6</div>
-        </div>
-      </div>
-      <!-- NASA -->
-      <div style="position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06)">
-        <img src="images/nasa.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.35) grayscale(.15)">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.96) 0%,rgba(8,8,8,.2) 60%,transparent 100%)"></div>
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:.85rem 1rem">
-          <div style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem">2011</div>
-          <div style="font-size:.88rem;font-weight:400;color:var(--cream);line-height:1.25">NASA<br>Collaborator</div>
-        </div>
-      </div>
-      <!-- MIT TR35 -->
-      <div style="border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.2rem;background:rgba(255,255,255,.02)">
-        <div style="font-size:1.4rem;font-weight:700;font-family:'Inter',sans-serif;color:var(--cream);letter-spacing:-.02em;line-height:1">MIT<br>TR35</div>
-        <div style="font-size:.58rem;font-weight:300;color:var(--cream-dim);margin-top:.45rem;line-height:1.5">MIT Technology<br>Review 35 Under 35</div>
-      </div>
-      <!-- TED -->
-      <div style="border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.2rem;background:rgba(230,43,30,.08)">
-        <div style="font-size:2rem;font-weight:700;color:#e62b1e;font-family:'Inter',sans-serif;line-height:1;margin-bottom:.4rem">TED</div>
-        <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)">Speaker</div>
-      </div>
-    </div>
-    <!-- Bottom 3-col row -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.55rem;margin-top:.55rem">
-      <div style="border:1px solid rgba(255,255,255,.06);padding:.7rem .9rem;display:flex;align-items:center;gap:.7rem">
-        <img src="images/intel-iris.jpg" alt="Intel" style="height:1.4rem;object-fit:contain;flex-shrink:0">
-        <div>
-          <div style="font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">Intel Innovator</div>
-        </div>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,.06);padding:.7rem .9rem;display:flex;align-items:center;gap:.7rem">
-        <div style="font-size:1rem;font-weight:700;color:var(--cream);letter-spacing:-.01em;flex-shrink:0">INK</div>
-        <div style="font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">INK Fellowship</div>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,.06);padding:.7rem .9rem;display:flex;align-items:center;gap:.7rem">
-        <img src="images/logo-nif.jpg" alt="NIF" style="height:1.3rem;object-fit:contain;flex-shrink:0;opacity:.65">
-        <div style="font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">NIF Fellow</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 07 · BY THE NUMBERS ══ -->
-<section class="page" id="numbers">
-  <span class="pgn">07</span>
-  <div class="sparkle-bg" style="position:absolute;inset:0;background-color:var(--dark)"></div>
-  <div style="position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(197,160,89,.04) 0%,transparent 100%)"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:1.75rem 2rem 1.5rem">
-    <div class="sect" style="margin-bottom:1.25rem">By The Numbers</div>
-    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:0">
-      <div style="border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.5rem">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;color:var(--cream);line-height:1">15+</div>
-        <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.4rem">Years</div>
-      </div>
-      <div style="border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.5rem">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;color:var(--cream);line-height:1">10+</div>
-        <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.4rem">Industrial Technologies</div>
-      </div>
-      <div style="border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.5rem">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;color:var(--cream);line-height:1">6</div>
-        <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.4rem">Presidential Awards</div>
-      </div>
-      <div style="border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.5rem">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;color:var(--cream);line-height:1">7</div>
-        <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.4rem">Ventures</div>
-      </div>
-      <div style="border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:1rem 1.5rem">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;color:var(--cream);line-height:1">50+</div>
-        <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.4rem">Media Features</div>
-      </div>
-      <div style="display:flex;flex-direction:column;justify-content:center;padding:1rem 1.5rem">
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;color:var(--cream);line-height:1">100+</div>
-        <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.4rem">Industry Collaborations</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 08 · ENGINEERING INTELLIGENT MATTER ══ -->
-<section class="page" id="matter">
-  <span class="pgn">08</span>
-  <div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:38% 1fr">
-    <!-- Left heading -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:2rem 1.5rem 2rem 2.5rem;border-right:1px solid var(--border)">
-      <div class="sect" style="margin-bottom:.75rem">Engineering</div>
-      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.5vw,2.2rem);font-weight:400;line-height:1.2;color:var(--cream)">Intelligent<br>Matter</div>
-      <div style="width:1.75rem;height:1px;background:var(--gold);margin-top:1.1rem"></div>
-    </div>
-    <!-- Right rows -->
-    <div style="display:flex;flex-direction:column">
-      <div style="flex:1;display:flex;align-items:center;gap:1rem;padding:.6rem 1.5rem;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:3.8rem;height:3.2rem;overflow:hidden">
-          <img src="images/p-graphacrete.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.7vw,1.4rem);font-weight:400;color:var(--cream);letter-spacing:.06em">Graphene</div>
-      </div>
-      <div style="flex:1;display:flex;align-items:center;gap:1rem;padding:.6rem 1.5rem;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:3.8rem;height:3.2rem;overflow:hidden">
-          <img src="images/p-lubritron.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.7vw,1.4rem);font-weight:400;color:var(--cream);letter-spacing:.06em">Additives</div>
-      </div>
-      <div style="flex:1;display:flex;align-items:center;gap:1rem;padding:.6rem 1.5rem;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:3.8rem;height:3.2rem;overflow:hidden">
-          <img src="images/p-ceraphene.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.7vw,1.4rem);font-weight:400;color:var(--cream);letter-spacing:.06em">Coatings</div>
-      </div>
-      <div style="flex:1;display:flex;align-items:center;gap:1rem;padding:.6rem 1.5rem;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:3.8rem;height:3.2rem;overflow:hidden">
-          <img src="images/p-armophene.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.7vw,1.4rem);font-weight:400;color:var(--cream);letter-spacing:.06em">Composites</div>
-      </div>
-      <div style="flex:1;display:flex;align-items:center;gap:1rem;padding:.6rem 1.5rem">
-        <div style="flex-shrink:0;width:3.8rem;height:3.2rem;overflow:hidden;background:#050510">
-          <img src="images/p-hydrocell.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:hue-rotate(200deg) brightness(.7)">
-        </div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.7vw,1.4rem);font-weight:400;color:var(--cream);letter-spacing:.06em">AI</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 09 · INNOVATION PORTFOLIO ══ -->
-<section class="page" id="portfolio">
-  <span class="pgn">09</span>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:1.5rem 2rem 1.4rem 2.5rem">
-    <div class="sect" style="margin-bottom:1rem">Innovation Portfolio</div>
-    <div style="flex:1;display:flex;flex-direction:column">
-      <div style="flex:1;display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1.1rem;border-bottom:1px solid var(--border);padding:.4rem 0">
-        <div style="width:3rem;height:2.6rem;overflow:hidden"><img src="images/p-graphacrete.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
-        <div>
-          <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.18rem">Graphacrete</div>
-          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim)">Stronger, Greener, Smarter Concrete.</div>
-        </div>
-        <div style="text-align:right;min-width:5.5rem">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);color:var(--cream);line-height:1">2–3X</div>
-          <div style="font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.15rem">Strength</div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1.1rem;border-bottom:1px solid var(--border);padding:.4rem 0">
-        <div style="width:3rem;height:2.6rem;overflow:hidden"><img src="images/p-graffisol.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
-        <div>
-          <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.18rem">Graffisol</div>
-          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim)">High Performance Solar Coating.</div>
-        </div>
-        <div style="text-align:right;min-width:5.5rem">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);color:var(--cream);line-height:1">5–8%</div>
-          <div style="font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.15rem">Power Gen</div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1.1rem;border-bottom:1px solid var(--border);padding:.4rem 0">
-        <div style="width:3rem;height:2.6rem;overflow:hidden"><img src="images/p-ignitron-d.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
-        <div>
-          <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.18rem">Ignitron</div>
-          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim)">Next-Gen Thermal Management.</div>
-        </div>
-        <div style="text-align:right;min-width:5.5rem">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);color:var(--cream);line-height:1">15–25%</div>
-          <div style="font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.15rem">Fuel Saving</div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1.1rem;border-bottom:1px solid var(--border);padding:.4rem 0">
-        <div style="width:3rem;height:2.6rem;overflow:hidden"><img src="images/p-voltaphene.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
-        <div>
-          <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.18rem">HD-G-PE</div>
-          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim)">High Durability Polyethylene.</div>
-        </div>
-        <div style="text-align:right;min-width:5.5rem">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);color:var(--cream);line-height:1">2X</div>
-          <div style="font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.15rem">Toughness</div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1.1rem;padding:.4rem 0">
-        <div style="width:3rem;height:2.6rem;overflow:hidden"><img src="images/p-hydrocell.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
-        <div>
-          <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.18rem">Battery Technologies</div>
-          <div style="font-size:.7rem;font-weight:300;color:var(--cream-dim)">Safer. Faster. Longer.</div>
-        </div>
-        <div style="text-align:right;min-width:5.5rem">
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);color:var(--cream);line-height:1">2–3X</div>
-          <div style="font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.15rem">Cycle Life</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 10 · INDUSTRIAL TRANSLATION ══ -->
-<section class="page" id="industrial">
-  <span class="pgn">10</span>
-  <img class="full-bg" src="images/bg-industrial.jpg" alt="" style="opacity:.7;object-position:center">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.8) 0%,rgba(8,8,8,.25) 40%,rgba(8,8,8,.55) 100%)"></div>
-  <!-- Floating labels -->
-  <div style="position:absolute;top:3.5rem;left:30%;z-index:3"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)">Solar</div></div>
-  <div style="position:absolute;top:3.5rem;right:25%;z-index:3"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)">Energy</div></div>
-  <div style="position:absolute;bottom:3rem;left:18%;z-index:3"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)">Automotive</div></div>
-  <div style="position:absolute;bottom:3rem;right:18%;z-index:3"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)">Defense</div></div>
-  <div style="position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);z-index:3"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)">Construction</div></div>
-  <!-- header -->
-  <div style="position:relative;z-index:2;padding:1.5rem 2rem">
-    <div class="sect">Industrial Translation</div>
-  </div>
-</section>
-
-<!-- ══ 11 · VENTURES ══ -->
-<section class="page" id="ventures">
-  <span class="pgn">11</span>
-  <div class="sparkle-bg" style="position:absolute;inset:0;background-color:var(--dark)"></div>
-  <div style="position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(197,160,89,.06) 0%,transparent 100%)"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:1.5rem 2.5rem 1.75rem">
-    <div class="sect" style="margin-bottom:1.1rem">Ventures</div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between">
-      <div style="display:flex;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <img src="images/sp-logo.svg" alt="" style="width:1.2rem;height:1.2rem;object-fit:contain;filter:invert(72%) sepia(43%) saturate(500%) hue-rotate(5deg)" onerror="this.style.display='none'">
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--cream)">SPI Industries</div>
-          <div style="font-size:.6rem;font-weight:300;color:var(--muted);margin-top:.08rem">R&amp;D Industrial Solutions</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--cream)">Monoatom Labs</div>
-          <div style="font-size:.6rem;font-weight:300;color:var(--muted);margin-top:.08rem">Graphene at Scale</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--cream)">Grafillium</div>
-          <div style="font-size:.6rem;font-weight:300;color:var(--muted);margin-top:.08rem">Eco-Nano Additives</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><path d="M2 12h20M12 2l10 10-10 10L2 12z"/></svg>
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--cream)">InThinks</div>
-          <div style="font-size:.6rem;font-weight:300;color:var(--muted);margin-top:.08rem">Innovation Studio</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border)">
-        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--cream)">Starunico Capital</div>
-          <div style="font-size:.6rem;font-weight:300;color:var(--muted);margin-top:.08rem">Deep-Tech Investment</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:1rem;padding:.55rem 0">
-        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
-        </div>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--cream)">Magppie Living</div>
-          <div style="font-size:.6rem;font-weight:300;color:var(--muted);margin-top:.08rem">Future Living</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 12 · GLOBAL RECOGNITION ══ -->
-<section class="page" id="recognition">
-  <span class="pgn">12</span>
-  <img class="full-bg" src="images/bg-voices.jpg" alt="" style="opacity:.8;object-position:center">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.88) 0%,rgba(8,8,8,.25) 30%,rgba(8,8,8,.4) 75%,rgba(8,8,8,.9) 100%)"></div>
-  <div style="position:relative;z-index:2;padding:1.5rem 2rem">
-    <div class="sect">Global Recognition</div>
-  </div>
-  <div style="position:absolute;bottom:1.5rem;left:0;right:0;z-index:2;text-align:center">
-    <div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(197,160,89,.7)">Featured in 50+ National &amp; Global Media</div>
-  </div>
-</section>
-
-<!-- ══ 13 · SPEAKING ENGAGEMENTS ══ -->
-<section class="page" id="speaking">
-  <span class="pgn">13</span>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:1.5rem 0 0">
-    <div class="sect" style="padding:0 2.5rem;margin-bottom:.85rem">Speaking Engagements</div>
-    <div style="flex:1;display:flex;flex-direction:column">
-      <div style="flex:1;display:grid;grid-template-columns:30% 1fr;border-top:1px solid var(--border);align-items:stretch">
-        <div style="overflow:hidden;border-right:1px solid var(--border)">
-          <img src="images/ted.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(.6)">
-        </div>
-        <div style="display:flex;align-items:center;padding:.65rem 1.5rem;border-bottom:1px solid var(--border)">
-          <div>
-            <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--cream)">TED</div>
-            <div style="font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.15rem">Speaker</div>
-          </div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:30% 1fr;align-items:stretch">
-        <div style="overflow:hidden;border-right:1px solid var(--border)">
-          <img src="images/gadkari.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(.6)" onerror="this.src='images/g20.jpg'">
-        </div>
-        <div style="display:flex;align-items:center;padding:.65rem 1.5rem;border-bottom:1px solid var(--border)">
-          <div>
-            <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--cream)">CEO Clubs</div>
-            <div style="font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.15rem">&amp; Leadership Forums</div>
-          </div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:30% 1fr;align-items:stretch">
-        <div style="overflow:hidden;border-right:1px solid var(--border)">
-          <img src="images/brics.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(.6)">
-        </div>
-        <div style="display:flex;align-items:center;padding:.65rem 1.5rem;border-bottom:1px solid var(--border)">
-          <div>
-            <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--cream)">Universities</div>
-            <div style="font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.15rem">&amp; Institutes</div>
-          </div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:30% 1fr;align-items:stretch">
-        <div style="overflow:hidden;border-right:1px solid var(--border)">
-          <img src="images/ieema.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(.6)">
-        </div>
-        <div style="display:flex;align-items:center;padding:.65rem 1.5rem;border-bottom:1px solid var(--border)">
-          <div>
-            <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--cream)">Global</div>
-            <div style="font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.15rem">Conferences</div>
-          </div>
-        </div>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:30% 1fr;align-items:stretch">
-        <div style="overflow:hidden;border-right:1px solid var(--border)">
-          <img src="images/silicon-valley.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(.6)">
-        </div>
-        <div style="display:flex;align-items:center;padding:.65rem 1.5rem">
-          <div>
-            <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--cream)">Silicon Valley</div>
-            <div style="font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.15rem">&amp; Beyond</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 14 · FUTURE SYSTEMS ══ -->
-<section class="page" id="future">
-  <span class="pgn">14</span>
-  <img class="full-bg" src="images/bg-future.jpg" alt="" style="opacity:.75;object-position:center 30%">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.75) 0%,rgba(8,8,8,.15) 35%,rgba(8,8,8,.6) 72%,rgba(8,8,8,.92) 100%)"></div>
-  <div style="position:relative;z-index:2;padding:1.5rem 2rem">
-    <div class="sect">Future Systems</div>
-  </div>
-  <div style="position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1rem 2rem 1.5rem">
-    <!-- Icons -->
-    <div style="display:flex;gap:2rem;margin-bottom:.85rem;align-items:center">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.3rem">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
-        <div style="font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">Materials</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.3rem">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        <div style="font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">Energy</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.3rem">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
-        <div style="font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">Water</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.3rem">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-        <div style="font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">Hydrogen</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.3rem">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        <div style="font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)">AI</div>
-      </div>
-    </div>
-    <p style="font-size:clamp(.68rem,.95vw,.85rem);font-style:italic;font-family:'Playfair Display',serif;color:var(--cream-dim);max-width:55ch;line-height:1.65">"The next industrial revolution will be built on intelligent materials, clean energy and frontier technologies."</p>
-  </div>
-</section>
-
-<!-- ══ 15 · COLLABORATION ══ -->
-<section class="page" id="collaboration">
-  <span class="pgn">15</span>
-  <div class="sparkle-bg" style="position:absolute;inset:0;background-color:var(--dark)"></div>
-  <div style="position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(to top,rgba(197,160,89,.05) 0%,transparent 100%)"></div>
-  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem 3rem;text-align:center;gap:0">
-    <div class="sect" style="margin-bottom:1.75rem">Collaboration</div>
-    <!-- 4 pillars -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:1.75rem;width:100%;max-width:650px">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
-        <div style="width:2.2rem;height:2.2rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-        </div>
-        <div style="font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);font-weight:600">Industry</div>
-        <div style="font-size:.6rem;font-weight:300;color:var(--muted);line-height:1.55">Co-creating impact at scale</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
-        <div style="width:2.2rem;height:2.2rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <div style="font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);font-weight:600">Investment</div>
-        <div style="font-size:.6rem;font-weight:300;color:var(--muted);line-height:1.55">Fueling deep-tech moonshots</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
-        <div style="width:2.2rem;height:2.2rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <div style="font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);font-weight:600">Research</div>
-        <div style="font-size:.6rem;font-weight:300;color:var(--muted);line-height:1.55">Pushing the boundaries of science</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
-        <div style="width:2.2rem;height:2.2rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        </div>
-        <div style="font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);font-weight:600">Government</div>
-        <div style="font-size:.6rem;font-weight:300;color:var(--muted);line-height:1.55">Building systems for the future</div>
-      </div>
-    </div>
-    <!-- QR -->
-    <div style="width:3.5rem;height:3.5rem;border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center;margin-bottom:.85rem;background:rgba(255,255,255,.03)">
-      <svg width="42" height="42" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="8" width="34" height="34" fill="none" stroke="#C5A059" stroke-width="4"/>
-        <rect x="18" y="18" width="14" height="14" fill="#C5A059"/>
-        <rect x="58" y="8" width="34" height="34" fill="none" stroke="#C5A059" stroke-width="4"/>
-        <rect x="68" y="18" width="14" height="14" fill="#C5A059"/>
-        <rect x="8" y="58" width="34" height="34" fill="none" stroke="#C5A059" stroke-width="4"/>
-        <rect x="18" y="68" width="14" height="14" fill="#C5A059"/>
-        <rect x="58" y="58" width="10" height="10" fill="#C5A059"/>
-        <rect x="72" y="58" width="10" height="10" fill="#C5A059"/>
-        <rect x="58" y="72" width="10" height="10" fill="#C5A059"/>
-        <rect x="82" y="82" width="10" height="10" fill="#C5A059"/>
-      </svg>
-    </div>
-    <div style="font-size:.75rem;font-weight:300;color:var(--cream);margin-bottom:.3rem">Let's build the future together.</div>
-    <div style="font-size:.58rem;letter-spacing:.18em;color:var(--muted)">sushanthpaatnaik.com</div>
-  </div>
-</section>
-
-<!-- ══ 16 · CONTACT ══ -->
-<section class="page" id="contact">
-  <span class="pgn">16</span>
-  <div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:55% 1fr">
-    <!-- Left -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2.5rem 2.5rem 3rem">
-      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.8rem);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:1.5rem">Building<br>industrial<br>systems<br>that outlive<br>the inventor.</div>
-      <!-- SP monogram -->
-      <div style="margin-bottom:1.25rem">
-        <img src="images/sp-logo.svg" alt="SP" style="height:2.8rem;filter:invert(72%) sepia(43%) saturate(500%) hue-rotate(5deg)" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;font-style:italic;color:var(--gold);font-size:2.5rem\'>SP</span>'">
-      </div>
-      <div style="font-size:.65rem;letter-spacing:.32em;text-transform:uppercase;color:var(--cream);margin-bottom:1rem">Sushanth Paatnaik</div>
-      <!-- contact lines -->
-      <div style="display:flex;flex-direction:column;gap:.45rem">
-        <div style="display:flex;align-items:center;gap:.6rem">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <div style="font-size:.68rem;font-weight:300;color:var(--cream-dim)">sushanthpaatnaik.com</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:.6rem">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <div style="font-size:.68rem;font-weight:300;color:var(--cream-dim)">connect@sushanthpaatnaik.com</div>
-        </div>
-      </div>
-    </div>
-    <!-- Right: portrait -->
-    <div style="position:relative;overflow:hidden">
-      <img src="images/founder.jpg" alt="Sushanth Paatnaik" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.65) contrast(1.05) grayscale(.2)">
-      <div style="position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,rgba(8,8,8,.1) 25%,transparent 50%)"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Share Button -->
-<button class="share-fab" id="shareBtn" aria-label="Share">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+  <svg class="p05-mol" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#C5A059" stroke-opacity=".3" stroke-width="1">
+      <line x1="640" y1="360" x2="820" y2="255"/><line x1="640" y1="360" x2="775" y2="478"/><line x1="640" y1="360" x2="502" y2="278"/>
+      <line x1="640" y1="360" x2="512" y2="452"/><line x1="640" y1="360" x2="718" y2="198"/><line x1="640" y1="360" x2="428" y2="358"/>
+      <line x1="820" y1="255" x2="942" y2="178"/><line x1="820" y1="255" x2="958" y2="318"/><line x1="820" y1="255" x2="718" y2="198"/>
+      <line x1="775" y1="478" x2="898" y2="538"/><line x1="775" y1="478" x2="678" y2="558"/><line x1="502" y1="278" x2="378" y2="198"/>
+      <line x1="502" y1="278" x2="348" y2="308"/><line x1="512" y1="452" x2="398" y2="522"/><line x1="512" y1="452" x2="378" y2="432"/>
+      <line x1="942" y1="178" x2="1052" y2="118"/><line x1="958" y1="318" x2="1082" y2="348"/><line x1="898" y1="538" x2="1002" y2="598"/>
+      <line x1="678" y1="558" x2="598" y2="638"/><line x1="398" y1="522" x2="278" y2="578"/><line x1="348" y1="308" x2="218" y2="278"/>
+      <line x1="378" y1="198" x2="258" y2="148"/><line x1="718" y1="198" x2="658" y2="118"/><line x1="428" y1="358" x2="298" y2="368"/>
+    </g>
+    <g fill="#C5A059" fill-opacity=".55">
+      <circle cx="640" cy="360" r="5"/><circle cx="820" cy="255" r="4"/><circle cx="775" cy="478" r="4"/>
+      <circle cx="502" cy="278" r="3.5"/><circle cx="512" cy="452" r="3.5"/><circle cx="718" cy="198" r="3"/>
+      <circle cx="428" cy="358" r="3"/><circle cx="942" cy="178" r="3"/><circle cx="958" cy="318" r="3"/>
+      <circle cx="898" cy="538" r="3"/><circle cx="678" cy="558" r="3"/><circle cx="378" cy="198" r="2.5"/>
+      <circle cx="348" cy="308" r="2.5"/><circle cx="398" cy="522" r="2.5"/><circle cx="378" cy="432" r="2.5"/>
+      <circle cx="1052" cy="118" r="2.5"/><circle cx="1082" cy="348" r="2.5"/><circle cx="1002" cy="598" r="2.5"/>
+      <circle cx="598" cy="638" r="2"/><circle cx="278" cy="578" r="2"/><circle cx="218" cy="278" r="2"/>
+      <circle cx="258" cy="148" r="2"/><circle cx="658" cy="118" r="2"/><circle cx="298" cy="368" r="2"/>
+    </g>
   </svg>
-  Share
-</button>
-<div class="share-toast" id="shareToast">Link copied</div>
+  <div class="p05-content">
+    <div class="sect">Philosophy</div>
+    <div class="p05-quote">The future<br>is not<br>imagined.<br>It is<br>engineered<br>quietly.</div>
+    <div class="gold-rule"></div>
+  </div>
+</section>
 
-<script>
-  document.getElementById('shareBtn').addEventListener('click', async function () {
-    const shareData = { title: 'Sushanth Paatnaik — Corporate Profile', url: window.location.href };
-    if (navigator.share) { try { await navigator.share(shareData); return; } catch(e) {} }
-    try { await navigator.clipboard.writeText(window.location.href); }
-    catch(e) {
-      const ta = document.createElement('textarea');
-      ta.value = window.location.href; ta.style.cssText = 'position:fixed;opacity:0';
-      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
-    }
-    const toast = document.getElementById('shareToast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2000);
-  });
-</script>
+<!-- 06 HONORS & RECOGNITIONS -->
+<section class="page p06">
+  <span class="pgn">06</span>
+  <div class="sect">Honors &amp; Recognitions</div>
+  <div class="p06-grid">
+    <div class="p06-card">
+      <img src="images/award-kalam.jpg" alt="President">
+      <div class="p06-card-title">President of India</div>
+      <div class="p06-card-sub">Awards × 6</div>
+    </div>
+    <div class="p06-card">
+      <div class="p06-big" style="color:var(--cream);letter-spacing:2px">NASA</div>
+      <div class="p06-card-sub">Collaborator</div>
+    </div>
+    <div class="p06-card">
+      <div style="text-align:center">
+        <div class="p06-big" style="color:var(--cream)">MIT</div>
+        <div style="font-size:13px;font-weight:800;color:var(--cream);letter-spacing:1px">TR35</div>
+      </div>
+      <div class="p06-card-sub">MIT Technology Review 35 under 35</div>
+    </div>
+    <div class="p06-card">
+      <img src="images/logo-ted.jpg" alt="TED">
+      <div class="p06-big" style="color:#e53c3c">TED</div>
+      <div class="p06-card-sub">Speaker</div>
+    </div>
+    <div class="p06-card">
+      <img src="images/intel-iris.jpg" alt="Intel">
+      <div class="p06-big" style="color:#4a90d9;font-size:16px">intel.</div>
+      <div class="p06-card-sub">Intel Innovator</div>
+    </div>
+    <div class="p06-card">
+      <img src="images/logo-ink.jpg" alt="INK">
+      <div class="p06-big gold">INK</div>
+      <div class="p06-card-sub">INK Fellowship</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 BY THE NUMBERS -->
+<section class="page p07 sparkle-bg">
+  <span class="pgn">07</span>
+  <div style="position:relative;z-index:2;width:100%">
+    <div class="sect">By the Numbers</div>
+    <div class="p07-grid">
+      <div class="p07-cell"><div class="p07-num">15+</div><div class="p07-lbl">Years</div></div>
+      <div class="p07-cell"><div class="p07-num">10+</div><div class="p07-lbl">Industrial Technologies</div></div>
+      <div class="p07-cell"><div class="p07-num">6</div><div class="p07-lbl">Presidential Awards</div></div>
+      <div class="p07-cell"><div class="p07-num">7</div><div class="p07-lbl">Ventures</div></div>
+      <div class="p07-cell"><div class="p07-num">50+</div><div class="p07-lbl">Media Features</div></div>
+      <div class="p07-cell"><div class="p07-num">100+</div><div class="p07-lbl">Industry Collaborations</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ENGINEERING INTELLIGENT MATTER -->
+<section class="page p08">
+  <span class="pgn">08</span>
+  <div class="p08-left">
+    <div class="sect">Engineering<br>Intelligent Matter</div>
+    <div style="font-family:var(--ff);font-size:clamp(13px,1.9vw,21px);color:var(--cream);line-height:1.45;margin-top:6px">Advanced materials at the intersection of graphene science and industrial need.</div>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="p08-right">
+    <div class="p08-row"><img class="p08-img" src="images/p-graphacrete.jpg" alt="Graphene"><div class="p08-name">Graphene</div></div>
+    <div class="p08-row"><img class="p08-img" src="images/p-graffisol.jpg" alt="Additives"><div class="p08-name">Additives</div></div>
+    <div class="p08-row"><img class="p08-img" src="images/p-ceraphene.jpg" alt="Coatings"><div class="p08-name">Coatings</div></div>
+    <div class="p08-row"><img class="p08-img" src="images/p-armophene.jpg" alt="Composites"><div class="p08-name">Composites</div></div>
+    <div class="p08-row"><img class="p08-img" src="images/p-hydrocell.jpg" alt="AI"><div class="p08-name">AI</div></div>
+  </div>
+</section>
+
+<!-- 09 INNOVATION PORTFOLIO -->
+<section class="page p09">
+  <span class="pgn">09</span>
+  <div class="sect">Innovation Portfolio</div>
+  <div class="p09-list">
+    <div class="p09-row">
+      <img class="p09-img" src="images/p-graphacrete.jpg" alt="Graphacrete">
+      <div style="flex:1"><div class="p09-name">Graphacrete</div><div class="p09-desc">Stronger. Greener. Smarter Concrete.</div></div>
+      <div><div class="p09-val">2–3X</div><div class="p09-unit">Strength</div></div>
+    </div>
+    <div class="p09-row">
+      <img class="p09-img" src="images/p-graffisol.jpg" alt="Graffisol">
+      <div style="flex:1"><div class="p09-name">Graffisol</div><div class="p09-desc">High-Performance Solar Coating</div></div>
+      <div><div class="p09-val">5–8%</div><div class="p09-unit">Power Gain</div></div>
+    </div>
+    <div class="p09-row">
+      <img class="p09-img" src="images/p-ignitron-d.jpg" alt="Ignitron">
+      <div style="flex:1"><div class="p09-name">Ignitron</div><div class="p09-desc">Next-Gen Thermal Management</div></div>
+      <div><div class="p09-val">15–25%</div><div class="p09-unit">Fuel Saving</div></div>
+    </div>
+    <div class="p09-row">
+      <img class="p09-img" src="images/p-voltaphene.jpg" alt="HD-G-PE">
+      <div style="flex:1"><div class="p09-name">HD-G-PE</div><div class="p09-desc">High Durability Polyethylene</div></div>
+      <div><div class="p09-val">2X</div><div class="p09-unit">Toughness</div></div>
+    </div>
+    <div class="p09-row">
+      <img class="p09-img" src="images/p-hydrocell.jpg" alt="Battery">
+      <div style="flex:1"><div class="p09-name">Battery Technologies</div><div class="p09-desc">Safer. Faster. Longer.</div></div>
+      <div><div class="p09-val">2–3X</div><div class="p09-unit">Cycle Life</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 INDUSTRIAL TRANSLATION -->
+<section class="page p10">
+  <span class="pgn">10</span>
+  <div class="sect">Industrial Translation</div>
+  <div class="p10-top">
+    <span class="sector">Solar</span>
+    <span class="sector">Energy</span>
+  </div>
+  <img class="p10-city" src="images/bg-industrial.jpg" alt="Industrial city">
+  <div class="p10-mid">
+    <span class="sector">Automotive</span>
+    <span class="sector">Defense</span>
+    <span class="sector">Infrastructure</span>
+  </div>
+  <div class="p10-bot"><span class="sector">Construction</span></div>
+</section>
+
+<!-- 11 VENTURES -->
+<section class="page p11 sparkle-bg">
+  <span class="pgn">11</span>
+  <div style="position:relative;z-index:2;width:100%">
+    <div class="sect">Ventures</div>
+    <div class="p11-list">
+      <div class="p11-item">
+        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><div class="p11-name">SPI Industries</div><div class="p11-desc">R&amp;D Industrial Solutions</div></div>
+      </div>
+      <div class="p11-item">
+        <div class="p11-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M2 12h4m12 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83" stroke="var(--gold)" stroke-width="1.5" fill="none"/></svg></div>
+        <div><div class="p11-name">Monoatom Labs</div><div class="p11-desc">Graphene at Scale</div></div>
+      </div>
+      <div class="p11-item">
+        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
+        <div><div class="p11-name">Graffilium</div><div class="p11-desc">Eco-Nano Additives</div></div>
+      </div>
+      <div class="p11-item">
+        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
+        <div><div class="p11-name">Inthinks</div><div class="p11-desc">Innovation Studio</div></div>
+      </div>
+      <div class="p11-item">
+        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.5 7.5H22l-6.5 4.7 2.5 7.5L12 16.3 6 20.7l2.5-7.5L2 8.5h7.5z"/></svg></div>
+        <div><div class="p11-name">Starunico Capital</div><div class="p11-desc">Deep-Tech Investment</div></div>
+      </div>
+      <div class="p11-item">
+        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+        <div><div class="p11-name">Magppie Living</div><div class="p11-desc">Future Living</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 GLOBAL RECOGNITION -->
+<section class="page p12">
+  <span class="pgn">12</span>
+  <div class="sect">Global Recognition</div>
+  <div class="p12-grid">
+    <img class="p12-img" src="images/bg-recognition.jpg" alt="The Hindu">
+    <img class="p12-img" src="images/founder-lab.jpg" alt="Forbes">
+    <img class="p12-img" src="images/bg-voices.jpg" alt="Entrepreneur">
+    <img class="p12-img" src="images/ted.jpg" alt="BusinessLine">
+    <img class="p12-img" src="images/nasa.jpg" alt="Financial Times">
+    <img class="p12-img" src="images/g20.jpg" alt="Economic Times">
+  </div>
+  <div class="p12-caption">Featured in 50+ National &amp; Global Media</div>
+</section>
+
+<!-- 13 SPEAKING ENGAGEMENTS -->
+<section class="page p13">
+  <span class="pgn">13</span>
+  <div class="p13-left">
+    <div class="sect">Speaking Engagements</div>
+    <div style="font-family:var(--ff);font-size:clamp(15px,2.1vw,25px);color:var(--cream);line-height:1.4;margin-top:6px">Conversations that move industries.</div>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="p13-right">
+    <div class="p13-row">
+      <img class="p13-img" src="images/ted.jpg" alt="TED">
+      <div><div class="p13-label">TED Speaker</div></div>
+    </div>
+    <div class="p13-row">
+      <img class="p13-img" src="images/silicon-valley.jpg" alt="CEO Clubs">
+      <div><div class="p13-label">CEO Clubs</div><div class="p13-sub">&amp; Leadership Forums</div></div>
+    </div>
+    <div class="p13-row">
+      <img class="p13-img" src="images/ieema.jpg" alt="Universities">
+      <div><div class="p13-label">Universities</div><div class="p13-sub">&amp; Institutes</div></div>
+    </div>
+    <div class="p13-row">
+      <img class="p13-img" src="images/g20.jpg" alt="Global Conferences">
+      <div><div class="p13-label">Global Conferences</div></div>
+    </div>
+    <div class="p13-row">
+      <img class="p13-img" src="images/brics.jpg" alt="Silicon Valley">
+      <div><div class="p13-label">Silicon Valley</div><div class="p13-sub">&amp; Beyond</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 FUTURE SYSTEMS -->
+<section class="page p14">
+  <span class="pgn">14</span>
+  <div class="p14-bg"><img src="images/bg-future.jpg" alt=""></div>
+  <div class="p14-content">
+    <div class="sect">Future Systems</div>
+    <div style="flex:1"></div>
+    <div class="p14-icons">
+      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M12 3c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 14c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM5 10c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg><span>Materials</span></div>
+      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span>Energy</span></div>
+      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6V6h12v13z"/></svg><span>Industry</span></div>
+      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg><span>Water</span></div>
+      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7c0 2.05 1.23 3.81 3 4.58V18h4v-6.42c1.77-.77 3-2.53 3-4.58 0-2.76-2.24-5-5-5z"/></svg><span>Hydrogen</span></div>
+      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z"/></svg><span>AI</span></div>
+    </div>
+    <div class="p14-quote">
+      <div class="p14-qmark">"</div>
+      <div class="p14-qtext">The next industrial revolution will be built on intelligent materials, clean energy and frontier technologies."</div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 COLLABORATION -->
+<section class="page p15 sparkle-bg">
+  <span class="pgn">15</span>
+  <div style="position:relative;z-index:2;width:100%;display:flex;flex-direction:column;height:100%">
+    <div class="sect">Collaboration</div>
+    <div class="p15-grid">
+      <div class="p15-card">
+        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+        <div class="p15-cname">Industry</div>
+        <div class="p15-cdesc">Co-creating impact at scale</div>
+      </div>
+      <div class="p15-card">
+        <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        <div class="p15-cname">Investment</div>
+        <div class="p15-cdesc">Fueling deep tech moonshots</div>
+      </div>
+      <div class="p15-card">
+        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+        <div class="p15-cname">Research</div>
+        <div class="p15-cdesc">Pushing the boundaries of science</div>
+      </div>
+      <div class="p15-card">
+        <svg viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+        <div class="p15-cname">Government</div>
+        <div class="p15-cdesc">Building systems for the future</div>
+      </div>
+    </div>
+    <div class="p15-qr">
+      <div class="p15-cta">Let's build the future together.</div>
+      <div class="p15-url">sushanthpaatnaik.com</div>
+      <div style="width:58px;height:58px;background:#fff;border-radius:3px;display:flex;align-items:center;justify-content:center;margin-top:6px">
+        <svg viewBox="0 0 21 21" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="9" height="9" fill="#000"/>
+          <rect x="1" y="1" width="7" height="7" fill="#fff"/>
+          <rect x="2" y="2" width="5" height="5" fill="#000"/>
+          <rect x="12" y="0" width="9" height="9" fill="#000"/>
+          <rect x="13" y="1" width="7" height="7" fill="#fff"/>
+          <rect x="14" y="2" width="5" height="5" fill="#000"/>
+          <rect x="0" y="12" width="9" height="9" fill="#000"/>
+          <rect x="1" y="13" width="7" height="7" fill="#fff"/>
+          <rect x="2" y="14" width="5" height="5" fill="#000"/>
+          <rect x="12" y="12" width="2" height="2" fill="#000"/>
+          <rect x="15" y="12" width="2" height="2" fill="#000"/>
+          <rect x="18" y="12" width="2" height="2" fill="#000"/>
+          <rect x="12" y="15" width="2" height="2" fill="#000"/>
+          <rect x="15" y="15" width="5" height="5" fill="#000"/>
+          <rect x="16" y="16" width="3" height="3" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 CLOSING -->
+<section class="page p16">
+  <span class="pgn">16</span>
+  <div class="p16-left">
+    <div>
+      <div class="p16-quote">Building<br>industrial<br>systems<br>that<br>outlive the<br>inventor.</div>
+      <div class="gold-rule"></div>
+    </div>
+    <div>
+      <div class="p16-sp">
+        <img src="images/sp-logo.svg" alt="SP">
+        <div class="p16-spname">Sushanth<br>Paatnaik</div>
+      </div>
+      <div class="p16-links">
+        <div class="p16-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          sushanthpaatnaik.com
+        </div>
+        <div class="p16-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          connect@sushanthpaatnaik.com
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p16-right">
+    <img src="images/founder.jpg" alt="Sushanth Paatnaik">
+  </div>
+</section>
+
 </body>
 </html>
