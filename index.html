@@ -38,35 +38,44 @@ body{display:flex;flex-direction:column;align-items:center;gap:2px;padding:20px 
 
 <!-- ═══════════════ PAGE 01 — COVER ═══════════════ -->
 <div class="page" id="p01" style="background:#000;">
-  <span class="pn" style="color:#fff;opacity:.55;">01</span>
-  <!-- Full-bleed portrait — fills top 72% -->
-  <img src="images/founder.jpg" alt="Sushanth Paatnaik" style="position:absolute;top:0;left:0;width:100%;height:75%;object-fit:cover;object-position:center 15%;filter:grayscale(100%) brightness(.9) contrast(1.15);">
-  <!-- Fade portrait into black at bottom -->
-  <div style="position:absolute;top:55%;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 55%);"></div>
+  <!-- Page number -->
+  <div style="position:absolute;top:26px;left:28px;z-index:30;font-family:'Inter',Arial,sans-serif;font-size:11px;font-weight:300;letter-spacing:.12em;color:#fff;opacity:.5;">01</div>
+  <!-- Full-bleed B&W portrait -->
+  <img src="images/founder.jpg" alt="Sushanth Paatnaik" style="position:absolute;top:0;left:0;width:100%;height:72%;object-fit:cover;object-position:center 10%;filter:grayscale(100%) brightness(.88) contrast(1.18);">
+  <!-- Smooth fade to black -->
+  <div style="position:absolute;top:52%;left:0;right:0;height:26%;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 100%);"></div>
   <!-- SP Monogram top-right -->
-  <div style="position:absolute;top:22px;right:26px;z-index:20;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:68px;color:#C8A45A;line-height:1;letter-spacing:-.04em;">
-    <span style="font-weight:500;">S</span><span style="font-weight:300;">P</span>
+  <div style="position:absolute;top:20px;right:24px;z-index:30;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;line-height:1;color:#C8A45A;letter-spacing:-.05em;">
+    <span style="font-size:76px;font-weight:500;">S</span><span style="font-size:70px;font-weight:300;">P</span>
   </div>
-  <!-- Name block — lower quarter -->
-  <div style="position:absolute;bottom:44px;left:0;right:0;text-align:center;z-index:20;">
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:68px;font-weight:400;letter-spacing:.38em;color:#C8A45A;text-transform:uppercase;line-height:1.12;margin-bottom:16px;padding:0 10px;">SUSHANTH<br>PAATNAIK</div>
-    <div style="font-family:'Inter',Arial,sans-serif;font-size:11px;font-weight:300;letter-spacing:.35em;color:#fff;opacity:.65;text-transform:uppercase;">INVENTOR &bull; DEEP-TECH &bull; FOUNDER</div>
+  <!-- Name + subtitle bottom -->
+  <div style="position:absolute;bottom:40px;left:0;right:0;text-align:center;z-index:20;padding:0 8px;">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:400;letter-spacing:.42em;color:#C8A45A;text-transform:uppercase;line-height:1.1;margin-bottom:18px;">SUSHANTH<br>PAATNAIK</div>
+    <div style="font-family:'Inter',Arial,sans-serif;font-size:10.5px;font-weight:300;letter-spacing:.38em;color:#fff;opacity:.6;text-transform:uppercase;">INVENTOR &bull; DEEP-TECH &bull; FOUNDER</div>
   </div>
 </div>
 
 <!-- ═══════════════ PAGE 02 — MANIFESTO ═══════════════ -->
 <div class="page" id="p02" style="background:#04040c;">
-  <span class="pn" style="color:#fff;opacity:.55;">02</span>
-  <!-- Earth from space photo -->
-  <img class="bg" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=794&h=1123&fit=crop&q=90" alt="" style="object-position:center bottom;opacity:.9;">
-  <!-- Dark overlay top to let text read, lighter bottom for earth to show -->
-  <div class="ov" style="background:linear-gradient(to bottom,rgba(4,4,12,.92) 0%,rgba(4,4,12,.75) 45%,rgba(4,4,12,.35) 72%,rgba(4,4,12,.6) 100%);"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:flex-start;padding:80px 50px 60px;">
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:80px;font-weight:400;line-height:1.06;margin-bottom:2px;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Matter.</span></div>
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:80px;font-weight:400;line-height:1.06;margin-bottom:2px;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Capital.</span></div>
-    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:80px;font-weight:400;line-height:1.06;margin-bottom:44px;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Scale.</span></div>
-    <div style="width:36px;height:2px;background:#C8A45A;margin-bottom:380px;"></div>
-    <div style="font-family:'Inter',Arial,sans-serif;font-size:14px;font-weight:300;line-height:1.85;color:#fff;opacity:.82;max-width:420px;">From a maker's bench to global impact.<br>This journey is about engineering breakthrough<br>materials and ventures that build a more<br>sustainable, abundant and equitable world.</div>
+  <!-- Page number -->
+  <div style="position:absolute;top:26px;left:28px;z-index:30;font-family:'Inter',Arial,sans-serif;font-size:11px;font-weight:300;letter-spacing:.12em;color:#fff;opacity:.5;">02</div>
+  <!-- Earth from space photo — anchored to bottom-right -->
+  <img class="bg" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=794&h=1123&fit=crop&q=90" alt="" style="object-position:right bottom;opacity:.95;">
+  <!-- Overlay: black at top-left fading so earth shows bottom-right -->
+  <div class="ov" style="background:linear-gradient(135deg,rgba(4,4,12,.97) 0%,rgba(4,4,12,.88) 35%,rgba(4,4,12,.55) 60%,rgba(4,4,12,.3) 80%,rgba(4,4,12,.45) 100%);"></div>
+  <!-- Content using flex so body text is anchored to bottom -->
+  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:75px 52px 55px;">
+    <!-- Headline block top -->
+    <div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:82px;font-weight:400;line-height:1.04;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Matter.</span></div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:82px;font-weight:400;line-height:1.04;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Capital.</span></div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:82px;font-weight:400;line-height:1.04;margin-bottom:36px;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Scale.</span></div>
+      <div style="width:38px;height:2px;background:#C8A45A;"></div>
+    </div>
+    <!-- Spacer: Earth photo shows through here -->
+    <div style="flex:1;"></div>
+    <!-- Body text anchored to bottom -->
+    <div style="font-family:'Inter',Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.9;color:#fff;opacity:.85;max-width:430px;">From a maker's bench to global impact.<br>This journey is about engineering breakthrough<br>materials and ventures that build a more<br>sustainable, abundant and equitable world.</div>
   </div>
 </div>
 
