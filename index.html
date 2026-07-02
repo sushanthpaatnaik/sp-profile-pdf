@@ -4,610 +4,2029 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sushanth Paatnaik — Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --gold:#C5A059;
-  --cream:#E8E3D7;
-  --dark:#080808;
-  --grey:#888;
-  --ff:'Georgia',serif;
-  --fs:'Helvetica Neue','Arial',sans-serif;
-}
-body{background:#111;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;font-family:var(--fs)}
-.page{
-  width:100%;max-width:1280px;
-  aspect-ratio:16/9;
-  position:relative;overflow:hidden;
-  background:var(--dark);color:var(--cream);
-  display:flex;
-}
-.pgn{
-  position:absolute;top:28px;right:36px;
-  font-size:11px;letter-spacing:2px;color:#666;
-  z-index:10;
-}
-.sect{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.gold{color:var(--gold)}
-.cream{color:var(--cream)}
-.gold-rule{width:32px;height:2px;background:var(--gold);margin:14px 0}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* SPARKLE */
-.sparkle-bg{position:relative}
-.sparkle-bg::before{
-  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle at 15% 20%,rgba(197,160,89,.4) 0%,transparent 2%),
-    radial-gradient(circle at 80% 15%,rgba(197,160,89,.3) 0%,transparent 1.5%),
-    radial-gradient(circle at 50% 65%,rgba(197,160,89,.25) 0%,transparent 1.5%),
-    radial-gradient(circle at 85% 70%,rgba(197,160,89,.35) 0%,transparent 2%),
-    radial-gradient(circle at 30% 80%,rgba(197,160,89,.2) 0%,transparent 1.5%),
-    radial-gradient(circle at 92% 45%,rgba(197,160,89,.28) 0%,transparent 2%),
-    radial-gradient(circle at 60% 35%,rgba(197,160,89,.18) 0%,transparent 1%),
-    radial-gradient(circle at 10% 55%,rgba(197,160,89,.22) 0%,transparent 1.5%),
-    radial-gradient(circle at 65% 88%,rgba(197,160,89,.2) 0%,transparent 2%),
-    radial-gradient(circle at 40% 50%,rgba(197,160,89,.12) 0%,transparent 1%),
-    radial-gradient(circle at 5% 10%,rgba(197,160,89,.3) 0%,transparent 1.5%),
-    radial-gradient(circle at 95% 92%,rgba(197,160,89,.25) 0%,transparent 1.5%),
-    radial-gradient(circle at 45% 8%,rgba(197,160,89,.18) 0%,transparent 1%),
-    radial-gradient(circle at 55% 75%,rgba(197,160,89,.15) 0%,transparent 1%),
-    radial-gradient(circle at 20% 95%,rgba(197,160,89,.2) 0%,transparent 1.5%),
-    radial-gradient(circle at 75% 55%,rgba(197,160,89,.14) 0%,transparent 1%);
+:root {
+  --void:     #080808;
+  --graphite: #141414;
+  --ghost:    #252220;
+  --gold:     #B5892A;
+  --gold-hi:  #D4AF6A;
+  --gold-dim: #7A5C18;
+  --cream:    #E6DFD3;
+  --silver:   #7A7570;
+  --muted:    #3E3B38;
+  --serif:    'Cormorant Garamond', 'Didot', 'Bodoni MT', Georgia, serif;
+  --sans:     'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* ─── PAGE 01 COVER ─── */
-.p01{flex-direction:row}
-.p01-left{width:44%;position:relative;overflow:hidden}
-.p01-left img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.75)}
-.p01-left::after{content:'';position:absolute;right:0;top:0;bottom:0;width:70px;background:linear-gradient(90deg,transparent,var(--dark))}
-.p01-right{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:32px 40px 36px 24px;background:var(--dark)}
-.p01-logo{display:flex;justify-content:flex-end}
-.p01-logo img{width:50px;height:50px;object-fit:contain;filter:invert(1) sepia(1) saturate(3) hue-rotate(-5deg)}
-.p01-name{font-size:clamp(18px,2.8vw,34px);letter-spacing:7px;text-transform:uppercase;color:var(--cream);font-weight:300;line-height:1.5}
-.p01-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#666;margin-top:8px}
-.p01-rule{width:36px;height:1px;background:var(--gold);margin:10px 0}
+html { background: #1a1a1a; }
 
-/* ─── PAGE 02 MANIFESTO ─── */
-.p02{flex-direction:row}
-.p02-left{width:54%;display:flex;flex-direction:column;justify-content:center;padding:48px 36px 48px 60px}
-.p02-manifesto{font-family:var(--ff);font-size:clamp(20px,3.6vw,44px);line-height:1.25;font-weight:400}
-.p02-sub{font-size:10.5px;line-height:1.7;color:#777;max-width:340px;margin-top:20px}
-.p02-right{flex:1;position:relative;overflow:hidden}
-.p02-right img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
-.p02-right::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,transparent 55%);z-index:1}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 24px 0;
+  background: #1a1a1a;
+}
 
-/* ─── PAGE 03 ORIGIN ─── */
-.p03{flex-direction:row}
-.p03-left{width:46%;position:relative;overflow:hidden}
-.p03-left img{width:100%;height:100%;object-fit:cover;filter:brightness(.6) grayscale(.3)}
-.p03-left::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,transparent,var(--dark))}
-.p03-right{flex:1;display:flex;flex-direction:column;justify-content:center;padding:36px 50px 36px 28px}
-.p03-head{font-family:var(--ff);font-size:clamp(16px,2.8vw,34px);line-height:1.3;margin-bottom:22px}
-.p03-items{display:flex;flex-direction:column;gap:16px}
-.p03-item{display:flex;align-items:flex-start;gap:12px}
-.p03-icon{width:30px;height:30px;flex-shrink:0;border:1px solid rgba(197,160,89,.4);border-radius:50%;display:flex;align-items:center;justify-content:center}
-.p03-icon svg{width:13px;height:13px;fill:var(--gold)}
-.p03-text strong{display:block;font-size:11px;color:var(--cream);margin-bottom:2px}
-.p03-text span{font-size:9.5px;color:#777;line-height:1.4}
+/* ─── PAGE SHELL ─── */
+.page {
+  width: 794px;
+  height: 1123px;
+  position: relative;
+  overflow: hidden;
+  background: var(--void);
+  color: var(--cream);
+  flex-shrink: 0;
+}
 
-/* ─── PAGE 04 JOURNEY ─── */
-.p04{flex-direction:row}
-.p04-left{width:40%;position:relative;overflow:hidden}
-.p04-left img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
-.p04-left::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,transparent,var(--dark))}
-.p04-right{flex:1;display:flex;flex-direction:column;justify-content:center;padding:32px 50px 32px 28px}
-.p04-list{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-.p04-item{display:flex;align-items:center;gap:14px}
-.p04-icon{width:34px;height:34px;flex-shrink:0;border:1px solid rgba(197,160,89,.3);border-radius:50%;display:flex;align-items:center;justify-content:center}
-.p04-icon svg{width:13px;height:13px;fill:var(--gold)}
-.p04-num{font-size:20px;font-family:var(--ff);color:var(--gold);line-height:1}
-.p04-label{font-size:11px;font-weight:600;color:var(--cream);letter-spacing:.5px;text-transform:uppercase}
-.p04-sub{font-size:8.5px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
+/* ─── SHARED ATOMS ─── */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
 
-/* ─── PAGE 05 PHILOSOPHY ─── */
-.p05{position:relative;background:var(--dark)}
-.p05-mol{position:absolute;inset:0;opacity:.4}
-.p05-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;height:100%;padding:50px 60px;max-width:54%}
-.p05-quote{font-family:var(--ff);font-size:clamp(22px,3.8vw,48px);line-height:1.28;color:var(--cream);font-weight:400}
+.rule-h {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
 
-/* ─── PAGE 06 HONORS ─── */
-.p06{flex-direction:column;padding:36px 50px}
-.p06-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px;flex:1}
-.p06-card{border:1px solid rgba(197,160,89,.18);border-radius:3px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(255,255,255,.018);text-align:center}
-.p06-card img{height:32px;object-fit:contain;max-width:80px}
-.p06-card-title{font-size:12px;font-weight:700;color:var(--cream);letter-spacing:.5px;text-transform:uppercase}
-.p06-card-sub{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:#666}
-.p06-big{font-size:20px;font-weight:800;letter-spacing:1px}
+.rule-v {
+  width: 1px;
+  background: var(--gold);
+}
 
-/* ─── PAGE 07 BY THE NUMBERS ─── */
-.p07{flex-direction:column;justify-content:center;padding:44px 60px;background:var(--dark)}
-.p07-grid{display:grid;grid-template-columns:repeat(2,1fr);margin-top:16px}
-.p07-cell{padding:20px 24px;border-bottom:1px solid rgba(197,160,89,.1);border-right:1px solid rgba(197,160,89,.1)}
-.p07-cell:nth-child(2n){border-right:none}
-.p07-cell:nth-last-child(-n+2){border-bottom:none}
-.p07-num{font-family:var(--ff);font-size:clamp(26px,4.2vw,54px);color:var(--gold);line-height:1}
-.p07-lbl{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:#666;margin-top:4px}
+.pgn {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--silver);
+}
 
-/* ─── PAGE 08 INTELLIGENT MATTER ─── */
-.p08{flex-direction:row}
-.p08-left{width:40%;display:flex;flex-direction:column;justify-content:center;padding:40px 28px 40px 50px}
-.p08-right{flex:1;display:flex;flex-direction:column;justify-content:center;padding:28px 40px 28px 16px;gap:6px}
-.p08-row{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid rgba(197,160,89,.08)}
-.p08-row:last-child{border-bottom:none}
-.p08-img{width:68px;height:40px;object-fit:contain;flex-shrink:0;border-radius:2px}
-.p08-name{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--cream)}
+.full-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-/* ─── PAGE 09 PORTFOLIO ─── */
-.p09{flex-direction:column;padding:34px 50px}
-.p09-list{display:flex;flex-direction:column;margin-top:10px;flex:1}
-.p09-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-.p09-row:last-child{border-bottom:none}
-.p09-img{width:50px;height:40px;object-fit:contain;flex-shrink:0}
-.p09-name{font-size:11.5px;font-weight:700;color:var(--cream);letter-spacing:.5px;text-transform:uppercase}
-.p09-desc{font-size:8.5px;color:#666;margin-top:2px}
-.p09-val{font-size:17px;font-family:var(--ff);color:var(--gold);line-height:1;text-align:right}
-.p09-unit{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:#666;text-align:right;margin-top:2px}
+/* ─── PRINT ─── */
+@media print {
+  body { padding: 0; gap: 0; background: #000; }
+  .page { page-break-after: always; break-after: page; }
+}
 
-/* ─── PAGE 10 INDUSTRIAL TRANSLATION ─── */
-.p10{flex-direction:column;align-items:center;justify-content:center;padding:36px 50px}
-.p10-top{display:flex;justify-content:space-between;width:68%;max-width:640px;margin-bottom:4px}
-.p10-city{width:68%;max-width:640px;object-fit:contain}
-.p10-mid{display:flex;justify-content:space-between;width:68%;max-width:640px;margin-top:4px}
-.p10-bot{margin-top:6px}
-.sector{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#666;text-align:center}
 
-/* ─── PAGE 11 VENTURES ─── */
-.p11{flex-direction:column;padding:34px 50px;background:var(--dark)}
-.p11-list{display:flex;flex-direction:column;gap:0;margin-top:10px}
-.p11-item{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(197,160,89,.08)}
-.p11-item:last-child{border-bottom:none;padding-bottom:0}
-.p11-icon{width:30px;height:30px;flex-shrink:0;border:1px solid rgba(197,160,89,.35);border-radius:50%;display:flex;align-items:center;justify-content:center}
-.p11-icon svg{width:13px;height:13px;fill:var(--gold)}
-.p11-name{font-size:11.5px;font-weight:700;color:var(--cream);text-transform:uppercase;letter-spacing:.5px}
-.p11-desc{font-size:9px;color:#666;margin-top:1px}
+/* ══════════════════════════════════════════
+   PAGE 01 — COVER
+══════════════════════════════════════════ */
+.p01 { display: grid; grid-template-columns: 52% 48%; }
 
-/* ─── PAGE 12 GLOBAL RECOGNITION ─── */
-.p12{flex-direction:column;padding:34px 50px}
-.p12-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;flex:1}
-.p12-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:brightness(.8) grayscale(.15)}
-.p12-caption{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-top:12px;text-align:center}
+.p01-portrait {
+  position: relative;
+  overflow: hidden;
+}
+.p01-portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(.8) contrast(1.1) saturate(.85);
+}
+.p01-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--void) 100%),
+              linear-gradient(to bottom, transparent 70%, rgba(8,8,8,.4) 100%);
+}
 
-/* ─── PAGE 13 SPEAKING ─── */
-.p13{flex-direction:row}
-.p13-left{width:40%;display:flex;flex-direction:column;justify-content:center;padding:38px 24px 38px 50px}
-.p13-right{flex:1;display:flex;flex-direction:column;gap:5px;padding:28px 40px 28px 14px;justify-content:center}
-.p13-row{display:flex;align-items:center;gap:12px}
-.p13-img{width:76px;height:48px;object-fit:cover;border-radius:2px;flex-shrink:0;filter:brightness(.7)}
-.p13-label{font-size:10px;color:var(--cream);text-transform:uppercase;letter-spacing:1px;font-weight:600;line-height:1.3}
-.p13-sub{font-size:8px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
+.p01-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px 52px 52px 36px;
+}
 
-/* ─── PAGE 14 FUTURE SYSTEMS ─── */
-.p14{position:relative;background:var(--dark)}
-.p14-bg{position:absolute;inset:0;z-index:0}
-.p14-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.35)}
-.p14-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.92) 0%,rgba(8,8,8,.3) 100%)}
-.p14-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:34px 50px}
-.p14-icons{display:flex;gap:22px;margin-top:auto}
-.p14-sicon{display:flex;flex-direction:column;align-items:center;gap:5px}
-.p14-sicon svg{width:20px;height:20px;fill:var(--gold);opacity:.8}
-.p14-sicon span{font-size:6.5px;letter-spacing:2px;text-transform:uppercase;color:#666}
-.p14-quote{margin-top:14px;padding-top:12px;border-top:1px solid rgba(197,160,89,.2)}
-.p14-qmark{font-size:28px;color:var(--gold);line-height:1;opacity:.55;margin-bottom:3px}
-.p14-qtext{font-family:var(--ff);font-size:clamp(10px,1.3vw,15px);color:var(--cream);line-height:1.55;font-style:italic;max-width:580px}
+.p01-top { display: flex; justify-content: flex-end; }
 
-/* ─── PAGE 15 COLLABORATION ─── */
-.p15{flex-direction:column;justify-content:space-between;padding:38px 60px 34px;background:var(--dark)}
-.p15-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:16px 0;flex:1;align-items:stretch}
-.p15-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:18px 8px;border:1px solid rgba(197,160,89,.14);border-radius:3px;background:rgba(255,255,255,.018)}
-.p15-card svg{width:26px;height:26px;fill:var(--gold)}
-.p15-cname{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream);font-weight:600}
-.p15-cdesc{font-size:8px;color:#666;line-height:1.4;margin-top:1px}
-.p15-qr{display:flex;flex-direction:column;align-items:center;gap:8px}
-.p15-cta{font-size:11.5px;color:var(--cream);letter-spacing:.5px}
-.p15-url{font-size:9.5px;color:var(--gold);letter-spacing:.5px}
+.p01-sp {
+  width: 48px; height: 48px;
+  object-fit: contain;
+  filter: invert(1) sepia(1) saturate(2.5) hue-rotate(5deg) brightness(.95);
+}
 
-/* ─── PAGE 16 CLOSING ─── */
-.p16{flex-direction:row}
-.p16-left{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:48px 32px 48px 60px;background:var(--dark)}
-.p16-quote{font-family:var(--ff);font-size:clamp(16px,2.8vw,34px);line-height:1.35;color:var(--cream);max-width:360px}
-.p16-sp{display:flex;align-items:center;gap:14px;margin-top:18px}
-.p16-sp img{width:48px;height:48px;object-fit:contain;filter:invert(1) sepia(1) saturate(3) hue-rotate(-5deg)}
-.p16-spname{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--cream);font-weight:300;line-height:1.6}
-.p16-links{display:flex;flex-direction:column;gap:7px;margin-top:12px}
-.p16-link{display:flex;align-items:center;gap:8px;font-size:9.5px;color:#777}
-.p16-link svg{width:13px;height:13px;fill:var(--gold);flex-shrink:0}
-.p16-right{width:42%;position:relative;overflow:hidden}
-.p16-right img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.65)}
-.p16-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,var(--dark),transparent);z-index:1}
+.p01-bottom {}
+
+.p01-name {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 42px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.p01-divider {
+  width: 32px; height: 1px;
+  background: var(--gold);
+  margin-bottom: 16px;
+}
+
+.p01-roles {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 300;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--silver);
+  line-height: 2.2;
+}
+
+.p01-pgn {
+  position: absolute;
+  bottom: 52px;
+  right: 52px;
+}
+
+
+/* ══════════════════════════════════════════
+   PAGE 02 — MANIFESTO
+══════════════════════════════════════════ */
+.p02 { position: relative; }
+
+.p02-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.18) saturate(.6);
+}
+
+.p02-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(181,137,42,.06) 0%, transparent 65%);
+}
+
+.p02-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+}
+
+/* Left column: "Engineering" × 3 stacked */
+.p02-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 32px 80px 72px;
+  border-right: 1px solid var(--muted);
+}
+
+.p02-verb {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 58px;
+  color: var(--cream);
+  opacity: .55;
+  line-height: 1.55;
+}
+
+/* Right column: subject words */
+.p02-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 44px;
+}
+
+.p02-noun {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 64px;
+  color: var(--gold);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.p02-body {
+  position: absolute;
+  bottom: 72px;
+  left: 72px;
+  right: 72px;
+  padding-top: 20px;
+  border-top: 1px solid var(--muted);
+  display: flex;
+  gap: 48px;
+}
+
+.p02-body p {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--silver);
+  max-width: 260px;
+}
+
+.p02-pgn {
+  position: absolute;
+  top: 52px; right: 60px;
+}
+
+
+/* ══════════════════════════════════════════
+   PAGE 03 — ORIGIN
+══════════════════════════════════════════ */
+.p03 { display: flex; flex-direction: column; }
+
+.p03-image {
+  position: relative;
+  height: 62%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.p03-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(.65) contrast(1.08) saturate(.7);
+}
+.p03-image::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, var(--void) 100%);
+}
+
+.p03-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 72px 48px;
+}
+
+.p03-headline {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1.18;
+  color: var(--cream);
+  margin: 14px 0 28px;
+  text-wrap: balance;
+}
+
+.p03-timeline {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--muted);
+  padding-top: 24px;
+}
+
+.p03-item {
+  flex: 1;
+  padding-right: 28px;
+}
+
+.p03-item + .p03-item {
+  padding-left: 28px;
+  border-left: 1px solid var(--muted);
+}
+
+.p03-item-label {
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.p03-item-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--cream);
+}
+
+.p03-pgn { position: absolute; top: 48px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 04 — JOURNEY
+══════════════════════════════════════════ */
+.p04 { position: relative; }
+
+.p04-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(.2) saturate(.4);
+}
+
+.p04-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 38% 62%;
+}
+
+.p04-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 72px 32px 72px 60px;
+}
+
+.p04-section-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-top: 12px;
+}
+
+.p04-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 48px;
+}
+
+.p04-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.p04-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+
+.p04-milestone {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 12px 0;
+}
+
+.p04-dot {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+.p04-dot-inner {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.p04-milestone-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.p04-milestone-sub {
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 3px;
+}
+
+.p04-milestone-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.p04-pgn { position: absolute; top: 52px; right: 52px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 05 — PHILOSOPHY
+══════════════════════════════════════════ */
+.p05 { position: relative; background: #060606; }
+
+.p05-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+
+.p05-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 80px;
+}
+
+.p05-quote {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 68px;
+  line-height: 1.2;
+  color: var(--cream);
+  text-wrap: balance;
+  max-width: 580px;
+}
+
+.p05-rule {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin-top: 36px;
+}
+
+.p05-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 06 — RECOGNITIONS
+══════════════════════════════════════════ */
+.p06 { position: relative; }
+
+.p06-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px 60px 72px;
+}
+
+.p06-header {
+  margin-bottom: 40px;
+}
+
+.p06-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 44px;
+  color: var(--cream);
+  margin-top: 12px;
+}
+
+/* Editorial magazine layout — varied sizes */
+.p06-gallery {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1.4fr 1fr;
+  gap: 12px;
+}
+
+.p06-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--graphite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.p06-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.7) saturate(.8);
+}
+
+.p06-card-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(8,8,8,.9) 0%, transparent 100%);
+  padding: 20px 16px 14px;
+}
+
+.p06-card-name {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.p06-card-sub {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  color: var(--silver);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.p06-card-text {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 20px;
+}
+
+.p06-card-big {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.p06-card-sm {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 6px;
+}
+
+/* Grid placements */
+.p06-c1 { grid-row: 1 / 3; }
+.p06-c2 { }
+.p06-c3 { }
+.p06-c4 { }
+.p06-c5 { }
+
+.p06-pgn { position: absolute; top: 52px; right: 52px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 07 — BY THE NUMBERS
+══════════════════════════════════════════ */
+.p07 { position: relative; }
+
+.p07-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 72px 72px 72px 80px;
+}
+
+.p07-header { margin-bottom: 52px; }
+
+.p07-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.p07-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 24px 0 0;
+  border-bottom: 1px solid var(--muted);
+}
+
+.p07-stat:nth-child(2n) {
+  padding: 0 0 0 40px;
+  border-left: 1px solid var(--muted);
+}
+
+.p07-stat:nth-last-child(-n+2) { border-bottom: none; }
+
+.p07-num {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 88px;
+  color: var(--gold);
+  line-height: .9;
+  letter-spacing: -2px;
+}
+
+.p07-label {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 12px;
+}
+
+.p07-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 08 — ENGINEERING INTELLIGENT MATTER
+══════════════════════════════════════════ */
+.p08 { position: relative; }
+
+.p08-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.12) saturate(.5);
+}
+
+.p08-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 45% 55%;
+}
+
+.p08-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 40px 80px 72px;
+  border-right: 1px solid var(--muted);
+}
+
+.p08-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 1.15;
+  color: var(--cream);
+  margin: 14px 0 28px;
+}
+
+.p08-body {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--silver);
+  max-width: 240px;
+}
+
+.p08-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 48px;
+  gap: 0;
+}
+
+.p08-material {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--muted);
+}
+.p08-material:last-child { border-bottom: none; }
+
+.p08-mat-img {
+  width: 64px; height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(.9) contrast(.95);
+}
+
+.p08-mat-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.p08-pgn { position: absolute; top: 52px; right: 52px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 09 — INNOVATION PORTFOLIO
+══════════════════════════════════════════ */
+.p09 { position: relative; }
+
+.p09-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 72px;
+}
+
+.p09-header { margin-bottom: 32px; }
+
+.p09-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.p09-product {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--muted);
+}
+.p09-product:last-child { border-bottom: none; }
+
+.p09-img {
+  width: 72px; height: 50px;
+  object-fit: contain;
+  filter: brightness(.85);
+}
+
+.p09-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.p09-desc {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 3px;
+}
+
+.p09-metric {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.p09-val {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.p09-unit {
+  font-family: var(--sans);
+  font-size: 7.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 4px;
+}
+
+.p09-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 10 — INDUSTRIAL TRANSLATION
+══════════════════════════════════════════ */
+.p10 { position: relative; }
+
+.p10-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.22) saturate(.6);
+}
+
+.p10-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 72px;
+}
+
+.p10-header { margin-bottom: 36px; }
+
+.p10-city {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.p10-city-img {
+  width: 520px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(.85);
+}
+
+/* Sector labels floating around */
+.p10-sector {
+  position: absolute;
+  font-family: var(--sans);
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.p10-sector::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background: var(--gold);
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.p10-s1 { top: 60px; left: 30px; }
+.p10-s2 { top: 60px; right: 30px; }
+.p10-s3 { top: 42%; left: 0; }
+.p10-s4 { top: 42%; right: 0; }
+.p10-s5 { bottom: 60px; left: 50px; }
+.p10-s6 { bottom: 60px; left: 50%; transform: translateX(-50%); }
+.p10-s7 { bottom: 60px; right: 50px; }
+
+.p10-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 11 — VENTURES
+══════════════════════════════════════════ */
+.p11 { position: relative; }
+
+.p11-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(181,137,42,.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(181,137,42,.05) 0%, transparent 40%);
+}
+
+.p11-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 72px 72px 72px 80px;
+}
+
+.p11-header { margin-bottom: 44px; }
+
+.p11-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.p11-venture {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--muted);
+}
+.p11-venture:last-child { border-bottom: none; padding-bottom: 0; }
+.p11-venture:first-child { padding-top: 0; }
+
+.p11-v-num {
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--gold-dim);
+  margin-top: 5px;
+  min-width: 20px;
+}
+
+.p11-v-name {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+.p11-v-cat {
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.p11-v-desc {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--silver);
+  margin-top: 3px;
+  line-height: 1.6;
+}
+
+.p11-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 12 — GLOBAL RECOGNITION
+══════════════════════════════════════════ */
+.p12 { position: relative; }
+
+.p12-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px 0 72px;
+}
+
+.p12-header { margin-bottom: 28px; }
+
+.p12-mosaic {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr 1fr;
+  gap: 8px;
+}
+
+.p12-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.p12-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.65) saturate(.7) contrast(1.05);
+  transition: filter .3s;
+}
+
+.p12-m1 { grid-column: 1; grid-row: 1; }
+.p12-m2 { grid-column: 2; grid-row: 1; }
+.p12-m3 { grid-column: 3; grid-row: 1 / 3; }
+.p12-m4 { grid-column: 1; grid-row: 2; }
+.p12-m5 { grid-column: 2; grid-row: 2; }
+
+.p12-caption-bar {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--muted);
+  margin-top: 8px;
+}
+
+.p12-caption-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.p12-caption-text {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.p12-pgn { position: absolute; top: 52px; right: 52px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 13 — SPEAKING ENGAGEMENTS
+══════════════════════════════════════════ */
+.p13 { display: grid; grid-template-columns: 52% 48%; }
+
+.p13-image {
+  position: relative;
+  overflow: hidden;
+}
+.p13-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(.55) saturate(.8);
+}
+.p13-image::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--void) 100%);
+}
+
+.p13-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 44px;
+}
+
+.p13-header { margin-bottom: 40px; }
+
+.p13-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 40px;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-top: 12px;
+}
+
+.p13-venues {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.p13-venue {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--muted);
+}
+.p13-venue:last-child { border-bottom: none; }
+
+.p13-venue-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.p13-venue-sub {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 3px;
+}
+
+.p13-pgn { position: absolute; top: 52px; right: 52px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 14 — FUTURE SYSTEMS
+══════════════════════════════════════════ */
+.p14 { position: relative; }
+
+.p14-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.28) saturate(.7);
+}
+
+.p14-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(181,137,42,.08) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(8,8,8,.3) 0%, transparent 40%, rgba(8,8,8,.85) 100%);
+}
+
+.p14-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 72px;
+}
+
+.p14-header { margin-bottom: auto; }
+
+.p14-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 54px;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-top: 14px;
+}
+
+.p14-systems {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.p14-sys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.p14-sys-icon {
+  width: 28px; height: 28px;
+  fill: var(--gold);
+  opacity: .75;
+}
+
+.p14-sys-label {
+  font-family: var(--sans);
+  font-size: 6.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.p14-quote-block {
+  border-top: 1px solid var(--muted);
+  padding-top: 24px;
+}
+
+.p14-qmark {
+  font-family: var(--serif);
+  font-size: 48px;
+  color: var(--gold);
+  line-height: 1;
+  opacity: .5;
+  margin-bottom: 4px;
+}
+
+.p14-qtext {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--cream);
+  line-height: 1.55;
+  max-width: 520px;
+}
+
+.p14-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 15 — COLLABORATION
+══════════════════════════════════════════ */
+.p15 { position: relative; }
+
+.p15-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 72px 72px 60px 80px;
+}
+
+.p15-header { margin-bottom: 48px; }
+
+.p15-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  flex: 1;
+  background: var(--muted);
+  margin-bottom: 40px;
+}
+
+.p15-quad {
+  background: var(--void);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.p15-quad-icon {
+  width: 24px; height: 24px;
+  fill: var(--gold);
+  opacity: .7;
+  margin-bottom: 14px;
+}
+
+.p15-quad-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+.p15-quad-desc {
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 300;
+  letter-spacing: .5px;
+  color: var(--silver);
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.p15-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p15-cta {}
+
+.p15-cta-head {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--cream);
+}
+
+.p15-cta-url {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.p15-qr {
+  width: 64px; height: 64px;
+  background: #fff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.p15-pgn { position: absolute; top: 52px; right: 60px; }
+
+
+/* ══════════════════════════════════════════
+   PAGE 16 — CLOSING
+══════════════════════════════════════════ */
+.p16 { display: grid; grid-template-columns: 48% 52%; }
+
+.p16-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px 40px 72px 72px;
+}
+
+.p16-quote {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 1.22;
+  color: var(--cream);
+  text-wrap: balance;
+}
+
+.p16-rule {
+  width: 32px; height: 1px;
+  background: var(--gold);
+  margin: 28px 0;
+}
+
+.p16-identity {}
+
+.p16-sp-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.p16-sp-logo {
+  width: 44px; height: 44px;
+  object-fit: contain;
+  filter: invert(1) sepia(1) saturate(2.5) hue-rotate(5deg) brightness(.95);
+}
+
+.p16-sp-name {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.8;
+}
+
+.p16-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p16-contact-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--silver);
+  letter-spacing: .5px;
+}
+
+.p16-contact-icon {
+  width: 12px; height: 12px;
+  fill: var(--gold);
+  flex-shrink: 0;
+  opacity: .8;
+}
+
+.p16-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.p16-right img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(.65) contrast(1.08) saturate(.85);
+}
+
+.p16-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--void) 0%, transparent 30%);
+  z-index: 1;
+}
+
+.p16-pgn { position: absolute; bottom: 52px; right: 52px; }
 </style>
 </head>
 <body>
 
-<!-- 01 COVER -->
+<!-- ════════════════════════════════════
+     PAGE 01 — COVER
+════════════════════════════════════ -->
 <section class="page p01">
-  <span class="pgn">01</span>
-  <div class="p01-left"><img src="images/founder.jpg" alt="Sushanth Paatnaik"></div>
+  <div class="p01-portrait">
+    <img src="images/founder.jpg" alt="Sushanth Paatnaik">
+  </div>
   <div class="p01-right">
-    <div class="p01-logo"><img src="images/sp-logo.svg" alt="SP"></div>
-    <div>
-      <div class="p01-rule"></div>
+    <div class="p01-top">
+      <img class="p01-sp" src="images/sp-logo.svg" alt="SP">
+    </div>
+    <div class="p01-bottom">
       <div class="p01-name">Sushanth<br>Paatnaik</div>
-      <div class="p01-title">Inventor &nbsp;·&nbsp; Deep-Tech Founder</div>
+      <div class="p01-divider"></div>
+      <div class="p01-roles">
+        Inventor<br>
+        Entrepreneur<br>
+        Deep-Tech Founder
+      </div>
     </div>
   </div>
+  <div class="pgn p01-pgn">01</div>
 </section>
 
-<!-- 02 MANIFESTO -->
+
+<!-- ════════════════════════════════════
+     PAGE 02 — MANIFESTO
+════════════════════════════════════ -->
 <section class="page p02">
-  <span class="pgn">02</span>
-  <div class="p02-left">
-    <div class="p02-manifesto">
-      <span class="cream">Engineering</span><br>
-      <span class="gold">Matter.</span><br>
-      <span class="cream">Engineering</span><br>
-      <span class="gold">Capital.</span><br>
-      <span class="cream">Engineering</span><br>
-      <span class="gold">Scale.</span>
+  <img class="p02-bg" src="images/bg-future.jpg" alt="">
+  <div class="p02-overlay"></div>
+  <div class="p02-content">
+    <div class="p02-left">
+      <div class="p02-verb">Engineering</div>
+      <div class="p02-verb">Engineering</div>
+      <div class="p02-verb">Engineering</div>
     </div>
-    <div class="gold-rule"></div>
-    <div class="p02-sub">From a maker's bench to global impact. This journey is about engineering breakthrough materials and ventures that build a more sustainable, abundant and equitable world.</div>
+    <div class="p02-right">
+      <div class="p02-noun">Matter.</div>
+      <div class="p02-noun">Capital.</div>
+      <div class="p02-noun">Scale.</div>
+    </div>
   </div>
-  <div class="p02-right"><img src="images/bg-future.jpg" alt=""></div>
+  <div class="p02-body">
+    <p>From a maker's bench to global impact. This journey is about engineering breakthrough materials and ventures that build a more sustainable, abundant and equitable world.</p>
+    <p>Not a company. Not a project. An ongoing act of engineering — on matter, on capital, on scale.</p>
+  </div>
+  <div class="pgn p02-pgn">02</div>
 </section>
 
-<!-- 03 ORIGIN -->
+
+<!-- ════════════════════════════════════
+     PAGE 03 — ORIGIN
+════════════════════════════════════ -->
 <section class="page p03">
-  <span class="pgn">03</span>
-  <div class="p03-left"><img src="images/founder-archival.jpg" alt="Origin"></div>
-  <div class="p03-right">
-    <div class="sect">Origin</div>
-    <div class="p03-head">Every idea<br>has a birthplace.</div>
-    <div class="gold-rule"></div>
-    <div class="p03-items">
+  <span class="pgn p03-pgn">03</span>
+  <div class="p03-image">
+    <img src="images/founder-archival.jpg" alt="Origin">
+  </div>
+  <div class="p03-text">
+    <div class="eyebrow">Origin</div>
+    <div class="p03-headline">Every idea<br>has a birthplace.</div>
+    <div class="p03-timeline">
       <div class="p03-item">
-        <div class="p03-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-        <div class="p03-text"><strong>Childhood curiosity in a small town</strong><span>Taking apart machines before understanding why they worked</span></div>
+        <div class="p03-item-label">Beginning</div>
+        <div class="p03-item-text">Childhood curiosity in a small town — taking apart machines before understanding why they worked.</div>
       </div>
       <div class="p03-item">
-        <div class="p03-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
-        <div class="p03-text"><strong>First workshop at age 14</strong><span>Built a breath-powered device that changed everything</span></div>
+        <div class="p03-item-label">The Spark</div>
+        <div class="p03-item-text">First workshop at age 14. Built a breath-powered wheelchair that merged compassion with engineering.</div>
       </div>
       <div class="p03-item">
-        <div class="p03-icon"><svg viewBox="0 0 24 24"><path d="M7 11H1v2h6v-2zm2.17-3.24L7.05 5.64 5.64 7.05l2.12 2.12 1.41-1.41zM13 1h-2v6h2V1zm5.36 6.05l-1.41-1.41-2.12 2.12 1.41 1.41 2.12-2.12zM17 11v2h6v-2h-6zm-5-2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm2.83 7.24l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41zm-9.19.71l1.41 1.41 2.12-2.12-1.41-1.41-2.12 2.12zM11 23h2v-6h-2v6z"/></svg></div>
-        <div class="p03-text"><strong>Breath-powered wheelchair that started it all</strong><span>First invention that merged compassion with engineering</span></div>
+        <div class="p03-item-label">The Mission</div>
+        <div class="p03-item-text">From one device to industrial systems — the same question driving every invention since.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 04 JOURNEY -->
+
+<!-- ════════════════════════════════════
+     PAGE 04 — JOURNEY
+════════════════════════════════════ -->
 <section class="page p04">
-  <span class="pgn">04</span>
-  <div class="p04-left"><img src="images/bg-origin.jpg" alt=""></div>
-  <div class="p04-right">
-    <div class="sect">Journey</div>
-    <div class="p04-list">
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-        <div><div class="p04-label"><span class="p04-num">14 </span>Years of Relentless Innovation</div></div>
-      </div>
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.5 7.5H22l-6.5 4.7 2.5 7.5L12 16.3 6 20.7l2.5-7.5L2 8.5h7.5z"/></svg></div>
-        <div><div class="p04-label">Presidential Awards ×6</div><div class="p04-sub">Highest civilian honours</div></div>
-      </div>
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.65 14.08c-.19.19-.51.19-.7 0L12 12.1l-3.95 3.98c-.19.19-.51.19-.7 0-.19-.19-.19-.51 0-.7l3.95-3.98-3.95-3.97c-.19-.19-.19-.51 0-.7.19-.19.51-.19.7 0L12 10.7l3.95-3.97c.19-.19.51-.19.7 0 .19.19.19.51 0 .7L12.7 11.4l3.95 3.98c.19.19.19.5 0 .7z"/></svg></div>
-        <div><div class="p04-label">TED Speaker</div><div class="p04-sub">Ideas worth spreading</div></div>
-      </div>
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
-        <div><div class="p04-label">MIT TR35 — Global Innovator</div><div class="p04-sub">Technology Review 35 under 35</div></div>
-      </div>
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M12 6v6l4 2"/></svg></div>
-        <div><div class="p04-label">NASA Collaborator</div><div class="p04-sub">Advanced materials research</div></div>
-      </div>
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
-        <div><div class="p04-label">Fab Labs &amp; Global Ecosystems</div><div class="p04-sub">International innovation hubs</div></div>
-      </div>
-      <div class="p04-item">
-        <div class="p04-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div><div class="p04-label">Today</div><div class="p04-sub">Building industrial systems that outlive the inventor</div></div>
+  <img class="p04-bg" src="images/bg-origin.jpg" alt="">
+  <div class="p04-content">
+    <div class="p04-left">
+      <div class="eyebrow">Journey</div>
+      <div class="p04-section-title">Fourteen<br>years.<br>Seven<br>chapters.</div>
+    </div>
+    <div class="p04-right">
+      <div class="p04-timeline">
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner"></div></div>
+          <div>
+            <div class="p04-milestone-num">14</div>
+            <div class="p04-milestone-title">Years of Relentless Innovation</div>
+            <div class="p04-milestone-sub">Building from first principles</div>
+          </div>
+        </div>
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner"></div></div>
+          <div>
+            <div class="p04-milestone-title">Presidential Awards × 6</div>
+            <div class="p04-milestone-sub">Highest civilian recognition</div>
+          </div>
+        </div>
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner"></div></div>
+          <div>
+            <div class="p04-milestone-title">TED Speaker</div>
+            <div class="p04-milestone-sub">Ideas worth spreading</div>
+          </div>
+        </div>
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner"></div></div>
+          <div>
+            <div class="p04-milestone-title">MIT TR35 — Global Innovator</div>
+            <div class="p04-milestone-sub">Technology Review 35 under 35</div>
+          </div>
+        </div>
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner"></div></div>
+          <div>
+            <div class="p04-milestone-title">NASA Collaborator</div>
+            <div class="p04-milestone-sub">Advanced materials research</div>
+          </div>
+        </div>
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner"></div></div>
+          <div>
+            <div class="p04-milestone-title">Fab Labs &amp; Global Ecosystems</div>
+            <div class="p04-milestone-sub">International innovation hubs</div>
+          </div>
+        </div>
+
+        <div class="p04-milestone">
+          <div class="p04-dot"><div class="p04-dot-inner" style="background:var(--gold-hi)"></div></div>
+          <div>
+            <div class="p04-milestone-title" style="color:var(--gold)">Today</div>
+            <div class="p04-milestone-sub">Building industrial systems that outlive the inventor</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+  <div class="pgn p04-pgn">04</div>
 </section>
 
-<!-- 05 PHILOSOPHY -->
+
+<!-- ════════════════════════════════════
+     PAGE 05 — PHILOSOPHY
+════════════════════════════════════ -->
 <section class="page p05">
-  <span class="pgn">05</span>
-  <svg class="p05-mol" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#C5A059" stroke-opacity=".3" stroke-width="1">
-      <line x1="640" y1="360" x2="820" y2="255"/><line x1="640" y1="360" x2="775" y2="478"/><line x1="640" y1="360" x2="502" y2="278"/>
-      <line x1="640" y1="360" x2="512" y2="452"/><line x1="640" y1="360" x2="718" y2="198"/><line x1="640" y1="360" x2="428" y2="358"/>
-      <line x1="820" y1="255" x2="942" y2="178"/><line x1="820" y1="255" x2="958" y2="318"/><line x1="820" y1="255" x2="718" y2="198"/>
-      <line x1="775" y1="478" x2="898" y2="538"/><line x1="775" y1="478" x2="678" y2="558"/><line x1="502" y1="278" x2="378" y2="198"/>
-      <line x1="502" y1="278" x2="348" y2="308"/><line x1="512" y1="452" x2="398" y2="522"/><line x1="512" y1="452" x2="378" y2="432"/>
-      <line x1="942" y1="178" x2="1052" y2="118"/><line x1="958" y1="318" x2="1082" y2="348"/><line x1="898" y1="538" x2="1002" y2="598"/>
-      <line x1="678" y1="558" x2="598" y2="638"/><line x1="398" y1="522" x2="278" y2="578"/><line x1="348" y1="308" x2="218" y2="278"/>
-      <line x1="378" y1="198" x2="258" y2="148"/><line x1="718" y1="198" x2="658" y2="118"/><line x1="428" y1="358" x2="298" y2="368"/>
-    </g>
-    <g fill="#C5A059" fill-opacity=".55">
-      <circle cx="640" cy="360" r="5"/><circle cx="820" cy="255" r="4"/><circle cx="775" cy="478" r="4"/>
-      <circle cx="502" cy="278" r="3.5"/><circle cx="512" cy="452" r="3.5"/><circle cx="718" cy="198" r="3"/>
-      <circle cx="428" cy="358" r="3"/><circle cx="942" cy="178" r="3"/><circle cx="958" cy="318" r="3"/>
-      <circle cx="898" cy="538" r="3"/><circle cx="678" cy="558" r="3"/><circle cx="378" cy="198" r="2.5"/>
-      <circle cx="348" cy="308" r="2.5"/><circle cx="398" cy="522" r="2.5"/><circle cx="378" cy="432" r="2.5"/>
-      <circle cx="1052" cy="118" r="2.5"/><circle cx="1082" cy="348" r="2.5"/><circle cx="1002" cy="598" r="2.5"/>
-      <circle cx="598" cy="638" r="2"/><circle cx="278" cy="578" r="2"/><circle cx="218" cy="278" r="2"/>
-      <circle cx="258" cy="148" r="2"/><circle cx="658" cy="118" r="2"/><circle cx="298" cy="368" r="2"/>
-    </g>
-  </svg>
+  <canvas class="p05-canvas" id="molCanvas"></canvas>
   <div class="p05-content">
-    <div class="sect">Philosophy</div>
-    <div class="p05-quote">The future<br>is not<br>imagined.<br>It is<br>engineered<br>quietly.</div>
-    <div class="gold-rule"></div>
+    <div class="eyebrow">Philosophy</div>
+    <div class="p05-quote">The future<br>is not imagined.<br>It is engineered<br>quietly.</div>
+    <div class="p05-rule"></div>
   </div>
+  <div class="pgn p05-pgn">05</div>
 </section>
 
-<!-- 06 HONORS & RECOGNITIONS -->
+
+<!-- ════════════════════════════════════
+     PAGE 06 — RECOGNITIONS
+════════════════════════════════════ -->
 <section class="page p06">
-  <span class="pgn">06</span>
-  <div class="sect">Honors &amp; Recognitions</div>
-  <div class="p06-grid">
-    <div class="p06-card">
-      <img src="images/award-kalam.jpg" alt="President">
-      <div class="p06-card-title">President of India</div>
-      <div class="p06-card-sub">Awards × 6</div>
+  <div class="p06-content">
+    <div class="p06-header">
+      <div class="eyebrow">Honors &amp; Recognitions</div>
+      <div class="p06-title">A record built<br>across continents.</div>
     </div>
-    <div class="p06-card">
-      <div class="p06-big" style="color:var(--cream);letter-spacing:2px">NASA</div>
-      <div class="p06-card-sub">Collaborator</div>
-    </div>
-    <div class="p06-card">
-      <div style="text-align:center">
-        <div class="p06-big" style="color:var(--cream)">MIT</div>
-        <div style="font-size:13px;font-weight:800;color:var(--cream);letter-spacing:1px">TR35</div>
+
+    <div class="p06-gallery">
+
+      <!-- Large card: Presidential Awards -->
+      <div class="p06-card p06-c1">
+        <img src="images/presidential-trio.jpg" alt="Presidential Awards">
+        <div class="p06-card-label">
+          <div class="p06-card-name">President of India Awards</div>
+          <div class="p06-card-sub">Six times · Highest civilian honour</div>
+        </div>
       </div>
-      <div class="p06-card-sub">MIT Technology Review 35 under 35</div>
-    </div>
-    <div class="p06-card">
-      <img src="images/logo-ted.jpg" alt="TED">
-      <div class="p06-big" style="color:#e53c3c">TED</div>
-      <div class="p06-card-sub">Speaker</div>
-    </div>
-    <div class="p06-card">
-      <img src="images/intel-iris.jpg" alt="Intel">
-      <div class="p06-big" style="color:#4a90d9;font-size:16px">intel.</div>
-      <div class="p06-card-sub">Intel Innovator</div>
-    </div>
-    <div class="p06-card">
-      <img src="images/logo-ink.jpg" alt="INK">
-      <div class="p06-big gold">INK</div>
-      <div class="p06-card-sub">INK Fellowship</div>
+
+      <!-- NASA -->
+      <div class="p06-card p06-c2" style="background:var(--graphite)">
+        <div class="p06-card-text">
+          <div class="p06-card-big" style="color:var(--cream);letter-spacing:2px;font-family:var(--sans);font-weight:300">NASA</div>
+          <div class="p06-card-sm">Collaborator</div>
+        </div>
+      </div>
+
+      <!-- MIT TR35 -->
+      <div class="p06-card p06-c3" style="background:var(--ghost)">
+        <div class="p06-card-text">
+          <div class="p06-card-big" style="color:var(--cream);font-family:var(--sans);font-weight:300;font-size:28px">MIT<br><span style="font-size:18px;letter-spacing:2px">TR35</span></div>
+          <div class="p06-card-sm">Technology Review · 35 under 35</div>
+        </div>
+      </div>
+
+      <!-- TED -->
+      <div class="p06-card p06-c4" style="background:#1a0a0a">
+        <div class="p06-card-text">
+          <div class="p06-card-big" style="color:#e63c3c;font-family:var(--sans);font-weight:700;letter-spacing:2px">TED</div>
+          <div class="p06-card-sm">Speaker</div>
+        </div>
+      </div>
+
+      <!-- Intel + INK + NIF -->
+      <div class="p06-card p06-c5" style="background:var(--graphite)">
+        <div class="p06-card-text">
+          <div style="display:flex;gap:20px;align-items:center;justify-content:center">
+            <div style="text-align:center">
+              <div class="p06-card-big" style="color:#4a90d9;font-family:var(--sans);font-weight:400;font-size:18px">intel.</div>
+              <div class="p06-card-sm">Innovator</div>
+            </div>
+            <div style="width:1px;height:32px;background:var(--muted)"></div>
+            <div style="text-align:center">
+              <div class="p06-card-big" style="color:var(--gold);font-family:var(--sans);font-weight:600;font-size:18px">INK</div>
+              <div class="p06-card-sm">Fellow</div>
+            </div>
+            <div style="width:1px;height:32px;background:var(--muted)"></div>
+            <div style="text-align:center">
+              <div class="p06-card-big" style="color:var(--gold-hi);font-family:var(--sans);font-weight:600;font-size:18px">NIF</div>
+              <div class="p06-card-sm">Fellow</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+  <div class="pgn p06-pgn">06</div>
 </section>
 
-<!-- 07 BY THE NUMBERS -->
-<section class="page p07 sparkle-bg">
-  <span class="pgn">07</span>
-  <div style="position:relative;z-index:2;width:100%">
-    <div class="sect">By the Numbers</div>
+
+<!-- ════════════════════════════════════
+     PAGE 07 — BY THE NUMBERS
+════════════════════════════════════ -->
+<section class="page p07">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(181,137,42,.06) 0%,transparent 55%),radial-gradient(ellipse at 75% 70%,rgba(181,137,42,.04) 0%,transparent 45%)"></div>
+  <div class="p07-content">
+    <div class="p07-header">
+      <div class="eyebrow">Impact in Numbers</div>
+    </div>
     <div class="p07-grid">
-      <div class="p07-cell"><div class="p07-num">15+</div><div class="p07-lbl">Years</div></div>
-      <div class="p07-cell"><div class="p07-num">10+</div><div class="p07-lbl">Industrial Technologies</div></div>
-      <div class="p07-cell"><div class="p07-num">6</div><div class="p07-lbl">Presidential Awards</div></div>
-      <div class="p07-cell"><div class="p07-num">7</div><div class="p07-lbl">Ventures</div></div>
-      <div class="p07-cell"><div class="p07-num">50+</div><div class="p07-lbl">Media Features</div></div>
-      <div class="p07-cell"><div class="p07-num">100+</div><div class="p07-lbl">Industry Collaborations</div></div>
+      <div class="p07-stat">
+        <div class="p07-num">15<span style="font-size:52px">+</span></div>
+        <div class="p07-label">Years of Innovation</div>
+      </div>
+      <div class="p07-stat">
+        <div class="p07-num">10<span style="font-size:52px">+</span></div>
+        <div class="p07-label">Industrial Technologies</div>
+      </div>
+      <div class="p07-stat">
+        <div class="p07-num">6</div>
+        <div class="p07-label">Presidential Awards</div>
+      </div>
+      <div class="p07-stat">
+        <div class="p07-num">7</div>
+        <div class="p07-label">Ventures Built</div>
+      </div>
+      <div class="p07-stat">
+        <div class="p07-num">50<span style="font-size:52px">+</span></div>
+        <div class="p07-label">Media Features</div>
+      </div>
+      <div class="p07-stat">
+        <div class="p07-num">100<span style="font-size:52px">+</span></div>
+        <div class="p07-label">Industry Collaborations</div>
+      </div>
     </div>
   </div>
+  <div class="pgn p07-pgn">07</div>
 </section>
 
-<!-- 08 ENGINEERING INTELLIGENT MATTER -->
+
+<!-- ════════════════════════════════════
+     PAGE 08 — ENGINEERING INTELLIGENT MATTER
+════════════════════════════════════ -->
 <section class="page p08">
-  <span class="pgn">08</span>
-  <div class="p08-left">
-    <div class="sect">Engineering<br>Intelligent Matter</div>
-    <div style="font-family:var(--ff);font-size:clamp(13px,1.9vw,21px);color:var(--cream);line-height:1.45;margin-top:6px">Advanced materials at the intersection of graphene science and industrial need.</div>
-    <div class="gold-rule"></div>
+  <img class="p08-bg" src="images/bg-material.jpg" alt="">
+  <div class="p08-content">
+    <div class="p08-left">
+      <div class="eyebrow">Materials Science</div>
+      <div class="p08-title">Engineering<br>Intelligent<br>Matter.</div>
+      <div class="rule-h" style="margin-bottom:20px"></div>
+      <div class="p08-body">Advanced materials at the intersection of graphene science and industrial necessity. Five categories, one mission: make materials that think.</div>
+    </div>
+    <div class="p08-right">
+      <div class="p08-material">
+        <img class="p08-mat-img" src="images/p-graphacrete.jpg" alt="Graphene">
+        <div class="p08-mat-name">Graphene</div>
+      </div>
+      <div class="p08-material">
+        <img class="p08-mat-img" src="images/p-graffisol.jpg" alt="Additives">
+        <div class="p08-mat-name">Additives</div>
+      </div>
+      <div class="p08-material">
+        <img class="p08-mat-img" src="images/p-ceraphene.jpg" alt="Coatings">
+        <div class="p08-mat-name">Coatings</div>
+      </div>
+      <div class="p08-material">
+        <img class="p08-mat-img" src="images/p-armophene.jpg" alt="Composites">
+        <div class="p08-mat-name">Composites</div>
+      </div>
+      <div class="p08-material">
+        <img class="p08-mat-img" src="images/p-hydrocell.jpg" alt="AI">
+        <div class="p08-mat-name">AI</div>
+      </div>
+    </div>
   </div>
-  <div class="p08-right">
-    <div class="p08-row"><img class="p08-img" src="images/p-graphacrete.jpg" alt="Graphene"><div class="p08-name">Graphene</div></div>
-    <div class="p08-row"><img class="p08-img" src="images/p-graffisol.jpg" alt="Additives"><div class="p08-name">Additives</div></div>
-    <div class="p08-row"><img class="p08-img" src="images/p-ceraphene.jpg" alt="Coatings"><div class="p08-name">Coatings</div></div>
-    <div class="p08-row"><img class="p08-img" src="images/p-armophene.jpg" alt="Composites"><div class="p08-name">Composites</div></div>
-    <div class="p08-row"><img class="p08-img" src="images/p-hydrocell.jpg" alt="AI"><div class="p08-name">AI</div></div>
-  </div>
+  <div class="pgn p08-pgn">08</div>
 </section>
 
-<!-- 09 INNOVATION PORTFOLIO -->
+
+<!-- ════════════════════════════════════
+     PAGE 09 — INNOVATION PORTFOLIO
+════════════════════════════════════ -->
 <section class="page p09">
-  <span class="pgn">09</span>
-  <div class="sect">Innovation Portfolio</div>
-  <div class="p09-list">
-    <div class="p09-row">
-      <img class="p09-img" src="images/p-graphacrete.jpg" alt="Graphacrete">
-      <div style="flex:1"><div class="p09-name">Graphacrete</div><div class="p09-desc">Stronger. Greener. Smarter Concrete.</div></div>
-      <div><div class="p09-val">2–3X</div><div class="p09-unit">Strength</div></div>
+  <div class="p09-content">
+    <div class="p09-header">
+      <div class="eyebrow">Innovation Portfolio</div>
     </div>
-    <div class="p09-row">
-      <img class="p09-img" src="images/p-graffisol.jpg" alt="Graffisol">
-      <div style="flex:1"><div class="p09-name">Graffisol</div><div class="p09-desc">High-Performance Solar Coating</div></div>
-      <div><div class="p09-val">5–8%</div><div class="p09-unit">Power Gain</div></div>
-    </div>
-    <div class="p09-row">
-      <img class="p09-img" src="images/p-ignitron-d.jpg" alt="Ignitron">
-      <div style="flex:1"><div class="p09-name">Ignitron</div><div class="p09-desc">Next-Gen Thermal Management</div></div>
-      <div><div class="p09-val">15–25%</div><div class="p09-unit">Fuel Saving</div></div>
-    </div>
-    <div class="p09-row">
-      <img class="p09-img" src="images/p-voltaphene.jpg" alt="HD-G-PE">
-      <div style="flex:1"><div class="p09-name">HD-G-PE</div><div class="p09-desc">High Durability Polyethylene</div></div>
-      <div><div class="p09-val">2X</div><div class="p09-unit">Toughness</div></div>
-    </div>
-    <div class="p09-row">
-      <img class="p09-img" src="images/p-hydrocell.jpg" alt="Battery">
-      <div style="flex:1"><div class="p09-name">Battery Technologies</div><div class="p09-desc">Safer. Faster. Longer.</div></div>
-      <div><div class="p09-val">2–3X</div><div class="p09-unit">Cycle Life</div></div>
+    <div class="p09-list">
+
+      <div class="p09-product">
+        <img class="p09-img" src="images/p-graphacrete.jpg" alt="Graphacrete">
+        <div>
+          <div class="p09-name">Graphacrete</div>
+          <div class="p09-desc">Graphene-enhanced concrete · Stronger. Greener. Smarter.</div>
+        </div>
+        <div class="p09-metric">
+          <div class="p09-val">2–3×</div>
+          <div class="p09-unit">Strength</div>
+        </div>
+      </div>
+
+      <div class="p09-product">
+        <img class="p09-img" src="images/p-graffisol.jpg" alt="Graffisol">
+        <div>
+          <div class="p09-name">Graffisol</div>
+          <div class="p09-desc">High-performance graphene solar coating</div>
+        </div>
+        <div class="p09-metric">
+          <div class="p09-val">5–8%</div>
+          <div class="p09-unit">Power Gain</div>
+        </div>
+      </div>
+
+      <div class="p09-product">
+        <img class="p09-img" src="images/p-ignitron-d.jpg" alt="Ignitron">
+        <div>
+          <div class="p09-name">Ignitron</div>
+          <div class="p09-desc">Next-generation thermal management system</div>
+        </div>
+        <div class="p09-metric">
+          <div class="p09-val">15–25%</div>
+          <div class="p09-unit">Fuel Saving</div>
+        </div>
+      </div>
+
+      <div class="p09-product">
+        <img class="p09-img" src="images/p-voltaphene.jpg" alt="HD-G-PE">
+        <div>
+          <div class="p09-name">HD-G-PE</div>
+          <div class="p09-desc">High-durability graphene polyethylene</div>
+        </div>
+        <div class="p09-metric">
+          <div class="p09-val">2×</div>
+          <div class="p09-unit">Toughness</div>
+        </div>
+      </div>
+
+      <div class="p09-product">
+        <img class="p09-img" src="images/p-hydrocell.jpg" alt="Battery Technologies">
+        <div>
+          <div class="p09-name">Battery Technologies</div>
+          <div class="p09-desc">Graphene-enhanced energy storage · Safer. Faster. Longer.</div>
+        </div>
+        <div class="p09-metric">
+          <div class="p09-val">2–3×</div>
+          <div class="p09-unit">Cycle Life</div>
+        </div>
+      </div>
+
     </div>
   </div>
+  <div class="pgn p09-pgn">09</div>
 </section>
 
-<!-- 10 INDUSTRIAL TRANSLATION -->
+
+<!-- ════════════════════════════════════
+     PAGE 10 — INDUSTRIAL TRANSLATION
+════════════════════════════════════ -->
 <section class="page p10">
-  <span class="pgn">10</span>
-  <div class="sect">Industrial Translation</div>
-  <div class="p10-top">
-    <span class="sector">Solar</span>
-    <span class="sector">Energy</span>
-  </div>
-  <img class="p10-city" src="images/bg-industrial.jpg" alt="Industrial city">
-  <div class="p10-mid">
-    <span class="sector">Automotive</span>
-    <span class="sector">Defense</span>
-    <span class="sector">Infrastructure</span>
-  </div>
-  <div class="p10-bot"><span class="sector">Construction</span></div>
-</section>
-
-<!-- 11 VENTURES -->
-<section class="page p11 sparkle-bg">
-  <span class="pgn">11</span>
-  <div style="position:relative;z-index:2;width:100%">
-    <div class="sect">Ventures</div>
-    <div class="p11-list">
-      <div class="p11-item">
-        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div><div class="p11-name">SPI Industries</div><div class="p11-desc">R&amp;D Industrial Solutions</div></div>
-      </div>
-      <div class="p11-item">
-        <div class="p11-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M2 12h4m12 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83" stroke="var(--gold)" stroke-width="1.5" fill="none"/></svg></div>
-        <div><div class="p11-name">Monoatom Labs</div><div class="p11-desc">Graphene at Scale</div></div>
-      </div>
-      <div class="p11-item">
-        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
-        <div><div class="p11-name">Graffilium</div><div class="p11-desc">Eco-Nano Additives</div></div>
-      </div>
-      <div class="p11-item">
-        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
-        <div><div class="p11-name">Inthinks</div><div class="p11-desc">Innovation Studio</div></div>
-      </div>
-      <div class="p11-item">
-        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.5 7.5H22l-6.5 4.7 2.5 7.5L12 16.3 6 20.7l2.5-7.5L2 8.5h7.5z"/></svg></div>
-        <div><div class="p11-name">Starunico Capital</div><div class="p11-desc">Deep-Tech Investment</div></div>
-      </div>
-      <div class="p11-item">
-        <div class="p11-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
-        <div><div class="p11-name">Magppie Living</div><div class="p11-desc">Future Living</div></div>
-      </div>
+  <img class="p10-bg" src="images/bg-industrial.jpg" alt="">
+  <div class="p10-content">
+    <div class="p10-header">
+      <div class="eyebrow">Industrial Translation</div>
+    </div>
+    <div class="p10-city">
+      <img class="p10-city-img" src="images/bg-industrial.jpg" alt="Industrial ecosystem">
+      <div class="p10-sector p10-s1">Solar</div>
+      <div class="p10-sector p10-s2">Energy</div>
+      <div class="p10-sector p10-s3">Automotive</div>
+      <div class="p10-sector p10-s4">Infrastructure</div>
+      <div class="p10-sector p10-s5">Defense</div>
+      <div class="p10-sector p10-s6">Construction</div>
+      <div class="p10-sector p10-s7">Water</div>
     </div>
   </div>
+  <div class="pgn p10-pgn">10</div>
 </section>
 
-<!-- 12 GLOBAL RECOGNITION -->
-<section class="page p12">
-  <span class="pgn">12</span>
-  <div class="sect">Global Recognition</div>
-  <div class="p12-grid">
-    <img class="p12-img" src="images/bg-recognition.jpg" alt="The Hindu">
-    <img class="p12-img" src="images/founder-lab.jpg" alt="Forbes">
-    <img class="p12-img" src="images/bg-voices.jpg" alt="Entrepreneur">
-    <img class="p12-img" src="images/ted.jpg" alt="BusinessLine">
-    <img class="p12-img" src="images/nasa.jpg" alt="Financial Times">
-    <img class="p12-img" src="images/g20.jpg" alt="Economic Times">
+
+<!-- ════════════════════════════════════
+     PAGE 11 — VENTURES
+════════════════════════════════════ -->
+<section class="page p11">
+  <div class="p11-bg"></div>
+  <div class="p11-content">
+    <div class="p11-header">
+      <div class="eyebrow">Ventures</div>
+    </div>
+    <div class="p11-list">
+
+      <div class="p11-venture">
+        <div class="p11-v-num">I</div>
+        <div>
+          <div class="p11-v-name">SPI Industries</div>
+          <div class="p11-v-cat">R&amp;D · Industrial Solutions</div>
+          <div class="p11-v-desc">The foundational venture — building industrial-grade materials and solutions from first principles.</div>
+        </div>
+      </div>
+
+      <div class="p11-venture">
+        <div class="p11-v-num">II</div>
+        <div>
+          <div class="p11-v-name">Monoatom Labs</div>
+          <div class="p11-v-cat">Deep Tech · Graphene at Scale</div>
+          <div class="p11-v-desc">Graphene production and formulation engineered for real industrial deployment.</div>
+        </div>
+      </div>
+
+      <div class="p11-venture">
+        <div class="p11-v-num">III</div>
+        <div>
+          <div class="p11-v-name">Graffilium</div>
+          <div class="p11-v-cat">Materials · Eco-Nano Additives</div>
+          <div class="p11-v-desc">Nano-engineered additives that transform conventional materials into high-performance systems.</div>
+        </div>
+      </div>
+
+      <div class="p11-venture">
+        <div class="p11-v-num">IV</div>
+        <div>
+          <div class="p11-v-name">Inthinks</div>
+          <div class="p11-v-cat">Studio · Innovation &amp; Design</div>
+          <div class="p11-v-desc">Where ideas become prototypes and prototypes become products.</div>
+        </div>
+      </div>
+
+      <div class="p11-venture">
+        <div class="p11-v-num">V</div>
+        <div>
+          <div class="p11-v-name">Starunico Capital</div>
+          <div class="p11-v-cat">Investment · Deep-Tech</div>
+          <div class="p11-v-desc">Backing the next generation of deep-tech founders building in hard categories.</div>
+        </div>
+      </div>
+
+      <div class="p11-venture">
+        <div class="p11-v-num">VI</div>
+        <div>
+          <div class="p11-v-name">Magppie Living</div>
+          <div class="p11-v-cat">Consumer · Future Living</div>
+          <div class="p11-v-desc">Smart materials for the built environment — where the home becomes a system.</div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="p12-caption">Featured in 50+ National &amp; Global Media</div>
+  <div class="pgn p11-pgn">11</div>
 </section>
 
-<!-- 13 SPEAKING ENGAGEMENTS -->
+
+<!-- ════════════════════════════════════
+     PAGE 12 — GLOBAL RECOGNITION
+════════════════════════════════════ -->
+<section class="page p12">
+  <div class="p12-content">
+    <div class="p12-header">
+      <div class="eyebrow">Global Recognition</div>
+    </div>
+    <div class="p12-mosaic">
+      <div class="p12-media p12-m1"><img src="images/bg-recognition.jpg" alt="The Hindu"></div>
+      <div class="p12-media p12-m2"><img src="images/nasa.jpg" alt="Forbes"></div>
+      <div class="p12-media p12-m3"><img src="images/founder-lab.jpg" alt="Feature"></div>
+      <div class="p12-media p12-m4"><img src="images/ted.jpg" alt="BusinessLine"></div>
+      <div class="p12-media p12-m5"><img src="images/g20.jpg" alt="Economic Times"></div>
+    </div>
+    <div class="p12-caption-bar">
+      <div class="p12-caption-num">50+</div>
+      <div class="p12-caption-text">National &amp; Global Media Features</div>
+    </div>
+  </div>
+  <div class="pgn p12-pgn">12</div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     PAGE 13 — SPEAKING ENGAGEMENTS
+════════════════════════════════════ -->
 <section class="page p13">
-  <span class="pgn">13</span>
-  <div class="p13-left">
-    <div class="sect">Speaking Engagements</div>
-    <div style="font-family:var(--ff);font-size:clamp(15px,2.1vw,25px);color:var(--cream);line-height:1.4;margin-top:6px">Conversations that move industries.</div>
-    <div class="gold-rule"></div>
+  <div class="p13-image">
+    <img src="images/ted.jpg" alt="Speaking engagement">
   </div>
   <div class="p13-right">
-    <div class="p13-row">
-      <img class="p13-img" src="images/ted.jpg" alt="TED">
-      <div><div class="p13-label">TED Speaker</div></div>
+    <div class="p13-header">
+      <div class="eyebrow">Speaking Engagements</div>
+      <div class="p13-title">Conversations<br>that move<br>industries.</div>
     </div>
-    <div class="p13-row">
-      <img class="p13-img" src="images/silicon-valley.jpg" alt="CEO Clubs">
-      <div><div class="p13-label">CEO Clubs</div><div class="p13-sub">&amp; Leadership Forums</div></div>
-    </div>
-    <div class="p13-row">
-      <img class="p13-img" src="images/ieema.jpg" alt="Universities">
-      <div><div class="p13-label">Universities</div><div class="p13-sub">&amp; Institutes</div></div>
-    </div>
-    <div class="p13-row">
-      <img class="p13-img" src="images/g20.jpg" alt="Global Conferences">
-      <div><div class="p13-label">Global Conferences</div></div>
-    </div>
-    <div class="p13-row">
-      <img class="p13-img" src="images/brics.jpg" alt="Silicon Valley">
-      <div><div class="p13-label">Silicon Valley</div><div class="p13-sub">&amp; Beyond</div></div>
+    <div class="p13-venues">
+      <div class="p13-venue">
+        <div class="p13-venue-name">TED</div>
+        <div class="p13-venue-sub">Global stage · Ideas worth spreading</div>
+      </div>
+      <div class="p13-venue">
+        <div class="p13-venue-name">CEO Clubs &amp;<br>Leadership Forums</div>
+        <div class="p13-venue-sub">Industry leaders · C-suite dialogue</div>
+      </div>
+      <div class="p13-venue">
+        <div class="p13-venue-name">Universities<br>&amp; Institutes</div>
+        <div class="p13-venue-sub">Academic institutions · Research labs</div>
+      </div>
+      <div class="p13-venue">
+        <div class="p13-venue-name">Global Conferences</div>
+        <div class="p13-venue-sub">G20 · BRICS · International policy forums</div>
+      </div>
+      <div class="p13-venue">
+        <div class="p13-venue-name">Silicon Valley<br>&amp; Beyond</div>
+        <div class="p13-venue-sub">Deep-tech ecosystem · Global innovation</div>
+      </div>
     </div>
   </div>
+  <div class="pgn p13-pgn">13</div>
 </section>
 
-<!-- 14 FUTURE SYSTEMS -->
+
+<!-- ════════════════════════════════════
+     PAGE 14 — FUTURE SYSTEMS
+════════════════════════════════════ -->
 <section class="page p14">
-  <span class="pgn">14</span>
-  <div class="p14-bg"><img src="images/bg-future.jpg" alt=""></div>
+  <img class="p14-bg" src="images/bg-ecosystem.jpg" alt="">
+  <div class="p14-overlay"></div>
   <div class="p14-content">
-    <div class="sect">Future Systems</div>
-    <div style="flex:1"></div>
-    <div class="p14-icons">
-      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M12 3c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 14c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM5 10c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg><span>Materials</span></div>
-      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span>Energy</span></div>
-      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6V6h12v13z"/></svg><span>Industry</span></div>
-      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg><span>Water</span></div>
-      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7c0 2.05 1.23 3.81 3 4.58V18h4v-6.42c1.77-.77 3-2.53 3-4.58 0-2.76-2.24-5-5-5z"/></svg><span>Hydrogen</span></div>
-      <div class="p14-sicon"><svg viewBox="0 0 24 24"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z"/></svg><span>AI</span></div>
+    <div class="p14-header">
+      <div class="eyebrow">Future Systems</div>
+      <div class="p14-title">The next revolution<br>will be built<br>on intelligent matter.</div>
     </div>
-    <div class="p14-quote">
+
+    <div class="p14-systems">
+      <div class="p14-sys">
+        <svg class="p14-sys-icon" viewBox="0 0 24 24"><path d="M12 3c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 14c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM5 10c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        <span class="p14-sys-label">Materials</span>
+      </div>
+      <div class="p14-sys">
+        <svg class="p14-sys-icon" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+        <span class="p14-sys-label">Energy</span>
+      </div>
+      <div class="p14-sys">
+        <svg class="p14-sys-icon" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-1 16H6V6h12v13z"/></svg>
+        <span class="p14-sys-label">Industry</span>
+      </div>
+      <div class="p14-sys">
+        <svg class="p14-sys-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+        <span class="p14-sys-label">Water</span>
+      </div>
+      <div class="p14-sys">
+        <svg class="p14-sys-icon" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7c0 2.05 1.23 3.81 3 4.58V18h4v-6.42c1.77-.77 3-2.53 3-4.58 0-2.76-2.24-5-5-5z"/></svg>
+        <span class="p14-sys-label">Hydrogen</span>
+      </div>
+      <div class="p14-sys">
+        <svg class="p14-sys-icon" viewBox="0 0 24 24"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12z"/></svg>
+        <span class="p14-sys-label">AI</span>
+      </div>
+    </div>
+
+    <div class="p14-quote-block">
       <div class="p14-qmark">"</div>
       <div class="p14-qtext">The next industrial revolution will be built on intelligent materials, clean energy and frontier technologies."</div>
     </div>
   </div>
+  <div class="pgn p14-pgn">14</div>
 </section>
 
-<!-- 15 COLLABORATION -->
-<section class="page p15 sparkle-bg">
-  <span class="pgn">15</span>
-  <div style="position:relative;z-index:2;width:100%;display:flex;flex-direction:column;height:100%">
-    <div class="sect">Collaboration</div>
+
+<!-- ════════════════════════════════════
+     PAGE 15 — COLLABORATION
+════════════════════════════════════ -->
+<section class="page p15">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(181,137,42,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(181,137,42,.04) 0%,transparent 40%)"></div>
+  <div class="p15-content">
+    <div class="p15-header">
+      <div class="eyebrow">Collaborate</div>
+    </div>
+
     <div class="p15-grid">
-      <div class="p15-card">
-        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-        <div class="p15-cname">Industry</div>
-        <div class="p15-cdesc">Co-creating impact at scale</div>
+      <div class="p15-quad">
+        <svg class="p15-quad-icon" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+        <div class="p15-quad-name">Industry</div>
+        <div class="p15-quad-desc">Co-creating impact at industrial scale</div>
       </div>
-      <div class="p15-card">
-        <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-        <div class="p15-cname">Investment</div>
-        <div class="p15-cdesc">Fueling deep tech moonshots</div>
+      <div class="p15-quad" style="background:var(--graphite)">
+        <svg class="p15-quad-icon" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        <div class="p15-quad-name">Investment</div>
+        <div class="p15-quad-desc">Fueling deep-tech moonshots</div>
       </div>
-      <div class="p15-card">
-        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
-        <div class="p15-cname">Research</div>
-        <div class="p15-cdesc">Pushing the boundaries of science</div>
+      <div class="p15-quad" style="background:var(--graphite)">
+        <svg class="p15-quad-icon" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+        <div class="p15-quad-name">Research</div>
+        <div class="p15-quad-desc">Pushing the boundaries of materials science</div>
       </div>
-      <div class="p15-card">
-        <svg viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
-        <div class="p15-cname">Government</div>
-        <div class="p15-cdesc">Building systems for the future</div>
+      <div class="p15-quad">
+        <svg class="p15-quad-icon" viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+        <div class="p15-quad-name">Government</div>
+        <div class="p15-quad-desc">Building systems for the future of nations</div>
       </div>
     </div>
-    <div class="p15-qr">
-      <div class="p15-cta">Let's build the future together.</div>
-      <div class="p15-url">sushanthpaatnaik.com</div>
-      <div style="width:58px;height:58px;background:#fff;border-radius:3px;display:flex;align-items:center;justify-content:center;margin-top:6px">
-        <svg viewBox="0 0 21 21" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+
+    <div class="p15-footer">
+      <div class="p15-cta">
+        <div class="p15-cta-head">Let's build the future together.</div>
+        <div class="p15-cta-url">sushanthpaatnaik.com</div>
+      </div>
+      <div class="p15-qr">
+        <svg viewBox="0 0 21 21" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="0" width="9" height="9" fill="#000"/>
           <rect x="1" y="1" width="7" height="7" fill="#fff"/>
           <rect x="2" y="2" width="5" height="5" fill="#000"/>
@@ -623,32 +2042,37 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;gap:4
           <rect x="12" y="15" width="2" height="2" fill="#000"/>
           <rect x="15" y="15" width="5" height="5" fill="#000"/>
           <rect x="16" y="16" width="3" height="3" fill="#fff"/>
+          <rect x="12" y="18" width="2" height="2" fill="#000"/>
+          <rect x="18" y="18" width="2" height="2" fill="#000"/>
         </svg>
       </div>
     </div>
   </div>
+  <div class="pgn p15-pgn">15</div>
 </section>
 
-<!-- 16 CLOSING -->
+
+<!-- ════════════════════════════════════
+     PAGE 16 — CLOSING
+════════════════════════════════════ -->
 <section class="page p16">
-  <span class="pgn">16</span>
   <div class="p16-left">
     <div>
-      <div class="p16-quote">Building<br>industrial<br>systems<br>that<br>outlive the<br>inventor.</div>
-      <div class="gold-rule"></div>
+      <div class="p16-quote">Building<br>industrial<br>systems<br>that outlive<br>the inventor.</div>
+      <div class="p16-rule"></div>
     </div>
-    <div>
-      <div class="p16-sp">
-        <img src="images/sp-logo.svg" alt="SP">
-        <div class="p16-spname">Sushanth<br>Paatnaik</div>
+    <div class="p16-identity">
+      <div class="p16-sp-wrap">
+        <img class="p16-sp-logo" src="images/sp-logo.svg" alt="SP">
+        <div class="p16-sp-name">Sushanth<br>Paatnaik</div>
       </div>
-      <div class="p16-links">
-        <div class="p16-link">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <div class="p16-contacts">
+        <div class="p16-contact-line">
+          <svg class="p16-contact-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
           sushanthpaatnaik.com
         </div>
-        <div class="p16-link">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div class="p16-contact-line">
+          <svg class="p16-contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           connect@sushanthpaatnaik.com
         </div>
       </div>
@@ -657,7 +2081,66 @@ body{background:#111;display:flex;flex-direction:column;align-items:center;gap:4
   <div class="p16-right">
     <img src="images/founder.jpg" alt="Sushanth Paatnaik">
   </div>
+  <div class="pgn p16-pgn">16</div>
 </section>
 
+
+<script>
+/* ── Molecular network canvas for page 05 ── */
+(function () {
+  const canvas = document.getElementById('molCanvas');
+  if (!canvas) return;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const W = 794, H = 1123;
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const GOLD = 'rgba(181,137,42,';
+  const nodes = [];
+  const COUNT = 52;
+
+  // Seed deterministic positions
+  const seed = (n) => {
+    let x = Math.sin(n * 9301 + 49297) * 233280;
+    return x - Math.floor(x);
+  };
+
+  for (let i = 0; i < COUNT; i++) {
+    nodes.push({
+      x: seed(i * 3 + 1) * W,
+      y: seed(i * 3 + 2) * H,
+      r: seed(i * 3 + 3) * 2.5 + 1.2,
+    });
+  }
+
+  // Draw edges
+  const MAX_DIST = 160;
+  nodes.forEach((a, i) => {
+    nodes.forEach((b, j) => {
+      if (j <= i) return;
+      const dx = a.x - b.x, dy = a.y - b.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < MAX_DIST) {
+        const alpha = (1 - d / MAX_DIST) * 0.22;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = GOLD + alpha + ')';
+        ctx.lineWidth = .8;
+        ctx.stroke();
+      }
+    });
+  });
+
+  // Draw nodes
+  nodes.forEach((n) => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fillStyle = GOLD + '.45)';
+    ctx.fill();
+  });
+})();
+</script>
 </body>
 </html>
