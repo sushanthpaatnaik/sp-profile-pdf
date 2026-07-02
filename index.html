@@ -56,25 +56,20 @@ body{display:flex;flex-direction:column;align-items:center;gap:2px;padding:20px 
 </div>
 
 <!-- ═══════════════ PAGE 02 — MANIFESTO ═══════════════ -->
-<div class="page" id="p02" style="background:#04040c;">
+<div class="page" id="p02" style="background:#03030a;">
   <!-- Page number -->
   <div style="position:absolute;top:26px;left:28px;z-index:30;font-family:'Inter',Arial,sans-serif;font-size:11px;font-weight:300;letter-spacing:.12em;color:#fff;opacity:.5;">02</div>
-  <!-- Earth from space photo — anchored to bottom-right -->
-  <img class="bg" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=794&h=1123&fit=crop&q=90" alt="" style="object-position:right bottom;opacity:.95;">
-  <!-- Overlay: black at top-left fading so earth shows bottom-right -->
-  <div class="ov" style="background:linear-gradient(135deg,rgba(4,4,12,.97) 0%,rgba(4,4,12,.88) 35%,rgba(4,4,12,.55) 60%,rgba(4,4,12,.3) 80%,rgba(4,4,12,.45) 100%);"></div>
+  <!-- Canvas: cinematic Earth from orbit -->
+  <canvas id="c02" style="position:absolute;inset:0;width:794px;height:1123px;"></canvas>
   <!-- Content using flex so body text is anchored to bottom -->
   <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:75px 52px 55px;">
-    <!-- Headline block top -->
     <div>
       <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:82px;font-weight:400;line-height:1.04;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Matter.</span></div>
       <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:82px;font-weight:400;line-height:1.04;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Capital.</span></div>
       <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:82px;font-weight:400;line-height:1.04;margin-bottom:36px;"><span style="color:#fff;">Engineering</span><br><span style="color:#C8A45A;">Scale.</span></div>
       <div style="width:38px;height:2px;background:#C8A45A;"></div>
     </div>
-    <!-- Spacer: Earth photo shows through here -->
     <div style="flex:1;"></div>
-    <!-- Body text anchored to bottom -->
     <div style="font-family:'Inter',Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.9;color:#fff;opacity:.85;max-width:430px;">From a maker's bench to global impact.<br>This journey is about engineering breakthrough<br>materials and ventures that build a more<br>sustainable, abundant and equitable world.</div>
   </div>
 </div>
@@ -367,7 +362,162 @@ body{display:flex;flex-direction:column;align-items:center;gap:2px;padding:20px 
 </div>
 
 <script>
-// P02 now uses real Unsplash Earth photo — no canvas needed
+// ─── P02: CINEMATIC EARTH FROM ORBIT ─────────────────────────────────────────
+(function(){
+  const c = document.getElementById('c02');
+  c.width = 794; c.height = 1123;
+  const ctx = c.getContext('2d');
+
+  // Deep space background — dark blue-black gradient
+  const bg = ctx.createLinearGradient(0, 0, 794, 1123);
+  bg.addColorStop(0,   '#02020a');
+  bg.addColorStop(0.3, '#030410');
+  bg.addColorStop(0.7, '#050318');
+  bg.addColorStop(1,   '#080510');
+  ctx.fillStyle = bg; ctx.fillRect(0,0,794,1123);
+
+  // Stars — dense in upper-left, sparse lower-right
+  const rng = (seed) => { let s=seed; return ()=>{ s=Math.sin(s)*43758.5453123; return s-(s|0); }; };
+  const r = rng(42);
+  for (let i = 0; i < 420; i++) {
+    const x = r()*794, y = r()*1123;
+    const dist = Math.sqrt(x*x + (y-0)*(y-0)); // distance from top-left
+    const density = Math.max(0, 1 - (x/794*0.4 + y/1123*0.5)); // more stars top-left
+    if (r() > density * 0.7) continue;
+    const rad = r()*1.2 + 0.15;
+    const alpha = 0.2 + r()*0.75;
+    ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(220,230,255,${alpha})`; ctx.fill();
+  }
+  // Brighter star clusters
+  for (let i = 0; i < 60; i++) {
+    const x = r()*600, y = r()*700;
+    ctx.beginPath(); ctx.arc(x, y, 0.6+r()*0.6, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(255,255,255,${0.6+r()*0.4})`; ctx.fill();
+  }
+
+  // Earth — large sphere, center at bottom-right (~900, 1400) radius ~680
+  // So only the upper-left arc is visible in our frame
+  const ex = 920, ey = 1420, er = 680;
+
+  // Earth clipping region
+  ctx.save();
+  ctx.beginPath(); ctx.arc(ex, ey, er, 0, Math.PI*2); ctx.clip();
+
+  // Earth surface base — deep ocean blue-green
+  const earth = ctx.createRadialGradient(ex-180, ey-180, 50, ex, ey, er);
+  earth.addColorStop(0,   '#0a1a35');
+  earth.addColorStop(0.3, '#082240');
+  earth.addColorStop(0.6, '#061830');
+  earth.addColorStop(0.85,'#040e1e');
+  earth.addColorStop(1,   '#020810');
+  ctx.fillStyle = earth; ctx.fillRect(0,0,794,1123);
+
+  // City lights — golden dots scattered across surface
+  const cityR = rng(99);
+  for (let i = 0; i < 280; i++) {
+    // Place along the visible arc
+    const angle = -Math.PI * 0.85 + cityR() * Math.PI * 0.7;
+    const radius = er * (0.82 + cityR() * 0.16);
+    const px = ex + Math.cos(angle) * radius;
+    const py = ey + Math.sin(angle) * radius;
+    if (px < -10 || px > 810 || py < 580 || py > 1140) continue;
+    const brightness = 0.3 + cityR() * 0.7;
+    const size = 0.5 + cityR() * 2.2;
+    // Glow
+    const grd = ctx.createRadialGradient(px,py,0,px,py,size*3);
+    grd.addColorStop(0, `rgba(255,210,100,${brightness*0.6})`);
+    grd.addColorStop(1, 'rgba(255,180,50,0)');
+    ctx.fillStyle = grd; ctx.fillRect(px-size*3,py-size*3,size*6,size*6);
+    // Core dot
+    ctx.beginPath(); ctx.arc(px, py, size*0.6, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(255,220,120,${brightness})`; ctx.fill();
+  }
+
+  // Thin connected city light lines (roads/rivers effect)
+  ctx.strokeStyle = 'rgba(255,190,70,0.08)';
+  ctx.lineWidth = 0.5;
+  const lineR = rng(77);
+  for (let i = 0; i < 40; i++) {
+    const angle1 = -Math.PI*0.8 + lineR()*Math.PI*0.55;
+    const angle2 = angle1 + (lineR()-0.5)*0.15;
+    const r1 = er*0.86, r2 = er*0.90;
+    ctx.beginPath();
+    ctx.moveTo(ex+Math.cos(angle1)*r1, ey+Math.sin(angle1)*r1);
+    ctx.lineTo(ex+Math.cos(angle2)*r2, ey+Math.sin(angle2)*r2);
+    ctx.stroke();
+  }
+
+  ctx.restore();
+
+  // Atmosphere — thin blue glow rim on upper edge of Earth
+  const atm = ctx.createRadialGradient(ex, ey, er-8, ex, ey, er+28);
+  atm.addColorStop(0,   'rgba(60,120,255,0)');
+  atm.addColorStop(0.4, 'rgba(60,130,255,0.18)');
+  atm.addColorStop(0.7, 'rgba(100,160,255,0.10)');
+  atm.addColorStop(1,   'rgba(60,100,200,0)');
+  ctx.beginPath(); ctx.arc(ex, ey, er+28, 0, Math.PI*2);
+  ctx.fillStyle = atm; ctx.fill();
+
+  // Sun / lens flare — bright hot glow right side
+  const sx = 810, sy = 680;
+  // Core white-gold sun
+  const sun = ctx.createRadialGradient(sx, sy, 0, sx, sy, 180);
+  sun.addColorStop(0,    'rgba(255,255,220,1)');
+  sun.addColorStop(0.04, 'rgba(255,240,160,0.95)');
+  sun.addColorStop(0.12, 'rgba(255,200,80,0.6)');
+  sun.addColorStop(0.3,  'rgba(255,160,40,0.25)');
+  sun.addColorStop(0.6,  'rgba(200,100,20,0.08)');
+  sun.addColorStop(1,    'rgba(0,0,0,0)');
+  ctx.fillStyle = sun; ctx.fillRect(sx-180, sy-180, 360, 360);
+
+  // Solar flare streaks
+  ctx.save();
+  ctx.globalAlpha = 0.35;
+  [[0,1],[0.15,0.8],[-.1,0.9],[0.25,0.65]].forEach(([da, len]) => {
+    const grad = ctx.createLinearGradient(sx, sy, sx-len*350, sy+da*200);
+    grad.addColorStop(0,   'rgba(255,200,60,0.7)');
+    grad.addColorStop(0.4, 'rgba(255,160,40,0.2)');
+    grad.addColorStop(1,   'rgba(255,120,20,0)');
+    ctx.strokeStyle = grad; ctx.lineWidth = 2-len*0.8;
+    ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(sx-len*350, sy+da*200); ctx.stroke();
+  });
+  ctx.restore();
+
+  // Horizon glow — warm gold band along Earth's visible edge
+  ctx.save();
+  ctx.beginPath(); ctx.arc(ex, ey, er+2, 0, Math.PI*2);
+  ctx.lineWidth = 3;
+  const horizGrd = ctx.createConicGradient ? null : null;
+  // Manual horizon glow along visible arc
+  for (let a = -Math.PI*0.82; a < -Math.PI*0.18; a += 0.04) {
+    const px = ex + Math.cos(a)*er, py = ey + Math.sin(a)*er;
+    if (px < 0 || py < 0 || px > 794 || py > 1123) continue;
+    const distToSun = Math.sqrt((px-sx)**2 + (py-sy)**2);
+    const warmth = Math.max(0, 1 - distToSun/600);
+    const grd = ctx.createRadialGradient(px,py,0,px,py,18);
+    grd.addColorStop(0, `rgba(255,${170+warmth*60},${50+warmth*30},${0.5+warmth*0.4})`);
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grd; ctx.fillRect(px-18,py-18,36,36);
+  }
+  ctx.restore();
+
+  // Dark overlay — top-left to keep text readable, fades toward Earth
+  const textOv = ctx.createLinearGradient(0, 0, 794, 1123);
+  textOv.addColorStop(0,    'rgba(3,3,12,0.82)');
+  textOv.addColorStop(0.35, 'rgba(3,3,12,0.70)');
+  textOv.addColorStop(0.6,  'rgba(3,3,12,0.40)');
+  textOv.addColorStop(0.8,  'rgba(3,3,12,0.18)');
+  textOv.addColorStop(1,    'rgba(3,3,12,0.30)');
+  ctx.fillStyle = textOv; ctx.fillRect(0,0,794,1123);
+
+  // Extra dark vignette left column for text legibility
+  const leftOv = ctx.createLinearGradient(0,0,380,0);
+  leftOv.addColorStop(0,   'rgba(3,3,12,0.55)');
+  leftOv.addColorStop(0.7, 'rgba(3,3,12,0.20)');
+  leftOv.addColorStop(1,   'rgba(3,3,12,0)');
+  ctx.fillStyle = leftOv; ctx.fillRect(0,0,380,1123);
+})();
 
 // ─── P04: MOUNTAIN BG ────────────────────────────────────────────────────────
 (function(){
