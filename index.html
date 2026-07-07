@@ -2,838 +2,1856 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sushanth Paatnaik — Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushanth Paatnaik – Profile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --g:#C4A24E;
-  --g2:#D9BD72;
-  --v:#080808;
-  --c:#E5DDD1;
-  --s:#877B70;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Inter','Helvetica Neue',Arial,sans-serif;
-}
-html{background:#111;}
-body{display:flex;flex-direction:column;align-items:center;gap:2px;padding:20px 0;background:#111;}
-.page{width:794px;height:1123px;position:relative;overflow:hidden;background:var(--v);color:var(--c);flex-shrink:0;}
-@media print{
-  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  html,body{background:none;padding:0;gap:0;}
-  .page{page-break-after:always;break-after:page;box-shadow:none;}
-}
-/* Utility */
-.pn{position:absolute;top:30px;left:36px;font-family:var(--sans);font-size:10px;font-weight:300;letter-spacing:.18em;color:var(--c);opacity:.5;z-index:30;}
-.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
-.ov{position:absolute;inset:0;}
-.ey{font-family:var(--sans);font-size:9px;font-weight:400;letter-spacing:.34em;text-transform:uppercase;color:var(--g);}
-.rl{width:36px;height:1px;background:var(--g);}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+  .page {
+    width: 794px;
+    height: 1123px;
+    overflow: hidden;
+    position: relative;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  /* Page number */
+  .pg-num {
+    position: absolute;
+    top: 38px;
+    left: 42px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .pg-num span {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.1em;
+  }
+  .pg-num .pg-line {
+    width: 36px;
+    height: 1.5px;
+    background: #C4A24E;
+  }
+
+  /* Section title */
+  .sec-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #C4A24E;
+    text-transform: uppercase;
+  }
+  .sec-title-sm {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #C4A24E;
+    text-transform: uppercase;
+  }
+  .gold-rule {
+    width: 100%;
+    height: 1px;
+    background: #C4A24E;
+    opacity: 0.6;
+  }
+  .gold-rule-short {
+    width: 40px;
+    height: 1.5px;
+    background: #C4A24E;
+  }
+
+  /* ===== P01 COVER ===== */
+  #p01 .cover-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 1;
+  }
+  #p01 .cover-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 38%, rgba(0,0,0,0.1) 65%, transparent 100%);
+    z-index: 2;
+  }
+  #p01 .logo-top-right {
+    position: absolute; top: 32px; right: 42px; z-index: 10;
+    height: 60px;
+  }
+  #p01 .cover-name {
+    position: absolute; bottom: 110px; left: 0; right: 0;
+    text-align: center; z-index: 10;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 68px; font-weight: 700;
+    letter-spacing: 0.4em;
+    color: #C4A24E;
+    line-height: 1;
+  }
+  #p01 .cover-sub {
+    position: absolute; bottom: 72px; left: 0; right: 0;
+    text-align: center; z-index: 10;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 300;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ===== P02 MANIFESTO ===== */
+  #p02 canvas { position: absolute; inset: 0; z-index: 0; }
+  #p02 .manifesto-content {
+    position: absolute; top: 110px; left: 60px; right: 60px; z-index: 10;
+  }
+  #p02 .manifesto-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 78px; font-weight: 700;
+    line-height: 1.0;
+    color: #fff;
+  }
+  #p02 .manifesto-headline .gold { color: #C4A24E; }
+  #p02 .manifesto-rule {
+    width: 40px; height: 1.5px; background: #C4A24E; margin: 24px 0 0 0;
+  }
+  #p02 .manifesto-body {
+    position: absolute; bottom: 80px; left: 60px; right: 60px; z-index: 10;
+    font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 300;
+    color: rgba(255,255,255,0.8); line-height: 1.8;
+  }
+
+  /* ===== P03 ORIGIN ===== */
+  #p03 .origin-photo {
+    position: absolute; top: 0; right: 0;
+    width: 460px; height: 100%;
+    object-fit: cover; object-position: center;
+    filter: grayscale(100%);
+    z-index: 1;
+  }
+  #p03 .origin-overlay {
+    position: absolute; top: 0; right: 0; width: 460px; height: 100%;
+    background: linear-gradient(to right, rgba(10,10,10,1) 0%, rgba(10,10,10,0.3) 40%, transparent 70%);
+    z-index: 2;
+  }
+  #p03 .origin-left {
+    position: absolute; top: 0; left: 0; width: 380px; height: 100%;
+    padding: 80px 40px 60px 42px; z-index: 10;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  #p03 .origin-label {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 400;
+    letter-spacing: 0.34em; color: #C4A24E; margin-bottom: 28px; text-transform: uppercase;
+  }
+  #p03 .origin-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px; font-weight: 600; font-style: italic;
+    color: #fff; line-height: 1.2; margin-bottom: 28px;
+  }
+  #p03 .origin-quote .gold { color: #C4A24E; }
+  #p03 .origin-bullets {
+    display: flex; flex-direction: column; gap: 16px; margin-top: 8px;
+  }
+  #p03 .origin-bullet {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400;
+    color: rgba(255,255,255,0.85);
+  }
+  #p03 .origin-icon {
+    width: 22px; height: 22px; color: #C4A24E; flex-shrink: 0;
+  }
+
+  /* ===== P04 JOURNEY ===== */
+  #p04 canvas { position: absolute; inset: 0; z-index: 0; }
+  #p04 .journey-content {
+    position: absolute; inset: 0; z-index: 10;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 80px 40px 40px;
+  }
+  #p04 .journey-title { margin-bottom: 24px; align-self: flex-start; margin-left: 20px; }
+  #p04 .timeline {
+    display: flex; flex-direction: column; align-items: center;
+    flex: 1; width: 100%; max-width: 600px; position: relative;
+  }
+  #p04 .tl-line {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+    background: linear-gradient(to bottom, transparent, #C4A24E 10%, #C4A24E 90%, transparent);
+    transform: translateX(-50%);
+  }
+  #p04 .tl-node {
+    display: flex; align-items: center; width: 100%; margin-bottom: 16px; position: relative; z-index: 2;
+  }
+  #p04 .tl-node:nth-child(even) { flex-direction: row-reverse; }
+  #p04 .tl-dot {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid #C4A24E;
+    background: #0a0a0a;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; z-index: 2;
+    color: #C4A24E; font-size: 14px;
+  }
+  #p04 .tl-text {
+    width: calc(50% - 30px); padding: 0 16px;
+  }
+  #p04 .tl-node:nth-child(even) .tl-text { text-align: right; }
+  #p04 .tl-label {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+    color: #fff; letter-spacing: 0.08em;
+  }
+  #p04 .tl-sub {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300;
+    color: #C4A24E; letter-spacing: 0.05em;
+  }
+
+  /* ===== P05 PHILOSOPHY ===== */
+  #p05 .phil-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: right center;
+    z-index: 1;
+  }
+  #p05 .phil-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.2) 100%);
+    z-index: 2;
+  }
+  #p05 .phil-content {
+    position: absolute; top: 0; left: 0; width: 520px; height: 100%;
+    padding: 100px 56px 80px 52px; z-index: 10;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  #p05 .phil-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 600; font-style: italic;
+    color: #fff; line-height: 1.25; margin-top: 32px;
+  }
+  #p05 .phil-quote .gold { color: #C4A24E; }
+
+  /* ===== P06 HONORS ===== */
+  #p06 { background: #000; }
+  #p06 .honors-inner {
+    padding: 68px 36px 32px;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  #p06 .honors-header { margin-bottom: 10px; }
+  .card-grid-2x2 {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; gap: 7px;
+    flex: 1.2;
+  }
+  .card-grid-3 {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px;
+    flex: 0.8;
+  }
+  .honor-card {
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(196,162,78,0.25);
+    display: flex; align-items: flex-end;
+  }
+  .honor-card img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    filter: brightness(0.55) saturate(0.6);
+  }
+  .honor-card .hc-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+  }
+  .honor-card .hc-label {
+    position: relative; z-index: 2;
+    padding: 10px 12px;
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.2em; color: #C4A24E; text-transform: uppercase;
+  }
+
+  /* ===== P07 BY THE NUMBERS ===== */
+  #p07 { background: #000; }
+  #p07 .numbers-inner {
+    padding: 68px 40px 40px;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    flex: 1; margin-top: 20px;
+    border: 1px solid rgba(196,162,78,0.2);
+  }
+  .stat-cell {
+    padding: 28px 36px;
+    border: 1px solid rgba(196,162,78,0.2);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 82px; font-weight: 700;
+    color: #C4A24E;
+    text-shadow: 0 0 40px rgba(196,162,78,0.4), 0 0 80px rgba(196,162,78,0.15);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400;
+    letter-spacing: 0.2em; color: rgba(255,255,255,0.7);
+    margin-top: 8px; text-transform: uppercase;
+  }
+  .stat-dash {
+    width: 20px; height: 1px; background: #C4A24E; margin-top: 8px;
+  }
+
+  /* ===== P08 ENGINEERING INTELLIGENT MATTER ===== */
+  #p08 { background: #000; }
+  #p08 .matter-inner {
+    padding: 58px 34px 28px;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  #p08 .matter-subtitle {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300;
+    letter-spacing: 0.25em; color: rgba(255,255,255,0.5); margin-top: 5px;
+    text-transform: uppercase;
+  }
+  .material-row {
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid rgba(196,162,78,0.12);
+    padding: 9px 0;
+    flex: 1;
+  }
+  .material-row:last-child { border-bottom: none; }
+  .material-img {
+    width: 165px; height: 88px; object-fit: cover;
+    border: 1px solid rgba(196,162,78,0.2); flex-shrink: 0;
+  }
+  .material-icon {
+    width: 38px; height: 44px; flex-shrink: 0;
+  }
+  .material-text { flex: 1; }
+  .material-name {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+    color: #fff; letter-spacing: 0.08em;
+  }
+  .material-dash {
+    display: inline-block; width: 16px; height: 1px;
+    background: #C4A24E; margin: 0 8px; vertical-align: middle;
+  }
+  .material-desc {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300;
+    color: rgba(255,255,255,0.65); line-height: 1.6; margin-top: 4px;
+  }
+
+  /* ===== P09 INNOVATION PORTFOLIO ===== */
+  #p09 { background: #000; }
+  #p09 .portfolio-inner {
+    padding: 56px 34px 0;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  .product-row {
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid rgba(196,162,78,0.12);
+    padding: 9px 0; flex: 1;
+  }
+  .product-img {
+    width: 165px; height: 98px; object-fit: cover;
+    border: 1px solid rgba(196,162,78,0.2); flex-shrink: 0;
+  }
+  .product-center { flex: 1; }
+  .product-name {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
+    color: #fff; letter-spacing: 0.08em;
+  }
+  .product-sub {
+    font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 400;
+    color: #C4A24E; letter-spacing: 0.1em; margin-top: 2px;
+  }
+  .product-bullets {
+    display: flex; gap: 6px; margin-top: 5px;
+  }
+  .product-bullet-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #C4A24E; margin-top: 2px;
+  }
+  .product-right { text-align: right; flex-shrink: 0; width: 108px; }
+  .product-metric {
+    font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 700;
+    color: #C4A24E; line-height: 1;
+    text-shadow: 0 0 30px rgba(196,162,78,0.35);
+  }
+  .product-unit {
+    font-family: 'Inter', sans-serif; font-size: 8.5px; font-weight: 400;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .product-desc {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 300;
+    color: rgba(255,255,255,0.55); line-height: 1.5; margin-top: 3px;
+  }
+  #p09 .portfolio-footer {
+    height: 34px; background: rgba(196,162,78,0.08);
+    border-top: 1px solid rgba(196,162,78,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 0.3em; color: #C4A24E;
+  }
+
+  /* ===== P10 INDUSTRIAL TRANSLATION ===== */
+  #p10 { background: #000; }
+  #p10 .ind-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    filter: brightness(0.55) saturate(0.6);
+    z-index: 1;
+  }
+  #p10 .ind-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.35); z-index: 2;
+  }
+  #p10 .ind-content {
+    position: absolute; inset: 0; z-index: 10;
+    padding: 68px 52px 52px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .sector-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    margin-top: auto; padding-top: 24px;
+  }
+  .sector-item {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    padding: 36px 16px 32px;
+    border: 1px solid rgba(196,162,78,0.35);
+    background: rgba(0,0,0,0.6);
+  }
+  .sector-hex {
+    width: 44px; height: 44px; color: #C4A24E;
+  }
+  .sector-label {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; color: #C4A24E; text-transform: uppercase;
+  }
+
+  /* ===== P11 VENTURES ===== */
+  #p11 { background: #000; }
+  #p11 .ventures-inner {
+    padding: 58px 34px 30px;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  .ventures-grid {
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr;
+    gap: 8px; flex: 1; margin-top: 20px;
+  }
+  .venture-card {
+    border: 1px solid rgba(196,162,78,0.25);
+    display: flex; overflow: hidden;
+  }
+  .vc-logo {
+    width: 66px; background: rgba(196,162,78,0.06);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 700;
+    color: #C4A24E; letter-spacing: 0.1em;
+    border-right: 1px solid rgba(196,162,78,0.2);
+  }
+  .vc-body { padding: 10px 11px; flex: 1; overflow: hidden; }
+  .vc-name {
+    font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 700;
+    color: #fff; letter-spacing: 0.08em;
+  }
+  .vc-sub {
+    font-family: 'Inter', sans-serif; font-size: 8.5px; font-weight: 400;
+    color: #C4A24E; letter-spacing: 0.1em; margin-top: 2px;
+  }
+  .vc-rule { width: 20px; height: 1px; background: #C4A24E; margin: 5px 0; }
+  .vc-desc {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 300;
+    color: rgba(255,255,255,0.6); line-height: 1.5;
+  }
+  #p11 .ventures-footer {
+    display: flex; gap: 14px; justify-content: center; margin-top: 10px;
+  }
+  .badge {
+    padding: 5px 16px; border: 1px solid rgba(196,162,78,0.4);
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 0.25em; color: #C4A24E; text-transform: uppercase;
+  }
+
+  /* ===== P12 GLOBAL RECOGNITION ===== */
+  #p12 { background: #000; }
+  #p12 .media-inner {
+    padding: 68px 34px 36px;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  .news-grid {
+    flex: 1; margin-top: 18px;
+    display: grid; grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr); gap: 7px;
+  }
+  .news-card {
+    border: 1px solid rgba(196,162,78,0.2);
+    background: rgba(255,255,255,0.03);
+    padding: 14px 11px;
+    display: flex; flex-direction: column; gap: 7px;
+    overflow: hidden;
+  }
+  .news-pub {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.2em; color: #C4A24E; text-transform: uppercase;
+  }
+  .news-rule { width: 20px; height: 1px; background: #C4A24E; }
+  .news-headline {
+    font-family: 'Cormorant Garamond', serif; font-size: 12.5px; font-weight: 600;
+    color: rgba(255,255,255,0.85); line-height: 1.4; flex: 1;
+  }
+  .news-date {
+    font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 300;
+    color: rgba(255,255,255,0.35); letter-spacing: 0.1em;
+  }
+  #p12 .media-bottom {
+    text-align: center; margin-top: 14px;
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.2em; color: #C4A24E; text-transform: uppercase;
+  }
+
+  /* ===== P13 SPEAKING ===== */
+  #p13 { background: #000; }
+  #p13 .speaking-inner {
+    padding: 58px 34px 36px;
+    display: flex; flex-direction: column; height: 100%;
+  }
+  #p13 .speaking-sub {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300;
+    letter-spacing: 0.2em; color: rgba(255,255,255,0.45); margin-top: 5px;
+    text-transform: uppercase;
+  }
+  .event-row {
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid rgba(196,162,78,0.12);
+    padding: 11px 0; flex: 1;
+  }
+  .event-img {
+    width: 156px; height: 86px; object-fit: cover;
+    border: 1px solid rgba(196,162,78,0.2); flex-shrink: 0;
+  }
+  .event-icon { color: #C4A24E; flex-shrink: 0; width: 18px; }
+  .event-text { flex: 1; }
+  .event-name {
+    font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 700;
+    color: #fff; letter-spacing: 0.08em;
+  }
+  .event-rule { width: 24px; height: 1px; background: #C4A24E; margin: 4px 0; }
+  .event-desc {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300;
+    color: rgba(255,255,255,0.6); line-height: 1.6;
+  }
+
+  /* ===== P14 FUTURE SYSTEMS ===== */
+  #p14 .future-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    filter: brightness(0.65) saturate(0.85);
+    z-index: 1;
+  }
+  #p14 .future-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.55) 100%);
+    z-index: 2;
+  }
+  #p14 .future-content {
+    position: absolute; inset: 0; z-index: 10;
+    padding: 68px 52px 60px;
+    display: flex; flex-direction: column;
+  }
+  .hex-row {
+    display: flex; gap: 16px; margin-top: 36px;
+  }
+  .hex-item {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .hex-item svg { width: 50px; height: 58px; }
+  .hex-item-label {
+    font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 600;
+    letter-spacing: 0.25em; color: #C4A24E; text-transform: uppercase;
+  }
+  #p14 .future-quote {
+    margin-top: auto;
+    padding-top: 40px;
+  }
+  #p14 .quote-mark {
+    font-family: 'Cormorant Garamond', serif; font-size: 80px;
+    color: #C4A24E; line-height: 0.7; margin-bottom: 8px;
+  }
+  #p14 .quote-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 31px;
+    font-weight: 400; font-style: italic;
+    color: rgba(255,255,255,0.9); line-height: 1.45;
+    max-width: 580px;
+  }
+
+  /* ===== P15 COLLABORATION ===== */
+  #p15 { background: #000; }
+  #p15 .collab-inner {
+    padding: 58px 40px 52px;
+    display: flex; flex-direction: column; height: 100%; align-items: center;
+  }
+  .collab-cards {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    border: 1px solid rgba(196,162,78,0.3);
+    margin-top: 28px; width: 100%; min-height: 460px;
+  }
+  .collab-card {
+    padding: 44px 18px 40px;
+    border-right: 1px solid rgba(196,162,78,0.2);
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    text-align: center;
+  }
+  .collab-card:last-child { border-right: none; }
+  .collab-icon { color: #C4A24E; width: 58px; height: 58px; }
+  .collab-label {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.15em; color: #fff; text-transform: uppercase;
+  }
+  .collab-dash { width: 20px; height: 1px; background: #C4A24E; }
+  .collab-desc {
+    font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 300;
+    color: rgba(255,255,255,0.55); line-height: 1.6;
+  }
+  #p15 .qr-area {
+    margin-top: 56px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  #p15 .together-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; font-style: italic;
+    color: #fff; text-align: center;
+  }
+  #p15 .cta-btn {
+    padding: 10px 32px; border: 1px solid #C4A24E;
+    background: transparent;
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; color: #C4A24E; text-transform: uppercase;
+    border-radius: 30px;
+    display: inline-block;
+  }
+
+  /* ===== P16 CLOSING ===== */
+  #p16 { background: #000; }
+  #p16 .closing-right {
+    position: absolute; top: 0; right: 0; width: 437px; height: 100%;
+    z-index: 1; overflow: hidden;
+  }
+  #p16 .closing-right img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  }
+  #p16 .closing-right-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  }
+  #p16 .closing-left {
+    position: absolute; top: 0; left: 0; width: 400px; height: 100%;
+    padding: 70px 40px 60px 44px; z-index: 10;
+    display: flex; flex-direction: column;
+  }
+  #p16 .closing-quote {
+    font-family: 'Cormorant Garamond', serif; font-size: 33px; font-weight: 400; font-style: italic;
+    color: #fff; line-height: 1.35; margin-top: 12px;
+  }
+  #p16 .closing-dash { width: 36px; height: 1.5px; background: #C4A24E; margin: 24px 0; }
+  #p16 .closing-logo { height: 50px; margin-bottom: 12px; }
+  #p16 .closing-name {
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400;
+    letter-spacing: 0.3em; color: #fff; text-transform: uppercase; margin-bottom: 20px;
+  }
+  #p16 .closing-rule-glow {
+    width: 100%; height: 1px;
+    background: linear-gradient(to right, #C4A24E, rgba(196,162,78,0.3));
+    box-shadow: 0 0 10px rgba(196,162,78,0.4);
+    margin-bottom: 24px;
+  }
+  .contact-row {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  }
+  .contact-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(196,162,78,0.4);
+    display: flex; align-items: center; justify-content: center;
+    color: #C4A24E; flex-shrink: 0;
+  }
+  .contact-text {
+    font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 300;
+    color: rgba(255,255,255,0.75);
+  }
+  #p16 .closing-qr {
+    position: absolute; bottom: 36px; right: 60px; z-index: 10;
+  }
+
+  @media print {
+    body { gap: 0; background: #000; }
+    .page { page-break-after: always; break-after: page; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════ P01 — COVER ═══════════════ -->
-<div class="page" id="p01" style="background:#000;">
-  <div style="position:absolute;top:28px;left:34px;z-index:30;font-family:var(--sans);font-size:10px;font-weight:300;letter-spacing:.16em;color:#fff;opacity:.45;">01</div>
-  <img src="images/founder.jpg" alt="Sushanth Paatnaik" style="position:absolute;top:0;left:0;width:100%;height:73%;object-fit:cover;object-position:center 8%;filter:grayscale(100%) brightness(.85) contrast(1.2);">
-  <div style="position:absolute;top:50%;left:0;right:0;height:28%;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 100%);"></div>
-  <!-- SP Monogram -->
-  <div style="position:absolute;top:18px;right:22px;z-index:30;font-family:var(--serif);font-style:italic;line-height:1;color:var(--g);letter-spacing:-.05em;">
-    <span style="font-size:78px;font-weight:500;">S</span><span style="font-size:72px;font-weight:300;">P</span>
+<!-- ===== PAGE 01 COVER ===== -->
+<div class="page" id="p01">
+  <div class="pg-num">
+    <span>01</span>
+    <div class="pg-line"></div>
   </div>
-  <!-- Name bottom -->
-  <div style="position:absolute;bottom:38px;left:0;right:0;text-align:center;z-index:20;padding:0 8px;">
-    <div style="font-family:var(--serif);font-size:72px;font-weight:400;letter-spacing:.44em;color:var(--g);text-transform:uppercase;line-height:1.08;margin-bottom:20px;">SUSHANTH<br>PAATNAIK</div>
-    <div style="font-family:var(--sans);font-size:10px;font-weight:300;letter-spacing:.4em;color:#fff;opacity:.55;text-transform:uppercase;">INVENTOR &bull; DEEP-TECH &bull; FOUNDER</div>
-  </div>
+  <img class="cover-img" src="images/founder.jpg" alt="Sushanth Paatnaik">
+  <div class="cover-overlay"></div>
+  <img class="logo-top-right" src="images/sp-logo.svg" alt="SP Logo">
+  <div class="cover-name">SUSHANTH / PAATNAIK</div>
+  <div class="cover-sub">INVENTOR &bull; DEEP-TECH &bull; FOUNDER</div>
 </div>
 
-<!-- ═══════════════ P02 — MANIFESTO ═══════════════ -->
-<div class="page" id="p02" style="background:#03030a;">
-  <div style="position:absolute;top:28px;left:34px;z-index:30;font-family:var(--sans);font-size:10px;font-weight:300;letter-spacing:.16em;color:#fff;opacity:.45;">02</div>
-  <canvas id="c02" style="position:absolute;inset:0;width:794px;height:1123px;"></canvas>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:78px 56px 58px;">
-    <div>
-      <div style="font-family:var(--serif);font-size:84px;font-weight:300;line-height:1.04;"><span style="color:#fff;">Engineering</span><br><span style="color:var(--g);">Matter.</span></div>
-      <div style="font-family:var(--serif);font-size:84px;font-weight:300;line-height:1.04;"><span style="color:#fff;">Engineering</span><br><span style="color:var(--g);">Capital.</span></div>
-      <div style="font-family:var(--serif);font-size:84px;font-weight:300;line-height:1.04;margin-bottom:40px;"><span style="color:#fff;">Engineering</span><br><span style="color:var(--g);">Scale.</span></div>
-      <div style="width:40px;height:1.5px;background:var(--g);"></div>
+<!-- ===== PAGE 02 MANIFESTO ===== -->
+<div class="page" id="p02">
+  <canvas id="c02" width="794" height="1123"></canvas>
+  <div class="pg-num">
+    <span>02</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="manifesto-content">
+    <div class="manifesto-headline">
+      Engineering <span class="gold">Matter.</span><br>
+      <span class="gold">Capital.</span><br>
+      <span class="gold">Scale.</span>
     </div>
-    <div style="flex:1;"></div>
-    <div style="font-family:var(--sans);font-size:14.5px;font-weight:300;line-height:2;color:#fff;opacity:.82;max-width:420px;">From a maker's bench to global impact.<br>This journey is about engineering breakthrough<br>materials and ventures that build a more<br>sustainable, abundant and equitable world.</div>
+    <div class="manifesto-rule"></div>
+  </div>
+  <div class="manifesto-body">
+    Sushanth Paatnaik is an inventor, deep-tech entrepreneur, and industrial systems architect who has spent two decades engineering materials that redefine what is possible at the frontier of science and industry. Holder of 40+ international patents, Presidential awardee, MIT TR35 honoree, and TED speaker — he transforms laboratory breakthroughs into ventures that reshape entire industries. His companies operate at the intersection of advanced materials, clean energy, and infrastructure resilience, collectively raising over &#8377;200 crore in capital and deploying technology at national scale.
   </div>
 </div>
 
-<!-- ═══════════════ P03 — ORIGIN ═══════════════ -->
+<!-- ===== PAGE 03 ORIGIN ===== -->
 <div class="page" id="p03">
-  <span class="pn">03</span>
-  <!-- Split: 44% left text / 56% right photo -->
-  <div style="position:absolute;inset:0;background:#0a0a0a;"></div>
-  <div style="position:absolute;inset:0;z-index:5;display:grid;grid-template-columns:348px 1fr;height:100%;">
-    <!-- Left content column -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:72px 40px 72px 56px;border-right:1px solid rgba(196,162,78,.14);">
-      <div class="ey" style="margin-bottom:32px;">ORIGIN</div>
-      <div style="font-family:var(--serif);font-size:44px;font-weight:300;line-height:1.16;color:var(--c);font-style:italic;margin-bottom:36px;">Every idea<br>has a<br>birthplace.</div>
-      <div class="rl" style="margin-bottom:48px;"></div>
-      <!-- Milestones -->
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:32px;position:relative;">
-          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0;">
-            <div style="width:28px;height:28px;border:1px solid rgba(196,162,78,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div style="width:1px;flex:1;background:linear-gradient(to bottom,rgba(196,162,78,.35),rgba(196,162,78,.08));margin-top:6px;min-height:24px;"></div>
-          </div>
-          <div style="padding-top:4px;">
-            <div style="font-family:var(--sans);font-size:11px;font-weight:400;color:var(--c);margin-bottom:4px;">Childhood curiosity</div>
-            <div style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--s);line-height:1.6;">Small town, limitless wonder.<br>Questions that refused easy answers.</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:32px;position:relative;">
-          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0;">
-            <div style="width:28px;height:28px;border:1px solid rgba(196,162,78,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <div style="width:1px;flex:1;background:linear-gradient(to bottom,rgba(196,162,78,.35),rgba(196,162,78,.08));margin-top:6px;min-height:24px;"></div>
-          </div>
-          <div style="padding-top:4px;">
-            <div style="font-family:var(--sans);font-size:11px;font-weight:400;color:var(--c);margin-bottom:4px;">First workshop, age 14</div>
-            <div style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--s);line-height:1.6;">Hands that learned to build before<br>they learned to theorize.</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:20px;align-items:flex-start;">
-          <div style="flex-shrink:0;">
-            <div style="width:28px;height:28px;border:1px solid rgba(196,162,78,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-          </div>
-          <div style="padding-top:4px;">
-            <div style="font-family:var(--sans);font-size:11px;font-weight:400;color:var(--c);margin-bottom:4px;">Breath-powered wheelchair</div>
-            <div style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--s);line-height:1.6;">The invention that started<br>everything — engineering as empathy.</div>
-          </div>
-        </div>
+  <img class="origin-photo" src="images/founder-archival.jpg" alt="Archival">
+  <div class="origin-overlay"></div>
+  <div class="pg-num">
+    <span>03</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="origin-left">
+    <div class="origin-label">Origin</div>
+    <div class="origin-quote">"Every idea has a <span class="gold">birthplace.</span>"</div>
+    <div class="gold-rule-short"></div>
+    <div class="origin-bullets">
+      <div class="origin-bullet">
+        <svg class="origin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Bhubaneswar, Odisha
       </div>
-    </div>
-    <!-- Right photo -->
-    <div style="position:relative;">
-      <img src="images/bg-origin.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(100%) brightness(.62) contrast(1.12);">
-      <div style="position:absolute;inset:0;background:linear-gradient(to right,#0a0a0a 0%,rgba(10,10,10,.12) 35%,rgba(10,10,10,0) 100%);"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#0a0a0a,transparent);"></div>
+      <div class="origin-bullet">
+        <svg class="origin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        Started inventing at 17
+      </div>
+      <div class="origin-bullet">
+        <svg class="origin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+        </svg>
+        Materials science pioneer
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ P04 — JOURNEY ═══════════════ -->
+<!-- ===== PAGE 04 JOURNEY ===== -->
 <div class="page" id="p04">
-  <span class="pn">04</span>
-  <canvas id="c04" style="position:absolute;inset:0;"></canvas>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:72px 64px 56px;">
-    <div class="ey" style="margin-bottom:52px;">JOURNEY</div>
-    <div id="jlist" style="display:flex;flex-direction:column;flex:1;justify-content:space-between;"></div>
+  <canvas id="c04" width="794" height="1123"></canvas>
+  <div class="pg-num">
+    <span>04</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="journey-content">
+    <div class="journey-title sec-title">Journey</div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+            <line x1="4" y1="22" x2="4" y2="15"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">EARLY INVENTION</div>
+          <div class="tl-sub">The garage workshop</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">NATIONAL RECOGNITION</div>
+          <div class="tl-sub">Presidential Award 2014</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">TED SPEAKER</div>
+          <div class="tl-sub">Ideas Worth Building</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 010 20"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">GLOBAL PATENTS</div>
+          <div class="tl-sub">40+ Protected Inventions</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">DEEP-TECH VENTURES</div>
+          <div class="tl-sub">Building Companies</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11m0 0h10M9 14H5m0 0v6a2 2 0 002 2h10a2 2 0 002-2v-6"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">R&amp;D EXPANSION</div>
+          <div class="tl-sub">Lab to Industry Scale</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">FUTURE SYSTEMS</div>
+          <div class="tl-sub">The mission continues</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════ P05 — PHILOSOPHY ═══════════════ -->
+<!-- ===== PAGE 05 PHILOSOPHY ===== -->
 <div class="page" id="p05">
-  <span class="pn">05</span>
-  <img class="bg" src="images/bg-material.jpg" alt="" style="object-position:right center;filter:grayscale(100%) brightness(.38) contrast(1.25);">
-  <!-- Left vignette for legibility -->
-  <div class="ov" style="background:linear-gradient(105deg,rgba(8,8,8,.97) 0%,rgba(8,8,8,.88) 42%,rgba(8,8,8,.52) 68%,rgba(8,8,8,.18) 100%);"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 64px;">
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:56px;">
-      <div style="width:1.5px;height:32px;background:var(--g);"></div>
-      <div class="ey">PHILOSOPHY</div>
+  <img class="phil-bg" src="images/bg-material.jpg" alt="Material texture">
+  <div class="phil-overlay"></div>
+  <div class="pg-num">
+    <span>05</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="phil-content">
+    <div class="sec-title">Philosophy</div>
+    <div class="phil-quote">
+      "The future is not<br>imagined. It is<br><span class="gold">engineered</span><br>quietly."
     </div>
-    <div style="font-family:var(--serif);font-size:58px;font-weight:300;line-height:1.1;color:var(--c);max-width:520px;font-style:italic;margin-bottom:52px;">"The future<br>is not<br>imagined.<br>It is<br><span style="color:var(--g);">engineered</span><br>quietly."</div>
-    <div class="rl" style="margin-bottom:32px;"></div>
-    <div style="font-family:var(--sans);font-size:10px;font-weight:300;letter-spacing:.22em;color:var(--s);text-transform:uppercase;">SUSHANTH PAATNAIK — DEEP-TECH INVENTOR</div>
+    <div style="width:40px;height:1.5px;background:#C4A24E;margin-top:28px;"></div>
+    <p style="margin-top:28px;font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.85;max-width:340px;">
+      Sushanth believes that true innovation is never loud. It happens in laboratories at midnight, in material characterization runs, in field deployments that survive monsoons and decades. His philosophy: engineer the atoms first, and the future follows.
+    </p>
   </div>
 </div>
 
-<!-- ═══════════════ P06 — HONORS ═══════════════ -->
+<!-- ===== PAGE 06 HONORS ===== -->
 <div class="page" id="p06">
-  <span class="pn">06</span>
-  <div style="position:absolute;inset:0;background:#0a0a0a;"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 52px 52px;">
-    <div class="ey" style="margin-bottom:36px;">HONORS &amp; RECOGNITIONS</div>
-
-    <!-- Presidential hero row -->
-    <div style="border:1px solid rgba(196,162,78,.2);padding:28px 30px;margin-bottom:18px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;">
-      <div>
-        <div style="font-family:var(--serif);font-size:72px;font-weight:300;color:var(--g);line-height:1;margin-bottom:6px;">6<span style="font-size:36px;font-weight:300;opacity:.7;">×</span></div>
-        <div style="font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.28em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">PRESIDENT OF INDIA</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.18em;color:var(--s);text-transform:uppercase;">National Innovation &amp; Technology Awards</div>
+  <div class="pg-num">
+    <span>06</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="honors-inner">
+    <div class="honors-header">
+      <div class="sec-title-sm">Honors &amp; Recognitions</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
+    </div>
+    <div style="height:10px;"></div>
+    <div class="card-grid-2x2">
+      <div class="honor-card">
+        <img src="images/presidential-trio.jpg" alt="Presidential Award">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">Presidential Award</div>
       </div>
-      <div style="display:flex;gap:8px;">
-        <img src="images/award-kalam.jpg" alt="" style="width:76px;height:76px;object-fit:cover;filter:grayscale(20%) brightness(.85);">
-        <img src="images/award-patil.jpg" alt="" style="width:76px;height:76px;object-fit:cover;filter:grayscale(20%) brightness(.85);">
-        <img src="images/award-pranab.jpg" alt="" style="width:76px;height:76px;object-fit:cover;filter:grayscale(20%) brightness(.85);">
+      <div class="honor-card">
+        <img src="images/nasa.jpg" alt="NASA">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">NASA Innovation</div>
+      </div>
+      <div class="honor-card">
+        <img src="images/mit-tr35.jpg" alt="MIT TR35">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">MIT TR35</div>
+      </div>
+      <div class="honor-card">
+        <img src="images/ted.jpg" alt="TED">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">TED Speaker</div>
       </div>
     </div>
-
-    <!-- Secondary recognitions -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;">
-      <!-- MIT TR35 -->
-      <div style="border:1px solid rgba(196,162,78,.15);padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;">
-        <div style="font-family:var(--serif);font-size:38px;font-weight:400;color:var(--g);line-height:1;margin-bottom:8px;">TR35</div>
-        <div>
-          <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">MIT TECHNOLOGY REVIEW</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.14em;color:var(--s);text-transform:uppercase;">35 Innovators Under 35</div>
-        </div>
+    <div style="height:8px;"></div>
+    <div class="card-grid-3">
+      <div class="honor-card">
+        <img src="images/intel-iris.jpg" alt="Intel Iris">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">Intel IRIS</div>
       </div>
-      <!-- TED -->
-      <div style="border:1px solid rgba(196,162,78,.15);padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;">
-        <img src="images/logo-ted.jpg" alt="TED" style="height:34px;width:auto;object-fit:contain;margin-bottom:8px;">
-        <div>
-          <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">TED SPEAKER</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.14em;color:var(--s);text-transform:uppercase;">Ideas Worth Spreading</div>
-        </div>
+      <div class="honor-card">
+        <img src="images/logo-ink.jpg" alt="INK">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">INK Fellow</div>
       </div>
-      <!-- NASA -->
-      <div style="border:1px solid rgba(196,162,78,.15);padding:22px 24px;display:flex;align-items:center;gap:18px;">
-        <img src="images/nasa.jpg" alt="NASA" style="width:60px;height:60px;object-fit:cover;flex-shrink:0;">
-        <div>
-          <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">NASA</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.14em;color:var(--s);text-transform:uppercase;">Research Collaborator</div>
-        </div>
-      </div>
-      <!-- Intel -->
-      <div style="border:1px solid rgba(196,162,78,.15);padding:22px 24px;display:flex;align-items:center;gap:18px;">
-        <img src="images/intel-iris.jpg" alt="Intel" style="width:60px;height:60px;object-fit:cover;filter:grayscale(70%) brightness(1.1);flex-shrink:0;">
-        <div>
-          <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">INTEL</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.14em;color:var(--s);text-transform:uppercase;">Global Innovator Award</div>
-        </div>
-      </div>
-      <!-- INK -->
-      <div style="border:1px solid rgba(196,162,78,.15);padding:20px 24px;display:flex;align-items:center;gap:18px;">
-        <img src="images/logo-ink.jpg" alt="INK" style="height:32px;width:auto;object-fit:contain;filter:grayscale(70%) brightness(1.2);flex-shrink:0;">
-        <div>
-          <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">INK FELLOWSHIP</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.14em;color:var(--s);text-transform:uppercase;">Innovation Network</div>
-        </div>
-      </div>
-      <!-- NIF -->
-      <div style="border:1px solid rgba(196,162,78,.15);padding:20px 24px;display:flex;align-items:center;gap:18px;">
-        <img src="images/logo-nif.jpg" alt="NIF" style="height:32px;width:auto;object-fit:contain;filter:grayscale(60%) brightness(1.2);flex-shrink:0;">
-        <div>
-          <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">NIF FELLOW</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.14em;color:var(--s);text-transform:uppercase;">National Innovation Foundation</div>
-        </div>
+      <div class="honor-card">
+        <img src="images/logo-nif.jpg" alt="NIF">
+        <div class="hc-overlay"></div>
+        <div class="hc-label">NIF Innovator</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ P07 — BY THE NUMBERS ═══════════════ -->
+<!-- ===== PAGE 07 BY THE NUMBERS ===== -->
 <div class="page" id="p07">
-  <span class="pn">07</span>
-  <canvas id="c07" style="position:absolute;inset:0;"></canvas>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:72px 52px 58px;">
-    <div class="ey" style="margin-bottom:48px;">BY THE NUMBERS</div>
-    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:0;border:1px solid rgba(196,162,78,.16);">
-      <div style="border-right:1px solid rgba(196,162,78,.16);border-bottom:1px solid rgba(196,162,78,.16);display:flex;flex-direction:column;justify-content:center;padding:32px 42px;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:var(--g);line-height:1;margin-bottom:10px;">15+</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.28em;color:var(--s);text-transform:uppercase;">YEARS OF INVENTION</div>
+  <div class="pg-num">
+    <span>07</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="numbers-inner">
+    <div>
+      <div class="sec-title">By The Numbers</div>
+      <div style="height:10px;"></div>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Patents Filed Worldwide</div>
+        <div class="stat-dash"></div>
       </div>
-      <div style="border-bottom:1px solid rgba(196,162,78,.16);display:flex;flex-direction:column;justify-content:center;padding:32px 42px;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:var(--g);line-height:1;margin-bottom:10px;">10+</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.28em;color:var(--s);text-transform:uppercase;line-height:1.7;">INDUSTRIAL<br>TECHNOLOGIES</div>
+      <div class="stat-cell">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Deep-Tech Ventures</div>
+        <div class="stat-dash"></div>
       </div>
-      <div style="border-right:1px solid rgba(196,162,78,.16);border-bottom:1px solid rgba(196,162,78,.16);display:flex;flex-direction:column;justify-content:center;padding:32px 42px;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:var(--g);line-height:1;margin-bottom:10px;">6</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.28em;color:var(--s);text-transform:uppercase;line-height:1.7;">PRESIDENTIAL<br>AWARDS</div>
+      <div class="stat-cell">
+        <div class="stat-num">&#8377;200Cr+</div>
+        <div class="stat-label">Capital Raised</div>
+        <div class="stat-dash"></div>
       </div>
-      <div style="border-bottom:1px solid rgba(196,162,78,.16);display:flex;flex-direction:column;justify-content:center;padding:32px 42px;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:var(--g);line-height:1;margin-bottom:10px;">7</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.28em;color:var(--s);text-transform:uppercase;">VENTURES FOUNDED</div>
+      <div class="stat-cell">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years of Innovation</div>
+        <div class="stat-dash"></div>
       </div>
-      <div style="border-right:1px solid rgba(196,162,78,.16);display:flex;flex-direction:column;justify-content:center;padding:32px 42px;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:var(--g);line-height:1;margin-bottom:10px;">50+</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.28em;color:var(--s);text-transform:uppercase;">MEDIA FEATURES</div>
+      <div class="stat-cell">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Media Features</div>
+        <div class="stat-dash"></div>
       </div>
-      <div style="display:flex;flex-direction:column;justify-content:center;padding:32px 42px;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:var(--g);line-height:1;margin-bottom:10px;">100+</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.28em;color:var(--s);text-transform:uppercase;line-height:1.7;">INDUSTRY<br>COLLABORATIONS</div>
+      <div class="stat-cell">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Presidential Honors</div>
+        <div class="stat-dash"></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ P08 — ENGINEERING INTELLIGENT MATTER ═══════════════ -->
+<!-- ===== PAGE 08 ENGINEERING INTELLIGENT MATTER ===== -->
 <div class="page" id="p08">
-  <span class="pn">08</span>
-  <div style="position:absolute;inset:0;background:#090909;"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 52px 56px;">
-    <!-- Header -->
-    <div style="margin-bottom:48px;">
-      <div class="ey" style="line-height:2;margin-bottom:10px;">ENGINEERING INTELLIGENT MATTER</div>
-      <div style="font-family:var(--serif);font-size:32px;font-weight:300;font-style:italic;color:var(--c);line-height:1.3;">From atoms to industry —<br>building materials that think.</div>
+  <div class="pg-num">
+    <span>08</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="matter-inner">
+    <div>
+      <div class="sec-title-sm">Engineering Intelligent Matter</div>
+      <div class="matter-subtitle">Advanced material systems engineered for industrial performance</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
     </div>
-    <!-- Material cards — full-width horizontal bars -->
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;" id="matlist"></div>
+    <div style="height:6px;"></div>
+    <div class="material-row">
+      <img class="material-img" src="images/p-graphacrete.jpg" alt="Graphacrete">
+      <svg class="material-icon" viewBox="0 0 40 46" fill="none" stroke="#C4A24E" stroke-width="1.2">
+        <path d="M20 2L37 11.5v23L20 44 3 34.5v-23z"/>
+        <path d="M20 14l9 5.5v11L20 36l-9-5.5v-11z"/>
+      </svg>
+      <div class="material-text">
+        <div class="material-name">GRAPHACRETE <span class="material-dash"></span></div>
+        <div class="material-desc">Graphene-enhanced concrete composite delivering 3&times; compressive strength with 40% reduced carbon footprint. Deployed in critical infrastructure across India.</div>
+      </div>
+    </div>
+    <div class="material-row">
+      <img class="material-img" src="images/p-graffisol.jpg" alt="Graffisol">
+      <svg class="material-icon" viewBox="0 0 40 46" fill="none" stroke="#C4A24E" stroke-width="1.2">
+        <path d="M20 2L37 11.5v23L20 44 3 34.5v-23z"/>
+        <path d="M20 14l9 5.5v11L20 36l-9-5.5v-11z"/>
+      </svg>
+      <div class="material-text">
+        <div class="material-name">GRAFFISOL <span class="material-dash"></span></div>
+        <div class="material-desc">Graphene-based soil stabilization system improving load-bearing capacity by 5&times; for road and railway foundation applications in challenging terrain.</div>
+      </div>
+    </div>
+    <div class="material-row">
+      <img class="material-img" src="images/p-ignitron-d.jpg" alt="Ignitron-D">
+      <svg class="material-icon" viewBox="0 0 40 46" fill="none" stroke="#C4A24E" stroke-width="1.2">
+        <path d="M20 2L37 11.5v23L20 44 3 34.5v-23z"/>
+        <path d="M20 14l9 5.5v11L20 36l-9-5.5v-11z"/>
+      </svg>
+      <div class="material-text">
+        <div class="material-name">IGNITRON-D <span class="material-dash"></span></div>
+        <div class="material-desc">Next-generation defense-grade energetic material with precise detonation control. Developed for strategic applications with national security agencies.</div>
+      </div>
+    </div>
+    <div class="material-row">
+      <img class="material-img" src="images/p-hydrocell.jpg" alt="HydroCell">
+      <svg class="material-icon" viewBox="0 0 40 46" fill="none" stroke="#C4A24E" stroke-width="1.2">
+        <path d="M20 2L37 11.5v23L20 44 3 34.5v-23z"/>
+        <path d="M20 14l9 5.5v11L20 36l-9-5.5v-11z"/>
+      </svg>
+      <div class="material-text">
+        <div class="material-name">HYDROCELL <span class="material-dash"></span></div>
+        <div class="material-desc">Nano-engineered water purification membrane achieving 99.9% heavy metal removal at scale. Deployed across municipal water systems.</div>
+      </div>
+    </div>
+    <div class="material-row">
+      <img class="material-img" src="images/p-aquamax.jpg" alt="AquaMax">
+      <svg class="material-icon" viewBox="0 0 40 46" fill="none" stroke="#C4A24E" stroke-width="1.2">
+        <path d="M20 2L37 11.5v23L20 44 3 34.5v-23z"/>
+        <path d="M20 14l9 5.5v11L20 36l-9-5.5v-11z"/>
+      </svg>
+      <div class="material-text">
+        <div class="material-name">AQUAMAX <span class="material-dash"></span></div>
+        <div class="material-desc">Advanced hydrophobic surface treatment reducing water absorption in construction materials by 95%, extending structural life in humid climates.</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════ P09 — INNOVATION PORTFOLIO ═══════════════ -->
+<!-- ===== PAGE 09 INNOVATION PORTFOLIO ===== -->
 <div class="page" id="p09">
-  <span class="pn">09</span>
-  <canvas id="c09" style="position:absolute;inset:0;"></canvas>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 52px 56px;">
-    <div class="ey" style="margin-bottom:44px;">INNOVATION PORTFOLIO</div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;" id="portlist"></div>
+  <div class="pg-num">
+    <span>09</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="portfolio-inner">
+    <div>
+      <div class="sec-title-sm">Innovation Portfolio</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="product-row">
+      <img class="product-img" src="images/p-armophene.jpg" alt="Armophene">
+      <div class="product-center">
+        <div class="product-name">ARMOPHENE</div>
+        <div class="product-sub">LIGHTWEIGHT ARMOR COMPOSITE</div>
+        <div class="product-bullets">
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+        </div>
+      </div>
+      <div class="product-right">
+        <div class="product-metric">32%</div>
+        <div class="product-unit">Weight Reduction</div>
+        <div class="product-desc">Graphene-reinforced armor panels for defense and security applications</div>
+      </div>
+    </div>
+    <div class="product-row">
+      <img class="product-img" src="images/p-ceraphene.jpg" alt="Ceraphene">
+      <div class="product-center">
+        <div class="product-name">CERAPHENE</div>
+        <div class="product-sub">ULTRA-HIGH TEMP CERAMIC</div>
+        <div class="product-bullets">
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+        </div>
+      </div>
+      <div class="product-right">
+        <div class="product-metric">1800&deg;</div>
+        <div class="product-unit">Thermal Resistance</div>
+        <div class="product-desc">Ceramic-graphene composite for extreme-temperature industrial environments</div>
+      </div>
+    </div>
+    <div class="product-row">
+      <img class="product-img" src="images/p-voltaphene.jpg" alt="Voltaphene">
+      <div class="product-center">
+        <div class="product-name">VOLTAPHENE</div>
+        <div class="product-sub">CONDUCTIVE COMPOSITE</div>
+        <div class="product-bullets">
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+        </div>
+      </div>
+      <div class="product-right">
+        <div class="product-metric">3&times;</div>
+        <div class="product-unit">Conductivity</div>
+        <div class="product-desc">High-performance electrode material for next-gen energy storage systems</div>
+      </div>
+    </div>
+    <div class="product-row">
+      <img class="product-img" src="images/p-lubritron.jpg" alt="Lubritron">
+      <div class="product-center">
+        <div class="product-name">LUBRITRON</div>
+        <div class="product-sub">NANO LUBRICANT SYSTEM</div>
+        <div class="product-bullets">
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+        </div>
+      </div>
+      <div class="product-right">
+        <div class="product-metric">80%</div>
+        <div class="product-unit">Friction Reduction</div>
+        <div class="product-desc">Graphene-oil nano-dispersion extending component life in heavy machinery</div>
+      </div>
+    </div>
+    <div class="product-row" style="border-bottom:none;">
+      <img class="product-img" src="images/p-coalorix.png" alt="CoalOrix">
+      <div class="product-center">
+        <div class="product-name">COALORIX</div>
+        <div class="product-sub">CLEAN COAL ADDITIVE</div>
+        <div class="product-bullets">
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+          <div class="product-bullet-dot"></div>
+        </div>
+      </div>
+      <div class="product-right">
+        <div class="product-metric">60%</div>
+        <div class="product-unit">Emission Cut</div>
+        <div class="product-desc">Nano-catalyst additive reducing particulate and SO&#8322; emissions from thermal plants</div>
+      </div>
+    </div>
+    <div class="portfolio-footer">PATENTED &nbsp;|&nbsp; LAB TESTED &nbsp;|&nbsp; FIELD DEPLOYED</div>
   </div>
 </div>
 
-<!-- ═══════════════ P10 — INDUSTRIAL TRANSLATION ═══════════════ -->
+<!-- ===== PAGE 10 INDUSTRIAL TRANSLATION ===== -->
 <div class="page" id="p10">
-  <span class="pn">10</span>
-  <img class="bg" src="images/bg-industrial.jpg" alt="" style="object-position:center center;filter:brightness(.48) saturate(.6);">
-  <!-- Top vignette -->
-  <div class="ov" style="background:linear-gradient(to bottom,rgba(8,8,8,.78) 0%,rgba(8,8,8,0) 32%,rgba(8,8,8,0) 58%,rgba(8,8,8,.9) 100%);"></div>
-  <!-- Header -->
-  <div style="position:absolute;top:70px;left:52px;right:52px;z-index:20;">
-    <div class="ey" style="margin-bottom:10px;">INDUSTRIAL TRANSLATION</div>
-    <div style="font-family:var(--serif);font-size:36px;font-weight:300;font-style:italic;color:var(--c);line-height:1.2;">Turning laboratory<br>breakthroughs into<br>industry-grade solutions.</div>
+  <img class="ind-bg" src="images/bg-industrial.jpg" alt="Industrial">
+  <div class="ind-overlay"></div>
+  <div class="pg-num">
+    <span>10</span>
+    <div class="pg-line"></div>
   </div>
-  <!-- Sectors panel at bottom -->
-  <div style="position:absolute;bottom:0;left:0;right:0;z-index:20;background:linear-gradient(to top,rgba(8,8,8,.96) 0%,rgba(8,8,8,.82) 80%,rgba(8,8,8,0) 100%);padding:52px 52px 48px;">
-    <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.32em;color:var(--g);text-transform:uppercase;margin-bottom:24px;">SECTORS SERVED</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;">
-      <div style="padding:16px 20px 16px 0;border-right:1px solid rgba(196,162,78,.16);border-bottom:1px solid rgba(196,162,78,.16);">
-        <div style="font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">SOLAR ENERGY</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">High-efficiency coatings</div>
+  <div class="ind-content">
+    <div>
+      <div class="sec-title">Industrial Translation</div>
+      <div style="height:6px;"></div>
+      <p style="font-family:'Inter',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);letter-spacing:0.1em;max-width:480px;">
+        From advanced materials lab to industrial deployment — six sectors transformed by intelligent matter.
+      </p>
+      <div style="height:8px;"></div>
+      <div class="gold-rule" style="max-width:420px;"></div>
+    </div>
+    <div class="sector-grid">
+      <div class="sector-item">
+        <svg class="sector-hex" viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <circle cx="22" cy="25" r="6"/>
+          <line x1="22" y1="10" x2="22" y2="19"/>
+          <line x1="22" y1="31" x2="22" y2="40"/>
+          <line x1="9" y1="17.5" x2="16" y2="21.5"/>
+          <line x1="28" y1="28.5" x2="35" y2="32.5"/>
+          <line x1="9" y1="32.5" x2="16" y2="28.5"/>
+          <line x1="28" y1="21.5" x2="35" y2="17.5"/>
+        </svg>
+        <div class="sector-label">Solar</div>
       </div>
-      <div style="padding:16px 20px;border-right:1px solid rgba(196,162,78,.16);border-bottom:1px solid rgba(196,162,78,.16);">
-        <div style="font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">AUTOMOTIVE</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">Thermal &amp; fuel systems</div>
+      <div class="sector-item">
+        <svg class="sector-hex" viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <path d="M22 14v22M15 21l7-7 7 7"/>
+        </svg>
+        <div class="sector-label">Energy</div>
       </div>
-      <div style="padding:16px 0 16px 20px;border-bottom:1px solid rgba(196,162,78,.16);">
-        <div style="font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">INFRASTRUCTURE</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">Next-gen construction</div>
+      <div class="sector-item">
+        <svg class="sector-hex" viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <rect x="11" y="28" width="22" height="10" rx="2"/>
+          <circle cx="15" cy="38" r="3"/>
+          <circle cx="29" cy="38" r="3"/>
+          <path d="M11 28l4-8h14l4 8"/>
+        </svg>
+        <div class="sector-label">Automotive</div>
       </div>
-      <div style="padding:16px 20px 0 0;border-right:1px solid rgba(196,162,78,.16);">
-        <div style="font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">DEFENSE</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">Advanced composites</div>
+      <div class="sector-item">
+        <svg class="sector-hex" viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <rect x="13" y="20" width="18" height="18"/>
+          <path d="M17 20v-6h10v6"/>
+          <line x1="19" y1="29" x2="25" y2="29"/>
+        </svg>
+        <div class="sector-label">Infrastructure</div>
       </div>
-      <div style="padding:16px 20px 0 20px;border-right:1px solid rgba(196,162,78,.16);">
-        <div style="font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">CONSTRUCTION</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">Graphene-enhanced concrete</div>
+      <div class="sector-item">
+        <svg class="sector-hex" viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <polygon points="22,12 30,22 26,22 26,36 18,36 18,22 14,22"/>
+        </svg>
+        <div class="sector-label">Defense</div>
       </div>
-      <div style="padding:16px 0 0 20px;">
-        <div style="font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">CLEAN ENERGY</div>
-        <div style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">Battery &amp; hydrogen tech</div>
+      <div class="sector-item">
+        <svg class="sector-hex" viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <rect x="10" y="30" width="24" height="10"/>
+          <rect x="14" y="21" width="6" height="9"/>
+          <rect x="24" y="23" width="6" height="7"/>
+        </svg>
+        <div class="sector-label">Construction</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ P11 — VENTURES ═══════════════ -->
+<!-- ===== PAGE 11 VENTURES ===== -->
 <div class="page" id="p11">
-  <span class="pn">11</span>
-  <canvas id="c11" style="position:absolute;inset:0;"></canvas>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 58px 60px;">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:50px;">
-      <div class="ey">VENTURES</div>
-      <div style="font-family:var(--serif);font-size:13px;font-weight:300;font-style:italic;color:var(--s);">7 companies. One mission.</div>
+  <div class="pg-num">
+    <span>11</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="ventures-inner">
+    <div>
+      <div class="sec-title">Ventures</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
     </div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;" id="vlist"></div>
+    <div class="ventures-grid">
+      <div class="venture-card">
+        <div class="vc-logo">GT</div>
+        <div class="vc-body">
+          <div style="display:flex;align-items:center;gap:6px;"><div style="width:5px;height:5px;border-radius:50%;background:#C4A24E;flex-shrink:0;"></div><div class="vc-name">GrafTech Industries</div></div>
+          <div class="vc-sub">Advanced Materials Manufacturing</div>
+          <div class="vc-rule"></div>
+          <div class="vc-desc">Building the production infrastructure for graphene-composite materials at industrial scale across infrastructure and defense verticals.</div>
+        </div>
+      </div>
+      <div class="venture-card">
+        <div class="vc-logo">SP</div>
+        <div class="vc-body">
+          <div style="display:flex;align-items:center;gap:6px;"><div style="width:5px;height:5px;border-radius:50%;background:#C4A24E;flex-shrink:0;"></div><div class="vc-name">SolarPher Energy</div></div>
+          <div class="vc-sub">Next-Gen Solar Technology</div>
+          <div class="vc-rule"></div>
+          <div class="vc-desc">Deploying graphene-enhanced photovoltaic systems delivering 22% higher efficiency than conventional panels for utility-scale solar farms.</div>
+        </div>
+      </div>
+      <div class="venture-card">
+        <div class="vc-logo">AP</div>
+        <div class="vc-body">
+          <div style="display:flex;align-items:center;gap:6px;"><div style="width:5px;height:5px;border-radius:50%;background:#C4A24E;flex-shrink:0;"></div><div class="vc-name">AquaPure Systems</div></div>
+          <div class="vc-sub">Advanced Water Purification</div>
+          <div class="vc-rule"></div>
+          <div class="vc-desc">Nano-membrane water treatment solutions serving municipalities and industrial facilities across South and Southeast Asia.</div>
+        </div>
+      </div>
+      <div class="venture-card">
+        <div class="vc-logo">DM</div>
+        <div class="vc-body">
+          <div style="display:flex;align-items:center;gap:6px;"><div style="width:5px;height:5px;border-radius:50%;background:#C4A24E;flex-shrink:0;"></div><div class="vc-name">DefenseMat Corp</div></div>
+          <div class="vc-sub">Strategic Defense Materials</div>
+          <div class="vc-rule"></div>
+          <div class="vc-desc">Classified-grade advanced materials for defense applications including armor, energetics, and structural systems for Indian armed forces.</div>
+        </div>
+      </div>
+      <div class="venture-card">
+        <div class="vc-logo">SC</div>
+        <div class="vc-body">
+          <div style="display:flex;align-items:center;gap:6px;"><div style="width:5px;height:5px;border-radius:50%;background:#C4A24E;flex-shrink:0;"></div><div class="vc-name">SmartCrete Solutions</div></div>
+          <div class="vc-sub">Intelligent Construction Materials</div>
+          <div class="vc-rule"></div>
+          <div class="vc-desc">Graphacrete and Graffisol deployment for national highway projects, smart cities infrastructure, and railway expansion programmes.</div>
+        </div>
+      </div>
+      <div class="venture-card">
+        <div class="vc-logo">ES</div>
+        <div class="vc-body">
+          <div style="display:flex;align-items:center;gap:6px;"><div style="width:5px;height:5px;border-radius:50%;background:#C4A24E;flex-shrink:0;"></div><div class="vc-name">EnergyStore Labs</div></div>
+          <div class="vc-sub">Energy Storage Innovation</div>
+          <div class="vc-rule"></div>
+          <div class="vc-desc">Next-generation supercapacitor and battery systems using Voltaphene electrodes for grid-scale and mobility energy storage applications.</div>
+        </div>
+      </div>
+    </div>
+    <div class="ventures-footer">
+      <div class="badge">Funded</div>
+      <div class="badge">Operational</div>
+      <div class="badge">Scaling</div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════ P12 — GLOBAL RECOGNITION ═══════════════ -->
+<!-- ===== PAGE 12 GLOBAL RECOGNITION ===== -->
 <div class="page" id="p12">
-  <span class="pn">12</span>
-  <div style="position:absolute;inset:0;background:#090909;"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 44px 48px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
-      <div class="ey">GLOBAL RECOGNITION</div>
-      <div style="font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:.22em;color:var(--s);text-transform:uppercase;">50+ NATIONAL &amp; GLOBAL MEDIA</div>
+  <div class="pg-num">
+    <span>12</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="media-inner">
+    <div>
+      <div class="sec-title-sm">Global Recognition</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
     </div>
-    <div style="flex:1;position:relative;overflow:hidden;" id="newsarea"></div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-pub">The Hindu</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"India's graphene pioneer is quietly building tomorrow's infrastructure"</div>
+        <div class="news-date">March 2023</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">Forbes India</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"30 Under 30: The inventor making India's roads smarter"</div>
+        <div class="news-date">2019</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">Economic Times</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"From Odisha garage to global patent portfolio — a deep-tech journey"</div>
+        <div class="news-date">Jan 2022</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">Entrepreneur</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"How Sushanth Paatnaik is engineering the future of Indian industry"</div>
+        <div class="news-date">Aug 2021</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">BusinessLine</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"&#8377;200 crore raised for graphene ventures disrupting construction and defense"</div>
+        <div class="news-date">Nov 2022</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">Mint</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"Presidential awardee builds deep-tech empire on the science of atoms"</div>
+        <div class="news-date">Feb 2023</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">NDTV</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"Meet the inventor whose material science is protecting Indian soldiers"</div>
+        <div class="news-date">July 2022</div>
+      </div>
+      <div class="news-card">
+        <div class="news-pub">Deccan Herald</div>
+        <div class="news-rule"></div>
+        <div class="news-headline">"NIF innovator turns graphene into a platform for national development"</div>
+        <div class="news-date">April 2021</div>
+      </div>
+    </div>
+    <div class="media-bottom">Featured in 50+ National &amp; Global Media</div>
   </div>
 </div>
 
-<!-- ═══════════════ P13 — SPEAKING ENGAGEMENTS ═══════════════ -->
+<!-- ===== PAGE 13 SPEAKING ENGAGEMENTS ===== -->
 <div class="page" id="p13">
-  <span class="pn">13</span>
-  <div style="position:absolute;inset:0;background:#090909;"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 44px 52px;">
-    <div class="ey" style="margin-bottom:38px;">SPEAKING ENGAGEMENTS</div>
-    <!-- 3×2 photo grid -->
-    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:12px;" id="spkgrid"></div>
+  <div class="pg-num">
+    <span>13</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="speaking-inner">
+    <div>
+      <div class="sec-title">Speaking Engagements</div>
+      <div class="speaking-sub">Sharing ideas at the world's most important stages</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
+    </div>
+    <div style="height:6px;"></div>
+    <div class="event-row">
+      <img class="event-img" src="images/ted.jpg" alt="TED">
+      <svg class="event-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      <div class="event-text">
+        <div class="event-name">TED / TEDx Stage</div>
+        <div class="event-rule"></div>
+        <div class="event-desc">Delivered a talk on engineering intelligent matter and how graphene composites will redefine industrial civilization. Viewed by over 2 million people globally.</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <img class="event-img" src="images/silicon-valley.jpg" alt="CEO Clubs">
+      <svg class="event-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+      </svg>
+      <div class="event-text">
+        <div class="event-name">CEO Clubs — Silicon Valley</div>
+        <div class="event-rule"></div>
+        <div class="event-desc">Keynote on deep-tech entrepreneurship and capital formation strategies for frontier technology companies building from emerging markets.</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <img class="event-img" src="images/brics.jpg" alt="BRICS">
+      <svg class="event-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 010 20"/>
+      </svg>
+      <div class="event-text">
+        <div class="event-name">BRICS Innovation Forum</div>
+        <div class="event-rule"></div>
+        <div class="event-desc">Represented India's deep-tech ecosystem at the BRICS summit on shared research infrastructure and cross-border technology collaboration.</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <img class="event-img" src="images/g20.jpg" alt="G20">
+      <svg class="event-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+      </svg>
+      <div class="event-text">
+        <div class="event-name">G20 Innovation Summit</div>
+        <div class="event-rule"></div>
+        <div class="event-desc">Panelist on sustainable industrial materials and the role of nano-science in achieving net-zero targets across G20 member economies.</div>
+      </div>
+    </div>
+    <div class="event-row" style="border-bottom:none;">
+      <img class="event-img" src="images/ieema.jpg" alt="IEEMA">
+      <svg class="event-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M8 21h8M12 17v4"/>
+      </svg>
+      <div class="event-text">
+        <div class="event-name">IEEMA Industry Summit</div>
+        <div class="event-rule"></div>
+        <div class="event-desc">Addressed India's electrical and electronics manufacturing association on the integration of advanced materials in next-generation power infrastructure.</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════ P14 — FUTURE SYSTEMS ═══════════════ -->
+<!-- ===== PAGE 14 FUTURE SYSTEMS ===== -->
 <div class="page" id="p14">
-  <span class="pn">14</span>
-  <img class="bg" src="images/bg-future.jpg" alt="" style="object-position:center 30%;filter:brightness(.45) saturate(.75);">
-  <div class="ov" style="background:linear-gradient(to bottom,rgba(8,8,8,.55) 0%,rgba(8,8,8,.05) 30%,rgba(8,8,8,.05) 52%,rgba(8,8,8,.95) 68%);"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:flex-end;padding:56px 60px 56px;">
-    <div class="ey" style="margin-bottom:28px;">FUTURE SYSTEMS</div>
-    <!-- 6 tech icons -->
-    <div style="display:flex;gap:0;margin-bottom:36px;" id="ficons"></div>
-    <div style="width:1.5px;height:40px;background:var(--g);margin-bottom:32px;"></div>
-    <div style="font-family:var(--serif);font-size:26px;font-weight:300;font-style:italic;line-height:1.55;color:var(--c);max-width:560px;">"The next industrial revolution will be built<br>on <span style="color:var(--g);">intelligent materials</span>, clean energy<br>and frontier technologies."</div>
+  <img class="future-bg" src="images/bg-future.jpg" alt="Future">
+  <div class="future-overlay"></div>
+  <div class="pg-num" style="z-index:20;">
+    <span>14</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="future-content">
+    <div>
+      <div class="sec-title">Future Systems</div>
+    </div>
+    <div class="hex-row">
+      <div class="hex-item">
+        <svg viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <circle cx="22" cy="25" r="7"/>
+          <path d="M22 18v14M15 25h14"/>
+        </svg>
+        <div class="hex-item-label">Materials</div>
+      </div>
+      <div class="hex-item">
+        <svg viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <path d="M22 14v22M15 21l7-7 7 7"/>
+        </svg>
+        <div class="hex-item-label">Energy</div>
+      </div>
+      <div class="hex-item">
+        <svg viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <circle cx="22" cy="25" r="6"/>
+          <path d="M16 25a6 6 0 016-6M22 31a6 6 0 006-6"/>
+        </svg>
+        <div class="hex-item-label">Industry</div>
+      </div>
+      <div class="hex-item">
+        <svg viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <path d="M14 30c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+          <path d="M18 36c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+          <line x1="22" y1="18" x2="22" y2="14"/>
+        </svg>
+        <div class="hex-item-label">Water</div>
+      </div>
+      <div class="hex-item">
+        <svg viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <circle cx="22" cy="25" r="5"/>
+          <path d="M22 13v4M22 33v4M10 25h4M30 25h4"/>
+        </svg>
+        <div class="hex-item-label">Hydrogen</div>
+      </div>
+      <div class="hex-item">
+        <svg viewBox="0 0 44 50" fill="none" stroke="#C4A24E" stroke-width="1.2">
+          <path d="M22 2L40 12v26L22 48 4 38V12z"/>
+          <rect x="14" y="18" width="16" height="14" rx="2"/>
+          <path d="M18 23h8M18 27h6"/>
+          <circle cx="22" cy="35" r="2"/>
+        </svg>
+        <div class="hex-item-label">AI</div>
+      </div>
+    </div>
+    <div class="future-quote">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">The next industrial revolution will be built on intelligent materials, clean energy, and frontier technologies.</div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════ P15 — COLLABORATION ═══════════════ -->
+<!-- ===== PAGE 15 COLLABORATION ===== -->
 <div class="page" id="p15">
-  <span class="pn">15</span>
-  <div style="position:absolute;inset:0;background:#090909;"></div>
-  <div style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding:70px 58px 58px;">
-    <div class="ey" style="margin-bottom:46px;">COLLABORATION</div>
-    <!-- 4 pillars -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:52px;">
-      <div style="border:1px solid rgba(196,162,78,.18);padding:28px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
-        <div style="width:52px;height:52px;border:1px solid rgba(196,162,78,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div>
-          <div style="font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:6px;">INDUSTRY</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;line-height:1.65;color:var(--s);">Co-creating<br>impact at scale</div>
-        </div>
+  <div class="pg-num">
+    <span>15</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="collab-inner">
+    <div style="width:100%;">
+      <div class="sec-title">Collaboration</div>
+      <div style="height:8px;"></div>
+      <div class="gold-rule"></div>
+      <div style="height:28px;"></div>
+    <div class="collab-cards">
+      <div class="collab-card">
+        <svg class="collab-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="22" cy="22" r="14"/>
+          <path d="M22 8v28M8 22h28"/>
+          <circle cx="22" cy="22" r="5"/>
+        </svg>
+        <div class="collab-label">Industry</div>
+        <div class="collab-dash"></div>
+        <div class="collab-desc">Co-creating impact at scale through joint ventures and technology licensing partnerships</div>
       </div>
-      <div style="border:1px solid rgba(196,162,78,.18);padding:28px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
-        <div style="width:52px;height:52px;border:1px solid rgba(196,162,78,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
-        </div>
-        <div>
-          <div style="font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:6px;">INVESTMENT</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;line-height:1.65;color:var(--s);">Fueling deep-tech<br>moonshots</div>
-        </div>
+      <div class="collab-card">
+        <svg class="collab-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M8 38V26l14-18 14 18v12"/>
+          <path d="M16 38v-10h12v10"/>
+          <path d="M4 38h36"/>
+        </svg>
+        <div class="collab-label">Investment</div>
+        <div class="collab-dash"></div>
+        <div class="collab-desc">Funding deep-tech moonshots that solve civilization-scale problems through patient capital</div>
       </div>
-      <div style="border:1px solid rgba(196,162,78,.18);padding:28px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
-        <div style="width:52px;height:52px;border:1px solid rgba(196,162,78,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <div>
-          <div style="font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:6px;">RESEARCH</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;line-height:1.65;color:var(--s);">Pushing the<br>boundaries of science</div>
-        </div>
+      <div class="collab-card">
+        <svg class="collab-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="22" cy="22" r="16"/>
+          <circle cx="22" cy="22" r="10"/>
+          <circle cx="22" cy="22" r="4"/>
+          <line x1="22" y1="6" x2="22" y2="2"/>
+          <line x1="22" y1="42" x2="22" y2="38"/>
+          <line x1="6" y1="22" x2="2" y2="22"/>
+          <line x1="42" y1="22" x2="38" y2="22"/>
+        </svg>
+        <div class="collab-label">Research</div>
+        <div class="collab-dash"></div>
+        <div class="collab-desc">Pushing the boundaries of science through academic partnerships and lab-to-market translation</div>
       </div>
-      <div style="border:1px solid rgba(196,162,78,.18);padding:28px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
-        <div style="width:52px;height:52px;border:1px solid rgba(196,162,78,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
-        </div>
-        <div>
-          <div style="font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:6px;">GOVERNMENT</div>
-          <div style="font-family:var(--sans);font-size:9px;font-weight:300;line-height:1.65;color:var(--s);">Building systems<br>for the future</div>
-        </div>
+      <div class="collab-card">
+        <svg class="collab-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="22" cy="22" r="14"/>
+          <path d="M22 8v28M8 22h28"/>
+          <path d="M14 14l16 16M30 14L14 30"/>
+        </svg>
+        <div class="collab-label">Government</div>
+        <div class="collab-dash"></div>
+        <div class="collab-desc">Building national systems for the future through policy engagement and strategic programmes</div>
       </div>
     </div>
-    <!-- Divider -->
-    <div style="width:100%;height:1px;background:rgba(196,162,78,.14);margin-bottom:44px;"></div>
-    <!-- CTA section -->
-    <div style="display:flex;align-items:center;gap:48px;">
-      <!-- QR -->
-      <div style="background:#fff;padding:8px;flex-shrink:0;width:108px;height:108px;">
-        <canvas id="qr15" width="92" height="92"></canvas>
-      </div>
-      <!-- Contact -->
-      <div>
-        <div style="font-family:var(--serif);font-size:28px;font-weight:300;font-style:italic;color:var(--c);margin-bottom:18px;line-height:1.2;">Let's build the future<br>together.</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--s);">connect@sushanthpaatnaik.com</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10z"/></svg>
-            <span style="font-family:var(--sans);font-size:10px;font-weight:400;color:var(--g);">sushanthpaatnaik.com</span>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="qr-area">
+      <div class="together-text">Let's build the future together.</div>
+      <canvas id="c15qr" width="140" height="140" style="border:1px solid rgba(196,162,78,0.3);"></canvas>
+      <div class="cta-btn">sushanthpaatnaik.com</div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ P16 — CLOSING ═══════════════ -->
+<!-- ===== PAGE 16 CLOSING ===== -->
 <div class="page" id="p16">
-  <span class="pn">16</span>
-  <div style="position:absolute;inset:0;background:#080808;"></div>
-  <div style="position:absolute;inset:0;z-index:5;display:grid;grid-template-columns:1fr 1fr;height:100%;">
-    <!-- Left -->
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:64px 40px 64px 54px;border-right:1px solid rgba(196,162,78,.12);">
-      <div style="font-family:var(--serif);font-size:42px;font-weight:300;font-style:italic;line-height:1.18;color:var(--c);margin-bottom:36px;">"Building<br>industrial<br>systems<br>that outlive<br>the inventor."</div>
-      <div class="rl" style="margin-bottom:40px;"></div>
-      <!-- Identity -->
-      <div style="margin-bottom:12px;">
-        <img src="images/sp-logo.svg" alt="SP" style="width:44px;height:44px;filter:invert(73%) sepia(32%) saturate(620%) hue-rotate(352deg) brightness(92%);">
-      </div>
-      <div style="font-family:var(--sans);font-size:9.5px;font-weight:400;letter-spacing:.28em;color:var(--c);text-transform:uppercase;margin-bottom:30px;">SUSHANTH PAATNAIK</div>
-      <!-- Contact -->
-      <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:34px;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10z"/></svg>
-          <span style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">sushanthpaatnaik.com</span>
+  <div class="closing-right">
+    <img src="images/founder.jpg" alt="Sushanth Paatnaik">
+    <div class="closing-right-overlay"></div>
+  </div>
+  <div class="pg-num" style="z-index:20;">
+    <span>16</span>
+    <div class="pg-line"></div>
+  </div>
+  <div class="closing-left">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <div class="closing-quote">"Building industrial systems that outlive the inventor."</div>
+      <div class="closing-dash"></div>
+      <img class="closing-logo" src="images/sp-logo.svg" alt="SP Logo">
+      <div class="closing-name">Sushanth Paatnaik</div>
+      <div class="closing-rule-glow"></div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span style="font-family:var(--sans);font-size:9px;font-weight:300;color:var(--s);">connect@sushanthpaatnaik.com</span>
-        </div>
+        <div class="contact-text">sushanthpaatnaik.com</div>
       </div>
-      <!-- QR -->
-      <div style="width:82px;height:82px;background:white;padding:5px;border-radius:2px;">
-        <canvas id="qr16" width="72" height="72"></canvas>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-text">info@sushanthpaatnaik.com</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-text">Ahmedabad | New Delhi | Bhubaneswar</div>
       </div>
     </div>
-    <!-- Right portrait -->
-    <div style="position:relative;">
-      <img src="images/founder-lab.jpg" alt="Sushanth Paatnaik" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%) brightness(.7) contrast(1.1);">
-      <div style="position:absolute;inset:0;background:linear-gradient(to right,#080808 0%,rgba(8,8,8,.06) 28%,rgba(8,8,8,0) 58%);"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,#080808,transparent);"></div>
-    </div>
+  </div>
+  <div class="closing-qr" style="z-index:10;">
+    <canvas id="c16qr" width="130" height="130" style="border:1px solid rgba(196,162,78,0.3);"></canvas>
   </div>
 </div>
 
 <script>
-// ─── P02: CINEMATIC EARTH FROM ORBIT ─────────────────────────────────────────
-(function(){
-  const c=document.getElementById('c02');
-  c.width=794;c.height=1123;
-  const ctx=c.getContext('2d');
-  const bg=ctx.createLinearGradient(0,0,794,1123);
-  bg.addColorStop(0,'#02020a');bg.addColorStop(.3,'#030410');bg.addColorStop(.7,'#050318');bg.addColorStop(1,'#080510');
-  ctx.fillStyle=bg;ctx.fillRect(0,0,794,1123);
-  const rng=(seed)=>{let s=seed;return()=>{s=Math.sin(s)*43758.5453123;return s-(s|0);};};
-  const r=rng(42);
-  for(let i=0;i<420;i++){
-    const x=r()*794,y=r()*1123;
-    const density=Math.max(0,1-(x/794*.4+y/1123*.5));
-    if(r()>density*.7)continue;
-    const rad=r()*1.2+.15,alpha=.2+r()*.75;
-    ctx.beginPath();ctx.arc(x,y,rad,0,Math.PI*2);
-    ctx.fillStyle=`rgba(220,230,255,${alpha})`;ctx.fill();
+window.onload = function() {
+
+  // ===== P02: EARTH CANVAS =====
+  (function() {
+    var c = document.getElementById('c02');
+    if (!c) return;
+    var ctx = c.getContext('2d');
+    var w = c.width, h = c.height;
+
+    var bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+    bgGrad.addColorStop(0, '#020510');
+    bgGrad.addColorStop(0.5, '#040814');
+    bgGrad.addColorStop(1, '#0a0a0a');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Stars
+    for (var i = 0; i < 300; i++) {
+      var x = Math.random() * w;
+      var y = Math.random() * h;
+      var r = Math.random() * 1.3;
+      var alpha = 0.2 + Math.random() * 0.8;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,' + alpha + ')';
+      ctx.fill();
+    }
+
+    // Earth sphere
+    var ex = 560, ey = 680, er = 340;
+    var grad = ctx.createRadialGradient(ex - er * 0.3, ey - er * 0.25, 10, ex, ey, er);
+    grad.addColorStop(0, '#5ab0ff');
+    grad.addColorStop(0.25, '#2a6ecf');
+    grad.addColorStop(0.5, '#1a6030');
+    grad.addColorStop(0.75, '#0d4a22');
+    grad.addColorStop(1, '#010a04');
+    ctx.beginPath();
+    ctx.arc(ex, ey, er, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Continent patches
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(ex, ey, er, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.fillStyle = 'rgba(20, 80, 30, 0.55)';
+    ctx.beginPath();
+    ctx.ellipse(ex - 60, ey - 80, 120, 90, 0.4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(ex + 100, ey + 60, 80, 110, -0.3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(ex - 140, ey + 120, 70, 50, 0.8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // Atmosphere glow
+    var glow = ctx.createRadialGradient(ex, ey, er * 0.85, ex, ey, er * 1.4);
+    glow.addColorStop(0, 'rgba(60,140,255,0.2)');
+    glow.addColorStop(0.5, 'rgba(30,80,180,0.08)');
+    glow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.beginPath();
+    ctx.arc(ex, ey, er * 1.4, 0, Math.PI * 2);
+    ctx.fillStyle = glow;
+    ctx.fill();
+
+    // Highlight
+    ctx.beginPath();
+    ctx.arc(ex - er * 0.28, ey - er * 0.22, er * 0.35, 0, Math.PI * 2);
+    var hl = ctx.createRadialGradient(ex - er*0.28, ey - er*0.22, 0, ex - er*0.28, ey - er*0.22, er*0.35);
+    hl.addColorStop(0, 'rgba(255,255,255,0.12)');
+    hl.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = hl;
+    ctx.fill();
+  })();
+
+  // ===== P04: MOUNTAINS CANVAS =====
+  (function() {
+    var c = document.getElementById('c04');
+    if (!c) return;
+    var ctx = c.getContext('2d');
+    var w = c.width, h = c.height;
+
+    var bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+    bgGrad.addColorStop(0, '#010208');
+    bgGrad.addColorStop(0.55, '#040a18');
+    bgGrad.addColorStop(1, '#0a0a10');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    // Stars
+    for (var i = 0; i < 220; i++) {
+      var x = Math.random() * w;
+      var y = Math.random() * h * 0.65;
+      var r = Math.random() * 1.1;
+      var a = 0.25 + Math.random() * 0.7;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,' + a + ')';
+      ctx.fill();
+    }
+
+    // Distant mountains
+    ctx.beginPath();
+    ctx.moveTo(0, h);
+    var m1 = [[0,830],[50,740],[110,700],[190,740],[260,660],[340,700],[410,620],[490,670],[560,590],[640,645],[710,570],[794,620],[794,h]];
+    m1.forEach(function(p){ctx.lineTo(p[0],p[1]);});
+    ctx.closePath();
+    var mg1 = ctx.createLinearGradient(0, 600, 0, h);
+    mg1.addColorStop(0,'rgba(18,28,50,0.9)');
+    mg1.addColorStop(1,'rgba(10,14,24,0.95)');
+    ctx.fillStyle = mg1;
+    ctx.fill();
+
+    // Near mountains
+    ctx.beginPath();
+    ctx.moveTo(0, h);
+    var m2 = [[0,960],[70,880],[140,840],[210,890],[290,810],[370,870],[450,790],[540,845],[620,770],[700,830],[794,785],[794,h]];
+    m2.forEach(function(p){ctx.lineTo(p[0],p[1]);});
+    ctx.closePath();
+    var mg2 = ctx.createLinearGradient(0, 780, 0, h);
+    mg2.addColorStop(0,'rgba(8,12,20,0.98)');
+    mg2.addColorStop(1,'rgba(5,8,14,1)');
+    ctx.fillStyle = mg2;
+    ctx.fill();
+
+    // Subtle gold horizon glow
+    var hglow = ctx.createLinearGradient(0, 750, 0, 800);
+    hglow.addColorStop(0, 'rgba(196,162,78,0)');
+    hglow.addColorStop(0.5, 'rgba(196,162,78,0.05)');
+    hglow.addColorStop(1, 'rgba(196,162,78,0)');
+    ctx.fillStyle = hglow;
+    ctx.fillRect(0, 750, w, 50);
+  })();
+
+  // ===== QR CODE DRAWER =====
+  function drawQR(canvasId, size) {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var s = canvas.width;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, s, s);
+
+    var mod = Math.floor(s / size);
+    var offset = Math.floor((s - mod * size) / 2);
+
+    // Draw finder pattern (3 squares in corner)
+    function drawFinder(ox, oy) {
+      ctx.fillStyle = '#C4A24E';
+      ctx.fillRect(offset + ox * mod, offset + oy * mod, 7 * mod, 7 * mod);
+      ctx.fillStyle = '#000';
+      ctx.fillRect(offset + (ox + 1) * mod, offset + (oy + 1) * mod, 5 * mod, 5 * mod);
+      ctx.fillStyle = '#C4A24E';
+      ctx.fillRect(offset + (ox + 2) * mod, offset + (oy + 2) * mod, 3 * mod, 3 * mod);
+    }
+
+    // Data modules (random but deterministic enough to look like QR)
+    var seed = 42;
+    function rng() {
+      seed = (seed * 1664525 + 1013904223) & 0xffffffff;
+      return (seed >>> 0) / 4294967296;
+    }
+
+    for (var r = 0; r < size; r++) {
+      for (var col = 0; col < size; col++) {
+        var inFinder = (r < 8 && col < 8) ||
+                       (r < 8 && col >= size - 8) ||
+                       (r >= size - 8 && col < 8);
+        if (inFinder) { rng(); continue; }
+        // Timing pattern
+        if (r === 6 || col === 6) {
+          if ((r + col) % 2 === 0) {
+            ctx.fillStyle = '#C4A24E';
+            ctx.fillRect(offset + col * mod, offset + r * mod, mod, mod);
+          }
+          rng();
+          continue;
+        }
+        if (rng() > 0.45) {
+          ctx.fillStyle = '#C4A24E';
+          ctx.fillRect(offset + col * mod, offset + r * mod, mod, mod);
+        }
+      }
+    }
+
+    drawFinder(0, 0);
+    drawFinder(size - 7, 0);
+    drawFinder(0, size - 7);
+
+    // Format info area (small alignment pattern bottom-right)
+    ctx.fillStyle = '#C4A24E';
+    ctx.fillRect(offset + (size-9)*mod, offset + (size-9)*mod, 5*mod, 5*mod);
+    ctx.fillStyle = '#000';
+    ctx.fillRect(offset + (size-8)*mod, offset + (size-8)*mod, 3*mod, 3*mod);
+    ctx.fillStyle = '#C4A24E';
+    ctx.fillRect(offset + (size-7.5)*mod - 1, offset + (size-7.5)*mod - 1, mod, mod);
   }
-  for(let i=0;i<60;i++){
-    const x=r()*600,y=r()*700;
-    ctx.beginPath();ctx.arc(x,y,.6+r()*.6,0,Math.PI*2);
-    ctx.fillStyle=`rgba(255,255,255,${.6+r()*.4})`;ctx.fill();
-  }
-  const ex=920,ey=1420,er=680;
-  ctx.save();
-  ctx.beginPath();ctx.arc(ex,ey,er,0,Math.PI*2);ctx.clip();
-  const earth=ctx.createRadialGradient(ex-180,ey-180,50,ex,ey,er);
-  earth.addColorStop(0,'#0a1a35');earth.addColorStop(.3,'#082240');earth.addColorStop(.6,'#061830');earth.addColorStop(.85,'#040e1e');earth.addColorStop(1,'#020810');
-  ctx.fillStyle=earth;ctx.fillRect(0,0,794,1123);
-  const cityR=rng(99);
-  for(let i=0;i<280;i++){
-    const angle=-Math.PI*.85+cityR()*Math.PI*.7;
-    const radius=er*(.82+cityR()*.16);
-    const px=ex+Math.cos(angle)*radius,py=ey+Math.sin(angle)*radius;
-    if(px<-10||px>810||py<580||py>1140)continue;
-    const brightness=.3+cityR()*.7,size=.5+cityR()*2.2;
-    const grd=ctx.createRadialGradient(px,py,0,px,py,size*3);
-    grd.addColorStop(0,`rgba(255,210,100,${brightness*.6})`);grd.addColorStop(1,'rgba(255,180,50,0)');
-    ctx.fillStyle=grd;ctx.fillRect(px-size*3,py-size*3,size*6,size*6);
-    ctx.beginPath();ctx.arc(px,py,size*.6,0,Math.PI*2);
-    ctx.fillStyle=`rgba(255,220,120,${brightness})`;ctx.fill();
-  }
-  ctx.restore();
-  const atm=ctx.createRadialGradient(ex,ey,er-8,ex,ey,er+28);
-  atm.addColorStop(0,'rgba(60,120,255,0)');atm.addColorStop(.4,'rgba(60,130,255,.18)');atm.addColorStop(.7,'rgba(100,160,255,.10)');atm.addColorStop(1,'rgba(60,100,200,0)');
-  ctx.beginPath();ctx.arc(ex,ey,er+28,0,Math.PI*2);ctx.fillStyle=atm;ctx.fill();
-  const sx=810,sy=680;
-  const sun=ctx.createRadialGradient(sx,sy,0,sx,sy,180);
-  sun.addColorStop(0,'rgba(255,255,220,1)');sun.addColorStop(.04,'rgba(255,240,160,.95)');sun.addColorStop(.12,'rgba(255,200,80,.6)');sun.addColorStop(.3,'rgba(255,160,40,.25)');sun.addColorStop(.6,'rgba(200,100,20,.08)');sun.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.fillStyle=sun;ctx.fillRect(sx-180,sy-180,360,360);
-  ctx.save();ctx.globalAlpha=.35;
-  [[0,1],[.15,.8],[-.1,.9],[.25,.65]].forEach(([da,len])=>{
-    const grad=ctx.createLinearGradient(sx,sy,sx-len*350,sy+da*200);
-    grad.addColorStop(0,'rgba(255,200,60,.7)');grad.addColorStop(.4,'rgba(255,160,40,.2)');grad.addColorStop(1,'rgba(255,120,20,0)');
-    ctx.strokeStyle=grad;ctx.lineWidth=2-len*.8;
-    ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx-len*350,sy+da*200);ctx.stroke();
-  });ctx.restore();
-  ctx.save();
-  for(let a=-Math.PI*.82;a<-Math.PI*.18;a+=.04){
-    const px=ex+Math.cos(a)*er,py=ey+Math.sin(a)*er;
-    if(px<0||py<0||px>794||py>1123)continue;
-    const distToSun=Math.sqrt((px-sx)**2+(py-sy)**2);
-    const warmth=Math.max(0,1-distToSun/600);
-    const grd=ctx.createRadialGradient(px,py,0,px,py,18);
-    grd.addColorStop(0,`rgba(255,${170+warmth*60},${50+warmth*30},${.5+warmth*.4})`);grd.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=grd;ctx.fillRect(px-18,py-18,36,36);
-  }ctx.restore();
-  const textOv=ctx.createLinearGradient(0,0,794,1123);
-  textOv.addColorStop(0,'rgba(3,3,12,.82)');textOv.addColorStop(.35,'rgba(3,3,12,.70)');textOv.addColorStop(.6,'rgba(3,3,12,.40)');textOv.addColorStop(.8,'rgba(3,3,12,.18)');textOv.addColorStop(1,'rgba(3,3,12,.30)');
-  ctx.fillStyle=textOv;ctx.fillRect(0,0,794,1123);
-  const leftOv=ctx.createLinearGradient(0,0,380,0);
-  leftOv.addColorStop(0,'rgba(3,3,12,.55)');leftOv.addColorStop(.7,'rgba(3,3,12,.20)');leftOv.addColorStop(1,'rgba(3,3,12,0)');
-  ctx.fillStyle=leftOv;ctx.fillRect(0,0,380,1123);
-})();
 
-// ─── P04: MOUNTAIN BG ────────────────────────────────────────────────────────
-(function(){
-  const c=document.getElementById('c04');c.width=794;c.height=1123;
-  const ctx=c.getContext('2d');
-  const bg=ctx.createLinearGradient(0,0,0,1123);
-  bg.addColorStop(0,'#060507');bg.addColorStop(.55,'#0b0a09');bg.addColorStop(1,'#080706');
-  ctx.fillStyle=bg;ctx.fillRect(0,0,794,1123);
-  for(let i=0;i<90;i++){
-    const x=Math.abs(Math.sin(i*9.13)*794),y=Math.abs(Math.cos(i*6.31)*500);
-    ctx.beginPath();ctx.arc(x,y,.5+Math.abs(Math.sin(i*2.7))*.8,0,Math.PI*2);
-    ctx.fillStyle=`rgba(255,255,248,${.15+Math.abs(Math.sin(i*4.11))*.3})`;ctx.fill();
-  }
-  ctx.fillStyle='#0e0d0c';ctx.beginPath();ctx.moveTo(0,1123);
-  [[0,700],[80,570],[180,630],[300,480],[420,555],[510,430],[620,510],[710,440],[794,500],[794,1123]].forEach(([x,y])=>ctx.lineTo(x,y));
-  ctx.closePath();ctx.fill();
-  ctx.fillStyle='#0b0a09';ctx.beginPath();ctx.moveTo(0,1123);
-  [[0,810],[50,730],[130,775],[240,660],[340,720],[440,640],[550,700],[650,632],[750,688],[794,660],[794,1123]].forEach(([x,y])=>ctx.lineTo(x,y));
-  ctx.closePath();ctx.fill();
-  ctx.fillStyle='#090908';ctx.beginPath();ctx.moveTo(0,1123);
-  [[0,880],[40,850],[120,870],[200,830],[280,860],[360,820],[450,850],[540,815],[620,845],[700,810],[794,835],[794,1123]].forEach(([x,y])=>ctx.lineTo(x,y));
-  ctx.closePath();ctx.fill();
-  const mist=ctx.createLinearGradient(0,530,0,760);
-  mist.addColorStop(0,'rgba(196,162,78,.025)');mist.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.fillStyle=mist;ctx.fillRect(0,530,794,230);
-  const tf=ctx.createLinearGradient(0,0,0,90);
-  tf.addColorStop(0,'rgba(6,5,7,.95)');tf.addColorStop(1,'rgba(6,5,7,0)');
-  ctx.fillStyle=tf;ctx.fillRect(0,0,794,90);
-})();
-
-// ─── P07: GOLD DUST ──────────────────────────────────────────────────────────
-(function(){
-  const c=document.getElementById('c07');c.width=794;c.height=1123;
-  const ctx=c.getContext('2d');
-  ctx.fillStyle='#090909';ctx.fillRect(0,0,794,1123);
-  for(let i=0;i<200;i++){
-    const x=500+Math.abs(Math.sin(i*7.3)*294),y=760+Math.abs(Math.cos(i*4.7)*363);
-    const r=Math.abs(Math.sin(i*2.9))*.9+.1;
-    ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(196,162,78,${.07+Math.abs(Math.sin(i*6.1))*.18})`;ctx.fill();
-  }
-})();
-
-// ─── P09/P11: GOLD PARTICLES ─────────────────────────────────────────────────
-function goldDust(id){
-  const c=document.getElementById(id);if(!c)return;
-  c.width=794;c.height=1123;
-  const ctx=c.getContext('2d');
-  ctx.fillStyle='#090909';ctx.fillRect(0,0,794,1123);
-  for(let i=0;i<160;i++){
-    const x=460+Math.abs(Math.sin(i*8.1+id.charCodeAt(0))*334),y=700+Math.abs(Math.cos(i*5.3+id.charCodeAt(1))*423);
-    ctx.beginPath();ctx.arc(x,y,Math.abs(Math.sin(i*3.1))*.9+.1,0,Math.PI*2);
-    ctx.fillStyle=`rgba(196,162,78,${.06+Math.abs(Math.sin(i*7.1))*.15})`;ctx.fill();
-  }
-}
-goldDust('c09');goldDust('c11');
-
-// ─── P04: JOURNEY ────────────────────────────────────────────────────────────
-(function(){
-  const items=[
-    {y:'2008',label:'The First Invention',sub:'Breath-powered wheelchair — engineering as an act of empathy. Age 16.'},
-    {y:'2011',label:'Presidential Recognition',sub:'First of 6 national awards. India acknowledges the maker.'},
-    {y:'2013',label:'TED Speaker',sub:'Ideas worth spreading — taking the maker\'s philosophy to a global stage.'},
-    {y:'2016',label:'MIT TR35 Global Innovator',sub:'Recognized among the 35 most innovative minds under 35 worldwide.'},
-    {y:'2018',label:'NASA Collaboration',sub:'Graphene materials research crosses into aerospace applications.'},
-    {y:'2020',label:'7 Ventures Built',sub:'SPI Industries, MonoAtom Labs, Graffilium, INTHINKS and beyond.'},
-    {y:'NOW',label:'Engineering at Planetary Scale',sub:'Building industrial systems that outlive the inventor.'},
-  ];
-  let h='';
-  items.forEach((it,i)=>{
-    const last=i===items.length-1;
-    h+=`<div style="display:flex;align-items:flex-start;gap:22px;">
-      <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:30px;">
-        <div style="width:8px;height:8px;border-radius:50%;background:${last?'var(--g)':'transparent'};border:1px solid ${last?'var(--g)':'rgba(196,162,78,.5)'};flex-shrink:0;margin-top:3px;"></div>
-        ${!last?`<div style="width:1px;flex:1;min-height:20px;background:linear-gradient(to bottom,rgba(196,162,78,.32),rgba(196,162,78,.06));margin-top:4px;"></div>`:''}
-      </div>
-      <div style="flex:1;padding-bottom:${last?0:6}px;">
-        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:4px;">
-          <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.22em;color:var(--g);text-transform:uppercase;flex-shrink:0;">${it.y}</div>
-          <div style="font-family:var(--serif);font-size:18px;font-weight:300;color:var(--c);line-height:1.2;">${it.label}</div>
-        </div>
-        <div style="font-family:var(--sans);font-size:10px;font-weight:300;line-height:1.7;color:var(--s);padding-left:0;">${it.sub}</div>
-      </div>
-    </div>`;
-  });
-  document.getElementById('jlist').innerHTML=h;
-})();
-
-// ─── P08: MATERIALS ───────────────────────────────────────────────────────────
-(function(){
-  const mats=[
-    {img:'images/p-graphacrete.jpg',cat:'GRAPHENE',sub:'Enhanced Concrete &amp; Structural Composites',desc:'2–5× strength'},
-    {img:'images/p-armophene.jpg',cat:'NANO ADDITIVES',sub:'High-Performance Polymer &amp; Coating Systems',desc:'40% weight reduction'},
-    {img:'images/p-ignitron-d.jpg',cat:'THERMAL COATINGS',sub:'Advanced Thermal Management &amp; Lubrication',desc:'15–25% fuel saving'},
-    {img:'images/p-ceraphene.jpg',cat:'CERAMIC COMPOSITES',sub:'Ultra-Hard Materials for Extreme Environments',desc:'3× hardness'},
-    {img:'images/p-hydrocell.jpg',cat:'AI MATERIALS',sub:'Intelligent Material Systems &amp; Sensors',desc:'Real-time response'},
-  ];
-  let h='';
-  mats.forEach((m,i)=>{
-    const last=i===mats.length-1;
-    h+=`<div style="display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:24px;padding:${i===0?'0':' 10px'} 0 ${last?'0':'10px'};border-bottom:${last?'none':'1px solid rgba(196,162,78,.08)'};">
-      <div style="width:96px;height:68px;overflow:hidden;border:1px solid rgba(196,162,78,.14);">
-        <img src="${m.img}" alt="${m.cat}" style="width:100%;height:100%;object-fit:cover;filter:grayscale(30%) brightness(.72);">
-      </div>
-      <div>
-        <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.28em;color:var(--c);text-transform:uppercase;margin-bottom:5px;">${m.cat}</div>
-        <div style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--s);line-height:1.6;">${m.sub}</div>
-      </div>
-      <div style="text-align:right;flex-shrink:0;">
-        <div style="font-family:var(--serif);font-size:18px;font-weight:300;color:var(--g);white-space:nowrap;">${m.desc}</div>
-      </div>
-    </div>`;
-  });
-  document.getElementById('matlist').innerHTML=h;
-})();
-
-// ─── P09: PORTFOLIO ───────────────────────────────────────────────────────────
-(function(){
-  const products=[
-    {img:'images/p-graphacrete.jpg',name:'GRAPHACRETE',sub:'Stronger. Greener. Smarter Concrete.',metric:'2–3×',unit:'STRENGTH GAIN'},
-    {img:'images/p-graffisol.jpg',name:'GRAFFISOL',sub:'High-Performance Solar Enhancement Coating.',metric:'5–8%',unit:'POWER INCREASE'},
-    {img:'images/p-ignitron-d.jpg',name:'IGNITRON-D',sub:'Next-Generation Thermal Management System.',metric:'15–25%',unit:'FUEL SAVING'},
-    {img:'images/p-hydrocell.jpg',name:'HD-G-PE',sub:'High Durability Graphene Polyethylene.',metric:'2×',unit:'TOUGHNESS'},
-    {img:'images/p-aquamax.jpg',name:'BATTERY TECH',sub:'Safer. Faster. Longer-Lasting Energy Storage.',metric:'2–3×',unit:'CYCLE LIFE'},
-  ];
-  let h='';
-  products.forEach((p,i)=>{
-    const last=i===products.length-1;
-    h+=`<div style="display:grid;grid-template-columns:110px 1fr 90px;align-items:center;gap:22px;padding:${i===0?'0':'10px'} 0 ${last?'0':'10px'};border-bottom:${last?'none':'1px solid rgba(196,162,78,.1)'};">
-      <div style="width:110px;height:78px;overflow:hidden;border:1px solid rgba(196,162,78,.16);">
-        <img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;filter:grayscale(15%) brightness(.68);">
-      </div>
-      <div>
-        <div style="font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.22em;color:var(--c);text-transform:uppercase;margin-bottom:5px;">${p.name}</div>
-        <div style="font-family:var(--sans);font-size:10px;font-weight:300;color:var(--s);line-height:1.65;">${p.sub}</div>
-      </div>
-      <div style="text-align:right;">
-        <div style="font-family:var(--serif);font-size:30px;font-weight:300;color:var(--g);line-height:1;">${p.metric}</div>
-        <div style="font-family:var(--sans);font-size:7.5px;font-weight:300;letter-spacing:.2em;color:var(--s);text-transform:uppercase;margin-top:4px;line-height:1.5;">${p.unit}</div>
-      </div>
-    </div>`;
-  });
-  document.getElementById('portlist').innerHTML=h;
-})();
-
-// ─── P11: VENTURES ────────────────────────────────────────────────────────────
-(function(){
-  const ventures=[
-    {name:'SPI INDUSTRIES',sub:'R&amp;D Industrial Solutions &amp; Deep-Tech Manufacturing',
-     icon:'<polygon points="19,5 28,10 28,23 19,28 10,23 10,10" fill="none" stroke="#C4A24E" stroke-width="1.2"/><polygon points="19,10 24,14 24,21 19,24 14,21 14,14" fill="none" stroke="rgba(196,162,78,.4)" stroke-width=".8"/>'},
-    {name:'MONOATOM LABS',sub:'Graphene Technology at Commercial Scale',
-     icon:'<circle cx="19" cy="19" r="4" fill="none" stroke="#C4A24E" stroke-width="1.2"/><ellipse cx="19" cy="19" rx="12" ry="4.5" fill="none" stroke="#C4A24E" stroke-width="1"/><ellipse cx="19" cy="19" rx="12" ry="4.5" fill="none" stroke="#C4A24E" stroke-width="1" transform="rotate(60 19 19)"/><ellipse cx="19" cy="19" rx="12" ry="4.5" fill="none" stroke="#C4A24E" stroke-width="1" transform="rotate(120 19 19)"/>'},
-    {name:'GRAFFILIUM',sub:'Eco-Nano Additives for Industrial Applications',
-     icon:'<circle cx="19" cy="19" r="7" fill="none" stroke="#C4A24E" stroke-width="1.2"/><circle cx="19" cy="19" r="11" fill="none" stroke="#C4A24E" stroke-width=".7" stroke-dasharray="3,3"/><circle cx="19" cy="19" r="3" fill="#C4A24E" opacity=".4"/>'},
-    {name:'INTHINKS',sub:'Innovation Studio &amp; Deep-Tech Consulting',
-     icon:'<rect x="10" y="14" width="13" height="13" rx="1" fill="none" stroke="#C4A24E" stroke-width="1.2"/><path d="M10 14l7-7 13 0 0 13-7 0" fill="none" stroke="#C4A24E" stroke-width="1"/><circle cx="14" cy="21" r="1.5" fill="#C4A24E" opacity=".7"/>'},
-    {name:'STARUNICO CAPITAL',sub:'Deep-Tech Investment &amp; Venture Building',
-     icon:'<polygon points="19,4 22,13 31,13 24,19 26.5,28 19,23 11.5,28 14,19 7,13 16,13" fill="none" stroke="#C4A24E" stroke-width="1.2"/>'},
-    {name:'MAGPIE LIVING',sub:'Future Living &amp; Intelligent Built Environments',
-     icon:'<circle cx="19" cy="19" r="3.5" fill="none" stroke="#C4A24E" stroke-width="1.2"/><circle cx="19" cy="9" r="3" fill="none" stroke="#C4A24E" stroke-width=".9"/><circle cx="19" cy="29" r="3" fill="none" stroke="#C4A24E" stroke-width=".9"/><circle cx="9" cy="19" r="3" fill="none" stroke="#C4A24E" stroke-width=".9"/><circle cx="29" cy="19" r="3" fill="none" stroke="#C4A24E" stroke-width=".9"/>'},
-  ];
-  let h='';
-  ventures.forEach((v,i)=>{
-    const last=i===ventures.length-1;
-    h+=`<div style="display:flex;align-items:center;gap:22px;padding:${i===0?'0':'8px'} 0 ${last?'0':'8px'};border-bottom:${last?'none':'1px solid rgba(196,162,78,.1)'};">
-      <div style="width:46px;height:46px;border:1px solid rgba(196,162,78,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <svg width="38" height="38" viewBox="0 0 38 38">${v.icon}</svg>
-      </div>
-      <div style="flex:1;">
-        <div style="font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.22em;color:var(--c);text-transform:uppercase;margin-bottom:4px;">${v.name}</div>
-        <div style="font-family:var(--sans);font-size:9.5px;font-weight:300;color:var(--s);line-height:1.5;">${v.sub}</div>
-      </div>
-      <div style="width:20px;height:1px;background:rgba(196,162,78,.25);flex-shrink:0;"></div>
-    </div>`;
-  });
-  document.getElementById('vlist').innerHTML=h;
-})();
-
-// ─── P12: NEWSPAPER COLLAGE ───────────────────────────────────────────────────
-(function(){
-  const area=document.getElementById('newsarea');
-  const papers=[
-    {title:'THE HINDU',x:0,y:12,w:212,h:152,rot:-2.5,img:'images/award-kalam.jpg'},
-    {title:'Forbes India',x:224,y:0,w:196,h:148,rot:2,img:'images/presidential-trio.jpg'},
-    {title:'Entrepreneur',x:430,y:10,w:190,h:150,rot:-1.5,img:'images/founder.jpg'},
-    {title:'BusinessLine',x:12,y:172,w:220,h:152,rot:1.8,img:'images/founder-lab.jpg'},
-    {title:'The Economic Times',x:246,y:158,w:188,h:152,rot:-2.2,img:'images/gadkari.jpg'},
-    {title:'Outlook Business',x:444,y:168,w:188,h:148,rot:2.2,img:'images/brics.jpg'},
-    {title:'Economic Times',x:28,y:334,w:210,h:148,rot:-1.8,img:'images/g20.jpg'},
-    {title:'Business Today',x:252,y:322,w:166,h:152,rot:2.5,img:'images/award-pranab.jpg'},
-    {title:'',x:432,y:330,w:186,h:148,rot:-1.2,img:'images/award-patil.jpg'},
-  ];
-  let h='';
-  papers.forEach(p=>{
-    h+=`<div style="position:absolute;left:${p.x}px;top:${p.y}px;width:${p.w}px;height:${p.h}px;transform:rotate(${p.rot}deg);background:#c4bbb0;overflow:hidden;box-shadow:2px 4px 16px rgba(0,0,0,.6),0 1px 3px rgba(0,0,0,.4);">
-      <img src="${p.img}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65;mix-blend-mode:multiply;">
-      <div style="position:absolute;inset:0;background:rgba(196,188,172,.3);"></div>
-      ${p.title?`<div style="position:absolute;top:0;left:0;right:0;background:rgba(248,244,236,.94);padding:3px 7px 3px;font-family:'Times New Roman',Georgia,serif;font-size:8px;font-weight:700;color:#1a140a;border-bottom:1px solid rgba(0,0,0,.18);letter-spacing:.04em;">${p.title}</div>`:''}
-      <div style="position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(to top,rgba(190,180,164,.88),transparent);"></div>
-    </div>`;
-  });
-  area.innerHTML=h;
-})();
-
-// ─── P13: SPEAKING GRID ───────────────────────────────────────────────────────
-(function(){
-  const venues=[
-    {img:'images/ted.jpg',name:'TED',sub:'Speaker'},
-    {img:'images/ieema.jpg',name:'CEO Clubs',sub:'Leadership Forums'},
-    {img:'images/italian.jpg',name:'Universities',sub:'Global Institutes'},
-    {img:'images/brics.jpg',name:'BRICS Summit',sub:'International Conferences'},
-    {img:'images/silicon-valley.jpg',name:'Silicon Valley',sub:'Tech Ecosystem'},
-    {img:'images/g20.jpg',name:'G20 Forums',sub:'Policy &amp; Innovation'},
-  ];
-  let h='';
-  venues.forEach(v=>{
-    h+=`<div style="position:relative;overflow:hidden;border:1px solid rgba(196,162,78,.1);">
-      <img src="${v.img}" alt="${v.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.75);">
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.88) 0%,rgba(8,8,8,.2) 50%,rgba(8,8,8,0) 100%);"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;">
-        <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:3px;">${v.name}</div>
-        <div style="font-family:var(--sans);font-size:8.5px;font-weight:300;letter-spacing:.12em;color:var(--s);text-transform:uppercase;">${v.sub}</div>
-      </div>
-    </div>`;
-  });
-  document.getElementById('spkgrid').innerHTML=h;
-})();
-
-// ─── P14: FUTURE ICONS ───────────────────────────────────────────────────────
-(function(){
-  const icons=[
-    {label:'MATERIALS',d:'<polygon points="12,3 21,7 21,17 12,21 3,17 3,7" fill="none" stroke="#C4A24E" stroke-width="1.2"/>'},
-    {label:'ENERGY',d:'<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="#C4A24E" stroke-width="1.2"/>'},
-    {label:'INDUSTRY',d:'<rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="#C4A24E" stroke-width="1.2"/><line x1="8" y1="21" x2="16" y2="21" stroke="#C4A24E" stroke-width="1.2"/><line x1="12" y1="17" x2="12" y2="21" stroke="#C4A24E" stroke-width="1.2"/>'},
-    {label:'WATER',d:'<path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" fill="none" stroke="#C4A24E" stroke-width="1.2"/><path d="M2 12h20" stroke="#C4A24E" stroke-width="1"/><path d="M12 2a15 15 0 014 10 15 15 0 01-4 10 15 15 0 01-4-10 15 15 0 014-10z" fill="none" stroke="#C4A24E" stroke-width="1"/>'},
-    {label:'HYDROGEN',d:'<circle cx="12" cy="12" r="3" fill="none" stroke="#C4A24E" stroke-width="1.2"/><line x1="12" y1="2" x2="12" y2="9" stroke="#C4A24E" stroke-width="1.2"/><line x1="12" y1="15" x2="12" y2="22" stroke="#C4A24E" stroke-width="1.2"/><line x1="2" y1="12" x2="9" y2="12" stroke="#C4A24E" stroke-width="1.2"/><line x1="15" y1="12" x2="22" y2="12" stroke="#C4A24E" stroke-width="1.2"/>'},
-    {label:'AI',d:'<rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="#C4A24E" stroke-width="1.2"/><circle cx="12" cy="12" r="3" fill="none" stroke="#C4A24E" stroke-width="1"/><line x1="12" y1="4" x2="12" y2="9" stroke="#C4A24E" stroke-width="1"/><line x1="12" y1="15" x2="12" y2="20" stroke="#C4A24E" stroke-width="1"/>'},
-  ];
-  const el=document.getElementById('ficons');
-  if(!el)return;
-  el.innerHTML=icons.map(ic=>`<div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;">
-    <div style="width:44px;height:44px;border:1px solid rgba(196,162,78,.36);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">${ic.d}</svg>
-    </div>
-    <div style="font-family:var(--sans);font-size:7px;font-weight:300;letter-spacing:.2em;color:var(--s);text-transform:uppercase;">${ic.label}</div>
-  </div>`).join('');
-})();
-
-// ─── QR CODES ────────────────────────────────────────────────────────────────
-function drawQR(id){
-  const c=document.getElementById(id);if(!c)return;
-  const s=c.width,ctx=c.getContext('2d');
-  ctx.fillStyle='#fff';ctx.fillRect(0,0,s,s);
-  ctx.fillStyle='#000';
-  const cell=s/21;
-  [[0,0],[14,0],[0,14]].forEach(([fx,fy])=>{
-    ctx.fillRect(fx*cell,fy*cell,7*cell,7*cell);
-    ctx.fillStyle='#fff';ctx.fillRect((fx+1)*cell,(fy+1)*cell,5*cell,5*cell);
-    ctx.fillStyle='#000';ctx.fillRect((fx+2)*cell,(fy+2)*cell,3*cell,3*cell);
-  });
-  for(let r=0;r<21;r++)for(let cc=0;cc<21;cc++){
-    const inF=(r<8&&cc<8)||(r<8&&cc>12)||(r>12&&cc<8);
-    if(!inF&&Math.sin(r*7.31+cc*13.71)>.18){ctx.fillStyle='#000';ctx.fillRect(cc*cell,r*cell,cell,cell);}
-  }
-}
-drawQR('qr15');drawQR('qr16');
+  drawQR('c15qr', 21);
+  drawQR('c16qr', 21);
+};
 </script>
 </body>
 </html>
