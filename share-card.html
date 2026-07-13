@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushanth Paatnaik — Profile Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 20px;font-family:'Inter',sans-serif}
+
+/* ─── CARD WRAPPER ─── */
+.card{
+  width:390px;
+  background:#050505;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+/* ════════════════════════════════
+   CARD 1 — HERO PROFILE CARD
+════════════════════════════════ */
+#card1{height:844px}
+
+/* honeycomb SVG bg top-left */
+#card1 .hex-bg{
+  position:absolute;top:0;left:0;width:54%;height:62%;
+  opacity:1;pointer-events:none;
+}
+
+/* portrait photo */
+#card1 .photo{
+  position:absolute;
+  left:0;right:0;top:0;
+  height:580px;
+  object-fit:cover;object-position:center top;
+  width:100%;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,0) 100%);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,0) 100%);
+}
+
+/* SP logo top-right */
+#card1 .sp-logo{
+  position:absolute;top:20px;right:50px;
+  height:64px;width:auto;
+  filter:drop-shadow(0 0 8px rgba(196,162,78,0.6));
+}
+
+/* vertical right-edge text */
+#card1 .vert-text{
+  position:absolute;right:14px;top:90px;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-family:'Inter',sans-serif;
+  font-size:9px;font-weight:600;letter-spacing:0.22em;
+  color:#C4A24E;text-transform:uppercase;
+  white-space:nowrap;
+}
+
+/* bottom content block */
+#card1 .bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:0 0 18px;
+  background:linear-gradient(to top,#000 60%,transparent 100%);
+}
+
+/* gold name */
+#card1 .name{
+  font-family:'Inter',sans-serif;
+  font-size:30px;font-weight:900;
+  text-align:center;letter-spacing:0.08em;
+  line-height:1.05;white-space:nowrap;
+  padding:0 10px;
+  background:linear-gradient(180deg,#FFF5A0 0%,#F5E17A 15%,#C4A24E 35%,#8C6A1A 55%,#C4A24E 75%,#F0D060 90%,#FFF5A0 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 3px 8px rgba(196,162,78,0.6));
+  text-transform:uppercase;
+}
+
+/* gold divider */
+#card1 .divider{
+  display:flex;align-items:center;gap:8px;
+  margin:10px 24px 8px;
+}
+#card1 .divider::before,#card1 .divider::after{
+  content:'';flex:1;height:1px;background:#C4A24E;opacity:0.6;
+}
+#card1 .divider-dot{width:4px;height:4px;background:#C4A24E;border-radius:50%}
+
+/* roles */
+#card1 .roles{
+  text-align:center;font-size:9.5px;font-weight:600;
+  letter-spacing:0.18em;color:rgba(255,255,255,0.82);
+  text-transform:uppercase;
+}
+
+/* key honors */
+#card1 .honors-label{
+  display:flex;align-items:center;gap:6px;
+  margin:14px 20px 10px;
+}
+#card1 .honors-label::before,#card1 .honors-label::after{
+  content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,#C4A24E80);
+}
+#card1 .honors-label::after{background:linear-gradient(to left,transparent,#C4A24E80)}
+#card1 .honors-label span{
+  font-size:10px;font-weight:700;letter-spacing:0.25em;color:#C4A24E;
+  text-transform:uppercase;white-space:nowrap;
+}
+
+/* honors row */
+#card1 .honors-row{
+  display:flex;justify-content:space-around;align-items:flex-start;
+  padding:0 10px;gap:4px;
+}
+#card1 .honor-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  flex:1;
+}
+#card1 .honor-icon{
+  height:34px;width:auto;max-width:48px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 4px rgba(196,162,78,0.3));
+}
+#card1 .honor-icon.trophy{height:38px}
+#card1 .honor-label{
+  font-size:7px;font-weight:600;letter-spacing:0.05em;
+  color:rgba(255,255,255,0.75);text-align:center;line-height:1.3;
+  text-transform:uppercase;
+}
+
+/* gold divider 2 */
+#card1 .divider2{
+  margin:12px 20px 10px;height:1px;
+  background:linear-gradient(to right,transparent,#C4A24E,transparent);
+}
+
+/* tagline */
+#card1 .tagline{
+  text-align:center;line-height:1.45;padding:0 20px;
+}
+#card1 .tagline .t1{
+  font-size:11px;font-weight:700;letter-spacing:0.15em;
+  color:#C4A24E;text-transform:uppercase;display:block;
+}
+#card1 .tagline .t2{
+  font-size:9.5px;font-weight:500;letter-spacing:0.18em;
+  color:rgba(255,255,255,0.65);text-transform:uppercase;display:block;
+}
+
+/* ════════════════════════════════
+   CARD 2 — DETAILS CARD
+════════════════════════════════ */
+#card2{height:1000px}
+
+/* earth image top-right */
+#card2 .earth-img{
+  position:absolute;top:-10px;right:-10px;
+  width:200px;height:200px;
+  object-fit:cover;
+  border-radius:50%;
+  opacity:0.85;
+}
+#card2 .earth-glow{
+  position:absolute;top:0;right:0;
+  width:220px;height:220px;
+  background:radial-gradient(circle at 70% 30%,rgba(255,180,0,0.25) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+/* top name block */
+#card2 .top-row{
+  position:relative;z-index:2;
+  display:flex;align-items:center;gap:14px;
+  padding:28px 20px 0;
+}
+#card2 .avatar-circle{
+  width:58px;height:58px;border-radius:50%;
+  border:2px solid #C4A24E;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  background:rgba(196,162,78,0.1);
+}
+#card2 .avatar-circle svg{width:28px;height:28px}
+#card2 .top-name{
+  font-family:'Inter',sans-serif;
+  font-size:28px;font-weight:900;
+  line-height:1;letter-spacing:0.02em;
+  background:linear-gradient(180deg,#F5E17A 0%,#C4A24E 40%,#8C6A1A 65%,#D4A83A 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-transform:uppercase;
+}
+
+/* gold rule */
+#card2 .gold-rule{
+  margin:18px 20px 14px;height:1px;
+  background:linear-gradient(to right,#C4A24E 0%,rgba(196,162,78,0.2) 100%);
+}
+
+/* roles list */
+#card2 .roles-list{
+  padding:0 20px;
+  display:flex;flex-direction:column;gap:7px;
+  position:relative;z-index:2;
+}
+#card2 .role-row{
+  font-size:13px;font-weight:400;color:rgba(255,255,255,0.88);
+  line-height:1.3;
+}
+#card2 .role-row span{color:#C4A24E;font-weight:600}
+
+/* thin divider */
+#card2 .thin-rule{
+  margin:18px 20px;height:1px;
+  background:rgba(196,162,78,0.3);
+}
+
+/* 4 icon pillars */
+#card2 .pillars{
+  display:flex;justify-content:space-around;
+  padding:0 10px 0;
+  border-top:1px solid rgba(196,162,78,0.2);
+  border-bottom:1px solid rgba(196,162,78,0.2);
+  margin:0 0;
+}
+#card2 .pillar{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:14px 4px;flex:1;
+  border-right:1px solid rgba(196,162,78,0.2);
+}
+#card2 .pillar:last-child{border-right:none}
+#card2 .pillar svg{width:34px;height:34px;color:#C4A24E}
+#card2 .pillar-label{
+  font-size:7px;font-weight:700;letter-spacing:0.15em;
+  color:rgba(255,255,255,0.7);text-transform:uppercase;text-align:center;
+  line-height:1.4;
+}
+
+/* company list */
+#card2 .companies{
+  margin:0;
+  border:1px solid rgba(196,162,78,0.25);
+  border-left:none;border-right:none;
+}
+#card2 .company-row{
+  display:flex;align-items:center;gap:0;
+  border-bottom:1px solid rgba(196,162,78,0.18);
+  min-height:72px;
+}
+#card2 .company-row:last-child{border-bottom:none}
+#card2 .co-logo{
+  width:72px;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:10px;
+  border-right:1px solid rgba(196,162,78,0.2);
+  min-height:72px;
+}
+#card2 .co-logo svg{width:36px;height:36px}
+#card2 .co-logo .magppie-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:12px;font-weight:700;letter-spacing:0.08em;
+  color:#C4A24E;text-transform:uppercase;white-space:nowrap;
+}
+#card2 .co-sp-img{width:38px;height:auto;filter:drop-shadow(0 0 6px rgba(196,162,78,0.5))}
+#card2 .co-info{
+  padding:10px 14px;flex:1;
+}
+#card2 .co-name{
+  font-size:13px;font-weight:800;letter-spacing:0.12em;
+  color:#fff;text-transform:uppercase;
+}
+#card2 .co-tag{
+  display:flex;gap:6px;align-items:center;margin-top:3px;
+}
+#card2 .co-tag span{
+  font-size:8px;font-weight:600;letter-spacing:0.15em;
+  color:#C4A24E;text-transform:uppercase;
+}
+#card2 .co-tag .dot{font-size:8px;color:#C4A24E;opacity:0.6}
+
+/* bullet dot left */
+#card2 .bullet{
+  width:8px;height:8px;border-radius:50%;
+  background:#C4A24E;flex-shrink:0;margin-left:14px;
+}
+
+/* contacts */
+#card2 .contacts{
+  padding:16px 20px 24px;
+  display:flex;flex-direction:column;gap:10px;
+  border-top:1px solid rgba(196,162,78,0.2);
+}
+#card2 .contact-row{
+  display:flex;align-items:center;gap:14px;
+}
+#card2 .contact-icon{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid #C4A24E;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+#card2 .contact-icon svg{width:14px;height:14px;color:#C4A24E}
+#card2 .contact-divider{width:1px;height:20px;background:#C4A24E;opacity:0.5;flex-shrink:0}
+#card2 .contact-text{
+  font-size:12px;font-weight:400;color:rgba(255,255,255,0.85);
+  letter-spacing:0.02em;
+}
+#card2 .contact-text.location{
+  display:flex;gap:8px;align-items:center;
+}
+#card2 .contact-text.location span{color:rgba(255,255,255,0.85)}
+#card2 .contact-text.location .sep{color:#C4A24E;opacity:0.7}
+
+/* bottom gold bar */
+#card2 .gold-bar{
+  height:3px;
+  background:linear-gradient(to right,transparent,#C4A24E,#F5E17A,#C4A24E,transparent);
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ CARD 1 ════════════ -->
+<div class="card" id="card1">
+
+  <!-- honeycomb SVG background -->
+  <svg class="hex-bg" viewBox="0 0 220 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="hx" x="0" y="0" width="36" height="41.6" patternUnits="userSpaceOnUse">
+        <polygon points="18,1 35,10.4 35,31.2 18,40.6 1,31.2 1,10.4" fill="none" stroke="#C4A24E" stroke-width="0.8" opacity="0.55"/>
+      </pattern>
+      <pattern id="hx2" x="18" y="20.8" width="36" height="41.6" patternUnits="userSpaceOnUse">
+        <polygon points="18,1 35,10.4 35,31.2 18,40.6 1,31.2 1,10.4" fill="none" stroke="#C4A24E" stroke-width="0.8" opacity="0.55"/>
+      </pattern>
+      <linearGradient id="hxmask" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="white" stop-opacity="1"/>
+        <stop offset="60%" stop-color="white" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="hxfade"><rect width="220" height="340" fill="url(#hxmask)"/></mask>
+    </defs>
+    <rect width="220" height="340" fill="url(#hx)" mask="url(#hxfade)"/>
+    <rect width="220" height="340" fill="url(#hx2)" mask="url(#hxfade)"/>
+  </svg>
+
+  <!-- portrait photo -->
+  <img class="photo" src="images/founder.jpg" alt="Sushanth Paatnaik">
+
+  <!-- SP logo -->
+  <img class="sp-logo" src="images/sp-logo.svg" alt="SP">
+
+  <!-- vertical edge text -->
+  <div class="vert-text">DEEP TECH &nbsp;•&nbsp; IMPACT &nbsp;•&nbsp; LEGACY</div>
+
+  <!-- bottom content -->
+  <div class="bottom">
+
+    <!-- name -->
+    <div class="name">SUSHANTH PAATNAIK</div>
+
+    <!-- divider -->
+    <div class="divider"><div class="divider-dot"></div></div>
+
+    <!-- roles -->
+    <div class="roles">INNOVATOR &nbsp;•&nbsp; ENTREPRENEUR &nbsp;•&nbsp; INVESTOR &nbsp;•&nbsp; ADVISOR</div>
+
+    <!-- KEY HONORS label -->
+    <div class="honors-label"><span>KEY HONORS</span></div>
+
+    <!-- honors row -->
+    <div class="honors-row">
+      <!-- Presidential award trophy -->
+      <div class="honor-item">
+        <svg class="honor-icon trophy" viewBox="0 0 40 56" fill="none">
+          <path d="M20 4L24 14H34L26 20L29 30L20 24L11 30L14 20L6 14H16L20 4Z" fill="#C4A24E" opacity="0.9"/>
+          <rect x="17" y="32" width="6" height="10" fill="#C4A24E" opacity="0.7"/>
+          <rect x="10" y="42" width="20" height="4" rx="2" fill="#C4A24E" opacity="0.8"/>
+        </svg>
+        <div class="honor-label">6x PRESIDENT<br>OF INDIA<br>AWARDEE<br>(2008 – 2013)</div>
+      </div>
+      <!-- NASA -->
+      <div class="honor-item">
+        <img class="honor-icon" src="images/nasa.jpg" alt="NASA" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
+        <div class="honor-label">NASA<br>AWARDEE<br>(2011)</div>
+      </div>
+      <!-- MIT -->
+      <div class="honor-item">
+        <img class="honor-icon" src="images/logo-mit.jpg" alt="MIT" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
+        <div class="honor-label">MIT TR35<br>INDIA<br>(2011)</div>
+      </div>
+      <!-- TED -->
+      <div class="honor-item">
+        <img class="honor-icon" src="images/logo-ted.jpg" alt="TED" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
+        <div class="honor-label">TED<br>SPEAKER<br>(2012)</div>
+      </div>
+      <!-- Intel -->
+      <div class="honor-item">
+        <img class="honor-icon" src="images/intel-iris.jpg" alt="Intel" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
+        <div class="honor-label">INTEL IRIS<br>AWARDEE<br>(2010)</div>
+      </div>
+      <!-- INK -->
+      <div class="honor-item">
+        <img class="honor-icon" src="images/logo-ink.jpg" alt="INK" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
+        <div class="honor-label">INK FELLOW<br>(2010)</div>
+      </div>
+    </div>
+
+    <div class="divider2"></div>
+
+    <div class="tagline">
+      <span class="t1">ENGINEERING INTELLIGENT MATTER.</span>
+      <span class="t2">BUILDING A SUSTAINABLE TOMORROW.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ CARD 2 ════════════ -->
+<div class="card" id="card2">
+
+  <!-- earth image top-right -->
+  <img class="earth-img" src="images/bg-ecosystem.jpg" alt="Earth">
+  <div class="earth-glow"></div>
+
+  <!-- top name -->
+  <div class="top-row">
+    <div class="avatar-circle">
+      <svg viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="10" r="5" fill="#C4A24E"/>
+        <path d="M4 26C4 20 9 16 14 16C19 16 24 20 24 26" stroke="#C4A24E" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="top-name">SUSHANTH<br>PAATNAIK</div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- roles -->
+  <div class="roles-list">
+    <div class="role-row">Founder, <span>SPI Industries</span></div>
+    <div class="role-row">Co-Founder &amp; CEO, <span>Monoatom Labs</span></div>
+    <div class="role-row">Co-Founder &amp; CIO, <span>Grafillium Deeptech</span></div>
+    <div class="role-row">CIO, <span>Magppie Wellness Kitchen</span></div>
+  </div>
+
+  <div class="thin-rule"></div>
+
+  <!-- 4 pillars -->
+  <div class="pillars">
+    <div class="pillar">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
+        <circle cx="10" cy="10" r="6"/>
+        <circle cx="24" cy="10" r="6"/>
+        <circle cx="10" cy="24" r="6"/>
+        <circle cx="24" cy="24" r="6"/>
+        <path d="M16 10h2M10 16v2M24 16v2M16 24h2" stroke-linecap="round"/>
+      </svg>
+      <div class="pillar-label">DEEP TECH<br>INNOVATIONS</div>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
+        <polygon points="17,2 30,9.5 30,24.5 17,32 4,24.5 4,9.5"/>
+        <polygon points="17,8 25,12.5 25,21.5 17,26 9,21.5 9,12.5"/>
+        <polygon points="17,14 21,16.5 21,19.5 17,22 13,19.5 13,16.5"/>
+      </svg>
+      <div class="pillar-label">ADVANCED<br>MATERIALS</div>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
+        <path d="M17 30C10 30 4 24 4 17C4 10 10 4 17 4"/>
+        <path d="M17 4C20 8 22 12.5 22 17C22 21.5 20 26 17 30"/>
+        <path d="M17 4C24 4 30 10 30 17"/>
+        <path d="M4 17H30"/>
+        <path d="M6 11h22M6 23h22"/>
+      </svg>
+      <div class="pillar-label">SUSTAINABLE<br>SOLUTIONS</div>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
+        <circle cx="17" cy="17" r="13"/>
+        <path d="M17 4C20 8 22 12.5 22 17C22 21.5 20 26 17 30"/>
+        <path d="M17 4C14 8 12 12.5 12 17C12 21.5 14 26 17 30"/>
+        <path d="M4 17H30"/>
+        <path d="M6 11h22M6 23h22"/>
+      </svg>
+      <div class="pillar-label">GLOBAL<br>IMPACT</div>
+    </div>
+  </div>
+
+  <!-- company list -->
+  <div class="companies">
+    <!-- SPI Industries -->
+    <div class="company-row">
+      <div class="co-logo">
+        <img class="co-sp-img" src="images/sp-logo.svg" alt="SPI">
+      </div>
+      <div class="bullet"></div>
+      <div class="co-info">
+        <div class="co-name">SPI INDUSTRIES</div>
+        <div class="co-tag">
+          <span>INNOVATE</span><span class="dot">•</span>
+          <span>ENGINEER</span><span class="dot">•</span>
+          <span>IMPACT</span>
+        </div>
+      </div>
+    </div>
+    <!-- Monoatom Labs -->
+    <div class="company-row">
+      <div class="co-logo">
+        <svg viewBox="0 0 36 36" fill="none" stroke="#C4A24E" stroke-width="1.3">
+          <polygon points="18,2 34,11 34,25 18,34 2,25 2,11"/>
+          <circle cx="18" cy="11" r="2.5" fill="#C4A24E"/>
+          <circle cx="9" cy="18" r="2.5" fill="#C4A24E"/>
+          <circle cx="27" cy="18" r="2.5" fill="#C4A24E"/>
+          <circle cx="12" cy="26" r="2.5" fill="#C4A24E"/>
+          <circle cx="24" cy="26" r="2.5" fill="#C4A24E"/>
+          <line x1="18" y1="11" x2="9" y2="18"/><line x1="18" y1="11" x2="27" y2="18"/>
+          <line x1="9" y1="18" x2="12" y2="26"/><line x1="27" y1="18" x2="24" y2="26"/>
+        </svg>
+      </div>
+      <div class="bullet"></div>
+      <div class="co-info">
+        <div class="co-name">MONOATOM LABS</div>
+        <div class="co-tag"><span>GRAPHENE AT SCALE</span></div>
+      </div>
+    </div>
+    <!-- Grafillium Deeptech -->
+    <div class="company-row">
+      <div class="co-logo">
+        <svg viewBox="0 0 36 36" fill="none" stroke="#C4A24E" stroke-width="1.3">
+          <circle cx="18" cy="12" r="7"/>
+          <text x="18" y="16" text-anchor="middle" fill="#C4A24E" stroke="none" font-size="10" font-weight="700" font-family="Inter">G</text>
+          <line x1="18" y1="19" x2="18" y2="27"/>
+          <line x1="12" y1="23" x2="24" y2="23"/>
+          <circle cx="12" cy="27" r="2.5"/>
+          <circle cx="18" cy="27" r="2.5"/>
+          <circle cx="24" cy="27" r="2.5"/>
+        </svg>
+      </div>
+      <div class="bullet"></div>
+      <div class="co-info">
+        <div class="co-name">GRAFILLIUM DEEPTECH</div>
+        <div class="co-tag">
+          <span>ECO</span><span class="dot">•</span>
+          <span>NANO</span><span class="dot">•</span>
+          <span>FUTURE</span>
+        </div>
+      </div>
+    </div>
+    <!-- Magppie -->
+    <div class="company-row">
+      <div class="co-logo">
+        <div class="magppie-text">MAGPPIE</div>
+      </div>
+      <div class="bullet"></div>
+      <div class="co-info">
+        <div class="co-name">MAGPPIE WELLNESS KITCHEN</div>
+        <div class="co-tag">
+          <span>EAT WELL</span><span class="dot">•</span>
+          <span>LIVE WELL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contacts -->
+  <div class="contacts">
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M2 2h2.5l1 3-1.5 1c1 2 2.5 3.5 4.5 4.5l1-1.5 3 1V12c0 .8-.7 1-1.5 1C5 13 1 9 1 3.5 1 2.7 1.2 2 2 2Z"/>
+        </svg>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-text">+91 85119 76999</div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <rect x="1" y="3" width="12" height="8" rx="1.5"/>
+          <path d="M1 4l6 4 6-4"/>
+        </svg>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-text">me@sushanthpaatnaik.com</div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="7" cy="7" r="5.5"/>
+          <path d="M7 1.5C8.5 3.5 9.5 5.2 9.5 7C9.5 8.8 8.5 10.5 7 12.5"/>
+          <path d="M7 1.5C5.5 3.5 4.5 5.2 4.5 7C4.5 8.8 5.5 10.5 7 12.5"/>
+          <path d="M1.5 7H12.5"/>
+        </svg>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-text">sushanthpaatnaik.com</div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M7 1C4.8 1 3 2.8 3 5C3 7.5 7 13 7 13C7 13 11 7.5 11 5C11 2.8 9.2 1 7 1Z"/>
+          <circle cx="7" cy="5" r="1.5"/>
+        </svg>
+      </div>
+      <div class="contact-divider"></div>
+      <div class="contact-text location">
+        <span>Ahmedabad</span><span class="sep">|</span>
+        <span>New Delhi</span><span class="sep">|</span>
+        <span>Bhubaneswar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gold-bar"></div>
+</div>
+
+</body>
+</html>
