@@ -4,616 +4,901 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sushanth Paatnaik — Profile Cards</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#111;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 20px;font-family:'Inter',sans-serif}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ─── CARD WRAPPER ─── */
-.card{
-  width:390px;
-  background:#050505;
-  position:relative;
-  overflow:hidden;
-  flex-shrink:0;
-}
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
 
-/* ════════════════════════════════
-   CARD 1 — HERO PROFILE CARD
-════════════════════════════════ */
-#card1{height:844px}
+  /* ───────────── CARD 1 ───────────── */
+  .card1 {
+    position: relative;
+    overflow: hidden;
+    width: 390px;
+    height: 720px;
+    background: #050505;
+    border-radius: 4px;
+  }
 
-/* honeycomb SVG bg top-left */
-#card1 .hex-bg{
-  position:absolute;top:0;left:0;width:54%;height:62%;
-  opacity:1;pointer-events:none;
-}
+  /* 1. Honeycomb SVG layer */
+  .card1-honeycomb {
+    position: absolute;
+    top: 0; left: 0;
+    width: 55%;
+    height: 60%;
+    z-index: 3;
+    pointer-events: none;
+  }
 
-/* portrait photo */
-#card1 .photo{
-  position:absolute;
-  left:0;right:0;top:0;
-  height:580px;
-  object-fit:cover;object-position:center top;
-  width:100%;
-  mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,0) 100%);
-  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,0) 100%);
-}
+  /* 2. Portrait photo */
+  .card1-photo {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 480px;
+    z-index: 2;
+  }
+  .card1-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
 
-/* SP logo top-right */
-#card1 .sp-logo{
-  position:absolute;top:20px;right:50px;
-  height:64px;width:auto;
-  filter:drop-shadow(0 0 8px rgba(196,162,78,0.6));
-}
+  /* 3. SP Logo */
+  .card1-logo {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    height: 70px;
+    z-index: 10;
+    filter: drop-shadow(0 0 12px rgba(196,162,78,0.8));
+  }
 
-/* vertical right-edge text */
-#card1 .vert-text{
-  position:absolute;right:14px;top:90px;
-  writing-mode:vertical-rl;
-  transform:rotate(180deg);
-  font-family:'Inter',sans-serif;
-  font-size:9px;font-weight:600;letter-spacing:0.22em;
-  color:#C4A24E;text-transform:uppercase;
-  white-space:nowrap;
-}
+  /* 4. Vertical text */
+  .card1-vertical-text {
+    position: absolute;
+    top: 100px;
+    right: 14px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #C4A24E;
+    z-index: 10;
+    white-space: nowrap;
+  }
 
-/* bottom content block */
-#card1 .bottom{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:0 0 18px;
-  background:linear-gradient(to top,#000 60%,transparent 100%);
-}
+  /* 5. Thin vertical gold rule */
+  .card1-vrule {
+    position: absolute;
+    right: 44px;
+    top: 90px;
+    width: 1px;
+    height: 420px;
+    background: linear-gradient(to bottom, transparent, #C4A24E 20%, #C4A24E 80%, transparent);
+    z-index: 10;
+  }
 
-/* gold name */
-#card1 .name{
-  font-family:'Inter',sans-serif;
-  font-size:30px;font-weight:900;
-  text-align:center;letter-spacing:0.08em;
-  line-height:1.05;white-space:nowrap;
-  padding:0 10px;
-  background:linear-gradient(180deg,#FFF5A0 0%,#F5E17A 15%,#C4A24E 35%,#8C6A1A 55%,#C4A24E 75%,#F0D060 90%,#FFF5A0 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  filter:drop-shadow(0 3px 8px rgba(196,162,78,0.6));
-  text-transform:uppercase;
-}
+  /* 6. Name */
+  .card1-name {
+    position: absolute;
+    bottom: 236px;
+    left: 16px;
+    right: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: linear-gradient(180deg, #FFF8B0 0%, #F5E17A 12%, #C4A24E 35%, #7A5010 55%, #C4A24E 72%, #F0D060 88%, #FFF8B0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(196,162,78,0.5));
+    z-index: 10;
+  }
 
-/* gold divider */
-#card1 .divider{
-  display:flex;align-items:center;gap:8px;
-  margin:10px 24px 8px;
-}
-#card1 .divider::before,#card1 .divider::after{
-  content:'';flex:1;height:1px;background:#C4A24E;opacity:0.6;
-}
-#card1 .divider-dot{width:4px;height:4px;background:#C4A24E;border-radius:50%}
+  /* 7. Thin gold divider */
+  .card1-divider1 {
+    position: absolute;
+    bottom: 226px;
+    left: 16px;
+    right: 50px;
+    height: 1px;
+    background: linear-gradient(to right, #C4A24E, rgba(196,162,78,0.3));
+    z-index: 10;
+  }
 
-/* roles */
-#card1 .roles{
-  text-align:center;font-size:9.5px;font-weight:600;
-  letter-spacing:0.18em;color:rgba(255,255,255,0.82);
-  text-transform:uppercase;
-}
+  /* 8. Roles line */
+  .card1-roles {
+    position: absolute;
+    bottom: 204px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.8);
+    z-index: 10;
+  }
 
-/* key honors */
-#card1 .honors-label{
-  display:flex;align-items:center;gap:6px;
-  margin:14px 20px 10px;
-}
-#card1 .honors-label::before,#card1 .honors-label::after{
-  content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,#C4A24E80);
-}
-#card1 .honors-label::after{background:linear-gradient(to left,transparent,#C4A24E80)}
-#card1 .honors-label span{
-  font-size:10px;font-weight:700;letter-spacing:0.25em;color:#C4A24E;
-  text-transform:uppercase;white-space:nowrap;
-}
+  /* 9. KEY HONORS label row */
+  .card1-honors-label {
+    position: absolute;
+    bottom: 174px;
+    left: 16px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+  }
+  .card1-honors-label .line {
+    flex: 1;
+    height: 1px;
+    background: rgba(196,162,78,0.5);
+  }
+  .card1-honors-label .text {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #C4A24E;
+    letter-spacing: 0.25em;
+    white-space: nowrap;
+  }
 
-/* honors row */
-#card1 .honors-row{
-  display:flex;justify-content:space-around;align-items:flex-start;
-  padding:0 10px;gap:4px;
-}
-#card1 .honor-item{
-  display:flex;flex-direction:column;align-items:center;gap:4px;
-  flex:1;
-}
-#card1 .honor-icon{
-  height:34px;width:auto;max-width:48px;
-  object-fit:contain;
-  filter:drop-shadow(0 0 4px rgba(196,162,78,0.3));
-}
-#card1 .honor-icon.trophy{height:38px}
-#card1 .honor-label{
-  font-size:7px;font-weight:600;letter-spacing:0.05em;
-  color:rgba(255,255,255,0.75);text-align:center;line-height:1.3;
-  text-transform:uppercase;
-}
+  /* 10. Honors row */
+  .card1-honors-row {
+    position: absolute;
+    bottom: 80px;
+    left: 8px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 10;
+  }
+  .honor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .honor-item svg {
+    height: 38px;
+    width: auto;
+  }
+  .honor-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
 
-/* gold divider 2 */
-#card1 .divider2{
-  margin:12px 20px 10px;height:1px;
-  background:linear-gradient(to right,transparent,#C4A24E,transparent);
-}
+  /* 11. Gold rule */
+  .card1-divider2 {
+    position: absolute;
+    bottom: 68px;
+    left: 16px;
+    right: 50px;
+    height: 1px;
+    background: #C4A24E;
+    opacity: 0.5;
+    z-index: 10;
+  }
 
-/* tagline */
-#card1 .tagline{
-  text-align:center;line-height:1.45;padding:0 20px;
-}
-#card1 .tagline .t1{
-  font-size:11px;font-weight:700;letter-spacing:0.15em;
-  color:#C4A24E;text-transform:uppercase;display:block;
-}
-#card1 .tagline .t2{
-  font-size:9.5px;font-weight:500;letter-spacing:0.18em;
-  color:rgba(255,255,255,0.65);text-transform:uppercase;display:block;
-}
+  /* 12. Tagline */
+  .card1-tagline {
+    position: absolute;
+    bottom: 20px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.6;
+  }
+  .card1-tagline .t1 {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: #C4A24E;
+    letter-spacing: 0.12em;
+  }
+  .card1-tagline .t2 {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.18em;
+  }
 
-/* ════════════════════════════════
-   CARD 2 — DETAILS CARD
-════════════════════════════════ */
-#card2{height:1000px}
+  /* 13. Gold dot */
+  .card1-dot {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #C4A24E;
+    z-index: 10;
+  }
 
-/* earth image top-right */
-#card2 .earth-img{
-  position:absolute;top:-10px;right:-10px;
-  width:200px;height:200px;
-  object-fit:cover;
-  border-radius:50%;
-  opacity:0.85;
-}
-#card2 .earth-glow{
-  position:absolute;top:0;right:0;
-  width:220px;height:220px;
-  background:radial-gradient(circle at 70% 30%,rgba(255,180,0,0.25) 0%,transparent 60%);
-  pointer-events:none;
-}
+  /* ───────────── CARD 2 ───────────── */
+  .card2 {
+    position: relative;
+    overflow: hidden;
+    width: 390px;
+    background: #050505;
+    border-radius: 4px;
+  }
 
-/* top name block */
-#card2 .top-row{
-  position:relative;z-index:2;
-  display:flex;align-items:center;gap:14px;
-  padding:28px 20px 0;
-}
-#card2 .avatar-circle{
-  width:58px;height:58px;border-radius:50%;
-  border:2px solid #C4A24E;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  background:rgba(196,162,78,0.1);
-}
-#card2 .avatar-circle svg{width:28px;height:28px}
-#card2 .top-name{
-  font-family:'Inter',sans-serif;
-  font-size:28px;font-weight:900;
-  line-height:1;letter-spacing:0.02em;
-  background:linear-gradient(180deg,#F5E17A 0%,#C4A24E 40%,#8C6A1A 65%,#D4A83A 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  text-transform:uppercase;
-}
+  /* 1. Earth globe image */
+  .card2-globe {
+    position: absolute;
+    top: 0; right: 0;
+    width: 220px;
+    height: 220px;
+    z-index: 1;
+  }
+  .card2-globe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0 0 0 100%;
+  }
+  .card2-globe-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 75% 20%, rgba(255,140,0,0.35) 0%, transparent 50%);
+    border-radius: 0 0 0 100%;
+  }
 
-/* gold rule */
-#card2 .gold-rule{
-  margin:18px 20px 14px;height:1px;
-  background:linear-gradient(to right,#C4A24E 0%,rgba(196,162,78,0.2) 100%);
-}
+  /* 2. Avatar + name */
+  .card2-header {
+    position: relative;
+    z-index: 2;
+    padding: 28px 18px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card2-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid #C4A24E;
+    background: rgba(196,162,78,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card2-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    background: linear-gradient(180deg, #FFF8B0 0%, #F5E17A 12%, #C4A24E 35%, #7A5010 55%, #C4A24E 72%, #F0D060 88%, #FFF8B0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 
-/* roles list */
-#card2 .roles-list{
-  padding:0 20px;
-  display:flex;flex-direction:column;gap:7px;
-  position:relative;z-index:2;
-}
-#card2 .role-row{
-  font-size:13px;font-weight:400;color:rgba(255,255,255,0.88);
-  line-height:1.3;
-}
-#card2 .role-row span{color:#C4A24E;font-weight:600}
+  /* 3. Gold divider with center dot */
+  .card2-divider-dot {
+    position: relative;
+    margin: 16px 18px 12px;
+    height: 1px;
+    background: #C4A24E;
+    opacity: 0.6;
+  }
+  .card2-divider-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4A24E;
+  }
 
-/* thin divider */
-#card2 .thin-rule{
-  margin:18px 20px;height:1px;
-  background:rgba(196,162,78,0.3);
-}
+  /* 4. Roles list */
+  .card2-roles {
+    padding: 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .card2-roles .role-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+  }
+  .card2-roles .role-line .company {
+    color: #C4A24E;
+    font-weight: 600;
+  }
 
-/* 4 icon pillars */
-#card2 .pillars{
-  display:flex;justify-content:space-around;
-  padding:0 10px 0;
-  border-top:1px solid rgba(196,162,78,0.2);
-  border-bottom:1px solid rgba(196,162,78,0.2);
-  margin:0 0;
-}
-#card2 .pillar{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  padding:14px 4px;flex:1;
-  border-right:1px solid rgba(196,162,78,0.2);
-}
-#card2 .pillar:last-child{border-right:none}
-#card2 .pillar svg{width:34px;height:34px;color:#C4A24E}
-#card2 .pillar-label{
-  font-size:7px;font-weight:700;letter-spacing:0.15em;
-  color:rgba(255,255,255,0.7);text-transform:uppercase;text-align:center;
-  line-height:1.4;
-}
+  /* 5. Gold divider */
+  .card2-divider-thin {
+    margin: 16px 18px;
+    height: 1px;
+    background: rgba(196,162,78,0.3);
+  }
 
-/* company list */
-#card2 .companies{
-  margin:0;
-  border:1px solid rgba(196,162,78,0.25);
-  border-left:none;border-right:none;
-}
-#card2 .company-row{
-  display:flex;align-items:center;gap:0;
-  border-bottom:1px solid rgba(196,162,78,0.18);
-  min-height:72px;
-}
-#card2 .company-row:last-child{border-bottom:none}
-#card2 .co-logo{
-  width:72px;flex-shrink:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:10px;
-  border-right:1px solid rgba(196,162,78,0.2);
-  min-height:72px;
-}
-#card2 .co-logo svg{width:36px;height:36px}
-#card2 .co-logo .magppie-text{
-  font-family:'Cormorant Garamond',serif;
-  font-size:12px;font-weight:700;letter-spacing:0.08em;
-  color:#C4A24E;text-transform:uppercase;white-space:nowrap;
-}
-#card2 .co-sp-img{width:38px;height:auto;filter:drop-shadow(0 0 6px rgba(196,162,78,0.5))}
-#card2 .co-info{
-  padding:10px 14px;flex:1;
-}
-#card2 .co-name{
-  font-size:13px;font-weight:800;letter-spacing:0.12em;
-  color:#fff;text-transform:uppercase;
-}
-#card2 .co-tag{
-  display:flex;gap:6px;align-items:center;margin-top:3px;
-}
-#card2 .co-tag span{
-  font-size:8px;font-weight:600;letter-spacing:0.15em;
-  color:#C4A24E;text-transform:uppercase;
-}
-#card2 .co-tag .dot{font-size:8px;color:#C4A24E;opacity:0.6}
+  /* 6. 4 pillars */
+  .card2-pillars {
+    display: flex;
+    border-top: 1px solid rgba(196,162,78,0.25);
+    border-bottom: 1px solid rgba(196,162,78,0.25);
+  }
+  .pillar {
+    flex: 1;
+    padding: 16px 4px;
+    border-right: 1px solid rgba(196,162,78,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar svg {
+    width: 40px;
+    height: 40px;
+  }
+  .pillar-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+  }
 
-/* bullet dot left */
-#card2 .bullet{
-  width:8px;height:8px;border-radius:50%;
-  background:#C4A24E;flex-shrink:0;margin-left:14px;
-}
+  /* 7. Company list */
+  .card2-companies {
+    border-top: 1px solid rgba(196,162,78,0.2);
+    border-bottom: 1px solid rgba(196,162,78,0.2);
+  }
+  .company-row {
+    min-height: 76px;
+    border-bottom: 1px solid rgba(196,162,78,0.15);
+    display: flex;
+    align-items: center;
+  }
+  .company-row:last-child { border-bottom: none; }
+  .company-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #C4A24E;
+    flex-shrink: 0;
+    margin: 0 12px;
+  }
+  .company-logo-panel {
+    width: 74px;
+    border-right: 1px solid rgba(196,162,78,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    align-self: stretch;
+  }
+  .company-info {
+    flex: 1;
+    padding: 10px 14px;
+  }
+  .company-info-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .company-info-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    color: #C4A24E;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
 
-/* contacts */
-#card2 .contacts{
-  padding:16px 20px 24px;
-  display:flex;flex-direction:column;gap:10px;
-  border-top:1px solid rgba(196,162,78,0.2);
-}
-#card2 .contact-row{
-  display:flex;align-items:center;gap:14px;
-}
-#card2 .contact-icon{
-  width:28px;height:28px;border-radius:50%;
-  border:1.5px solid #C4A24E;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-#card2 .contact-icon svg{width:14px;height:14px;color:#C4A24E}
-#card2 .contact-divider{width:1px;height:20px;background:#C4A24E;opacity:0.5;flex-shrink:0}
-#card2 .contact-text{
-  font-size:12px;font-weight:400;color:rgba(255,255,255,0.85);
-  letter-spacing:0.02em;
-}
-#card2 .contact-text.location{
-  display:flex;gap:8px;align-items:center;
-}
-#card2 .contact-text.location span{color:rgba(255,255,255,0.85)}
-#card2 .contact-text.location .sep{color:#C4A24E;opacity:0.7}
+  /* 8. Contacts */
+  .card2-contacts {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(196,162,78,0.2);
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid #C4A24E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-vline {
+    width: 1px;
+    height: 22px;
+    background: rgba(196,162,78,0.5);
+    flex-shrink: 0;
+  }
+  .contact-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+  }
+  .contact-text .sep {
+    color: #C4A24E;
+    margin: 0 6px;
+  }
 
-/* bottom gold bar */
-#card2 .gold-bar{
-  height:3px;
-  background:linear-gradient(to right,transparent,#C4A24E,#F5E17A,#C4A24E,transparent);
-}
+  /* 9. Bottom gold bar */
+  .card2-bottom-bar {
+    height: 3px;
+    background: linear-gradient(to right, transparent, #C4A24E, #F5E17A, #C4A24E, transparent);
+  }
+
+  @media print {
+    body { background: white; gap: 20px; padding: 10px; }
+    .card1, .card2 { break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ════════════ CARD 1 ════════════ -->
-<div class="card" id="card1">
+<!-- ══════════════════════════════════════
+     CARD 1 — HERO PROFILE CARD
+══════════════════════════════════════ -->
+<div class="card1">
 
-  <!-- honeycomb SVG background -->
-  <svg class="hex-bg" viewBox="0 0 220 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 1. Honeycomb pattern -->
+  <svg class="card1-honeycomb" viewBox="0 0 215 432" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <pattern id="hx" x="0" y="0" width="36" height="41.6" patternUnits="userSpaceOnUse">
-        <polygon points="18,1 35,10.4 35,31.2 18,40.6 1,31.2 1,10.4" fill="none" stroke="#C4A24E" stroke-width="0.8" opacity="0.55"/>
+      <pattern id="hex-pattern" x="0" y="0" width="36" height="41.57" patternUnits="userSpaceOnUse">
+        <polygon points="18,2 34,11.2 34,29.6 18,38.8 2,29.6 2,11.2" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
+        <polygon points="0,22.78 16,31.98 16,50.38 0,59.58 -16,50.38 -16,31.98" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
+        <polygon points="36,22.78 52,31.98 52,50.38 36,59.58 20,50.38 20,31.98" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
       </pattern>
-      <pattern id="hx2" x="18" y="20.8" width="36" height="41.6" patternUnits="userSpaceOnUse">
-        <polygon points="18,1 35,10.4 35,31.2 18,40.6 1,31.2 1,10.4" fill="none" stroke="#C4A24E" stroke-width="0.8" opacity="0.55"/>
-      </pattern>
-      <linearGradient id="hxmask" x1="0" y1="0" x2="1" y2="1">
+      <radialGradient id="hex-mask-grad" cx="0%" cy="0%" r="100%" fx="0%" fy="0%">
         <stop offset="0%" stop-color="white" stop-opacity="1"/>
-        <stop offset="60%" stop-color="white" stop-opacity="0.4"/>
+        <stop offset="60%" stop-color="white" stop-opacity="0.5"/>
         <stop offset="100%" stop-color="white" stop-opacity="0"/>
-      </linearGradient>
-      <mask id="hxfade"><rect width="220" height="340" fill="url(#hxmask)"/></mask>
+      </radialGradient>
+      <mask id="hex-fade-mask">
+        <rect width="215" height="432" fill="url(#hex-mask-grad)"/>
+      </mask>
     </defs>
-    <rect width="220" height="340" fill="url(#hx)" mask="url(#hxfade)"/>
-    <rect width="220" height="340" fill="url(#hx2)" mask="url(#hxfade)"/>
+    <rect width="215" height="432" fill="url(#hex-pattern)" mask="url(#hex-fade-mask)" opacity="0.7"/>
   </svg>
 
-  <!-- portrait photo -->
-  <img class="photo" src="images/founder.jpg" alt="Sushanth Paatnaik">
-
-  <!-- SP logo -->
-  <img class="sp-logo" src="images/sp-logo.svg" alt="SP">
-
-  <!-- vertical edge text -->
-  <div class="vert-text">DEEP TECH &nbsp;•&nbsp; IMPACT &nbsp;•&nbsp; LEGACY</div>
-
-  <!-- bottom content -->
-  <div class="bottom">
-
-    <!-- name -->
-    <div class="name">SUSHANTH PAATNAIK</div>
-
-    <!-- divider -->
-    <div class="divider"><div class="divider-dot"></div></div>
-
-    <!-- roles -->
-    <div class="roles">INNOVATOR &nbsp;•&nbsp; ENTREPRENEUR &nbsp;•&nbsp; INVESTOR &nbsp;•&nbsp; ADVISOR</div>
-
-    <!-- KEY HONORS label -->
-    <div class="honors-label"><span>KEY HONORS</span></div>
-
-    <!-- honors row -->
-    <div class="honors-row">
-      <!-- Presidential award trophy -->
-      <div class="honor-item">
-        <svg class="honor-icon trophy" viewBox="0 0 40 56" fill="none">
-          <path d="M20 4L24 14H34L26 20L29 30L20 24L11 30L14 20L6 14H16L20 4Z" fill="#C4A24E" opacity="0.9"/>
-          <rect x="17" y="32" width="6" height="10" fill="#C4A24E" opacity="0.7"/>
-          <rect x="10" y="42" width="20" height="4" rx="2" fill="#C4A24E" opacity="0.8"/>
-        </svg>
-        <div class="honor-label">6x PRESIDENT<br>OF INDIA<br>AWARDEE<br>(2008 – 2013)</div>
-      </div>
-      <!-- NASA -->
-      <div class="honor-item">
-        <img class="honor-icon" src="images/nasa.jpg" alt="NASA" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
-        <div class="honor-label">NASA<br>AWARDEE<br>(2011)</div>
-      </div>
-      <!-- MIT -->
-      <div class="honor-item">
-        <img class="honor-icon" src="images/logo-mit.jpg" alt="MIT" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
-        <div class="honor-label">MIT TR35<br>INDIA<br>(2011)</div>
-      </div>
-      <!-- TED -->
-      <div class="honor-item">
-        <img class="honor-icon" src="images/logo-ted.jpg" alt="TED" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
-        <div class="honor-label">TED<br>SPEAKER<br>(2012)</div>
-      </div>
-      <!-- Intel -->
-      <div class="honor-item">
-        <img class="honor-icon" src="images/intel-iris.jpg" alt="Intel" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
-        <div class="honor-label">INTEL IRIS<br>AWARDEE<br>(2010)</div>
-      </div>
-      <!-- INK -->
-      <div class="honor-item">
-        <img class="honor-icon" src="images/logo-ink.jpg" alt="INK" style="border-radius:4px;width:46px;height:34px;object-fit:cover">
-        <div class="honor-label">INK FELLOW<br>(2010)</div>
-      </div>
-    </div>
-
-    <div class="divider2"></div>
-
-    <div class="tagline">
-      <span class="t1">ENGINEERING INTELLIGENT MATTER.</span>
-      <span class="t2">BUILDING A SUSTAINABLE TOMORROW.</span>
-    </div>
+  <!-- 2. Portrait photo -->
+  <div class="card1-photo">
+    <img src="images/founder.jpg" alt="Sushanth Paatnaik">
   </div>
-</div>
 
-<!-- ════════════ CARD 2 ════════════ -->
-<div class="card" id="card2">
+  <!-- 3. SP Logo -->
+  <img class="card1-logo" src="images/sp-logo.svg" alt="SP Logo">
 
-  <!-- earth image top-right -->
-  <img class="earth-img" src="images/bg-ecosystem.jpg" alt="Earth">
-  <div class="earth-glow"></div>
+  <!-- 4. Vertical text -->
+  <span class="card1-vertical-text">DEEP TECH&nbsp;&nbsp;•&nbsp;&nbsp;IMPACT&nbsp;&nbsp;•&nbsp;&nbsp;LEGACY</span>
 
-  <!-- top name -->
-  <div class="top-row">
-    <div class="avatar-circle">
-      <svg viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="10" r="5" fill="#C4A24E"/>
-        <path d="M4 26C4 20 9 16 14 16C19 16 24 20 24 26" stroke="#C4A24E" stroke-width="2" stroke-linecap="round"/>
+  <!-- 5. Vertical gold rule -->
+  <div class="card1-vrule"></div>
+
+  <!-- 6. Name -->
+  <div class="card1-name">SUSHANTH PAATNAIK</div>
+
+  <!-- 7. Thin gold divider -->
+  <div class="card1-divider1"></div>
+
+  <!-- 8. Roles line -->
+  <div class="card1-roles">INNOVATOR&nbsp;&nbsp;•&nbsp;&nbsp;ENTREPRENEUR&nbsp;&nbsp;•&nbsp;&nbsp;INVESTOR&nbsp;&nbsp;•&nbsp;&nbsp;ADVISOR</div>
+
+  <!-- 9. KEY HONORS label -->
+  <div class="card1-honors-label">
+    <div class="line"></div>
+    <span class="text">KEY HONORS</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- 10. Honors row -->
+  <div class="card1-honors-row">
+
+    <!-- a) Trophy (Presidential) -->
+    <div class="honor-item">
+      <svg viewBox="0 0 44 54" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cup body -->
+        <path d="M22,5 C14,5 9,11 9,22 L9,32 L35,32 L35,22 C35,11 30,5 22,5Z" fill="#0a0a0a" stroke="#C4A24E" stroke-width="1.5"/>
+        <!-- White star/circle at top -->
+        <circle cx="22" cy="5" r="4" fill="white"/>
+        <!-- Inner shine on cup -->
+        <path d="M14,12 Q18,10 22,12" fill="none" stroke="rgba(196,162,78,0.5)" stroke-width="1"/>
+        <!-- Stem -->
+        <rect x="20" y="32" width="4" height="9" fill="#C4A24E" opacity="0.8"/>
+        <!-- Base platform -->
+        <rect x="11" y="41" width="22" height="5" rx="2" fill="#C4A24E" opacity="0.9"/>
+        <!-- Foot -->
+        <rect x="7" y="46" width="30" height="4" rx="2" fill="#C4A24E" opacity="0.7"/>
+      </svg>
+      <div class="honor-label">6x PRESIDENT<br>OF INDIA<br>AWARDEE<br>(2008–2013)</div>
+    </div>
+
+    <!-- b) NASA -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="28" cy="19" rx="26" ry="17" fill="#0B3D91" stroke="white" stroke-width="1.2"/>
+        <path d="M2,19 Q28,8 54,19" stroke="#FC3D21" stroke-width="3" fill="none"/>
+        <text x="28" y="24" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="13" fill="white">NASA</text>
+      </svg>
+      <div class="honor-label">NASA<br>AWARDEE<br>(2011)</div>
+    </div>
+
+    <!-- c) MIT TR35 -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="4" width="10" height="28" fill="#C4A24E"/>
+        <rect x="23" y="12" width="10" height="20" fill="#C4A24E"/>
+        <rect x="40" y="4" width="10" height="28" fill="#C4A24E"/>
+        <text x="28" y="37" text-anchor="middle" font-family="Inter,Arial" font-size="7" fill="#C4A24E" font-weight="600">TR35</text>
+      </svg>
+      <div class="honor-label">MIT TR35<br>INDIA<br>(2011)</div>
+    </div>
+
+    <!-- d) TED -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="38" rx="2" fill="#E62B1E"/>
+        <text x="5" y="20" font-family="Georgia,serif" font-size="20" fill="white">'</text>
+        <text x="28" y="28" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="20" fill="white">TED</text>
+      </svg>
+      <div class="honor-label">TED<br>SPEAKER<br>(2012)</div>
+    </div>
+
+    <!-- e) Intel -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="28" cy="19" rx="24" ry="15" fill="#0071C5"/>
+        <text x="24" y="24" text-anchor="middle" font-family="Arial" font-size="13" font-style="italic" fill="white">intel</text>
+        <text x="38" y="17" font-family="Arial" font-size="7" fill="white">®</text>
+      </svg>
+      <div class="honor-label">INTEL IRIS<br>AWARDEE<br>(2010)</div>
+    </div>
+
+    <!-- f) INK dot-matrix -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="38" fill="#050505"/>
+        <!-- Letter I -->
+        <rect x="3" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="28" width="4" height="4" fill="#C4A24E"/>
+        <!-- Letter N -->
+        <rect x="11" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="28" width="4" height="4" fill="#C4A24E"/>
+        <rect x="16" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="21" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="28" width="4" height="4" fill="#C4A24E"/>
+        <!-- Letter K -->
+        <rect x="34" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="28" width="4" height="4" fill="#C4A24E"/>
+        <rect x="39" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="44" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="44" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="49" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="49" y="28" width="4" height="4" fill="#C4A24E"/>
+      </svg>
+      <div class="honor-label">INK FELLOW<br>(2010)</div>
+    </div>
+
+  </div><!-- end honors row -->
+
+  <!-- 11. Gold rule -->
+  <div class="card1-divider2"></div>
+
+  <!-- 12. Tagline -->
+  <div class="card1-tagline">
+    <span class="t1">ENGINEERING INTELLIGENT MATTER.</span>
+    <span class="t2">BUILDING A SUSTAINABLE TOMORROW.</span>
+  </div>
+
+  <!-- 13. Gold dot -->
+  <div class="card1-dot"></div>
+
+</div><!-- end card1 -->
+
+
+<!-- ══════════════════════════════════════
+     CARD 2 — DETAILS CARD
+══════════════════════════════════════ -->
+<div class="card2">
+
+  <!-- 1. Earth globe image -->
+  <div class="card2-globe">
+    <img src="images/bg-ecosystem.jpg" alt="Earth">
+    <div class="card2-globe-overlay"></div>
+  </div>
+
+  <!-- 2. Avatar + Name -->
+  <div class="card2-header">
+    <div class="card2-avatar">
+      <svg viewBox="0 0 32 32" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="11" r="6" fill="#C4A24E"/>
+        <path d="M4 32C4 24 9.5 18 16 18C22.5 18 28 24 28 32" fill="#C4A24E"/>
       </svg>
     </div>
-    <div class="top-name">SUSHANTH<br>PAATNAIK</div>
+    <div class="card2-name">SUSHANTH<br>PAATNAIK</div>
   </div>
 
-  <div class="gold-rule"></div>
+  <!-- 3. Gold divider with center dot -->
+  <div class="card2-divider-dot"></div>
 
-  <!-- roles -->
-  <div class="roles-list">
-    <div class="role-row">Founder, <span>SPI Industries</span></div>
-    <div class="role-row">Co-Founder &amp; CEO, <span>Monoatom Labs</span></div>
-    <div class="role-row">Co-Founder &amp; CIO, <span>Grafillium Deeptech</span></div>
-    <div class="role-row">CIO, <span>Magppie Wellness Kitchen</span></div>
+  <!-- 4. Roles list -->
+  <div class="card2-roles">
+    <div class="role-line">Founder, <span class="company">SPI Industries</span></div>
+    <div class="role-line">Co-Founder &amp; CEO, <span class="company">Monoatom Labs</span></div>
+    <div class="role-line">Co-Founder &amp; CIO, <span class="company">Grafillium Deeptech</span></div>
+    <div class="role-line">CIO, <span class="company">Magppie Wellness Kitchen</span></div>
   </div>
 
-  <div class="thin-rule"></div>
+  <!-- 5. Gold divider -->
+  <div class="card2-divider-thin"></div>
 
-  <!-- 4 pillars -->
-  <div class="pillars">
+  <!-- 6. 4 Pillars -->
+  <div class="card2-pillars">
+
+    <!-- Brain -->
     <div class="pillar">
-      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
-        <circle cx="10" cy="10" r="6"/>
-        <circle cx="24" cy="10" r="6"/>
-        <circle cx="10" cy="24" r="6"/>
-        <circle cx="24" cy="24" r="6"/>
-        <path d="M16 10h2M10 16v2M24 16v2M16 24h2" stroke-linecap="round"/>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 34 C20 34 8 30 8 20 C8 13 13 8 20 8 C27 8 32 13 32 20 C32 30 20 34 20 34Z"/>
+        <line x1="20" y1="8" x2="20" y2="34" stroke-dasharray="2 2" stroke-width="1"/>
+        <path d="M10 16 Q15 14 20 16" stroke-width="1"/>
+        <path d="M10 22 Q15 20 20 22" stroke-width="1"/>
+        <path d="M30 16 Q25 14 20 16" stroke-width="1"/>
+        <path d="M30 22 Q25 20 20 22" stroke-width="1"/>
+        <path d="M12 28 Q16 26 20 28" stroke-width="1"/>
+        <path d="M28 28 Q24 26 20 28" stroke-width="1"/>
       </svg>
       <div class="pillar-label">DEEP TECH<br>INNOVATIONS</div>
     </div>
+
+    <!-- Hexagon cluster -->
     <div class="pillar">
-      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
-        <polygon points="17,2 30,9.5 30,24.5 17,32 4,24.5 4,9.5"/>
-        <polygon points="17,8 25,12.5 25,21.5 17,26 9,21.5 9,12.5"/>
-        <polygon points="17,14 21,16.5 21,19.5 17,22 13,19.5 13,16.5"/>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,14 23,16 23,20 20,22 17,20 17,16"/>
+        <polygon points="20,5 23,7 23,11 20,13 17,11 17,7"/>
+        <polygon points="27,9 30,11 30,15 27,17 24,15 24,11"/>
+        <polygon points="27,21 30,23 30,27 27,29 24,27 24,23"/>
+        <polygon points="20,25 23,27 23,31 20,33 17,31 17,27"/>
+        <polygon points="13,21 16,23 16,27 13,29 10,27 10,23"/>
+        <polygon points="13,9 16,11 16,15 13,17 10,15 10,11"/>
       </svg>
       <div class="pillar-label">ADVANCED<br>MATERIALS</div>
     </div>
+
+    <!-- Leaf -->
     <div class="pillar">
-      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
-        <path d="M17 30C10 30 4 24 4 17C4 10 10 4 17 4"/>
-        <path d="M17 4C20 8 22 12.5 22 17C22 21.5 20 26 17 30"/>
-        <path d="M17 4C24 4 30 10 30 17"/>
-        <path d="M4 17H30"/>
-        <path d="M6 11h22M6 23h22"/>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 36 C20 36 7 28 7 16 C7 8 13 4 20 4 C27 4 33 8 33 16 C33 28 20 36 20 36Z"/>
+        <line x1="20" y1="36" x2="20" y2="6" stroke-width="1"/>
+        <path d="M20 14 Q25 12 29 16" stroke-width="1"/>
+        <path d="M20 20 Q25 18 29 22" stroke-width="1"/>
+        <path d="M20 14 Q15 12 11 16" stroke-width="1"/>
+        <path d="M20 20 Q15 18 11 22" stroke-width="1"/>
       </svg>
       <div class="pillar-label">SUSTAINABLE<br>SOLUTIONS</div>
     </div>
+
+    <!-- Globe -->
     <div class="pillar">
-      <svg viewBox="0 0 34 34" fill="none" stroke="#C4A24E" stroke-width="1.4">
-        <circle cx="17" cy="17" r="13"/>
-        <path d="M17 4C20 8 22 12.5 22 17C22 21.5 20 26 17 30"/>
-        <path d="M17 4C14 8 12 12.5 12 17C12 21.5 14 26 17 30"/>
-        <path d="M4 17H30"/>
-        <path d="M6 11h22M6 23h22"/>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="15"/>
+        <ellipse cx="20" cy="20" rx="7" ry="15"/>
+        <line x1="5" y1="20" x2="35" y2="20"/>
+        <path d="M7 13 Q20 9 33 13"/>
+        <path d="M7 27 Q20 31 33 27"/>
       </svg>
       <div class="pillar-label">GLOBAL<br>IMPACT</div>
     </div>
-  </div>
 
-  <!-- company list -->
-  <div class="companies">
+  </div><!-- end pillars -->
+
+  <!-- 7. Company list -->
+  <div class="card2-companies">
+
     <!-- SPI Industries -->
     <div class="company-row">
-      <div class="co-logo">
-        <img class="co-sp-img" src="images/sp-logo.svg" alt="SPI">
+      <div class="company-dot"></div>
+      <div class="company-logo-panel">
+        <img src="images/sp-logo.svg" alt="SPI" style="height:44px;filter:drop-shadow(0 0 8px rgba(196,162,78,0.7));">
       </div>
-      <div class="bullet"></div>
-      <div class="co-info">
-        <div class="co-name">SPI INDUSTRIES</div>
-        <div class="co-tag">
-          <span>INNOVATE</span><span class="dot">•</span>
-          <span>ENGINEER</span><span class="dot">•</span>
-          <span>IMPACT</span>
-        </div>
+      <div class="company-info">
+        <div class="company-info-name">SPI Industries</div>
+        <div class="company-info-tag">INNOVATE&nbsp;•&nbsp;ENGINEER&nbsp;•&nbsp;IMPACT</div>
       </div>
     </div>
+
     <!-- Monoatom Labs -->
     <div class="company-row">
-      <div class="co-logo">
-        <svg viewBox="0 0 36 36" fill="none" stroke="#C4A24E" stroke-width="1.3">
-          <polygon points="18,2 34,11 34,25 18,34 2,25 2,11"/>
-          <circle cx="18" cy="11" r="2.5" fill="#C4A24E"/>
-          <circle cx="9" cy="18" r="2.5" fill="#C4A24E"/>
-          <circle cx="27" cy="18" r="2.5" fill="#C4A24E"/>
-          <circle cx="12" cy="26" r="2.5" fill="#C4A24E"/>
-          <circle cx="24" cy="26" r="2.5" fill="#C4A24E"/>
-          <line x1="18" y1="11" x2="9" y2="18"/><line x1="18" y1="11" x2="27" y2="18"/>
-          <line x1="9" y1="18" x2="12" y2="26"/><line x1="27" y1="18" x2="24" y2="26"/>
+      <div class="company-dot"></div>
+      <div class="company-logo-panel">
+        <svg viewBox="0 0 44 44" width="44" height="44" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="4"/>
+          <circle cx="22" cy="10" r="3"/>
+          <circle cx="32" cy="16" r="3"/>
+          <circle cx="32" cy="28" r="3"/>
+          <circle cx="22" cy="34" r="3"/>
+          <circle cx="12" cy="28" r="3"/>
+          <circle cx="12" cy="16" r="3"/>
+          <line x1="22" y1="22" x2="22" y2="13"/>
+          <line x1="22" y1="22" x2="29" y2="18.5"/>
+          <line x1="22" y1="22" x2="29" y2="25.5"/>
+          <line x1="22" y1="22" x2="22" y2="31"/>
+          <line x1="22" y1="22" x2="15" y2="25.5"/>
+          <line x1="22" y1="22" x2="15" y2="18.5"/>
         </svg>
       </div>
-      <div class="bullet"></div>
-      <div class="co-info">
-        <div class="co-name">MONOATOM LABS</div>
-        <div class="co-tag"><span>GRAPHENE AT SCALE</span></div>
+      <div class="company-info">
+        <div class="company-info-name">Monoatom Labs</div>
+        <div class="company-info-tag">GRAPHENE AT SCALE</div>
       </div>
     </div>
+
     <!-- Grafillium Deeptech -->
     <div class="company-row">
-      <div class="co-logo">
-        <svg viewBox="0 0 36 36" fill="none" stroke="#C4A24E" stroke-width="1.3">
-          <circle cx="18" cy="12" r="7"/>
-          <text x="18" y="16" text-anchor="middle" fill="#C4A24E" stroke="none" font-size="10" font-weight="700" font-family="Inter">G</text>
-          <line x1="18" y1="19" x2="18" y2="27"/>
-          <line x1="12" y1="23" x2="24" y2="23"/>
-          <circle cx="12" cy="27" r="2.5"/>
-          <circle cx="18" cy="27" r="2.5"/>
-          <circle cx="24" cy="27" r="2.5"/>
+      <div class="company-dot"></div>
+      <div class="company-logo-panel">
+        <svg viewBox="0 0 44 44" width="44" height="44" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 6 C14 6 9 12 9 19 C9 24 12 28 16 30 L16 34 L28 34 L28 30 C32 28 35 24 35 19 C35 12 30 6 22 6Z"/>
+          <line x1="17" y1="36" x2="27" y2="36" stroke-width="1.2"/>
+          <line x1="18.5" y1="38" x2="25.5" y2="38" stroke-width="1.2"/>
+          <text x="22" y="24" text-anchor="middle" font-family="Inter,Arial" font-size="11" font-weight="700" fill="#C4A24E" stroke="none">G</text>
         </svg>
       </div>
-      <div class="bullet"></div>
-      <div class="co-info">
-        <div class="co-name">GRAFILLIUM DEEPTECH</div>
-        <div class="co-tag">
-          <span>ECO</span><span class="dot">•</span>
-          <span>NANO</span><span class="dot">•</span>
-          <span>FUTURE</span>
-        </div>
+      <div class="company-info">
+        <div class="company-info-name">Grafillium Deeptech</div>
+        <div class="company-info-tag">ECO&nbsp;•&nbsp;NANO&nbsp;•&nbsp;FUTURE</div>
       </div>
     </div>
-    <!-- Magppie -->
-    <div class="company-row">
-      <div class="co-logo">
-        <div class="magppie-text">MAGPPIE</div>
-      </div>
-      <div class="bullet"></div>
-      <div class="co-info">
-        <div class="co-name">MAGPPIE WELLNESS KITCHEN</div>
-        <div class="co-tag">
-          <span>EAT WELL</span><span class="dot">•</span>
-          <span>LIVE WELL</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- contacts -->
-  <div class="contacts">
+    <!-- Magppie Wellness Kitchen -->
+    <div class="company-row">
+      <div class="company-dot"></div>
+      <div class="company-logo-panel" style="flex-direction:column;gap:2px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#C4A24E;letter-spacing:0.1em;text-align:center;line-height:1.1;">MAGPPIE</span>
+      </div>
+      <div class="company-info">
+        <div class="company-info-name">MAGPPIE WELLNESS KITCHEN</div>
+        <div class="company-info-tag">EAT WELL&nbsp;•&nbsp;LIVE WELL</div>
+      </div>
+    </div>
+
+  </div><!-- end companies -->
+
+  <!-- 8. Contacts -->
+  <div class="card2-contacts">
+
+    <!-- Phone -->
     <div class="contact-row">
       <div class="contact-icon">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <path d="M2 2h2.5l1 3-1.5 1c1 2 2.5 3.5 4.5 4.5l1-1.5 3 1V12c0 .8-.7 1-1.5 1C5 13 1 9 1 3.5 1 2.7 1.2 2 2 2Z"/>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#C4A24E" stroke-width="1.4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 1.5C2 1.5 3.5 0.5 4.5 1.5L6.5 4.5C7 5.5 6 6 5.5 6.5C6.5 8.5 8 9.5 9 10C9.5 9.5 10 8.5 11 9L13 11C14 12 12.5 13.5 12.5 13.5C6.5 16 -2.5 4.5 2 1.5Z"/>
         </svg>
       </div>
-      <div class="contact-divider"></div>
+      <div class="contact-vline"></div>
       <div class="contact-text">+91 85119 76999</div>
     </div>
+
+    <!-- Email -->
     <div class="contact-row">
       <div class="contact-icon">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <rect x="1" y="3" width="12" height="8" rx="1.5"/>
-          <path d="M1 4l6 4 6-4"/>
+        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="12" height="9" rx="1.5"/>
+          <path d="M1 2.5 L7 6.5 L13 2.5"/>
         </svg>
       </div>
-      <div class="contact-divider"></div>
+      <div class="contact-vline"></div>
       <div class="contact-text">me@sushanthpaatnaik.com</div>
     </div>
+
+    <!-- Website -->
     <div class="contact-row">
       <div class="contact-icon">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <circle cx="7" cy="7" r="5.5"/>
-          <path d="M7 1.5C8.5 3.5 9.5 5.2 9.5 7C9.5 8.8 8.5 10.5 7 12.5"/>
-          <path d="M7 1.5C5.5 3.5 4.5 5.2 4.5 7C4.5 8.8 5.5 10.5 7 12.5"/>
-          <path d="M1.5 7H12.5"/>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7" cy="7" r="6"/>
+          <ellipse cx="7" cy="7" rx="3" ry="6"/>
+          <line x1="1" y1="7" x2="13" y2="7"/>
         </svg>
       </div>
-      <div class="contact-divider"></div>
+      <div class="contact-vline"></div>
       <div class="contact-text">sushanthpaatnaik.com</div>
     </div>
+
+    <!-- Location -->
     <div class="contact-row">
       <div class="contact-icon">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <path d="M7 1C4.8 1 3 2.8 3 5C3 7.5 7 13 7 13C7 13 11 7.5 11 5C11 2.8 9.2 1 7 1Z"/>
-          <circle cx="7" cy="5" r="1.5"/>
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 1 C3 1 1 3.5 1 6 C1 9.5 6 13 6 13 C6 13 11 9.5 11 6 C11 3.5 9 1 6 1Z"/>
+          <circle cx="6" cy="6" r="2"/>
         </svg>
       </div>
-      <div class="contact-divider"></div>
-      <div class="contact-text location">
-        <span>Ahmedabad</span><span class="sep">|</span>
-        <span>New Delhi</span><span class="sep">|</span>
-        <span>Bhubaneswar</span>
+      <div class="contact-vline"></div>
+      <div class="contact-text">
+        Ahmedabad <span class="sep">|</span> New Delhi <span class="sep">|</span> Bhubaneswar
       </div>
     </div>
-  </div>
 
-  <div class="gold-bar"></div>
-</div>
+  </div><!-- end contacts -->
+
+  <!-- 9. Bottom gold bar -->
+  <div class="card2-bottom-bar"></div>
+
+</div><!-- end card2 -->
 
 </body>
 </html>
