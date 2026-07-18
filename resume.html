@@ -4,42 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sushanth Paatnaik — Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --g:#C4A24E;
   --g2:#F0D070;
   --g3:#8C6A1A;
-  --sb:#0e0e0e;
-  --mb:#141414;
-  --border:rgba(196,162,78,0.25);
-  --text:#e8e8e8;
-  --muted:#9a9a9a;
+  --sb:#0c0c0c;
+  --mb:#111111;
+  --card:#181818;
+  --border:rgba(196,162,78,0.3);
+  --border2:rgba(196,162,78,0.15);
+  --text:#e0e0e0;
+  --muted:#888;
 }
 body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-family:'Inter',sans-serif;color:#fff}
 
 .page{
-  width:860px;
+  width:870px;
   background:var(--mb);
   display:flex;
   flex-direction:column;
   overflow:hidden;
-  box-shadow:0 0 60px rgba(0,0,0,0.8);
+  box-shadow:0 0 80px rgba(0,0,0,0.9);
 }
 
-/* HEADER */
+/* ═══ HEADER ═══ */
 .hdr{
   display:flex;
-  min-height:200px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--border2);
+  position:relative;
 }
 .hdr-photo{
-  width:220px;
+  width:210px;
   flex-shrink:0;
-  background:#000;
+  background:#050505;
   position:relative;
   overflow:hidden;
+  min-height:230px;
 }
 .hdr-photo img{
   width:100%;
@@ -47,93 +50,177 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
   object-fit:cover;
   object-position:center top;
   display:block;
-  mask-image:linear-gradient(to right,rgba(0,0,0,1) 70%,rgba(0,0,0,0) 100%);
-  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 70%,rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(to right,rgba(0,0,0,1) 65%,rgba(0,0,0,0) 100%),
+             linear-gradient(to bottom,rgba(0,0,0,1) 80%,rgba(0,0,0,0) 100%);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 65%,rgba(0,0,0,0) 100%);
+  mask-composite:intersect;
 }
+/* golden ambient glow on photo */
+.hdr-photo::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 80%,rgba(196,162,78,0.18) 0%,transparent 70%);
+  z-index:1;pointer-events:none;
+}
+
 .hdr-info{
   flex:1;
-  padding:22px 24px 20px 20px;
+  padding:20px 22px 16px 18px;
   position:relative;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  background:linear-gradient(135deg,rgba(196,162,78,0.04) 0%,transparent 50%);
+  justify-content:flex-start;
+  gap:8px;
 }
-.sp-logo{position:absolute;top:16px;right:20px}
-.hdr-name{line-height:1}
-.hdr-name .n1{font-size:58px;font-weight:900;color:#fff;letter-spacing:0.02em;display:block}
+
+/* SP logo top-right */
+.sp-logo{position:absolute;top:14px;right:18px}
+
+/* Name block */
+.hdr-name{line-height:0.95;margin-top:4px}
+.hdr-name .n1{font-size:54px;font-weight:900;color:#fff;letter-spacing:0.03em;display:block}
 .hdr-name .n2{
-  font-size:58px;font-weight:900;letter-spacing:0.02em;display:block;
-  background:linear-gradient(90deg,var(--g3) 0%,var(--g) 35%,var(--g2) 65%,var(--g) 100%);
+  font-size:54px;font-weight:900;letter-spacing:0.03em;display:block;
+  background:linear-gradient(90deg,var(--g3) 0%,var(--g) 30%,var(--g2) 60%,var(--g) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.hdr-tagline{margin-top:10px;font-size:10px;font-weight:600;letter-spacing:0.35em;color:var(--muted);text-transform:uppercase}
-.hdr-tagline span{color:var(--g);margin:0 6px}
 
-/* BODY */
+/* Tagline */
+.hdr-tagline{
+  font-size:9px;font-weight:600;letter-spacing:0.38em;color:var(--muted);text-transform:uppercase;
+  border-top:1px solid var(--border2);padding-top:8px;
+}
+.hdr-tagline span{color:var(--g);margin:0 5px}
+
+/* Quote */
+.hdr-quote{
+  position:relative;padding:10px 14px 10px 22px;
+  border-left:2px solid var(--g);
+  background:rgba(196,162,78,0.04);
+  border-radius:0 4px 4px 0;
+}
+.hdr-quote::before{
+  content:'\201C';
+  position:absolute;left:-2px;top:-6px;
+  font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--g);line-height:1;
+  transform:translateX(-12px);
+}
+.hdr-quote::after{
+  content:'\201D';
+  font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--g);line-height:0;
+  vertical-align:-14px;margin-left:4px;
+}
+.hdr-quote p{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--text);line-height:1.5;
+  display:inline;
+}
+
+/* ═══ BODY ═══ */
 .body{display:flex;flex:1}
 
 /* SIDEBAR */
 .sidebar{
-  width:220px;flex-shrink:0;
-  background:var(--sb);border-right:1px solid var(--border);
-  padding:18px 16px;display:flex;flex-direction:column;gap:18px;
+  width:210px;flex-shrink:0;
+  background:var(--sb);border-right:1px solid var(--border2);
+  padding:16px 15px;display:flex;flex-direction:column;gap:16px;
 }
 .sb-title{
-  font-size:9px;font-weight:700;letter-spacing:0.25em;color:var(--g);
-  text-transform:uppercase;display:flex;align-items:center;gap:7px;margin-bottom:10px;
+  font-size:8.5px;font-weight:700;letter-spacing:0.28em;color:var(--g);
+  text-transform:uppercase;display:flex;align-items:center;gap:7px;margin-bottom:9px;
 }
-.contact-item{display:flex;align-items:flex-start;gap:8px;font-size:9.5px;color:var(--text);line-height:1.45;margin-bottom:7px}
-.contact-item svg{flex-shrink:0;margin-top:1px;opacity:0.7}
-.edu-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px}
+.contact-item{display:flex;align-items:flex-start;gap:8px;font-size:9.5px;color:var(--text);line-height:1.4;margin-bottom:7px}
+.contact-item svg{flex-shrink:0;margin-top:1px}
+.edu-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px}
 .edu-name{font-size:9.5px;font-weight:700;color:var(--g);line-height:1.3}
-.edu-sub{font-size:8.5px;color:var(--muted);line-height:1.4;margin-top:2px}
-.expertise-item{display:flex;align-items:center;gap:8px;font-size:9px;color:var(--text);line-height:1.4;margin-bottom:7px}
-.expertise-item svg{flex-shrink:0;opacity:0.8}
+.edu-sub{font-size:8px;color:var(--muted);line-height:1.4;margin-top:2px}
+.expertise-item{display:flex;align-items:center;gap:8px;font-size:9px;color:var(--text);line-height:1.35;margin-bottom:7px}
 
 /* MAIN */
-.main{flex:1;padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.main{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+
 .sec-title{
-  font-size:10px;font-weight:700;letter-spacing:0.22em;color:var(--g);
+  font-size:9.5px;font-weight:700;letter-spacing:0.22em;color:var(--g);
   text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:10px;
 }
-.sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border2)}
 
-.about-text{font-size:11px;color:var(--text);line-height:1.7;border-left:2px solid var(--g);padding-left:12px}
+/* About */
+.about-text{
+  font-size:10.5px;color:var(--text);line-height:1.65;
+  border-left:2px solid var(--g);padding-left:11px;
+}
 
-.venture-row{display:flex;gap:0;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:8px}
-.venture-row:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
-.venture-logo{width:120px;flex-shrink:0;display:flex;align-items:center;justify-content:flex-start;padding-right:12px;border-right:1px solid var(--border);margin-right:12px}
-.venture-role{font-size:9.5px;color:var(--muted);margin-bottom:3px}
-.venture-role strong{color:var(--g);font-weight:600}
-.venture-desc{font-size:9px;color:var(--text);line-height:1.5}
+/* Venture cards grid */
+.ventures-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+}
+.vcard{
+  border:1px solid var(--border);border-radius:5px;
+  padding:12px 10px;text-align:center;
+  background:var(--card);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+}
+.vcard-icon{height:36px;display:flex;align-items:center;justify-content:center}
+.vcard-name{font-size:10px;font-weight:800;color:#fff;letter-spacing:0.04em;line-height:1.2;text-align:center}
+.vcard-sub{font-size:7px;font-weight:600;letter-spacing:0.2em;color:var(--g);text-transform:uppercase;text-align:center}
+.vcard-desc{font-size:8.5px;color:var(--muted);line-height:1.5;text-align:center;margin-top:2px}
 
-.ventures-bottom{display:flex;gap:10px;margin-top:4px}
-.venture-sm{flex:1;border:1px solid var(--border);border-radius:4px;padding:10px;display:flex;gap:10px}
-.venture-sm-logo{width:80px;flex-shrink:0;display:flex;align-items:center}
-.venture-sm-role{font-size:8.5px;color:var(--muted);margin-bottom:2px}
-.venture-sm-role strong{color:var(--g)}
-.venture-sm-desc{font-size:8.5px;color:var(--text);line-height:1.45}
-
+/* Bottom grid */
 .bottom-grid{display:flex;gap:10px}
 .bottom-col{flex:1}
-
 .impact-list{list-style:none}
-.impact-list li{font-size:9.5px;color:var(--text);line-height:1.5;padding-left:14px;position:relative;margin-bottom:4px}
-.impact-list li::before{content:'•';position:absolute;left:0;color:var(--g);font-size:14px;line-height:1}
+.impact-list li{font-size:9px;color:var(--text);line-height:1.5;padding-left:14px;position:relative;margin-bottom:4px}
+.impact-list li::before{content:'•';position:absolute;left:0;color:var(--g);font-size:13px;line-height:1.1}
 
-.achievements-grid{display:flex;flex-wrap:wrap;gap:6px}
-.ach-cell{flex:1;min-width:calc(33% - 4px);border:1px solid var(--border);border-radius:4px;padding:8px 6px;text-align:center;background:rgba(196,162,78,0.04)}
-.ach-num{font-size:18px;font-weight:800;color:var(--g);line-height:1}
-.ach-label{font-size:7.5px;color:var(--muted);margin-top:3px;line-height:1.35}
+.achievements-grid{display:flex;flex-wrap:wrap;gap:5px}
+.ach-cell{
+  flex:1;min-width:calc(33% - 4px);
+  border:1px solid var(--border2);border-radius:4px;padding:7px 5px;
+  text-align:center;background:rgba(196,162,78,0.04);
+}
+.ach-num{font-size:17px;font-weight:800;color:var(--g);line-height:1;display:flex;align-items:center;justify-content:center;gap:3px}
+.ach-num svg{flex-shrink:0}
+.ach-label{font-size:7px;color:var(--muted);margin-top:3px;line-height:1.35}
 
-/* FOOTER */
-.footer{border-top:1px solid var(--border);background:var(--sb)}
-.footer-reco{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border)}
-.footer-reco-label{font-size:9px;font-weight:700;letter-spacing:0.1em;color:#fff;text-transform:uppercase;line-height:1.3;width:100px;flex-shrink:0;margin-right:14px;border-right:1px solid var(--border);padding-right:14px}
-.footer-logos{display:flex;align-items:center;gap:16px;flex:1}
-.footer-tagline{padding:8px 16px;text-align:center;font-size:9px;letter-spacing:0.5em;color:var(--g);font-weight:600;text-transform:uppercase}
-.footer-tagline span{color:var(--muted);margin:0 8px}
+/* ═══ COUNSEL SECTION ═══ */
+.counsel{
+  border:1px solid var(--border);
+  border-radius:6px;
+  margin:0 16px 12px;
+  padding:12px 16px;
+  background:rgba(196,162,78,0.03);
+}
+.counsel-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:3px;
+}
+.counsel-title{
+  font-size:11px;font-weight:700;letter-spacing:0.12em;color:#fff;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+}
+.counsel-diamond{color:var(--g);font-size:14px}
+.counsel-sub{font-size:8.5px;color:var(--muted);margin-bottom:10px;padding-left:22px}
+.counsel-logos{
+  display:flex;align-items:center;gap:20px;flex-wrap:nowrap;padding-left:4px;
+}
+.counsel-logos .cl{
+  display:flex;align-items:center;
+  font-size:12px;font-weight:800;letter-spacing:0.04em;
+}
+
+/* ═══ FOOTER ═══ */
+.footer{border-top:1px solid var(--border2);background:var(--sb)}
+.footer-reco{display:flex;align-items:center;padding:9px 16px;border-bottom:1px solid var(--border2)}
+.footer-reco-label{
+  font-size:8px;font-weight:700;letter-spacing:0.1em;color:#fff;text-transform:uppercase;
+  line-height:1.4;width:90px;flex-shrink:0;margin-right:12px;
+  border-right:1px solid var(--border2);padding-right:12px;
+}
+.footer-logos{display:flex;align-items:center;gap:14px;flex:1;flex-wrap:nowrap}
+.footer-tagline{
+  padding:7px 16px;text-align:center;
+  font-size:8.5px;letter-spacing:0.55em;color:var(--g);font-weight:600;text-transform:uppercase;
+}
+.footer-tagline span{color:var(--muted);margin:0 6px}
 </style>
 </head>
 <body>
@@ -145,19 +232,31 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
       <img src="founder.jpg" alt="Sushanth Paatnaik">
     </div>
     <div class="hdr-info">
+      <!-- SP Logo -->
       <div class="sp-logo">
-        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-          <circle cx="26" cy="26" r="25" stroke="#C4A24E" stroke-width="1"/>
-          <text x="26" y="34" text-anchor="middle" font-family="Inter" font-weight="900" font-size="22" fill="#C4A24E">SP</text>
-          <circle cx="26" cy="8" r="3" fill="#C4A24E"/>
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+          <circle cx="27" cy="27" r="26" stroke="#C4A24E" stroke-width="1.2"/>
+          <!-- stylized SP -->
+          <text x="27" y="23" text-anchor="middle" font-family="Inter" font-weight="900" font-size="10" fill="#C4A24E" letter-spacing="0.1em">SP</text>
+          <!-- person figure -->
+          <circle cx="27" cy="16" r="4" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
+          <path d="M20 38 C20 31 34 31 34 38" stroke="#C4A24E" stroke-width="1.2" fill="none"/>
+          <!-- dot on top -->
+          <circle cx="27" cy="9" r="2" fill="#C4A24E"/>
         </svg>
       </div>
+
       <div class="hdr-name">
         <span class="n1">SUSHANTH</span>
         <span class="n2">PAATNAIK</span>
       </div>
+
       <div class="hdr-tagline">
         INVENTOR<span>•</span>DEEP-TECH FOUNDER<span>•</span>INDUSTRY BUILDER
+      </div>
+
+      <div class="hdr-quote">
+        <p>Engineering intelligent materials and scalable technologies that create lasting industrial impact.</p>
       </div>
     </div>
   </div>
@@ -168,7 +267,6 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
     <!-- SIDEBAR -->
     <div class="sidebar">
 
-      <!-- CONTACT -->
       <div>
         <div class="sb-title">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="#C4A24E" stroke-width="1.2"/><path d="M1 12c0-3.04 2.462-5.5 5.5-5.5S12 8.96 12 12" stroke="#C4A24E" stroke-width="1.2"/></svg>
@@ -183,7 +281,7 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
           www.sushanthpaatnaik.com
         </div>
         <div class="contact-item">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="0.5" y="1.5" width="11" height="9" rx="1.5" stroke="#C4A24E" stroke-width="1"/><path d="M1 5h3.5v3H1zM1 5V3.5A2.5 2.5 0 016 3.5" stroke="#C4A24E" stroke-width="1"/></svg>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="0.5" y="1.5" width="7" height="7" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M4 1.5V0.5M4 9.5v1M0.5 5H-0.5M8 5h1" stroke="#C4A24E" stroke-width="1"/><circle cx="4" cy="5" r="1.5" stroke="#C4A24E" stroke-width="1"/></svg>
           linkedin.com/in/sushanthpaatnaik
         </div>
         <div class="contact-item">
@@ -192,21 +290,20 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
         </div>
       </div>
 
-      <!-- EDUCATION -->
       <div>
         <div class="sb-title">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L13 5l-6.5 4L0 5l6.5-4z" stroke="#C4A24E" stroke-width="1" fill="none"/><path d="M2 6.5v4c0 1 2 2 4.5 2s4.5-1 4.5-2v-4" stroke="#C4A24E" stroke-width="1" fill="none"/></svg>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L13 5l-6.5 4L0 5z" stroke="#C4A24E" stroke-width="1" fill="none"/><path d="M2 7v3.5c0 1 2 2 4.5 2s4.5-1 4.5-2V7" stroke="#C4A24E" stroke-width="1" fill="none"/></svg>
           EDUCATION
         </div>
         <div class="edu-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M1 6h14" stroke="#C4A24E" stroke-width="1"/></svg>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="3" width="13" height="9" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M1 6h13" stroke="#C4A24E" stroke-width="1"/></svg>
           <div>
             <div class="edu-name">B.Sc. @ IISER Bhopal</div>
             <div class="edu-sub">Indian Institute of Science Education and Research, Bhopal</div>
           </div>
         </div>
         <div class="edu-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M1 6h14" stroke="#C4A24E" stroke-width="1"/></svg>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="3" width="13" height="9" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M1 6h13" stroke="#C4A24E" stroke-width="1"/></svg>
           <div>
             <div class="edu-name">B.E. (EC) @ OCT Bhopal</div>
             <div class="edu-sub">Orientated College of Technology, Bhopal</div>
@@ -214,14 +311,13 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
         </div>
       </div>
 
-      <!-- CORE EXPERTISE -->
       <div>
         <div class="sb-title">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="#C4A24E" stroke-width="1"/><path d="M4 6.5h5M6.5 4v5" stroke="#C4A24E" stroke-width="1"/></svg>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="#C4A24E" stroke-width="1"/><circle cx="6.5" cy="6.5" r="2" stroke="#C4A24E" stroke-width="1"/></svg>
           CORE EXPERTISE
         </div>
         <div class="expertise-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#C4A24E" stroke-width="1"/><circle cx="7" cy="7" r="2.5" stroke="#C4A24E" stroke-width="1"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#C4A24E" stroke-width="1"/><circle cx="7" cy="7" r="2.5" stroke="#C4A24E" stroke-width="1"/><path d="M7 1v2M7 11v2M1 7h2M11 7h2" stroke="#C4A24E" stroke-width="1"/></svg>
           Advanced Materials &amp; Nanotechnology
         </div>
         <div class="expertise-item">
@@ -229,7 +325,7 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
           Graphene &amp; 2D Material Technologies
         </div>
         <div class="expertise-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="4" width="12" height="7" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M4 4V3a3 3 0 016 0v1" stroke="#C4A24E" stroke-width="1"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="5" width="12" height="7" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M4 5V4a3 3 0 016 0v1" stroke="#C4A24E" stroke-width="1"/></svg>
           Industrial Innovation &amp; Process Design
         </div>
         <div class="expertise-item">
@@ -237,11 +333,11 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
           Clean Energy &amp; Sustainability
         </div>
         <div class="expertise-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 11L4 5l3 4 2-3 4 5" stroke="#C4A24E" stroke-width="1" fill="none"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 11L4 5l3 4 2-3 4 5" stroke="#C4A24E" stroke-width="1" fill="none" stroke-linejoin="round"/></svg>
           Scalable Deep-Tech Solutions
         </div>
         <div class="expertise-item">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2zM8 8h4v4H8z" stroke="#C4A24E" stroke-width="1" fill="none"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1h5v5H1zM8 1h5v5H8zM1 8h5v5H1zM8 8h5v5H8z" stroke="#C4A24E" stroke-width="1" fill="none"/></svg>
           Technology Commercialization
         </div>
       </div>
@@ -254,7 +350,7 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
       <!-- ABOUT ME -->
       <div>
         <div class="sec-title">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="#C4A24E" stroke-width="1.2"/><path d="M1.5 13c0-3.038 2.462-5.5 5.5-5.5S12.5 9.962 12.5 13" stroke="#C4A24E" stroke-width="1.2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="#C4A24E" stroke-width="1.2"/><path d="M1 12c0-3.04 2.462-5.5 5.5-5.5S12 8.96 12 12" stroke="#C4A24E" stroke-width="1.2"/></svg>
           ABOUT ME
         </div>
         <div class="about-text">
@@ -265,106 +361,108 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
       <!-- VENTURES I BUILD -->
       <div>
         <div class="sec-title">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="3.5" width="11" height="8" rx="1" stroke="#C4A24E" stroke-width="1.2"/><path d="M4.5 3.5V2.5a2.5 2.5 0 015 0v1" stroke="#C4A24E" stroke-width="1.2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="3" width="11" height="8" rx="1" stroke="#C4A24E" stroke-width="1.2"/><path d="M4 3V2a2.5 2.5 0 015 0v1" stroke="#C4A24E" stroke-width="1.2"/></svg>
           VENTURES I BUILD
         </div>
+        <div class="ventures-grid">
 
-        <!-- Monoatom Labs -->
-        <div class="venture-row">
-          <div class="venture-logo">
-            <svg width="110" height="36" viewBox="0 0 110 36" fill="none">
-              <polygon points="12,2 20,7 20,17 12,22 4,17 4,7" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
-              <circle cx="12" cy="12" r="3" fill="none" stroke="#C4A24E" stroke-width="1"/>
-              <line x1="12" y1="7" x2="12" y2="4" stroke="#C4A24E" stroke-width="1"/>
-              <line x1="12" y1="17" x2="12" y2="20" stroke="#C4A24E" stroke-width="1"/>
-              <line x1="7.5" y1="9.5" x2="5" y2="8" stroke="#C4A24E" stroke-width="1"/>
-              <line x1="16.5" y1="14.5" x2="19" y2="16" stroke="#C4A24E" stroke-width="1"/>
-              <line x1="7.5" y1="14.5" x2="5" y2="16" stroke="#C4A24E" stroke-width="1"/>
-              <line x1="16.5" y1="9.5" x2="19" y2="8" stroke="#C4A24E" stroke-width="1"/>
-              <text x="26" y="13" font-family="Inter" font-weight="700" font-size="10" fill="#fff" letter-spacing="0.05em">MONOATOM</text>
-              <text x="26" y="24" font-family="Inter" font-weight="300" font-size="7.5" fill="#9a9a9a" letter-spacing="0.3em">L A B S</text>
-              <line x1="26" y1="27" x2="108" y2="27" stroke="#C4A24E" stroke-width="0.5"/>
-            </svg>
-          </div>
-          <div class="venture-info">
-            <div class="venture-role"><strong>Co-Founder &amp; CEO</strong> &nbsp;|&nbsp; monoatomlabs.com</div>
-            <div class="venture-desc">Graphene at scale. Developing advanced graphene materials and application technologies for energy, construction, polymers, coatings and next-gen batteries.</div>
-          </div>
-        </div>
-
-        <!-- SPI Industries -->
-        <div class="venture-row">
-          <div class="venture-logo">
-            <svg width="110" height="40" viewBox="0 0 110 40" fill="none">
-              <path d="M12 2 L20 6 L20 16 L14 20 L8 20 L4 16 L4 6 Z" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
-              <path d="M8 8.5 C8 7 9 6 10.5 6 L12 6 C13.5 6 14.5 7 14.5 8.5 C14.5 9.5 13.5 10 12 10.5 L10 11.5 C8.5 12 7.5 12.5 7.5 14 C7.5 15.5 8.5 16.5 10.5 16.5 L12.5 16.5 C14 16.5 15.5 15.5 15.5 14" stroke="#C4A24E" stroke-width="1.2" fill="none"/>
-              <text x="26" y="15" font-family="Inter" font-weight="800" font-size="12" fill="#C4A24E" letter-spacing="0.05em">SPI</text>
-              <text x="26" y="25" font-family="Inter" font-weight="400" font-size="7.5" fill="#9a9a9a" letter-spacing="0.35em">INDUSTRIES</text>
-            </svg>
-          </div>
-          <div class="venture-info">
-            <div class="venture-role"><strong>Founder</strong> &nbsp;|&nbsp; spiindustries.co</div>
-            <div class="venture-desc">Deep-tech R&amp;D and industrial solutions company focused on nanomaterials, process engineering and technology licensing for large-scale impact.</div>
-          </div>
-        </div>
-
-        <!-- Grafillium -->
-        <div class="venture-row">
-          <div class="venture-logo">
-            <svg width="110" height="40" viewBox="0 0 110 40" fill="none">
-              <path d="M10 8 C6 8 4 11 4 14 C4 18 7 21 10 21 C12 21 14 20 16 18 C18 16 19 14 19 11 C19 8 17 7 15 7 C13 7 11 7.5 10 8Z" fill="none" stroke="#5a9a40" stroke-width="1.2"/>
-              <path d="M10 8 L16 18" stroke="#5a9a40" stroke-width="0.8"/>
-              <text x="26" y="14" font-family="Inter" font-weight="700" font-size="11" fill="#5a9a40" letter-spacing="-0.01em">GRAFILLIUM</text>
-              <text x="26" y="25" font-family="Inter" font-weight="400" font-size="8" fill="#9a9a9a" letter-spacing="0.1em">Eco-Nano Additives</text>
-            </svg>
-          </div>
-          <div class="venture-info">
-            <div class="venture-role"><strong>Co-Founder &amp; CTO</strong> &nbsp;|&nbsp; grafillium.com</div>
-            <div class="venture-desc">Eco-nano additive technologies for fuels, lubricants, coal, paints and bitumen that enhance efficiency and reduce emissions.</div>
-          </div>
-        </div>
-
-        <!-- Magppie Living -->
-        <div class="venture-row">
-          <div class="venture-logo">
-            <svg width="110" height="36" viewBox="0 0 110 36" fill="none">
-              <text x="4" y="19" font-family="Georgia,serif" font-weight="400" font-size="17" fill="#e8e8e8" letter-spacing="-0.02em">magppie</text>
-              <text x="4" y="30" font-family="Inter" font-weight="300" font-size="7.5" fill="#9a9a9a" letter-spacing="0.45em">L I V I N G</text>
-            </svg>
-          </div>
-          <div class="venture-info">
-            <div class="venture-role"><strong>Chief Innovation Officer (CIO)</strong> &nbsp;|&nbsp; magppie.com</div>
-            <div class="venture-desc">Pioneering the world's first 100% stone-built modular kitchen — transforming ordinary homes into wellness homes that protect family and planet.</div>
-          </div>
-        </div>
-
-        <!-- 2 smaller ventures -->
-        <div class="ventures-bottom">
-          <div class="venture-sm">
-            <div class="venture-sm-logo">
-              <svg width="80" height="44" viewBox="0 0 80 44" fill="none">
-                <text x="0" y="18" font-family="Inter" font-weight="700" font-size="12" fill="#C4A24E">InThinks</text>
-                <text x="0" y="30" font-family="Inter" font-weight="400" font-size="7" fill="#9a9a9a" letter-spacing="0.1em">Innovation Studio</text>
+          <!-- SPI Industries -->
+          <div class="vcard">
+            <div class="vcard-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+                <polygon points="19,2 35,11 35,27 19,36 3,27 3,11" fill="none" stroke="#C4A24E" stroke-width="1.5"/>
+                <text x="19" y="23" text-anchor="middle" font-family="Inter" font-weight="900" font-size="14" fill="#C4A24E">SP</text>
               </svg>
             </div>
-            <div>
-              <div class="venture-sm-role"><strong>Founder</strong> | inthinks.in</div>
-              <div class="venture-sm-desc">Innovation studio incubating breakthrough ideas and building future-ready ventures.</div>
-            </div>
+            <div class="vcard-name">SPI INDUSTRIES</div>
+            <div class="vcard-sub">R&amp;D Industrial Solutions</div>
+            <div class="vcard-desc">Nanomaterial R&amp;D and industrial solutions from lab to industry.</div>
           </div>
-          <div class="venture-sm">
-            <div class="venture-sm-logo">
-              <svg width="80" height="44" viewBox="0 0 80 44" fill="none">
-                <path d="M6 10 C6 7 8 6 10.5 6 C13 6 14.5 7.5 14.5 10 C14.5 11.5 13.5 12.5 12 13 L9 14 C7.5 14.5 6 15.5 6 18 C6 20.5 7.5 22 10 22 C12.5 22 14.5 20.5 14.5 18" stroke="#5ab860" stroke-width="1.5" fill="none"/>
-                <text x="19" y="16" font-family="Inter" font-weight="700" font-size="8" fill="#e8e8e8">starunico</text>
-                <text x="4" y="32" font-family="Inter" font-weight="400" font-size="7" fill="#9a9a9a" letter-spacing="0.08em">INVESTMENT</text>
+
+          <!-- Monoatom Labs -->
+          <div class="vcard">
+            <div class="vcard-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+                <circle cx="19" cy="19" r="5" fill="none" stroke="#e0e0e0" stroke-width="1.5"/>
+                <circle cx="19" cy="5" r="3" fill="none" stroke="#e0e0e0" stroke-width="1.2"/>
+                <circle cx="19" cy="33" r="3" fill="none" stroke="#e0e0e0" stroke-width="1.2"/>
+                <circle cx="5" cy="12" r="3" fill="none" stroke="#e0e0e0" stroke-width="1.2"/>
+                <circle cx="33" cy="12" r="3" fill="none" stroke="#e0e0e0" stroke-width="1.2"/>
+                <circle cx="5" cy="26" r="3" fill="none" stroke="#e0e0e0" stroke-width="1.2"/>
+                <circle cx="33" cy="26" r="3" fill="none" stroke="#e0e0e0" stroke-width="1.2"/>
+                <line x1="19" y1="8" x2="19" y2="14" stroke="#e0e0e0" stroke-width="1"/>
+                <line x1="19" y1="24" x2="19" y2="30" stroke="#e0e0e0" stroke-width="1"/>
+                <line x1="7.5" y1="13.5" x2="14" y2="17" stroke="#e0e0e0" stroke-width="1"/>
+                <line x1="24" y1="21" x2="30.5" y2="24.5" stroke="#e0e0e0" stroke-width="1"/>
+                <line x1="7.5" y1="24.5" x2="14" y2="21" stroke="#e0e0e0" stroke-width="1"/>
+                <line x1="24" y1="17" x2="30.5" y2="13.5" stroke="#e0e0e0" stroke-width="1"/>
               </svg>
             </div>
-            <div>
-              <div class="venture-sm-role"><strong>Founder</strong> | starunico.com</div>
-              <div class="venture-sm-desc">Investment platform backing deep-tech startups and future-focused enterprises.</div>
-            </div>
+            <div class="vcard-name">MONOATOM<br>LABS</div>
+            <div class="vcard-sub" style="visibility:hidden;height:10px"></div>
+            <div class="vcard-desc">Graphene at scale for energy, construction, polymers, coatings and next-gen batteries.</div>
           </div>
+
+          <!-- Grafillium -->
+          <div class="vcard">
+            <div class="vcard-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+                <!-- lightbulb with G -->
+                <path d="M19 6 C12 6 7 11 7 17 C7 21 9 24 13 26.5 L13 30 L25 30 L25 26.5 C29 24 31 21 31 17 C31 11 26 6 19 6Z" fill="none" stroke="#C4A24E" stroke-width="1.5"/>
+                <path d="M14 30 L24 30" stroke="#C4A24E" stroke-width="1"/>
+                <path d="M15 33 L23 33" stroke="#C4A24E" stroke-width="1"/>
+                <text x="19" y="21" text-anchor="middle" font-family="Inter" font-weight="700" font-size="11" fill="#C4A24E">G</text>
+              </svg>
+            </div>
+            <div class="vcard-name">GRAFILLIUM</div>
+            <div class="vcard-sub">Deep Tech Innovations</div>
+            <div class="vcard-desc">Eco-nano additives for fuels, lubricants, coal, paints and bitumen to improve efficiency and reduce emissions.</div>
+          </div>
+
+          <!-- InThinks -->
+          <div class="vcard">
+            <div class="vcard-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+                <!-- gear + lightbulb -->
+                <path d="M19 8 C13 8 9 12.5 9 18 C9 21.5 10.5 24.5 13 26.5 L13 30 L25 30 L25 26.5 C27.5 24.5 29 21.5 29 18 C29 12.5 25 8 19 8Z" fill="none" stroke="#4a8fd4" stroke-width="1.5"/>
+                <path d="M15 30h8M16 33h6" stroke="#4a8fd4" stroke-width="1"/>
+                <!-- gear teeth around -->
+                <path d="M19 3v3M19 33v3M3 18h3M32 18h3M7 7l2 2M29 29l2 2M29 7l-2 2M9 29l-2 2" stroke="#4a8fd4" stroke-width="1.2"/>
+                <circle cx="19" cy="18" r="4" fill="none" stroke="#4a8fd4" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="vcard-name">INTHINKS</div>
+            <div class="vcard-sub">Innovation Studio</div>
+            <div class="vcard-desc">Innovation studio incubating breakthrough ideas and building future-ready ventures.</div>
+          </div>
+
+          <!-- Starunico -->
+          <div class="vcard">
+            <div class="vcard-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+                <!-- growth chart with leaf -->
+                <path d="M6 32 L13 22 L19 26 L26 14 L32 18" stroke="#4daa57" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M26 8 C26 8 30 8 32 12 C32 12 28 12 26 16 C24 12 20 12 20 12 C22 8 26 8 26 8Z" fill="none" stroke="#4daa57" stroke-width="1.2"/>
+                <line x1="26" y1="16" x2="26" y2="22" stroke="#4daa57" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="vcard-name">STARUNICO</div>
+            <div class="vcard-sub">Investment</div>
+            <div class="vcard-desc">Investment platform backing deep-tech startups building a sustainable and intelligent future.</div>
+          </div>
+
+          <!-- Magppie -->
+          <div class="vcard">
+            <div class="vcard-icon" style="height:36px">
+              <svg width="90" height="24" viewBox="0 0 90 24" fill="none">
+                <text x="45" y="18" text-anchor="middle" font-family="Georgia,serif" font-weight="400" font-size="19" fill="#e8e8e8" letter-spacing="0.08em">MAGPPIE</text>
+              </svg>
+            </div>
+            <div class="vcard-sub" style="visibility:hidden;height:10px"></div>
+            <div class="vcard-sub" style="visibility:hidden;height:10px"></div>
+            <div class="vcard-desc">Pioneering 100% stone-built modular kitchens for wellness homes that protect family and planet.</div>
+          </div>
+
         </div>
       </div>
 
@@ -372,7 +470,7 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
       <div class="bottom-grid">
         <div class="bottom-col">
           <div class="sec-title">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#C4A24E" stroke-width="1.2"/><path d="M7 4v3.5l2 1.5" stroke="#C4A24E" stroke-width="1.2"/></svg>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="#C4A24E" stroke-width="1.2"/><path d="M6.5 4v3l1.5 1.5" stroke="#C4A24E" stroke-width="1.2" stroke-linecap="round"/></svg>
             EXPERIENCE &amp; IMPACT
           </div>
           <ul class="impact-list">
@@ -385,32 +483,50 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
         </div>
         <div class="bottom-col">
           <div class="sec-title">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2L8.5 5.5H12L9 7.5l1 4L7 9.5 4 11.5l1-4L2 5.5h3.5z" stroke="#C4A24E" stroke-width="1.2" fill="none"/></svg>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5L8 5H12L9 7l1 4-3.5-2L3 11l1-4L1 5h4z" stroke="#C4A24E" stroke-width="1.2" fill="none"/></svg>
             KEY ACHIEVEMENTS
           </div>
           <div class="achievements-grid">
             <div class="ach-cell">
-              <div class="ach-num">25+</div>
+              <div class="ach-num">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2h10v5c0 3-2.5 5-5 5S2 10 2 7z" stroke="#C4A24E" stroke-width="1"/><path d="M2 5H0v2c0 1.5 1 2.5 2 3M12 5h2v2c0 1.5-1 2.5-2 3" stroke="#C4A24E" stroke-width="1"/></svg>
+                25+
+              </div>
               <div class="ach-label">National &amp; International Awards</div>
             </div>
             <div class="ach-cell">
-              <div class="ach-num">20+</div>
+              <div class="ach-num">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><rect x="1" y="1" width="10" height="12" rx="1" stroke="#C4A24E" stroke-width="1"/><path d="M3 4h6M3 7h6M3 10h4" stroke="#C4A24E" stroke-width="1"/></svg>
+                20+
+              </div>
               <div class="ach-label">Patents Filed &amp; Granted</div>
             </div>
             <div class="ach-cell">
-              <div class="ach-num" style="font-size:14px">Global</div>
+              <div class="ach-num">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#C4A24E" stroke-width="1"/><path d="M7 1C5 3 4 5 4 7s1 4 3 6M7 1c2 2 3 4 3 6s-1 4-3 6M1 7h12" stroke="#C4A24E" stroke-width="1"/></svg>
+              </div>
+              <div class="ach-num" style="font-size:12px;margin-top:2px">Global</div>
               <div class="ach-label">Recognition for Innovation</div>
             </div>
             <div class="ach-cell">
-              <div class="ach-num">50+</div>
+              <div class="ach-num">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="5" cy="5" r="2.5" stroke="#C4A24E" stroke-width="1"/><circle cx="9" cy="5" r="2.5" stroke="#C4A24E" stroke-width="1"/><path d="M1 13c0-2.5 1.8-4 4-4M9 9c2.2 0 4 1.5 4 4" stroke="#C4A24E" stroke-width="1"/></svg>
+                50+
+              </div>
               <div class="ach-label">Institutions &amp; Industries Collaborated</div>
             </div>
             <div class="ach-cell">
-              <div class="ach-num">100+</div>
+              <div class="ach-num">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 11V5l3-3 3 3v6M7 11V8h3v3" stroke="#C4A24E" stroke-width="1" fill="none"/><path d="M1 11h12" stroke="#C4A24E" stroke-width="1"/></svg>
+                100+
+              </div>
               <div class="ach-label">Innovations &amp; Prototypes</div>
             </div>
             <div class="ach-cell">
-              <div class="ach-num" style="font-size:11px;color:#e8e8e8">Real-World</div>
+              <div class="ach-num" style="font-size:10px;color:#e0e0e0;flex-direction:column;gap:2px">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 8L4 3l3 3 2-2.5 4 4.5" stroke="#C4A24E" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                Real-World
+              </div>
               <div class="ach-label">Industrial Impact &amp; Commercialization</div>
             </div>
           </div>
@@ -420,63 +536,126 @@ body{background:#1a1a1a;display:flex;justify-content:center;padding:20px;font-fa
     </div>
   </div>
 
+  <!-- COUNSEL SECTION -->
+  <div class="counsel">
+    <div class="counsel-header">
+      <div class="counsel-title">
+        <span class="counsel-diamond">&#9670;</span>
+        COUNSEL ACROSS DIVERSE INDUSTRIES.
+        <span class="counsel-diamond">&#9670;</span>
+      </div>
+    </div>
+    <div class="counsel-sub">A short ledger of the houses I quietly advise — one mark per layer of the industrial network.</div>
+    <div class="counsel-logos">
+      <!-- VINROX -->
+      <div class="cl" style="color:#e8e8e8;font-size:14px;font-weight:900;letter-spacing:0.05em">VINROX</div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <!-- VPRPL -->
+      <div class="cl" style="gap:5px">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M2 2L9 16L16 2" stroke="#C4A24E" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <path d="M5 8L9 16L13 8" stroke="#C4A24E" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <span style="color:#e8e8e8;font-size:13px;font-weight:800">VPRPL</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <!-- WEHEAR -->
+      <div class="cl" style="gap:5px">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+          <path d="M1 8 L4 4 L7 10 L10 2 L13 12 L16 6 L19 8" stroke="#e8e8e8" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <span style="color:#e8e8e8;font-size:12px;font-weight:700">WEHEAR</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <!-- Tileopedia -->
+      <div class="cl" style="gap:5px">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="1" y="1" width="8" height="8" rx="1" stroke="#e8e8e8" stroke-width="1.2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="11" y="1" width="8" height="8" rx="1" stroke="#e8e8e8" stroke-width="1.2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="1" y="11" width="8" height="8" rx="1" stroke="#e8e8e8" stroke-width="1.2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="11" y="11" width="8" height="8" rx="1" stroke="#C4A24E" stroke-width="1.2" fill="rgba(196,162,78,0.15)"/>
+        </svg>
+        <span style="color:#e8e8e8;font-size:12px;font-weight:700">Tileopedia</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <!-- EUROGRES -->
+      <div class="cl" style="flex-direction:column;gap:1px;align-items:flex-start">
+        <span style="color:#3a8fc7;font-size:11px;font-weight:800;letter-spacing:0.04em">EUROGRES</span>
+        <span style="color:#3a8fc7;font-size:6.5px;font-weight:400;letter-spacing:0.15em">Ceramics that Engineers</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <!-- GREENOMERS -->
+      <div class="cl" style="flex-direction:column;gap:1px;align-items:flex-start">
+        <span style="color:#4daa57;font-size:11px;font-weight:800;letter-spacing:0.02em">GREENOMERS<sup style="font-size:7px">®</sup></span>
+        <span style="color:#4daa57;font-size:6.5px;font-weight:400;letter-spacing:0.12em">GREEN POLYMERS</span>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-reco">
       <div class="footer-reco-label">RECOGNIZED BY<br>PRESTIGIOUS<br>PLATFORMS</div>
       <div class="footer-logos">
+
         <!-- President of India -->
         <div style="text-align:center">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <circle cx="13" cy="13" r="12" stroke="#C4A24E" stroke-width="1"/>
-            <circle cx="13" cy="13" r="6" fill="none" stroke="#C4A24E" stroke-width="0.8"/>
-            <circle cx="13" cy="13" r="2" fill="#C4A24E"/>
-            <path d="M13 1v4M13 21v4M1 13h4M21 13h4" stroke="#C4A24E" stroke-width="0.8"/>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="13" stroke="#C4A24E" stroke-width="1"/>
+            <circle cx="14" cy="14" r="7" fill="none" stroke="#C4A24E" stroke-width="0.8"/>
+            <circle cx="14" cy="14" r="2.5" fill="#C4A24E"/>
+            <path d="M14 1v4M14 23v4M1 14h4M23 14h4M5 5l2.5 2.5M20.5 20.5l2.5 2.5M20.5 5l-2.5 2.5M5 23l2.5-2.5" stroke="#C4A24E" stroke-width="0.8"/>
           </svg>
-          <div style="font-size:6.5px;color:#9a9a9a;margin-top:3px;line-height:1.2">President<br>of India</div>
+          <div style="font-size:6px;color:#888;margin-top:2px;line-height:1.3">President<br>of India</div>
         </div>
+
         <!-- NASA -->
         <div style="text-align:center">
-          <svg width="44" height="26" viewBox="0 0 44 26" fill="none">
-            <ellipse cx="22" cy="13" rx="21" ry="12" fill="#0b3d91"/>
-            <text x="22" y="17" text-anchor="middle" font-family="Arial" font-weight="900" font-size="10" fill="#fff" letter-spacing="0.1em">NASA</text>
-            <path d="M2 13 Q22 5 42 13" stroke="#fc3d21" stroke-width="2" fill="none"/>
+          <svg width="46" height="28" viewBox="0 0 46 28" fill="none">
+            <ellipse cx="23" cy="14" rx="22" ry="13" fill="#0b3d91"/>
+            <text x="23" y="18" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#fff" letter-spacing="0.1em">NASA</text>
+            <path d="M2.5 14 Q23 5 43.5 14" stroke="#fc3d21" stroke-width="2.5" fill="none"/>
           </svg>
-          <div style="font-size:6.5px;color:#9a9a9a;margin-top:2px">NASA</div>
+          <div style="font-size:6px;color:#888;margin-top:2px">NASA</div>
         </div>
+
         <!-- MIT -->
         <div style="text-align:center">
-          <svg width="70" height="26" viewBox="0 0 70 26" fill="none">
-            <rect width="70" height="20" rx="2" fill="#8b0000"/>
-            <text x="4" y="14" font-family="Arial" font-weight="900" font-size="9" fill="#fff" letter-spacing="0.05em">MIT</text>
-            <text x="22" y="9" font-family="Arial" font-weight="400" font-size="5" fill="#fff" letter-spacing="0.02em">Massachusetts</text>
-            <text x="22" y="16" font-family="Arial" font-weight="400" font-size="5" fill="#fff" letter-spacing="0.02em">Institute of Technology</text>
+          <svg width="74" height="28" viewBox="0 0 74 28" fill="none">
+            <rect width="74" height="22" rx="2" fill="#8b0000"/>
+            <text x="5" y="15" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="#fff">MIT</text>
+            <text x="26" y="10" font-family="Arial,sans-serif" font-weight="400" font-size="5.5" fill="#fff" letter-spacing="0.03em">Massachusetts</text>
+            <text x="26" y="18" font-family="Arial,sans-serif" font-weight="400" font-size="5.5" fill="#fff" letter-spacing="0.03em">Institute of Technology</text>
           </svg>
         </div>
+
         <!-- Intel -->
         <div style="text-align:center">
-          <svg width="50" height="24" viewBox="0 0 50 24" fill="none">
-            <ellipse cx="25" cy="12" rx="24" ry="11" fill="none" stroke="#0071c5" stroke-width="1.5"/>
-            <text x="25" y="16" text-anchor="middle" font-family="Arial" font-style="italic" font-weight="700" font-size="11" fill="#0071c5">intel</text>
+          <svg width="50" height="26" viewBox="0 0 50 26" fill="none">
+            <ellipse cx="25" cy="13" rx="24" ry="12" fill="none" stroke="#0071c5" stroke-width="1.8"/>
+            <text x="25" y="17.5" text-anchor="middle" font-family="Arial,sans-serif" font-style="italic" font-weight="700" font-size="13" fill="#0071c5">intel</text>
           </svg>
-          <div style="font-size:6.5px;color:#9a9a9a;margin-top:1px;line-height:1.2">Intel Science<br>Talent Search</div>
+          <div style="font-size:6px;color:#888;margin-top:1px;line-height:1.3">Intel Science<br>Talent Search</div>
         </div>
-        <!-- INK -->
+
+        <!-- TED -->
         <div style="text-align:center">
-          <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
-            <rect width="34" height="18" rx="2" fill="#1a1a1a" stroke="#C4A24E" stroke-width="0.8"/>
-            <text x="17" y="13" text-anchor="middle" font-family="Arial" font-weight="900" font-size="11" fill="#C4A24E" letter-spacing="0.15em">INK</text>
+          <svg width="44" height="24" viewBox="0 0 44 24" fill="none">
+            <rect width="44" height="20" rx="2" fill="#e62b1e"/>
+            <text x="22" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="14" fill="#fff" letter-spacing="0.05em">TED</text>
           </svg>
-          <div style="font-size:6.5px;color:#9a9a9a;margin-top:2px;line-height:1.2">INK<br>Fellowship</div>
+          <div style="font-size:6px;color:#888;margin-top:2px;line-height:1.3">TED India<br>Speaker</div>
         </div>
+
         <!-- STPI -->
         <div style="text-align:center">
-          <svg width="46" height="22" viewBox="0 0 46 22" fill="none">
-            <text x="23" y="13" text-anchor="middle" font-family="Arial" font-weight="800" font-size="9" fill="#C4A24E" letter-spacing="0.05em">STPI</text>
-            <text x="23" y="22" text-anchor="middle" font-family="Arial" font-weight="400" font-size="6" fill="#9a9a9a" letter-spacing="0.1em">CHUNAUTI</text>
+          <svg width="46" height="24" viewBox="0 0 46 24" fill="none">
+            <text x="23" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#C4A24E" letter-spacing="0.06em">STPI</text>
+            <text x="23" y="23" text-anchor="middle" font-family="Arial,sans-serif" font-weight="500" font-size="6.5" fill="#888" letter-spacing="0.12em">CHUNAUTI</text>
           </svg>
         </div>
-        <div style="font-size:9px;color:#9a9a9a;font-style:italic">&amp; Many<br>More</div>
+
+        <div style="font-size:9px;color:#888;font-style:italic;white-space:nowrap">&amp; Many<br>More</div>
       </div>
     </div>
     <div class="footer-tagline">
