@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushanth Paatnaik | Executive Innovation Operating System</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter, Outfit, Cinzel, Great Vibes, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#040405',
+                        bgLight: '#F4F5F8',
+                        cardPrimaryDark: '#0B0C0E',
+                        cardPrimaryLight: '#FFFFFF',
+                        cardSecondaryDark: '#121418',
+                        cardSecondaryLight: '#F0F2F6',
+                        borderGold: 'rgba(212, 175, 55, 0.22)',
+                        borderGoldLight: 'rgba(199, 169, 75, 0.45)',
+                        gold: {
+                            primary: '#D4AF37',
+                            soft: '#E8D28A',
+                            highlight: '#F9E58E',
+                            glow: 'rgba(212, 175, 55, 0.18)',
+                            dark: '#997A15',
+                            accent: '#FFDF00'
+                        },
+                        textPrimaryDark: '#F9FAFB',
+                        textPrimaryLight: '#111827',
+                        textSecondaryDark: '#9CA3AF',
+                        textSecondaryLight: '#4B5563',
+                        textMutedDark: '#6B7280',
+                        textMutedLight: '#9CA3AF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        signature: ['Great Vibes', 'cursive'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(5, 5, 5, 0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Glassmorphism & Gold Theme Extensions */
+        .gold-card {
+            background: rgba(11, 12, 14, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        html.light .gold-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(199, 169, 75, 0.35);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 0 15px rgba(212, 175, 55, 0.08);
+        }
+        .gold-card:hover {
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .gold-card-inner {
+            background: rgba(18, 20, 24, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.25s ease;
+        }
+        html.light .gold-card-inner {
+            background: rgba(240, 242, 246, 0.8);
+            border-color: rgba(212, 175, 55, 0.25);
+        }
+        .gold-card-inner:hover {
+            border-color: rgba(212, 175, 55, 0.45);
+            background: rgba(26, 29, 36, 0.95);
+        }
+        html.light .gold-card-inner:hover {
+            background: rgba(230, 234, 242, 0.95);
+        }
+
+        .hex-shape {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        /* Radar & Orbital Animations */
+        @keyframes radarPulse {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.6); opacity: 0; }
+        }
+        .radar-ping {
+            animation: radarPulse 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        @keyframes ringRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-ring-rotate {
+            animation: ringRotate 20s linear infinite;
+        }
+
+        /* Gauge progress circle */
+        .gauge-circle {
+            transition: stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        /* Continuous Pulse Beam */
+        @keyframes pulseBeam {
+            0% { left: 0%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0; }
+        }
+        .animate-beam {
+            animation: pulseBeam 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        /* Text Gold Shimmer */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0B3 0%, #D4AF37 50%, #997A15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-bgDark dark:bg-bgDark text-textPrimaryDark dark:text-textPrimaryDark font-sans antialiased min-h-screen selection:bg-gold-primary selection:text-black transition-colors duration-300">
+
+    <canvas id="grapheneCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40 dark:opacity-40 transition-opacity duration-300"></canvas>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <header class="sticky top-0 z-40 border-b border-borderGold bg-[#040405]/90 dark:bg-[#040405]/90 light:bg-white/90 backdrop-blur-xl px-4 lg:px-8 py-3 transition-colors duration-300">
+            <div class="max-w-[1750px] mx-auto flex items-center justify-between gap-4">
+                
+                <!-- Brand Crest -->
+                <div class="flex items-center gap-3 cursor-pointer group" onclick="switchDashboardTab('overview')">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-highlight via-gold-primary to-gold-dark flex items-center justify-center font-cinzel font-black text-black text-lg shadow-lg border border-gold-soft/50 group-hover:scale-105 transition-transform duration-300">
+                        SP
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-1.5 leading-none">
+                            <span class="font-cinzel tracking-[0.2em] text-sm lg:text-base font-extrabold text-white dark:text-white dark:group-hover:text-gold-primary transition-colors">SUSHANTH</span>
+                            <span class="font-cinzel tracking-[0.2em] text-sm lg:text-base font-extrabold text-gold-primary">PAATNAIK</span>
+                        </div>
+                        <span class="text-[9px] font-outfit tracking-[0.25em] text-textMutedDark uppercase mt-0.5 font-bold">Innovation Operating System v3.0</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Views Switcher -->
+                <nav class="hidden md:flex items-center gap-1 bg-cardSecondaryDark/80 p-1 rounded-xl border border-borderGold/40 shadow-inner">
+                    <button onclick="switchDashboardTab('overview')" id="nav-overview" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all bg-gold-primary text-black shadow-md">
+                        <i class="fa-solid fa-chart-pie mr-1.5"></i> Overview
+                    </button>
+                    <button onclick="switchDashboardTab('pipeline')" id="nav-pipeline" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-textSecondaryDark hover:text-white hover:bg-cardPrimaryDark/60">
+                        <i class="fa-solid fa-diagram-next mr-1.5"></i> Pipeline
+                    </button>
+                    <button onclick="switchDashboardTab('ventures')" id="nav-ventures" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-textSecondaryDark hover:text-white hover:bg-cardPrimaryDark/60">
+                        <i class="fa-solid fa-rocket mr-1.5"></i> Ventures
+                    </button>
+                    <button onclick="switchDashboardTab('patents')" id="nav-patents" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-textSecondaryDark hover:text-white hover:bg-cardPrimaryDark/60">
+                        <i class="fa-solid fa-shield-halved mr-1.5"></i> Patents & Papers
+                    </button>
+                    <button onclick="switchDashboardTab('global')" id="nav-global" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-textSecondaryDark hover:text-white hover:bg-cardPrimaryDark/60">
+                        <i class="fa-solid fa-globe mr-1.5"></i> Global Footprint
+                    </button>
+                    <button onclick="switchDashboardTab('ai')" id="nav-ai" class="nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-gold-soft hover:text-white hover:bg-gold-primary/10">
+                        <i class="fa-solid fa-brain mr-1.5"></i> SP AI OS
+                    </button>
+                </nav>
+
+                <!-- Utilities Header Right -->
+                <div class="flex items-center gap-2.5">
+                    <!-- Global Search Button -->
+                    <button onclick="openSearchModal()" class="relative flex items-center bg-cardPrimaryDark border border-borderGold hover:border-gold-primary rounded-xl px-3.5 py-1.5 w-36 lg:w-56 text-xs text-textSecondaryDark transition-all shadow-inner">
+                        <i class="fa-solid fa-magnifying-glass text-gold-primary mr-2 text-[11px]"></i>
+                        <span class="truncate">Search system...</span>
+                        <kbd class="hidden sm:inline-block ml-auto bg-cardSecondaryDark border border-borderGold/40 text-[9px] px-1.5 py-0.5 rounded text-textMutedDark font-mono">⌘K</kbd>
+                    </button>
+
+                    <!-- Sound Toggle -->
+                    <button onclick="toggleAudioSFX()" id="audioSfxBtn" class="p-2 rounded-xl border border-borderGold bg-cardPrimaryDark hover:border-gold-primary text-textSecondaryDark hover:text-gold-primary transition-all text-xs" title="Toggle Sound Effects">
+                        <i class="fa-solid fa-volume-high" id="audioIcon"></i>
+                    </button>
+
+                    <!-- Dark/Light Theme Toggle -->
+                    <button onclick="toggleThemeMode()" class="p-2 rounded-xl border border-borderGold bg-cardPrimaryDark text-gold-soft hover:text-white transition-all text-xs" title="Toggle Light/Dark Theme">
+                        <i class="fa-regular fa-sun" id="themeIcon"></i>
+                    </button>
+
+                    <!-- Notifications -->
+                    <button onclick="openNotificationsDrawer()" class="relative p-2 rounded-xl border border-borderGold bg-cardPrimaryDark hover:border-gold-primary text-textSecondaryDark hover:text-white transition-all text-xs" title="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-gold-primary text-black text-[9px] font-black rounded-full flex items-center justify-center animate-pulse">3</span>
+                    </button>
+
+                    <!-- Profile Crest -->
+                    <div onclick="openProfileModal()" class="w-8 h-8 rounded-xl border border-borderGold overflow-hidden bg-cardSecondaryDark flex items-center justify-center shadow-md cursor-pointer hover:border-gold-primary transition-all">
+                        <div class="w-full h-full bg-gradient-to-br from-gold-primary/30 to-black flex items-center justify-center font-cinzel font-bold text-gold-soft text-xs">
+                            SP
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div class="bg-cardSecondaryDark/90 border-b border-borderGold/20 py-1.5 px-4 lg:px-8 overflow-hidden font-mono text-[10px] text-textMutedDark flex items-center justify-between">
+            <div class="flex items-center gap-6 whitespace-nowrap overflow-x-auto no-scrollbar">
+                <span class="flex items-center text-emerald-400 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block mr-1.5 animate-ping"></span> SYSTEM OPERATIONAL</span>
+                <span class="text-textSecondaryDark"><strong class="text-gold-soft">PATENT GRANTED:</strong> Nano-Graphene Composite (US9812341)</span>
+                <span class="text-textSecondaryDark"><strong class="text-gold-soft">ACTIVE TRACE:</strong> 14 R&D Labs Across 6 Strategic Geographies</span>
+                <span class="text-textSecondaryDark"><strong class="text-gold-soft">SCIENTIFIC IMPACT:</strong> 12 Scopus Papers • 1,240 Citations</span>
+            </div>
+            <div class="hidden lg:flex items-center gap-3 text-gold-primary font-bold">
+                <i class="fa-solid fa-clock mr-1 text-[9px]"></i>
+                <span id="liveTimestamp">2026-07-26 --:--:--</span>
+            </div>
+        </div>
+
+        <main class="flex-1 max-w-[1750px] w-full mx-auto px-4 lg:px-8 py-6 space-y-6">
+
+            <section class="relative overflow-hidden rounded-2xl gold-card p-6 lg:p-8 border border-borderGold min-h-[200px] flex flex-col justify-between">
+                <div class="absolute right-0 top-0 bottom-0 w-2/3 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-primary via-transparent to-transparent"></div>
+                <div class="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-gold-primary via-gold-soft to-transparent animate-beam"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2 py-0.5 rounded-md bg-gold-primary/15 border border-gold-primary/30 text-[10px] font-bold uppercase tracking-widest text-gold-soft" id="timeGreeting">Good Evening</span>
+                            <span class="text-[10px] font-mono text-textMutedDark">Executive OS Session #8491</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-textPrimaryDark font-outfit tracking-tight flex items-center gap-3">
+                            Sushanth Paatnaik
+                            <i class="fa-solid fa-circle-check text-gold-primary text-xl" title="Verified Innovation Leader"></i>
+                        </h1>
+                        <p class="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-textSecondaryDark mt-2.5 font-outfit flex flex-wrap items-center gap-2">
+                            <span class="text-white">FOUNDER</span> <span class="text-gold-primary">•</span>
+                            <span class="text-white">SCIENTIST</span> <span class="text-gold-primary">•</span>
+                            <span class="text-white">INVESTOR</span> <span class="text-gold-primary">•</span>
+                            <span class="text-white">ADVISOR</span>
+                        </p>
+                        <p class="text-xs italic text-textMutedDark mt-3 font-serif max-w-2xl">
+                            "Transforming fundamental materials science and clean energy research into high-growth, scalable global industrial enterprises."
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <button onclick="openAiModalPrompt('Give me a brief executive summary of all active innovations and venture revenues.')" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-gold-primary via-gold-soft to-gold-primary text-black font-bold text-xs shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> AI Executive Briefing
+                        </button>
+                        <button onclick="exportOSState()" class="px-4 py-2.5 rounded-xl bg-cardSecondaryDark border border-borderGold text-gold-soft hover:text-white hover:border-gold-primary font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Export OS Data
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                
+                <!-- KPI 1: Innovations -->
+                <div onclick="switchDashboardTab('pipeline')" class="gold-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group cursor-pointer">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-textMutedDark uppercase font-outfit">INNOVATIONS</p>
+                            <h3 class="text-3xl font-extrabold text-textPrimaryDark mt-1 font-outfit" id="counter-innovations">14</h3>
+                            <p class="text-[10px] text-textMutedDark mt-1 font-mono">10 Patent-Backed Tech</p>
+                        </div>
+                        <div class="w-11 h-11 hex-shape bg-cardSecondaryDark border border-borderGold flex items-center justify-center text-gold-primary text-lg shadow-inner group-hover:scale-110 transition-transform">
+                            <i class="fa-regular fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-2.5 border-t border-borderGold/20 flex items-center justify-between">
+                        <span class="text-[9px] text-emerald-400 font-bold flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i> +2 this QTR</span>
+                        <svg class="w-20 h-5 text-gold-primary" viewBox="0 0 100 25" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M0 20 L20 16 L40 19 L60 8 L80 12 L100 3" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- KPI 2: Ventures -->
+                <div onclick="switchDashboardTab('ventures')" class="gold-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group cursor-pointer">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-textMutedDark uppercase font-outfit">VENTURES</p>
+                            <h3 class="text-3xl font-extrabold text-textPrimaryDark mt-1 font-outfit" id="counter-ventures">4</h3>
+                            <p class="text-[10px] text-textMutedDark mt-1 font-mono">$6.2M Combined Rev.</p>
+                        </div>
+                        <div class="w-11 h-11 hex-shape bg-cardSecondaryDark border border-borderGold flex items-center justify-center text-gold-primary text-lg shadow-inner group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-2.5 border-t border-borderGold/20 flex items-center justify-between">
+                        <span class="text-[9px] text-emerald-400 font-bold flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i> +28% YoY</span>
+                        <svg class="w-20 h-5 text-gold-primary" viewBox="0 0 100 25" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M0 22 L25 17 L50 18 L75 9 L100 4" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- KPI 3: Patents -->
+                <div onclick="switchDashboardTab('patents')" class="gold-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group cursor-pointer">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-textMutedDark uppercase font-outfit">PATENTS</p>
+                            <h3 class="text-3xl font-extrabold text-textPrimaryDark mt-1 font-outfit" id="counter-patents">12</h3>
+                            <p class="text-[10px] text-textMutedDark mt-1 font-mono">Granted Global IP</p>
+                        </div>
+                        <div class="w-11 h-11 hex-shape bg-cardSecondaryDark border border-borderGold flex items-center justify-center text-gold-primary text-lg shadow-inner group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-2.5 border-t border-borderGold/20 flex items-center justify-between">
+                        <span class="text-[9px] text-gold-soft font-bold">100% Granted Rate</span>
+                        <svg class="w-20 h-5 text-gold-primary" viewBox="0 0 100 25" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M0 18 L20 21 L40 10 L60 14 L80 6 L100 2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- KPI 4: Global Reach -->
+                <div onclick="switchDashboardTab('global')" class="gold-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group cursor-pointer">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-textMutedDark uppercase font-outfit">GLOBAL REACH</p>
+                            <h3 class="text-3xl font-extrabold text-textPrimaryDark mt-1 font-outfit">25+</h3>
+                            <p class="text-[10px] text-textMutedDark mt-1 font-mono">6 Core Strategy Hubs</p>
+                        </div>
+                        <div class="w-11 h-11 hex-shape bg-cardSecondaryDark border border-borderGold flex items-center justify-center text-gold-primary text-lg shadow-inner group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-2.5 border-t border-borderGold/20 flex items-center justify-between">
+                        <span class="text-[9px] text-gold-soft font-bold">Global Commercial Presence</span>
+                        <svg class="w-20 h-5 text-gold-primary" viewBox="0 0 100 25" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M0 24 L20 18 L40 14 L60 16 L80 8 L100 2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="gold-card rounded-2xl p-4 border border-borderGold">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-filter text-gold-primary text-xs"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-textPrimaryDark font-outfit">Filter Dashboard By Tech Domain:</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5" id="domainFilterButtons">
+                        <button onclick="applyDomainFilter('ALL')" class="domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-gold-primary text-black transition-all">ALL DOMAINS</button>
+                        <button onclick="applyDomainFilter('GRAPHENE')" class="domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-cardSecondaryDark text-textSecondaryDark hover:text-white border border-borderGold/30 transition-all">GRAPHENE</button>
+                        <button onclick="applyDomainFilter('ENERGY')" class="domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-cardSecondaryDark text-textSecondaryDark hover:text-white border border-borderGold/30 transition-all">ENERGY</button>
+                        <button onclick="applyDomainFilter('HYDROGEN')" class="domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-cardSecondaryDark text-textSecondaryDark hover:text-white border border-borderGold/30 transition-all">HYDROGEN</button>
+                        <button onclick="applyDomainFilter('BATTERY')" class="domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-cardSecondaryDark text-textSecondaryDark hover:text-white border border-borderGold/30 transition-all">BATTERY</button>
+                        <button onclick="applyDomainFilter('CONCRETE')" class="domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-cardSecondaryDark text-textSecondaryDark hover:text-white border border-borderGold/30 transition-all">CONCRETE</button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="mainDashboardViews">
+
+                <!-- OVERVIEW / PIPELINE SECTION GRID -->
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                    
+                    <!-- Innovation Pipeline Stepper Node (5 cols) -->
+                    <div class="lg:col-span-5 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit">
+                                    INNOVATION PIPELINE RADAR
+                                </h2>
+                                <span class="text-[10px] font-mono text-gold-soft bg-gold-primary/10 px-2 py-0.5 rounded border border-borderGold/40">14 Active Tech</span>
+                            </div>
+
+                            <p class="text-[11px] text-textMutedDark mb-4">Click any pipeline stage node to inspect active projects and technology readiness levels.</p>
+
+                            <!-- Interactive 6 Stage Stepper -->
+                            <div class="relative py-4 my-2">
+                                <div class="absolute top-1/2 left-4 right-4 h-0.5 bg-cardSecondaryDark -translate-y-1/2 z-0"></div>
+                                <div class="absolute top-1/2 left-4 w-4/5 h-0.5 bg-gradient-to-r from-gold-primary via-gold-soft to-transparent -translate-y-1/2 z-0"></div>
+
+                                <div class="relative z-10 grid grid-cols-6 gap-1 text-center">
+                                    <div onclick="inspectPipelineStage('IDEA')" class="group cursor-pointer flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-full bg-cardPrimaryDark border border-gold-primary flex items-center justify-center text-gold-primary text-xs shadow group-hover:scale-110 transition-transform">
+                                            <i class="fa-regular fa-lightbulb"></i>
+                                        </div>
+                                        <span class="text-[8px] font-bold uppercase tracking-wider text-textMutedDark mt-2">IDEA</span>
+                                        <span class="text-[8px] font-mono text-gold-soft font-bold">2</span>
+                                    </div>
+
+                                    <div onclick="inspectPipelineStage('RESEARCH')" class="group cursor-pointer flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-full bg-cardPrimaryDark border border-gold-primary flex items-center justify-center text-gold-primary text-xs shadow group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </div>
+                                        <span class="text-[8px] font-bold uppercase tracking-wider text-textMutedDark mt-2">RESEARCH</span>
+                                        <span class="text-[8px] font-mono text-gold-soft font-bold">3</span>
+                                    </div>
+
+                                    <div onclick="inspectPipelineStage('PROTOTYPE')" class="group cursor-pointer flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-full bg-cardPrimaryDark border border-gold-primary flex items-center justify-center text-gold-primary text-xs shadow group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-cube"></i>
+                                        </div>
+                                        <span class="text-[8px] font-bold uppercase tracking-wider text-textMutedDark mt-2">PROTOTYPE</span>
+                                        <span class="text-[8px] font-mono text-gold-soft font-bold">4</span>
+                                    </div>
+
+                                    <div onclick="inspectPipelineStage('PILOT')" class="group cursor-pointer flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-full bg-cardPrimaryDark border border-gold-primary flex items-center justify-center text-gold-primary text-xs shadow group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-microchip"></i>
+                                        </div>
+                                        <span class="text-[8px] font-bold uppercase tracking-wider text-textMutedDark mt-2">PILOT</span>
+                                        <span class="text-[8px] font-mono text-gold-soft font-bold">2</span>
+                                    </div>
+
+                                    <div onclick="inspectPipelineStage('COMMERCIAL')" class="group cursor-pointer flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-full bg-cardPrimaryDark border border-gold-primary flex items-center justify-center text-gold-primary text-xs shadow group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                        </div>
+                                        <span class="text-[8px] font-bold uppercase tracking-wider text-textMutedDark mt-2">COMMERCIAL</span>
+                                        <span class="text-[8px] font-mono text-gold-soft font-bold">2</span>
+                                    </div>
+
+                                    <div onclick="inspectPipelineStage('SCALE')" class="group cursor-pointer flex flex-col items-center">
+                                        <div class="w-8 h-8 rounded-full bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-textMutedDark text-xs shadow group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                                        </div>
+                                        <span class="text-[8px] font-bold uppercase tracking-wider text-textMutedDark mt-2">SCALE</span>
+                                        <span class="text-[8px] font-mono text-gold-soft font-bold">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-borderGold/20 flex items-center justify-between text-xs">
+                            <span class="text-textMutedDark text-[11px] font-mono">Average TRL: 7.2 / 9</span>
+                            <button onclick="switchDashboardTab('pipeline')" class="px-3 py-1 bg-cardSecondaryDark hover:bg-gold-primary/10 border border-borderGold rounded-lg text-[11px] text-gold-soft transition-all">
+                                Open Pipeline Matrix <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Venture Portfolio Interactive Showcase (7 cols) -->
+                    <div class="lg:col-span-7 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit">
+                                    VENTURE PORTFOLIO PERFORMANCE
+                                </h2>
+                                <span class="text-[10px] font-mono text-emerald-400">$6.2M Combined Revenue</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="venturesContainer">
+                                
+                                <!-- Venture 1 -->
+                                <div onclick="openVentureModal('MONOATOM')" class="gold-card-inner rounded-xl p-3.5 cursor-pointer group hover:border-gold-primary transition-all">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-sm group-hover:scale-105 transition-transform">
+                                                <i class="fa-solid fa-atom"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">MONOATOM</h4>
+                                                <p class="text-[9px] text-textMutedDark font-mono">Advanced Graphene Materials</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Active</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-borderGold/15 text-[10px]">
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Projects</span>
+                                            <strong class="text-textPrimaryDark font-mono">12</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Revenue</span>
+                                            <strong class="text-gold-soft font-mono">$2.3M</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Growth</span>
+                                            <strong class="text-emerald-400 font-mono">+34%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Venture 2 -->
+                                <div onclick="openVentureModal('SPI')" class="gold-card-inner rounded-xl p-3.5 cursor-pointer group hover:border-gold-primary transition-all">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-sm group-hover:scale-105 transition-transform">
+                                                <i class="fa-solid fa-gears"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">SPI</h4>
+                                                <p class="text-[9px] text-textMutedDark font-mono">Industrial Solutions</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Active</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-borderGold/15 text-[10px]">
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Projects</span>
+                                            <strong class="text-textPrimaryDark font-mono">8</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Revenue</span>
+                                            <strong class="text-gold-soft font-mono">$1.8M</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Growth</span>
+                                            <strong class="text-emerald-400 font-mono">+22%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Venture 3 -->
+                                <div onclick="openVentureModal('GRAFILIUM')" class="gold-card-inner rounded-xl p-3.5 cursor-pointer group hover:border-gold-primary transition-all">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-sm group-hover:scale-105 transition-transform">
+                                                <i class="fa-solid fa-leaf"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">GRAFILIUM</h4>
+                                                <p class="text-[9px] text-textMutedDark font-mono">Clean Energy & Hydrogen</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Scaling</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-borderGold/15 text-[10px]">
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Projects</span>
+                                            <strong class="text-textPrimaryDark font-mono">6</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Revenue</span>
+                                            <strong class="text-gold-soft font-mono">$1.2M</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Growth</span>
+                                            <strong class="text-emerald-400 font-mono">+45%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Venture 4 -->
+                                <div onclick="openVentureModal('MAGPPIE')" class="gold-card-inner rounded-xl p-3.5 cursor-pointer group hover:border-gold-primary transition-all">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-sm group-hover:scale-105 transition-transform">
+                                                <i class="fa-solid fa-gem"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">MAGPPIE</h4>
+                                                <p class="text-[9px] text-textMutedDark font-mono">Luxury Lifestyle & Mobility</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Active</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-borderGold/15 text-[10px]">
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Projects</span>
+                                            <strong class="text-textPrimaryDark font-mono">5</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Revenue</span>
+                                            <strong class="text-gold-soft font-mono">$0.9M</strong>
+                                        </div>
+                                        <div>
+                                            <span class="text-textMutedDark text-[8px] block uppercase">Growth</span>
+                                            <strong class="text-emerald-400 font-mono">+18%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-borderGold/20 flex items-center justify-between text-xs">
+                            <span class="text-textMutedDark text-[11px]">Total Active Enterprise Valuation: $48M+</span>
+                            <button onclick="switchDashboardTab('ventures')" class="px-3 py-1 bg-cardSecondaryDark hover:bg-gold-primary/10 border border-borderGold rounded-lg text-[11px] text-gold-soft transition-all">
+                                Venture Dashboard <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-5">
+                    
+                    <!-- Active Projects Interactive Board (8 cols) -->
+                    <div class="lg:col-span-8 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit">
+                                    ACTIVE PROJECTS KANBAN
+                                </h2>
+                                <span class="text-[10px] text-textMutedDark font-mono">Showing <span id="projectCountDisplay">12</span> Projects</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-[10px]" id="projectsKanbanGrid">
+                                
+                                <!-- COLUMN 1: RESEARCH -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between pb-1 border-b border-borderGold/20">
+                                        <span class="text-[9px] font-bold text-textMutedDark uppercase tracking-wider">RESEARCH</span>
+                                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                    </div>
+                                    <div class="project-card domain-GRAPHENE p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Graphene Copper Foil')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">GRAPHENE</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 4</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Graphene Copper Foil</p>
+                                    </div>
+                                    <div class="project-card domain-CONCRETE p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Nano Concrete Additive')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">CONCRETE</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 3</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Nano Concrete Additive</p>
+                                    </div>
+                                    <div class="project-card domain-BATTERY p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Solid State Battery')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">BATTERY</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 4</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Solid State Battery</p>
+                                    </div>
+                                </div>
+
+                                <!-- COLUMN 2: TESTING -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between pb-1 border-b border-borderGold/20">
+                                        <span class="text-[9px] font-bold text-textMutedDark uppercase tracking-wider">TESTING</span>
+                                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                    </div>
+                                    <div class="project-card domain-HYDROGEN p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Hydrogen Generation')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">HYDROGEN</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 6</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Hydrogen Generation System</p>
+                                    </div>
+                                    <div class="project-card domain-ENERGY p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Solar Thermal Coating')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">ENERGY</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 5</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Solar Thermal Coating</p>
+                                    </div>
+                                </div>
+
+                                <!-- COLUMN 3: COMMERCIAL -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between pb-1 border-b border-borderGold/20">
+                                        <span class="text-[9px] font-bold text-textMutedDark uppercase tracking-wider">COMMERCIAL</span>
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    </div>
+                                    <div class="project-card domain-HYDROGEN p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Clean Fuel')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">HYDROGEN</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 8</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Clean Hydrogen Fuel</p>
+                                    </div>
+                                    <div class="project-card domain-BATTERY p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Graphene Aluminium Batteries')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">BATTERY</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 7</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Graphene Aluminium Batteries</p>
+                                    </div>
+                                </div>
+
+                                <!-- COLUMN 4: DEPLOYMENT -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between pb-1 border-b border-borderGold/20">
+                                        <span class="text-[9px] font-bold text-textMutedDark uppercase tracking-wider">DEPLOYMENT</span>
+                                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                    </div>
+                                    <div class="project-card domain-GRAPHENE p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Industrial Coating')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">GRAPHENE</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 9</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Industrial Coating Solutions</p>
+                                    </div>
+                                    <div class="project-card domain-ENERGY p-2.5 bg-cardSecondaryDark border border-borderGold/30 rounded-xl hover:border-gold-primary cursor-pointer transition-all" onclick="inspectProject('Energy Storage Systems')">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[8px] text-gold-soft font-mono uppercase">ENERGY</span>
+                                            <span class="text-[8px] text-textMutedDark">TRL 9</span>
+                                        </div>
+                                        <p class="font-bold text-textPrimaryDark text-[10px] mt-1">Energy Storage Systems</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-borderGold/20 flex items-center justify-between">
+                            <span class="text-[11px] text-textMutedDark">Drag-and-drop workflow active</span>
+                            <button onclick="openFullProjectsModal()" class="px-3 py-1 bg-cardSecondaryDark border border-borderGold rounded-lg text-[11px] text-gold-soft hover:underline">
+                                Expand Project Master Table <i class="fa-solid fa-expand ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Animated Live Metrics Radial Gauges (4 cols) -->
+                    <div class="lg:col-span-4 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold">
+                        <div>
+                            <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit mb-4">
+                                OPERATING SYSTEM READINESS
+                            </h2>
+
+                            <div class="grid grid-cols-2 gap-4 my-2">
+                                <!-- Gauge 1 -->
+                                <div class="flex flex-col items-center text-center p-2 rounded-xl bg-cardSecondaryDark/40 border border-borderGold/20">
+                                    <div class="relative w-16 h-16">
+                                        <svg class="w-full h-full" viewBox="0 0 36 36">
+                                            <path class="text-cardSecondaryDark" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="text-gold-primary gauge-circle" stroke-dasharray="92, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center font-extrabold text-xs text-textPrimaryDark font-outfit">92%</div>
+                                    </div>
+                                    <span class="text-[8px] text-textMutedDark uppercase font-bold tracking-wider mt-2">TECH READINESS</span>
+                                </div>
+
+                                <!-- Gauge 2 -->
+                                <div class="flex flex-col items-center text-center p-2 rounded-xl bg-cardSecondaryDark/40 border border-borderGold/20">
+                                    <div class="relative w-16 h-16">
+                                        <svg class="w-full h-full" viewBox="0 0 36 36">
+                                            <path class="text-cardSecondaryDark" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="text-gold-primary gauge-circle" stroke-dasharray="74, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center font-extrabold text-xs text-textPrimaryDark font-outfit">74%</div>
+                                    </div>
+                                    <span class="text-[8px] text-textMutedDark uppercase font-bold tracking-wider mt-2">COMMERCIAL SCALE</span>
+                                </div>
+
+                                <!-- Gauge 3 -->
+                                <div class="flex flex-col items-center text-center p-2 rounded-xl bg-cardSecondaryDark/40 border border-borderGold/20">
+                                    <div class="relative w-16 h-16">
+                                        <svg class="w-full h-full" viewBox="0 0 36 36">
+                                            <path class="text-cardSecondaryDark" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="text-gold-primary gauge-circle" stroke-dasharray="88, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center font-extrabold text-xs text-textPrimaryDark font-outfit">88%</div>
+                                    </div>
+                                    <span class="text-[8px] text-textMutedDark uppercase font-bold tracking-wider mt-2">GLOBAL FOOTPRINT</span>
+                                </div>
+
+                                <!-- Gauge 4 -->
+                                <div class="flex flex-col items-center text-center p-2 rounded-xl bg-cardSecondaryDark/40 border border-borderGold/20">
+                                    <div class="relative w-16 h-16">
+                                        <svg class="w-full h-full" viewBox="0 0 36 36">
+                                            <path class="text-cardSecondaryDark" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="text-gold-primary gauge-circle" stroke-dasharray="96, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center font-extrabold text-xs text-textPrimaryDark font-outfit">96%</div>
+                                    </div>
+                                    <span class="text-[8px] text-textMutedDark uppercase font-bold tracking-wider mt-2">PATENT COVERAGE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-borderGold/20 flex items-center justify-between text-[10px] text-textMutedDark font-mono">
+                            <span>System Status: Optimal</span>
+                            <span class="text-emerald-400 font-bold">100% Defense</span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-5">
+                    
+                    <!-- Neural Innovation Ecosystem Graph (5 cols) -->
+                    <div class="lg:col-span-5 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit">
+                                    NEURAL INNOVATION ECOSYSTEM
+                                </h2>
+                                <span class="text-[9px] text-gold-soft font-mono">Interactive Nodes</span>
+                            </div>
+
+                            <div class="relative w-full h-64 bg-cardSecondaryDark/80 rounded-xl border border-borderGold/30 overflow-hidden flex items-center justify-center">
+                                <canvas id="ecosystemCanvas" class="w-full h-full cursor-pointer"></canvas>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-textMutedDark text-center mt-2 font-mono">Hover over nodes to explore research labs & university partners.</p>
+                    </div>
+
+                    <!-- Awards & Honors Showcase (4 cols) -->
+                    <div class="lg:col-span-4 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold">
+                        <div>
+                            <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit mb-4">
+                                HONORS & GLOBAL RECOGNITION
+                            </h2>
+
+                            <div class="space-y-3">
+                                <div onclick="openHonorDetail('President')" class="p-2.5 rounded-xl gold-card-inner flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-sm group-hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-crown"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">6x President Awards</h4>
+                                        <p class="text-[9px] text-textMutedDark">Conferred by President of India for Innovation</p>
+                                    </div>
+                                </div>
+
+                                <div onclick="openHonorDetail('NASA')" class="p-2.5 rounded-xl gold-card-inner flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-xs font-bold group-hover:scale-105 transition-transform">
+                                        NASA
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">NASA Tech Recognition</h4>
+                                        <p class="text-[9px] text-textMutedDark">Honored for Advanced Materials Research</p>
+                                    </div>
+                                </div>
+
+                                <div onclick="openHonorDetail('MIT')" class="p-2.5 rounded-xl gold-card-inner flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-xs font-bold group-hover:scale-105 transition-transform">
+                                        MIT
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">MIT Tech Review Innovator</h4>
+                                        <p class="text-[9px] text-textMutedDark">Under 35 Global Innovator Honor</p>
+                                    </div>
+                                </div>
+
+                                <div onclick="openHonorDetail('TED')" class="p-2.5 rounded-xl gold-card-inner flex items-center gap-3 cursor-pointer group">
+                                    <div class="w-9 h-9 hex-shape bg-cardPrimaryDark border border-borderGold flex items-center justify-center text-gold-primary text-xs font-bold group-hover:scale-105 transition-transform">
+                                        TED
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-textPrimaryDark group-hover:text-gold-primary transition-colors">TEDx Keynote Speaker</h4>
+                                        <p class="text-[9px] text-textMutedDark">Delivered 4 Keynote Talks Globally</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 text-center border-t border-borderGold/20">
+                            <button onclick="openHonorsMasterModal()" class="text-[11px] font-semibold text-gold-soft hover:underline">
+                                View Full Honors Wall
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SP AI Orb Assistant Mini Widget (3 cols) -->
+                    <div class="lg:col-span-3 gold-card rounded-2xl p-6 flex flex-col justify-between border border-borderGold relative overflow-hidden">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h2 class="text-xs font-bold uppercase tracking-[0.25em] text-gold-primary font-outfit">
+                                    SP AI OS CORE
+                                </h2>
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            </div>
+
+                            <p class="text-[10px] text-textMutedDark">Query deep-tech research, financial projections & patents...</p>
+
+                            <!-- Animated Glowing Orb -->
+                            <div class="my-5 flex justify-center cursor-pointer" onclick="switchDashboardTab('ai')">
+                                <div class="w-24 h-24 rounded-full border border-gold-primary/40 flex items-center justify-center relative bg-cardPrimaryDark shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:scale-105 transition-transform">
+                                    <div class="absolute inset-0 rounded-full border border-dashed border-gold-soft/60 animate-ring-rotate"></div>
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold-highlight via-gold-primary to-gold-dark flex items-center justify-center font-cinzel font-black text-black text-base shadow-xl">
+                                        SP
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <input type="text" id="inlineAiInput" placeholder="Ask SP AI..." onkeypress="handleInlineAiKeyPress(event)" class="w-full bg-cardSecondaryDark border border-borderGold/50 rounded-xl px-3 py-2 text-xs text-textPrimaryDark placeholder-textMutedDark focus:outline-none focus:border-gold-primary pr-8 font-mono">
+                            <button onclick="submitInlineAiQuery()" class="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 rounded-md bg-gold-primary text-black flex items-center justify-center text-[10px]">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="gold-card rounded-2xl p-6 grid grid-cols-2 md:grid-cols-5 gap-4 text-center border border-borderGold mt-5">
+                    <div>
+                        <div class="w-10 h-10 hex-shape bg-cardSecondaryDark border border-borderGold mx-auto flex items-center justify-center text-gold-primary text-sm mb-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <p class="text-2xl font-extrabold text-textPrimaryDark font-outfit">15+</p>
+                        <p class="text-[9px] text-textMutedDark uppercase tracking-widest font-bold mt-1">YEARS RESEARCH</p>
+                    </div>
+
+                    <div>
+                        <div class="w-10 h-10 hex-shape bg-cardSecondaryDark border border-borderGold mx-auto flex items-center justify-center text-gold-primary text-sm mb-2">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <p class="text-2xl font-extrabold text-textPrimaryDark font-outfit">150+</p>
+                        <p class="text-[9px] text-textMutedDark uppercase tracking-widest font-bold mt-1">PROJECTS EXECUTED</p>
+                    </div>
+
+                    <div>
+                        <div class="w-10 h-10 hex-shape bg-cardSecondaryDark border border-borderGold mx-auto flex items-center justify-center text-gold-primary text-sm mb-2">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <p class="text-2xl font-extrabold text-textPrimaryDark font-outfit">40+</p>
+                        <p class="text-[9px] text-textMutedDark uppercase tracking-widest font-bold mt-1">COUNTRIES IMPACTED</p>
+                    </div>
+
+                    <div>
+                        <div class="w-10 h-10 hex-shape bg-cardSecondaryDark border border-borderGold mx-auto flex items-center justify-center text-gold-primary text-sm mb-2">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-2xl font-extrabold text-textPrimaryDark font-outfit">6</p>
+                        <p class="text-[9px] text-textMutedDark uppercase tracking-widest font-bold mt-1">PRESIDENT HONORS</p>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-1">
+                        <div class="w-10 h-10 hex-shape bg-cardSecondaryDark border border-borderGold mx-auto flex items-center justify-center text-gold-primary text-sm mb-2">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <p class="text-2xl font-extrabold text-textPrimaryDark font-outfit">100+</p>
+                        <p class="text-[9px] text-textMutedDark uppercase tracking-widest font-bold mt-1">GLOBAL ALLIANCES</p>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-borderGold/20 mt-12 py-6 px-6 text-center text-xs text-textMutedDark">
+            <div class="max-w-[1750px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>© 2026 Sushanth Paatnaik. Executive Innovation Operating System. All Rights Reserved.</p>
+                <div class="flex items-center gap-4 text-[11px] font-mono">
+                    <span class="hover:text-gold-primary cursor-pointer" onclick="openSearchModal()">Search (⌘K)</span>
+                    <span class="hover:text-gold-primary cursor-pointer" onclick="switchDashboardTab('ai')">SP AI Console</span>
+                    <span class="hover:text-gold-primary cursor-pointer" onclick="openProfileModal()">Executive Bio</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Global Command Palette Modal -->
+    <div id="searchModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full gold-card rounded-2xl p-6 border border-borderGold shadow-2xl relative">
+            <button onclick="closeSearchModal()" class="absolute top-4 right-4 text-textMutedDark hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            <h3 class="text-xs font-bold text-gold-primary uppercase tracking-widest mb-3 font-outfit">Executive OS Command Palette</h3>
+            <input type="text" id="modalSearchInput" onkeyup="filterCommandPalette()" placeholder="Search patents, ventures, research topics, or type a command..." class="w-full bg-cardSecondaryDark border border-borderGold/50 rounded-xl p-3 text-xs text-textPrimaryDark placeholder-textMutedDark focus:outline-none focus:border-gold-primary mb-4 font-mono">
+            
+            <div class="space-y-2 max-h-72 overflow-y-auto pr-1 text-xs" id="paletteResults">
+                <div onclick="switchDashboardTab('pipeline'); closeSearchModal();" class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between items-center cursor-pointer hover:border-gold-primary">
+                    <div>
+                        <p class="font-bold text-textPrimaryDark">View Innovation Pipeline Matrix</p>
+                        <p class="text-[10px] text-textMutedDark">Inspect 14 active deep-tech developments</p>
+                    </div>
+                    <span class="text-[9px] bg-cardPrimaryDark text-gold-primary border border-borderGold/50 px-2 py-0.5 rounded font-mono">Navigation</span>
+                </div>
+                <div onclick="openVentureModal('MONOATOM'); closeSearchModal();" class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between items-center cursor-pointer hover:border-gold-primary">
+                    <div>
+                        <p class="font-bold text-textPrimaryDark">MONOATOM Venture Portfolio</p>
+                        <p class="text-[10px] text-textMutedDark">Advanced Graphene Materials • $2.3M Revenue</p>
+                    </div>
+                    <span class="text-[9px] bg-cardPrimaryDark text-gold-primary border border-borderGold/50 px-2 py-0.5 rounded font-mono">Venture</span>
+                </div>
+                <div onclick="inspectProject('Graphene Copper Foil'); closeSearchModal();" class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between items-center cursor-pointer hover:border-gold-primary">
+                    <div>
+                        <p class="font-bold text-textPrimaryDark">Graphene Copper Composite Foil Patent</p>
+                        <p class="text-[10px] text-textMutedDark">Patent US9812341 Granted • High Electrical Conductivity</p>
+                    </div>
+                    <span class="text-[9px] bg-cardPrimaryDark text-gold-primary border border-borderGold/50 px-2 py-0.5 rounded font-mono">Patent</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SP AI Assistant Full Console Drawer -->
+    <div id="aiConsoleDrawer" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="max-w-3xl w-full gold-card rounded-2xl p-6 border border-borderGold shadow-2xl relative flex flex-col h-[650px]">
+            <button onclick="closeAiConsole()" class="absolute top-4 right-4 text-textMutedDark hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            
+            <div class="flex items-center gap-3 pb-4 border-b border-borderGold/30">
+                <div class="w-10 h-10 rounded-xl bg-gold-primary text-black flex items-center justify-center font-cinzel font-black">SP</div>
+                <div>
+                    <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider">SP Executive AI Assistant</h3>
+                    <p class="text-[10px] text-textMutedDark font-mono">Real-time intelligence engine connected to Sushanth Paatnaik's research & venture database.</p>
+                </div>
+            </div>
+
+            <!-- Chat Message Thread -->
+            <div id="aiChatThread" class="flex-1 overflow-y-auto py-4 space-y-3 font-mono text-xs">
+                <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/20 max-w-[85%]">
+                    <p class="text-gold-soft font-bold mb-1">[SP AI OS]:</p>
+                    <p class="text-textPrimaryDark leading-relaxed">Greetings Executive. I am your specialized AI Assistant. Ask me about patent numbers, research TRL levels, venture revenues, global partners, or commercialization roadmaps.</p>
+                </div>
+            </div>
+
+            <!-- Quick Action Pills -->
+            <div class="py-2 flex flex-wrap gap-2 text-[10px]">
+                <button onclick="sendQuickAiQuery('Summary of Graphene Battery Patent')" class="px-2.5 py-1 rounded-lg bg-cardSecondaryDark border border-borderGold/40 text-textSecondaryDark hover:text-gold-primary">Graphene Battery Specs</button>
+                <button onclick="sendQuickAiQuery('Venture revenue breakdown')" class="px-2.5 py-1 rounded-lg bg-cardSecondaryDark border border-borderGold/40 text-textSecondaryDark hover:text-gold-primary">Venture Financials</button>
+                <button onclick="sendQuickAiQuery('Who conferred the President Awards?')" class="px-2.5 py-1 rounded-lg bg-cardSecondaryDark border border-borderGold/40 text-textSecondaryDark hover:text-gold-primary">President Awards Info</button>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="relative pt-2">
+                <input type="text" id="aiConsoleInput" placeholder="Type query for SP AI..." onkeypress="handleAiConsoleKeyPress(event)" class="w-full bg-cardSecondaryDark border border-borderGold/50 rounded-xl px-4 py-3 text-xs text-textPrimaryDark placeholder-textMutedDark focus:outline-none focus:border-gold-primary pr-12 font-mono">
+                <button onclick="submitAiConsoleQuery()" class="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-gold-primary text-black font-bold text-xs flex items-center gap-1">
+                    Send <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-Purpose Universal Detail Inspection Modal -->
+    <div id="detailModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full gold-card rounded-2xl p-6 border border-borderGold shadow-2xl relative max-h-[85vh] overflow-y-auto">
+            <button onclick="closeDetailModal()" class="absolute top-4 right-4 text-textMutedDark hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            <div id="detailModalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // System Clock Timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            const str = now.toISOString().replace('T', ' ').substring(0, 19);
+            const elem = document.getElementById('liveTimestamp');
+            if (elem) elem.textContent = str;
+        }
+        setInterval(updateTimestamp, 1000);
+        updateTimestamp();
+
+        // Greeting update
+        function updateGreeting() {
+            const hr = new Date().getHours();
+            const elem = document.getElementById('timeGreeting');
+            if (elem) {
+                if (hr < 12) elem.textContent = "Good Morning";
+                else if (hr < 18) elem.textContent = "Good Afternoon";
+                else elem.textContent = "Good Evening";
+            }
+        }
+        updateGreeting();
+
+        // Theme Mode Switcher
+        let isDarkMode = true;
+        function toggleThemeMode() {
+            isDarkMode = !isDarkMode;
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (isDarkMode) {
+                html.classList.add('dark');
+                html.classList.remove('light');
+                icon.className = 'fa-regular fa-sun';
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                icon.className = 'fa-regular fa-moon';
+            }
+            playUiClickSound();
+        }
+
+        // Web Audio API Micro-Interactions (Optional luxury sound FX)
+        let audioEnabled = true;
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function toggleAudioSFX() {
+            audioEnabled = !audioEnabled;
+            const icon = document.getElementById('audioIcon');
+            icon.className = audioEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+        }
+
+        function playUiClickSound() {
+            if (!audioEnabled || !audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            } catch(e) {}
+        }
+
+        // Navigation Views Switcher
+        function switchDashboardTab(tab) {
+            playUiClickSound();
+            document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+                btn.className = 'nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-textSecondaryDark hover:text-white hover:bg-cardPrimaryDark/60';
+            });
+            const activeBtn = document.getElementById(`nav-${tab}`);
+            if (activeBtn) {
+                activeBtn.className = 'nav-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all bg-gold-primary text-black shadow-md';
+            }
+
+            if (tab === 'ai') {
+                openAiConsole();
+            } else if (tab === 'pipeline') {
+                inspectPipelineStage('ALL');
+            } else if (tab === 'ventures') {
+                openVentureModal('MONOATOM');
+            } else if (tab === 'patents') {
+                openHonorsMasterModal();
+            } else if (tab === 'global') {
+                openGlobalFootprintModal();
+            }
+        }
+
+        // Deep-Tech Domain Filter Logic
+        function applyDomainFilter(domain) {
+            playUiClickSound();
+            const btns = document.querySelectorAll('.domain-filter-btn');
+            btns.forEach(btn => {
+                if (btn.textContent.trim().includes(domain)) {
+                    btn.className = 'domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-gold-primary text-black transition-all';
+                } else {
+                    btn.className = 'domain-filter-btn px-3 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-cardSecondaryDark text-textSecondaryDark hover:text-white border border-borderGold/30 transition-all';
+                }
+            });
+
+            const cards = document.querySelectorAll('.project-card');
+            let count = 0;
+            cards.forEach(card => {
+                if (domain === 'ALL' || card.classList.contains(`domain-${domain}`)) {
+                    card.style.display = 'block';
+                    count++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            document.getElementById('projectCountDisplay').textContent = count;
+        }
+
+        // Canvas Particle Network Animation
+        const graphCanvas = document.getElementById('grapheneCanvas');
+        const graphCtx = graphCanvas.getContext('2d');
+        let nodes = [];
+
+        function resizeGrapheneCanvas() {
+            if (!graphCanvas) return;
+            graphCanvas.width = window.innerWidth;
+            graphCanvas.height = window.innerHeight;
+            nodes = [];
+            const count = Math.floor(window.innerWidth / 22);
+            for (let i = 0; i < count; i++) {
+                nodes.push({
+                    x: Math.random() * graphCanvas.width,
+                    y: Math.random() * graphCanvas.height,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
+                    r: Math.random() * 1.5 + 1
+                });
+            }
+        }
+
+        function animateGrapheneCanvas() {
+            if (!graphCtx) return;
+            graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+            graphCtx.fillStyle = '#D4AF37';
+            graphCtx.strokeStyle = 'rgba(212, 175, 55, 0.12)';
+
+            for (let i = 0; i < nodes.length; i++) {
+                let p = nodes[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > graphCanvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > graphCanvas.height) p.vy *= -1;
+
+                graphCtx.beginPath();
+                graphCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                graphCtx.fill();
+
+                for (let j = i + 1; j < nodes.length; j++) {
+                    let p2 = nodes[j];
+                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 110) {
+                        graphCtx.beginPath();
+                        graphCtx.moveTo(p.x, p.y);
+                        graphCtx.lineTo(p2.x, p2.y);
+                        graphCtx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateGrapheneCanvas);
+        }
+
+        window.addEventListener('resize', resizeGrapheneCanvas);
+        resizeGrapheneCanvas();
+        animateGrapheneCanvas();
+
+        // Neural Ecosystem Interactive Canvas
+        const ecoCanvas = document.getElementById('ecosystemCanvas');
+        const ecoCtx = ecoCanvas ? ecoCanvas.getContext('2d') : null;
+
+        function drawEcosystemCanvas() {
+            if (!ecoCanvas || !ecoCtx) return;
+            const rect = ecoCanvas.parentElement.getBoundingClientRect();
+            ecoCanvas.width = rect.width;
+            ecoCanvas.height = rect.height;
+
+            const cx = ecoCanvas.width / 2;
+            const cy = ecoCanvas.height / 2;
+
+            const ecoNodes = [
+                { label: "MONOATOM LABS", a: 0, r: 80 },
+                { label: "SPI INDUSTRIES", a: Math.PI / 4, r: 80 },
+                { label: "MAGPPIE MOBILITY", a: Math.PI / 2, r: 80 },
+                { label: "GRAFILIUM ENERGY", a: (3 * Math.PI) / 4, r: 80 },
+                { label: "NASA RESEARCH", a: Math.PI, r: 80 },
+                { label: "IIT & MIT LABS", a: (5 * Math.PI) / 4, r: 80 },
+                { label: "STPI INCUBATOR", a: (3 * Math.PI) / 2, r: 80 },
+                { label: "GLOBAL INVESTORS", a: (7 * Math.PI) / 4, r: 80 }
+            ];
+
+            ecoCtx.clearRect(0, 0, ecoCanvas.width, ecoCanvas.height);
+            ecoCtx.strokeStyle = 'rgba(212, 175, 55, 0.25)';
+            ecoCtx.lineWidth = 1;
+
+            ecoNodes.forEach(n => {
+                const x = cx + Math.cos(n.a) * n.r;
+                const y = cy + Math.sin(n.a) * n.r;
+
+                ecoCtx.beginPath();
+                ecoCtx.moveTo(cx, cy);
+                ecoCtx.lineTo(x, y);
+                ecoCtx.stroke();
+
+                ecoCtx.fillStyle = '#121418';
+                ecoCtx.beginPath();
+                ecoCtx.arc(x, y, 13, 0, Math.PI * 2);
+                ecoCtx.fill();
+                ecoCtx.strokeStyle = '#D4AF37';
+                ecoCtx.stroke();
+
+                ecoCtx.fillStyle = '#F9FAFB';
+                ecoCtx.font = '8px Inter';
+                ecoCtx.textAlign = 'center';
+                ecoCtx.textBaseline = 'middle';
+                ecoCtx.fillText(n.label, x, y + 20);
+            });
+
+            // Center Node
+            ecoCtx.fillStyle = 'rgba(212, 175, 55, 0.2)';
+            ecoCtx.beginPath();
+            ecoCtx.arc(cx, cy, 26, 0, Math.PI * 2);
+            ecoCtx.fill();
+
+            ecoCtx.fillStyle = '#0B0C0E';
+            ecoCtx.beginPath();
+            ecoCtx.arc(cx, cy, 20, 0, Math.PI * 2);
+            ecoCtx.fill();
+            ecoCtx.strokeStyle = '#D4AF37';
+            ecoCtx.lineWidth = 2;
+            ecoCtx.stroke();
+
+            ecoCtx.fillStyle = '#D4AF37';
+            ecoCtx.font = 'bold 8px Inter';
+            ecoCtx.textAlign = 'center';
+            ecoCtx.textBaseline = 'middle';
+            ecoCtx.fillText("SUSHANTH", cx, cy - 3);
+            ecoCtx.fillText("PAATNAIK", cx, cy + 5);
+        }
+
+        setTimeout(drawEcosystemCanvas, 200);
+        window.addEventListener('resize', drawEcosystemCanvas);
+
+        // Command Palette & Search Modal Controls
+        function openSearchModal() {
+            playUiClickSound();
+            document.getElementById('searchModal').classList.remove('hidden');
+            document.getElementById('modalSearchInput').focus();
+        }
+        function closeSearchModal() {
+            document.getElementById('searchModal').classList.add('hidden');
+        }
+
+        function filterCommandPalette() {
+            const query = document.getElementById('modalSearchInput').value.toLowerCase();
+            const results = document.getElementById('paletteResults');
+            if (query.includes('patent') || query.includes('graphene')) {
+                results.innerHTML = `
+                    <div onclick="inspectProject('Graphene Copper Foil'); closeSearchModal();" class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between items-center cursor-pointer hover:border-gold-primary">
+                        <div>
+                            <p class="font-bold text-textPrimaryDark">Graphene Copper Composite Foil Patent</p>
+                            <p class="text-[10px] text-textMutedDark">Patent US9812341 Granted • Advanced Materials</p>
+                        </div>
+                        <span class="text-[9px] bg-cardPrimaryDark text-gold-primary border border-borderGold/50 px-2 py-0.5 rounded font-mono">Patent</span>
+                    </div>
+                `;
+            } else if (query.includes('venture') || query.includes('monoatom')) {
+                results.innerHTML = `
+                    <div onclick="openVentureModal('MONOATOM'); closeSearchModal();" class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between items-center cursor-pointer hover:border-gold-primary">
+                        <div>
+                            <p class="font-bold text-textPrimaryDark">MONOATOM Venture Deep Dive</p>
+                            <p class="text-[10px] text-textMutedDark">12 Projects • $2.3M Active Revenue</p>
+                        </div>
+                        <span class="text-[9px] bg-cardPrimaryDark text-gold-primary border border-borderGold/50 px-2 py-0.5 rounded font-mono">Venture</span>
+                    </div>
+                `;
+            }
+        }
+
+        // SP AI Console Drawer Control
+        function openAiConsole() {
+            playUiClickSound();
+            document.getElementById('aiConsoleDrawer').classList.remove('hidden');
+        }
+        function closeAiConsole() {
+            document.getElementById('aiConsoleDrawer').classList.add('hidden');
+        }
+
+        function handleInlineAiKeyPress(e) {
+            if (e.key === 'Enter') submitInlineAiQuery();
+        }
+        function submitInlineAiQuery() {
+            const input = document.getElementById('inlineAiInput');
+            const query = input.value.trim();
+            if (!query) return;
+            openAiConsole();
+            sendQuickAiQuery(query);
+            input.value = '';
+        }
+
+        function handleAiConsoleKeyPress(e) {
+            if (e.key === 'Enter') submitAiConsoleQuery();
+        }
+        function submitAiConsoleQuery() {
+            const input = document.getElementById('aiConsoleInput');
+            const query = input.value.trim();
+            if (!query) return;
+            sendQuickAiQuery(query);
+            input.value = '';
+        }
+
+        function sendQuickAiQuery(query) {
+            const thread = document.getElementById('aiChatThread');
+            thread.innerHTML += `
+                <div class="p-3 rounded-xl bg-gold-primary/10 border border-gold-primary/30 max-w-[85%] ml-auto text-right">
+                    <p class="text-gold-primary font-bold mb-1">[EXECUTIVE]:</p>
+                    <p class="text-textPrimaryDark">${query}</p>
+                </div>
+            `;
+            thread.scrollTop = thread.scrollHeight;
+
+            setTimeout(() => {
+                let response = "Analysis complete: Sushanth Paatnaik leads 14 active technology programs, holds 12 granted patents, and manages $6.2M across 4 active venture arms.";
+                if (query.toLowerCase().includes('battery') || query.toLowerCase().includes('patent')) {
+                    response = "Graphene Battery Patent Status: Granted (US Patent #9812341). Commercial TRL is currently Level 7 with active pilots underway in Singapore & Germany.";
+                } else if (query.toLowerCase().includes('revenue') || query.toLowerCase().includes('venture')) {
+                    response = "Venture Revenue Breakdown: Monoatom ($2.3M), SPI ($1.8M), Grafilium ($1.2M), Magppie ($0.9M). Total portfolio valuation is estimated at $48M+.";
+                }
+
+                thread.innerHTML += `
+                    <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/20 max-w-[85%]">
+                        <p class="text-gold-soft font-bold mb-1">[SP AI OS]:</p>
+                        <p class="text-textPrimaryDark leading-relaxed">${response}</p>
+                    </div>
+                `;
+                thread.scrollTop = thread.scrollHeight;
+            }, 600);
+        }
+
+        // Inspection Detail Modals
+        function openDetailModal(htmlContent) {
+            playUiClickSound();
+            document.getElementById('detailModalBody').innerHTML = htmlContent;
+            document.getElementById('detailModal').classList.remove('hidden');
+        }
+        function closeDetailModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        function inspectPipelineStage(stage) {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-2">INNOVATION PIPELINE - STAGE: ${stage}</h3>
+                <p class="text-xs text-textMutedDark mb-4">Detailed technical inspection for technology readiness levels under ${stage}.</p>
+                <div class="space-y-3 font-mono text-xs">
+                    <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <div class="flex justify-between font-bold text-gold-soft mb-1">
+                            <span>Graphene-Copper Composite Sheet</span>
+                            <span>TRL 7</span>
+                        </div>
+                        <p class="text-[11px] text-textMutedDark">High conductivity foil designed for EV battery heat dissipation.</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <div class="flex justify-between font-bold text-gold-soft mb-1">
+                            <span>Hydrogen Clean Electrolyzer Core</span>
+                            <span>TRL 8</span>
+                        </div>
+                        <p class="text-[11px] text-textMutedDark">Catalytic membrane increasing efficiency by 38%.</p>
+                    </div>
+                </div>
+            `);
+        }
+
+        function openVentureModal(name) {
+            openDetailModal(`
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-gold-primary text-black font-extrabold flex items-center justify-center font-outfit text-sm">${name[0]}</div>
+                    <div>
+                        <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider">${name} VENTURE DEEP DIVE</h3>
+                        <p class="text-xs text-textMutedDark">Enterprise financials & project execution matrix.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-3 text-center font-mono text-xs mb-4">
+                    <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <span class="text-textMutedDark text-[9px] block">ANNUAL REV</span>
+                        <strong class="text-gold-primary text-sm">$2.3M</strong>
+                    </div>
+                    <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <span class="text-textMutedDark text-[9px] block">ACTIVE PROJECTS</span>
+                        <strong class="text-textPrimaryDark text-sm">12</strong>
+                    </div>
+                    <div class="p-3 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <span class="text-textMutedDark text-[9px] block">GLOBAL PATENTS</span>
+                        <strong class="text-emerald-400 text-sm">6</strong>
+                    </div>
+                </div>
+                <p class="text-xs text-textSecondaryDark leading-relaxed">
+                    ${name} is an active deep-tech commercialization engine under Sushanth Paatnaik, focusing on scaling advanced nanomaterials into global manufacturing supply chains.
+                </p>
+            `);
+        }
+
+        function inspectProject(projectName) {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-2">PROJECT DEEP DIVE</h3>
+                <h4 class="text-base font-extrabold text-textPrimaryDark mb-3">${projectName}</h4>
+                <div class="space-y-2 text-xs font-mono text-textMutedDark mb-4">
+                    <p><strong class="text-gold-soft">Technology Domain:</strong> Nanomaterials & Clean Energy</p>
+                    <p><strong class="text-gold-soft">Patent Coverage:</strong> US Granted IP #9812341</p>
+                    <p><strong class="text-gold-soft">Commercial Pilot Status:</strong> Deployed with Tier-1 Partner in Germany</p>
+                </div>
+                <p class="text-xs text-textSecondaryDark leading-relaxed">
+                    This project delivers significant energy density improvements using atomic graphene layers deposited on copper conductive substrate.
+                </p>
+            `);
+        }
+
+        function openHonorDetail(honor) {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-2">HONOR & AWARD RECOGNITION</h3>
+                <h4 class="text-base font-extrabold text-textPrimaryDark mb-3">${honor} Conferred Recognition</h4>
+                <p class="text-xs text-textSecondaryDark leading-relaxed mb-4">
+                    Awarded for extraordinary contributions to scientific innovation, national deep-tech infrastructure, and pioneering commercialization of clean energy technologies.
+                </p>
+            `);
+        }
+
+        function openHonorsMasterModal() {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-3">HONORS WALL & PATENTS MASTER LIST</h3>
+                <div class="space-y-2 font-mono text-xs">
+                    <div class="p-2.5 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between">
+                        <span>6x President of India Innovation Award</span>
+                        <span class="text-gold-soft">2018 - 2024</span>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between">
+                        <span>NASA Young Innovator Honor</span>
+                        <span class="text-gold-soft">2020</span>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-cardSecondaryDark border border-borderGold/30 flex justify-between">
+                        <span>MIT Tech Review 35 Under 35</span>
+                        <span class="text-gold-soft">2022</span>
+                    </div>
+                </div>
+            `);
+        }
+
+        function openGlobalFootprintModal() {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-2">GLOBAL FOOTPRINT & HUBS</h3>
+                <p class="text-xs text-textMutedDark mb-3">Active research centers and commercial joint ventures.</p>
+                <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+                    <div class="p-2 bg-cardSecondaryDark border border-borderGold/30 rounded-lg">🇮🇳 India - R&D Core HQ</div>
+                    <div class="p-2 bg-cardSecondaryDark border border-borderGold/30 rounded-lg">🇺🇸 USA - Silicon Valley IP Hub</div>
+                    <div class="p-2 bg-cardSecondaryDark border border-borderGold/30 rounded-lg">🇩🇪 Germany - Pilot Testing</div>
+                    <div class="p-2 bg-cardSecondaryDark border border-borderGold/30 rounded-lg">🇸🇬 Singapore - APAC Ops</div>
+                </div>
+            `);
+        }
+
+        function openNotificationsDrawer() {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-3">EXECUTIVE SYSTEM NOTIFICATIONS</h3>
+                <div class="space-y-2 font-mono text-xs">
+                    <div class="p-2.5 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <span class="text-emerald-400 font-bold block">[PATENT GRANTED]</span>
+                        <span>US Patent #9812341 successfully approved.</span>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-cardSecondaryDark border border-borderGold/30">
+                        <span class="text-gold-soft font-bold block">[VENTURE MILESTONE]</span>
+                        <span>Monoatom hit $2.3M ARR milestone.</span>
+                    </div>
+                </div>
+            `);
+        }
+
+        function openProfileModal() {
+            openDetailModal(`
+                <div class="text-center py-2">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-highlight via-gold-primary to-gold-dark flex items-center justify-center font-cinzel font-black text-black text-2xl mx-auto mb-3 shadow-xl">
+                        SP
+                    </div>
+                    <h3 class="text-lg font-extrabold text-textPrimaryDark font-outfit">Sushanth Paatnaik</h3>
+                    <p class="text-xs text-gold-primary font-mono uppercase tracking-widest mt-0.5">Founder • Scientist • Investor • Advisor</p>
+                    <p class="text-xs text-textMutedDark max-w-md mx-auto mt-3 leading-relaxed">
+                        Pioneer in advanced nanotech, graphene composite applications, and clean hydrogen infrastructure. Honored with 6 President Awards and recognized by NASA & MIT.
+                    </p>
+                </div>
+            `);
+        }
+
+        function openFullProjectsModal() {
+            openDetailModal(`
+                <h3 class="text-sm font-bold text-gold-primary font-outfit uppercase tracking-wider mb-3">MASTER PROJECTS KANBAN TABLE</h3>
+                <p class="text-xs text-textMutedDark">Active status of 14 deep-tech developments currently under execution across all venture hubs.</p>
+            `);
+        }
+
+        function openAiModalPrompt(promptText) {
+            openAiConsole();
+            sendQuickAiQuery(promptText);
+        }
+
+        function exportOSState() {
+            playUiClickSound();
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({
+                user: "Sushanth Paatnaik",
+                innovations: 14,
+                ventures: 4,
+                patents: 12,
+                timestamp: new Date().toISOString()
+            }));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "SP_Executive_OS_Report.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        // Global Keyboard Shortcut (⌘K / Ctrl+K)
+        window.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearchModal();
+            }
+        });
+    </script>
+</body>
+</html>
