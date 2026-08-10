@@ -1,0 +1,18 @@
+# Files in the project root that must NOT be served as public static assets.
+# wrangler.toml sets [assets] directory = "./", so without this the whole
+# repo root (including node_modules and .git) gets uploaded and published.
+
+.git
+.gitignore
+node_modules
+
+# build + tooling, not part of the site
+worker.js
+wrangler.toml
+package.json
+package-lock.json
+build-standalone.js
+export-pdf.js
+
+# repo docs
+PROFILE-2026-README.md
