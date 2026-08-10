@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Inlines every profile-assets/*.jpg referenced by profile-2026.html as a base64
+ * Inlines every profile-assets/*.jpg referenced by index.html as a base64
  * data URI, producing profile-2026-standalone.html — one file, zero dependencies.
  *
  *   node build-standalone.js
@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = __dirname;
-const SRC = path.join(ROOT, 'profile-2026.html');
+const SRC = path.join(ROOT, 'index.html');
 const OUT = path.join(ROOT, 'profile-2026-standalone.html');
 
 const html = fs.readFileSync(SRC, 'utf8');

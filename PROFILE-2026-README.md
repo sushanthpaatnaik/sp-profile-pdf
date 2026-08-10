@@ -6,7 +6,7 @@ A print-ready, editable HTML recreation of the 20-page black-and-gold profile do
 
 | File | What it is |
 |---|---|
-| `profile-2026.html` | **Editable source.** Inline CSS/JS, webfonts embedded as base64, images referenced from `profile-assets/`. Edit this one. |
+| `index.html` | **Editable source.** Inline CSS/JS, webfonts embedded as base64, images referenced from `profile-assets/`. Edit this one. |
 | `profile-2026-standalone.html` | **Single self-contained file.** Every image inlined as a data URI — no external requests at all. Generated, do not edit by hand. |
 | `Sushanth-Paatnaik-Profile-2026.pdf` | Exported A4 PDF (20 pages). Generated. |
 | `profile-assets/` | Image assets extracted from the reference PDF. |
@@ -14,7 +14,7 @@ A print-ready, editable HTML recreation of the 20-page black-and-gold profile do
 
 ## Editing
 
-Open `profile-2026.html` in a browser. Each PDF page is one `<section class="page">` with an
+Open `index.html` in a browser. Each PDF page is one `<section class="page">` with an
 HTML comment naming its number and title, e.g.:
 
 ```html
@@ -43,7 +43,7 @@ Utility classes: `.gold-sheen` (metallic gradient text), `.card`, `.rule-fade`,
 
 ## Exporting a PDF
 
-**From the browser:** open `profile-2026.html` → Print → *Save as PDF*, with
+**From the browser:** open `index.html` → Print → *Save as PDF*, with
 Paper **A4**, Margins **None**, **Background graphics ON**, Scale **100%**.
 Page size and zero margins are already declared via `@page { size: A4 portrait; margin: 0 }`.
 
