@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushanth Paatnaik — Profile Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ───────────── CARD 1 ───────────── */
+  .card1 {
+    position: relative;
+    overflow: hidden;
+    width: 390px;
+    height: 720px;
+    background: #050505;
+    border-radius: 4px;
+  }
+
+  /* 1. Honeycomb SVG layer */
+  .card1-honeycomb {
+    position: absolute;
+    top: 0; left: 0;
+    width: 55%;
+    height: 60%;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  /* 2. Portrait photo */
+  .card1-photo {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 480px;
+    z-index: 2;
+  }
+  .card1-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  /* 3. SP Logo */
+  .card1-logo {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    height: 70px;
+    z-index: 10;
+    filter: drop-shadow(0 0 12px rgba(196,162,78,0.8));
+  }
+
+  /* 4. Vertical text */
+  .card1-vertical-text {
+    position: absolute;
+    top: 100px;
+    right: 14px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #C4A24E;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  /* 5. Thin vertical gold rule */
+  .card1-vrule {
+    position: absolute;
+    right: 44px;
+    top: 90px;
+    width: 1px;
+    height: 420px;
+    background: linear-gradient(to bottom, transparent, #C4A24E 20%, #C4A24E 80%, transparent);
+    z-index: 10;
+  }
+
+  /* 6. Name */
+  .card1-name {
+    position: absolute;
+    bottom: 236px;
+    left: 16px;
+    right: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: linear-gradient(180deg, #FFF8B0 0%, #F5E17A 12%, #C4A24E 35%, #7A5010 55%, #C4A24E 72%, #F0D060 88%, #FFF8B0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(196,162,78,0.5));
+    z-index: 10;
+  }
+
+  /* 7. Thin gold divider */
+  .card1-divider1 {
+    position: absolute;
+    bottom: 226px;
+    left: 16px;
+    right: 50px;
+    height: 1px;
+    background: linear-gradient(to right, #C4A24E, rgba(196,162,78,0.3));
+    z-index: 10;
+  }
+
+  /* 8. Roles line */
+  .card1-roles {
+    position: absolute;
+    bottom: 204px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.8);
+    z-index: 10;
+  }
+
+  /* 9. KEY HONORS label row */
+  .card1-honors-label {
+    position: absolute;
+    bottom: 174px;
+    left: 16px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+  }
+  .card1-honors-label .line {
+    flex: 1;
+    height: 1px;
+    background: rgba(196,162,78,0.5);
+  }
+  .card1-honors-label .text {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #C4A24E;
+    letter-spacing: 0.25em;
+    white-space: nowrap;
+  }
+
+  /* 10. Honors row */
+  .card1-honors-row {
+    position: absolute;
+    bottom: 80px;
+    left: 8px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 10;
+  }
+  .honor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .honor-item svg {
+    height: 38px;
+    width: auto;
+  }
+  .honor-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  /* 11. Gold rule */
+  .card1-divider2 {
+    position: absolute;
+    bottom: 68px;
+    left: 16px;
+    right: 50px;
+    height: 1px;
+    background: #C4A24E;
+    opacity: 0.5;
+    z-index: 10;
+  }
+
+  /* 12. Tagline */
+  .card1-tagline {
+    position: absolute;
+    bottom: 20px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 10;
+    line-height: 1.6;
+  }
+  .card1-tagline .t1 {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: #C4A24E;
+    letter-spacing: 0.12em;
+  }
+  .card1-tagline .t2 {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.18em;
+  }
+
+  /* 13. Gold dot */
+  .card1-dot {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #C4A24E;
+    z-index: 10;
+  }
+
+  /* ───────────── CARD 2 ───────────── */
+  .card2 {
+    position: relative;
+    overflow: hidden;
+    width: 390px;
+    background: #050505;
+    border-radius: 4px;
+  }
+
+  /* 1. Earth globe image */
+  .card2-globe {
+    position: absolute;
+    top: 0; right: 0;
+    width: 220px;
+    height: 220px;
+    z-index: 1;
+  }
+  .card2-globe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0 0 0 100%;
+  }
+  .card2-globe-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 75% 20%, rgba(255,140,0,0.35) 0%, transparent 50%);
+    border-radius: 0 0 0 100%;
+  }
+
+  /* 2. Avatar + name */
+  .card2-header {
+    position: relative;
+    z-index: 2;
+    padding: 28px 18px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card2-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid #C4A24E;
+    background: rgba(196,162,78,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .card2-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    background: linear-gradient(180deg, #FFF8B0 0%, #F5E17A 12%, #C4A24E 35%, #7A5010 55%, #C4A24E 72%, #F0D060 88%, #FFF8B0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* 3. Gold divider with center dot */
+  .card2-divider-dot {
+    position: relative;
+    margin: 16px 18px 12px;
+    height: 1px;
+    background: #C4A24E;
+    opacity: 0.6;
+  }
+  .card2-divider-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4A24E;
+  }
+
+  /* 4. Roles list */
+  .card2-roles {
+    padding: 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .card2-roles .role-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+  }
+  .card2-roles .role-line .company {
+    color: #C4A24E;
+    font-weight: 600;
+  }
+
+  /* 5. Gold divider */
+  .card2-divider-thin {
+    margin: 16px 18px;
+    height: 1px;
+    background: rgba(196,162,78,0.3);
+  }
+
+  /* 6. 4 pillars */
+  .card2-pillars {
+    display: flex;
+    border-top: 1px solid rgba(196,162,78,0.25);
+    border-bottom: 1px solid rgba(196,162,78,0.25);
+  }
+  .pillar {
+    flex: 1;
+    padding: 16px 4px;
+    border-right: 1px solid rgba(196,162,78,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar svg {
+    width: 40px;
+    height: 40px;
+  }
+  .pillar-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* 7. Company list */
+  .card2-companies {
+    border-top: 1px solid rgba(196,162,78,0.2);
+    border-bottom: 1px solid rgba(196,162,78,0.2);
+  }
+  .company-row {
+    min-height: 76px;
+    border-bottom: 1px solid rgba(196,162,78,0.15);
+    display: flex;
+    align-items: center;
+  }
+  .company-row:last-child { border-bottom: none; }
+  .company-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #C4A24E;
+    flex-shrink: 0;
+    margin: 0 12px;
+  }
+  .company-logo-panel {
+    width: 74px;
+    border-right: 1px solid rgba(196,162,78,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    align-self: stretch;
+  }
+  .company-info {
+    flex: 1;
+    padding: 10px 14px;
+  }
+  .company-info-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .company-info-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    color: #C4A24E;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* 8. Contacts */
+  .card2-contacts {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(196,162,78,0.2);
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid #C4A24E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-vline {
+    width: 1px;
+    height: 22px;
+    background: rgba(196,162,78,0.5);
+    flex-shrink: 0;
+  }
+  .contact-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+  }
+  .contact-text .sep {
+    color: #C4A24E;
+    margin: 0 6px;
+  }
+
+  /* 9. Bottom gold bar */
+  .card2-bottom-bar {
+    height: 3px;
+    background: linear-gradient(to right, transparent, #C4A24E, #F5E17A, #C4A24E, transparent);
+  }
+
+  @media print {
+    body { background: white; gap: 20px; padding: 10px; }
+    .card1, .card2 { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     CARD 1 — HERO PROFILE CARD
+══════════════════════════════════════ -->
+<div class="card1">
+
+  <!-- 1. Honeycomb pattern -->
+  <svg class="card1-honeycomb" viewBox="0 0 215 432" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="hex-pattern" x="0" y="0" width="36" height="41.57" patternUnits="userSpaceOnUse">
+        <polygon points="18,2 34,11.2 34,29.6 18,38.8 2,29.6 2,11.2" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
+        <polygon points="0,22.78 16,31.98 16,50.38 0,59.58 -16,50.38 -16,31.98" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
+        <polygon points="36,22.78 52,31.98 52,50.38 36,59.58 20,50.38 20,31.98" fill="none" stroke="#C4A24E" stroke-width="1.2"/>
+      </pattern>
+      <radialGradient id="hex-mask-grad" cx="0%" cy="0%" r="100%" fx="0%" fy="0%">
+        <stop offset="0%" stop-color="white" stop-opacity="1"/>
+        <stop offset="60%" stop-color="white" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </radialGradient>
+      <mask id="hex-fade-mask">
+        <rect width="215" height="432" fill="url(#hex-mask-grad)"/>
+      </mask>
+    </defs>
+    <rect width="215" height="432" fill="url(#hex-pattern)" mask="url(#hex-fade-mask)" opacity="0.7"/>
+  </svg>
+
+  <!-- 2. Portrait photo -->
+  <div class="card1-photo">
+    <img src="images/founder.jpg" alt="Sushanth Paatnaik">
+  </div>
+
+  <!-- 3. SP Logo -->
+  <img class="card1-logo" src="images/sp-logo.svg" alt="SP Logo">
+
+  <!-- 4. Vertical text -->
+  <span class="card1-vertical-text">DEEP TECH&nbsp;&nbsp;•&nbsp;&nbsp;IMPACT&nbsp;&nbsp;•&nbsp;&nbsp;LEGACY</span>
+
+  <!-- 5. Vertical gold rule -->
+  <div class="card1-vrule"></div>
+
+  <!-- 6. Name -->
+  <div class="card1-name">SUSHANTH PAATNAIK</div>
+
+  <!-- 7. Thin gold divider -->
+  <div class="card1-divider1"></div>
+
+  <!-- 8. Roles line -->
+  <div class="card1-roles">INNOVATOR&nbsp;&nbsp;•&nbsp;&nbsp;ENTREPRENEUR&nbsp;&nbsp;•&nbsp;&nbsp;INVESTOR&nbsp;&nbsp;•&nbsp;&nbsp;ADVISOR</div>
+
+  <!-- 9. KEY HONORS label -->
+  <div class="card1-honors-label">
+    <div class="line"></div>
+    <span class="text">KEY HONORS</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- 10. Honors row -->
+  <div class="card1-honors-row">
+
+    <!-- a) Trophy (Presidential) -->
+    <div class="honor-item">
+      <svg viewBox="0 0 44 54" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cup body -->
+        <path d="M22,5 C14,5 9,11 9,22 L9,32 L35,32 L35,22 C35,11 30,5 22,5Z" fill="#0a0a0a" stroke="#C4A24E" stroke-width="1.5"/>
+        <!-- White star/circle at top -->
+        <circle cx="22" cy="5" r="4" fill="white"/>
+        <!-- Inner shine on cup -->
+        <path d="M14,12 Q18,10 22,12" fill="none" stroke="rgba(196,162,78,0.5)" stroke-width="1"/>
+        <!-- Stem -->
+        <rect x="20" y="32" width="4" height="9" fill="#C4A24E" opacity="0.8"/>
+        <!-- Base platform -->
+        <rect x="11" y="41" width="22" height="5" rx="2" fill="#C4A24E" opacity="0.9"/>
+        <!-- Foot -->
+        <rect x="7" y="46" width="30" height="4" rx="2" fill="#C4A24E" opacity="0.7"/>
+      </svg>
+      <div class="honor-label">6x PRESIDENT<br>OF INDIA<br>AWARDEE<br>(2008–2013)</div>
+    </div>
+
+    <!-- b) NASA -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="28" cy="19" rx="26" ry="17" fill="#0B3D91" stroke="white" stroke-width="1.2"/>
+        <path d="M2,19 Q28,8 54,19" stroke="#FC3D21" stroke-width="3" fill="none"/>
+        <text x="28" y="24" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="13" fill="white">NASA</text>
+      </svg>
+      <div class="honor-label">NASA<br>AWARDEE<br>(2011)</div>
+    </div>
+
+    <!-- c) MIT TR35 -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="4" width="10" height="28" fill="#C4A24E"/>
+        <rect x="23" y="12" width="10" height="20" fill="#C4A24E"/>
+        <rect x="40" y="4" width="10" height="28" fill="#C4A24E"/>
+        <text x="28" y="37" text-anchor="middle" font-family="Inter,Arial" font-size="7" fill="#C4A24E" font-weight="600">TR35</text>
+      </svg>
+      <div class="honor-label">MIT TR35<br>INDIA<br>(2011)</div>
+    </div>
+
+    <!-- d) TED -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="38" rx="2" fill="#E62B1E"/>
+        <text x="5" y="20" font-family="Georgia,serif" font-size="20" fill="white">'</text>
+        <text x="28" y="28" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="20" fill="white">TED</text>
+      </svg>
+      <div class="honor-label">TED<br>SPEAKER<br>(2012)</div>
+    </div>
+
+    <!-- e) Intel -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="28" cy="19" rx="24" ry="15" fill="#0071C5"/>
+        <text x="24" y="24" text-anchor="middle" font-family="Arial" font-size="13" font-style="italic" fill="white">intel</text>
+        <text x="38" y="17" font-family="Arial" font-size="7" fill="white">®</text>
+      </svg>
+      <div class="honor-label">INTEL IRIS<br>AWARDEE<br>(2010)</div>
+    </div>
+
+    <!-- f) INK dot-matrix -->
+    <div class="honor-item">
+      <svg viewBox="0 0 56 38" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="38" fill="#050505"/>
+        <!-- Letter I -->
+        <rect x="3" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="3" y="28" width="4" height="4" fill="#C4A24E"/>
+        <!-- Letter N -->
+        <rect x="11" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="11" y="28" width="4" height="4" fill="#C4A24E"/>
+        <rect x="16" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="21" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="26" y="28" width="4" height="4" fill="#C4A24E"/>
+        <!-- Letter K -->
+        <rect x="34" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="34" y="28" width="4" height="4" fill="#C4A24E"/>
+        <rect x="39" y="16" width="4" height="4" fill="#C4A24E"/>
+        <rect x="44" y="10" width="4" height="4" fill="#C4A24E"/>
+        <rect x="44" y="22" width="4" height="4" fill="#C4A24E"/>
+        <rect x="49" y="4" width="4" height="4" fill="#C4A24E"/>
+        <rect x="49" y="28" width="4" height="4" fill="#C4A24E"/>
+      </svg>
+      <div class="honor-label">INK FELLOW<br>(2010)</div>
+    </div>
+
+  </div><!-- end honors row -->
+
+  <!-- 11. Gold rule -->
+  <div class="card1-divider2"></div>
+
+  <!-- 12. Tagline -->
+  <div class="card1-tagline">
+    <span class="t1">ENGINEERING INTELLIGENT MATTER.</span>
+    <span class="t2">BUILDING A SUSTAINABLE TOMORROW.</span>
+  </div>
+
+  <!-- 13. Gold dot -->
+  <div class="card1-dot"></div>
+
+</div><!-- end card1 -->
+
+
+<!-- ══════════════════════════════════════
+     CARD 2 — DETAILS CARD
+══════════════════════════════════════ -->
+<div class="card2">
+
+  <!-- 1. Earth globe image -->
+  <div class="card2-globe">
+    <img src="images/bg-ecosystem.jpg" alt="Earth">
+    <div class="card2-globe-overlay"></div>
+  </div>
+
+  <!-- 2. Avatar + Name -->
+  <div class="card2-header">
+    <div class="card2-avatar">
+      <svg viewBox="0 0 32 32" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="11" r="6" fill="#C4A24E"/>
+        <path d="M4 32C4 24 9.5 18 16 18C22.5 18 28 24 28 32" fill="#C4A24E"/>
+      </svg>
+    </div>
+    <div class="card2-name">SUSHANTH<br>PAATNAIK</div>
+  </div>
+
+  <!-- 3. Gold divider with center dot -->
+  <div class="card2-divider-dot"></div>
+
+  <!-- 4. Roles list -->
+  <div class="card2-roles">
+    <div class="role-line">Founder, <span class="company">SPI Industries</span></div>
+    <div class="role-line">Co-Founder &amp; CEO, <span class="company">Monoatom Labs</span></div>
+    <div class="role-line">Co-Founder &amp; CIO, <span class="company">Grafillium Deeptech</span></div>
+    <div class="role-line">CIO, <span class="company">Magppie Wellness Kitchen</span></div>
+  </div>
+
+  <!-- 5. Gold divider -->
+  <div class="card2-divider-thin"></div>
+
+  <!-- 6. 4 Pillars -->
+  <div class="card2-pillars">
+
+    <!-- Brain -->
+    <div class="pillar">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 34 C20 34 8 30 8 20 C8 13 13 8 20 8 C27 8 32 13 32 20 C32 30 20 34 20 34Z"/>
+        <line x1="20" y1="8" x2="20" y2="34" stroke-dasharray="2 2" stroke-width="1"/>
+        <path d="M10 16 Q15 14 20 16" stroke-width="1"/>
+        <path d="M10 22 Q15 20 20 22" stroke-width="1"/>
+        <path d="M30 16 Q25 14 20 16" stroke-width="1"/>
+        <path d="M30 22 Q25 20 20 22" stroke-width="1"/>
+        <path d="M12 28 Q16 26 20 28" stroke-width="1"/>
+        <path d="M28 28 Q24 26 20 28" stroke-width="1"/>
+      </svg>
+      <div class="pillar-label">DEEP TECH<br>INNOVATIONS</div>
+    </div>
+
+    <!-- Hexagon cluster -->
+    <div class="pillar">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,14 23,16 23,20 20,22 17,20 17,16"/>
+        <polygon points="20,5 23,7 23,11 20,13 17,11 17,7"/>
+        <polygon points="27,9 30,11 30,15 27,17 24,15 24,11"/>
+        <polygon points="27,21 30,23 30,27 27,29 24,27 24,23"/>
+        <polygon points="20,25 23,27 23,31 20,33 17,31 17,27"/>
+        <polygon points="13,21 16,23 16,27 13,29 10,27 10,23"/>
+        <polygon points="13,9 16,11 16,15 13,17 10,15 10,11"/>
+      </svg>
+      <div class="pillar-label">ADVANCED<br>MATERIALS</div>
+    </div>
+
+    <!-- Leaf -->
+    <div class="pillar">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 36 C20 36 7 28 7 16 C7 8 13 4 20 4 C27 4 33 8 33 16 C33 28 20 36 20 36Z"/>
+        <line x1="20" y1="36" x2="20" y2="6" stroke-width="1"/>
+        <path d="M20 14 Q25 12 29 16" stroke-width="1"/>
+        <path d="M20 20 Q25 18 29 22" stroke-width="1"/>
+        <path d="M20 14 Q15 12 11 16" stroke-width="1"/>
+        <path d="M20 20 Q15 18 11 22" stroke-width="1"/>
+      </svg>
+      <div class="pillar-label">SUSTAINABLE<br>SOLUTIONS</div>
+    </div>
+
+    <!-- Globe -->
+    <div class="pillar">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#C4A24E" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="15"/>
+        <ellipse cx="20" cy="20" rx="7" ry="15"/>
+        <line x1="5" y1="20" x2="35" y2="20"/>
+        <path d="M7 13 Q20 9 33 13"/>
+        <path d="M7 27 Q20 31 33 27"/>
+      </svg>
+      <div class="pillar-label">GLOBAL<br>IMPACT</div>
+    </div>
+
+  </div><!-- end pillars -->
+
+  <!-- 7. Company list -->
+  <div class="card2-companies">
+
+    <!-- SPI Industries -->
+    <div class="company-row">
+      <div class="company-dot"></div>
+      <div class="company-logo-panel">
+        <img src="images/sp-logo.svg" alt="SPI" style="height:44px;filter:drop-shadow(0 0 8px rgba(196,162,78,0.7));">
+      </div>
+      <div class="company-info">
+        <div class="company-info-name">SPI Industries</div>
+        <div class="company-info-tag">INNOVATE&nbsp;•&nbsp;ENGINEER&nbsp;•&nbsp;IMPACT</div>
+      </div>
+    </div>
+
+    <!-- Monoatom Labs -->
+    <div class="company-row">
+      <div class="company-dot"></div>
+      <div class="company-logo-panel">
+        <svg viewBox="0 0 44 44" width="44" height="44" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="4"/>
+          <circle cx="22" cy="10" r="3"/>
+          <circle cx="32" cy="16" r="3"/>
+          <circle cx="32" cy="28" r="3"/>
+          <circle cx="22" cy="34" r="3"/>
+          <circle cx="12" cy="28" r="3"/>
+          <circle cx="12" cy="16" r="3"/>
+          <line x1="22" y1="22" x2="22" y2="13"/>
+          <line x1="22" y1="22" x2="29" y2="18.5"/>
+          <line x1="22" y1="22" x2="29" y2="25.5"/>
+          <line x1="22" y1="22" x2="22" y2="31"/>
+          <line x1="22" y1="22" x2="15" y2="25.5"/>
+          <line x1="22" y1="22" x2="15" y2="18.5"/>
+        </svg>
+      </div>
+      <div class="company-info">
+        <div class="company-info-name">Monoatom Labs</div>
+        <div class="company-info-tag">GRAPHENE AT SCALE</div>
+      </div>
+    </div>
+
+    <!-- Grafillium Deeptech -->
+    <div class="company-row">
+      <div class="company-dot"></div>
+      <div class="company-logo-panel">
+        <svg viewBox="0 0 44 44" width="44" height="44" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 6 C14 6 9 12 9 19 C9 24 12 28 16 30 L16 34 L28 34 L28 30 C32 28 35 24 35 19 C35 12 30 6 22 6Z"/>
+          <line x1="17" y1="36" x2="27" y2="36" stroke-width="1.2"/>
+          <line x1="18.5" y1="38" x2="25.5" y2="38" stroke-width="1.2"/>
+          <text x="22" y="24" text-anchor="middle" font-family="Inter,Arial" font-size="11" font-weight="700" fill="#C4A24E" stroke="none">G</text>
+        </svg>
+      </div>
+      <div class="company-info">
+        <div class="company-info-name">Grafillium Deeptech</div>
+        <div class="company-info-tag">ECO&nbsp;•&nbsp;NANO&nbsp;•&nbsp;FUTURE</div>
+      </div>
+    </div>
+
+    <!-- Magppie Wellness Kitchen -->
+    <div class="company-row">
+      <div class="company-dot"></div>
+      <div class="company-logo-panel" style="flex-direction:column;gap:2px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#C4A24E;letter-spacing:0.1em;text-align:center;line-height:1.1;">MAGPPIE</span>
+      </div>
+      <div class="company-info">
+        <div class="company-info-name">MAGPPIE WELLNESS KITCHEN</div>
+        <div class="company-info-tag">EAT WELL&nbsp;•&nbsp;LIVE WELL</div>
+      </div>
+    </div>
+
+  </div><!-- end companies -->
+
+  <!-- 8. Contacts -->
+  <div class="card2-contacts">
+
+    <!-- Phone -->
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#C4A24E" stroke-width="1.4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 1.5C2 1.5 3.5 0.5 4.5 1.5L6.5 4.5C7 5.5 6 6 5.5 6.5C6.5 8.5 8 9.5 9 10C9.5 9.5 10 8.5 11 9L13 11C14 12 12.5 13.5 12.5 13.5C6.5 16 -2.5 4.5 2 1.5Z"/>
+        </svg>
+      </div>
+      <div class="contact-vline"></div>
+      <div class="contact-text">+91 85119 76999</div>
+    </div>
+
+    <!-- Email -->
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="12" height="9" rx="1.5"/>
+          <path d="M1 2.5 L7 6.5 L13 2.5"/>
+        </svg>
+      </div>
+      <div class="contact-vline"></div>
+      <div class="contact-text">me@sushanthpaatnaik.com</div>
+    </div>
+
+    <!-- Website -->
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7" cy="7" r="6"/>
+          <ellipse cx="7" cy="7" rx="3" ry="6"/>
+          <line x1="1" y1="7" x2="13" y2="7"/>
+        </svg>
+      </div>
+      <div class="contact-vline"></div>
+      <div class="contact-text">sushanthpaatnaik.com</div>
+    </div>
+
+    <!-- Location -->
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="#C4A24E" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 1 C3 1 1 3.5 1 6 C1 9.5 6 13 6 13 C6 13 11 9.5 11 6 C11 3.5 9 1 6 1Z"/>
+          <circle cx="6" cy="6" r="2"/>
+        </svg>
+      </div>
+      <div class="contact-vline"></div>
+      <div class="contact-text">
+        Ahmedabad <span class="sep">|</span> New Delhi <span class="sep">|</span> Bhubaneswar
+      </div>
+    </div>
+
+  </div><!-- end contacts -->
+
+  <!-- 9. Bottom gold bar -->
+  <div class="card2-bottom-bar"></div>
+
+</div><!-- end card2 -->
+
+</body>
+</html>

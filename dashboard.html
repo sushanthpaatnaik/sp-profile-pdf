@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Operating System - Monoatom Labs</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- html2pdf.js for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        if (window.tailwind) tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        monoatom: {
+                            bg: '#03060a',
+                            'bg-alt': '#070c14',
+                            card: '#0b1019',
+                            'card-hover': '#111827',
+                            border: '#1a2436',
+                            'border-glow': '#25354e',
+                            emerald: '#00dc82',
+                            'emerald-glow': 'rgba(0, 220, 130, 0.15)',
+                            teal: '#14b8a6',
+                            cyan: '#0ea5e9',
+                            muted: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #03060a;
+            background-image:
+                linear-gradient(to bottom, rgba(3, 6, 10, 0.88), rgba(3, 6, 10, 0.96)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0l28 16.166v32.333L28 64.666 0 48.5V16.166L28 0zm0 32.333l28 16.167v32.333L28 97 0 80.833V48.5l28-16.167z' fill='none' stroke='%231e293b' stroke-width='1' stroke-opacity='0.4'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #03060a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a2436;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00dc82;
+        }
+
+        .edit-mode-active [contenteditable="true"] {
+            outline: 1px dashed rgba(0, 220, 130, 0.6);
+            outline-offset: 2px;
+            border-radius: 4px;
+            cursor: text;
+        }
+        .edit-mode-active [contenteditable="true"]:hover {
+            outline: 1px solid #00dc82;
+            background-color: rgba(0, 220, 130, 0.08);
+        }
+        .edit-mode-active [contenteditable="true"]:focus {
+            outline: 2px solid #00dc82;
+            background-color: rgba(0, 220, 130, 0.15);
+        }
+
+        .tech-card {
+            background: linear-gradient(160deg, rgba(11, 16, 25, 0.95), rgba(7, 12, 20, 0.98));
+            border: 1px solid #1a2436;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+            border-radius: 1rem;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .tech-card:hover {
+            border-color: #25354e;
+        }
+
+        .emerald-border-glow {
+            border: 1px solid rgba(0, 220, 130, 0.35);
+            box-shadow: 0 0 25px rgba(0, 220, 130, 0.12);
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #0b1019;
+            z-index: 10;
+        }
+
+        .tab-btn.active {
+            background-color: rgba(0, 220, 130, 0.15);
+            border-color: #00dc82;
+            color: #00dc82;
+        }
+
+        .icon-btn {
+            transition: color .15s ease, transform .15s ease;
+        }
+        .icon-btn:hover {
+            transform: scale(1.12);
+        }
+        .icon-btn:active {
+            transform: scale(0.94);
+        }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(10px) scale(.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-item {
+            animation: toastIn .25s ease-out;
+        }
+        .toast-item.toast-out {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: all .25s ease;
+        }
+
+        .modal-panel {
+            animation: toastIn .18s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tech-card, .icon-btn, .toast-item, .modal-panel { transition: none; animation: none; }
+        }
+    </style>
+</head>
+<body class="p-3 md:p-6 antialiased selection:bg-monoatom-emerald selection:text-black">
+
+    <div id="app" class="max-w-[1720px] mx-auto space-y-5">
+
+        <!-- Top Toolbar -->
+        <div data-html2canvas-ignore="true" class="flex flex-wrap items-center justify-between gap-4 bg-monoatom-card/90 p-3.5 px-5 rounded-2xl border border-monoatom-border shadow-2xl backdrop-blur-md">
+            <div class="flex items-center gap-4">
+                <div class="relative flex items-center justify-center">
+                    <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-monoatom-emerald opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-monoatom-emerald"></span>
+                </div>
+                <div>
+                    <div class="text-[11px] font-bold tracking-widest text-monoatom-emerald uppercase flex items-center gap-2">
+                        <span>MONOATOMLABS OPERATING SYSTEM</span>
+                        <span class="text-[9px] px-2 py-0.5 rounded-full bg-monoatom-emerald/10 border border-monoatom-emerald/30 text-monoatom-emerald font-mono">v3.6 Live</span>
+                    </div>
+                    <div id="saveIndicator" class="text-[10px] text-monoatom-muted font-medium mt-0.5 flex items-center gap-1">
+                        <i class="fa-solid fa-cloud-arrow-up text-monoatom-muted"></i> Not yet saved
+                    </div>
+                </div>
+
+                <!-- View Switcher Tabs -->
+                <div class="hidden md:flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-monoatom-border ml-4">
+                    <button onclick="switchTab('overview')" id="tabBtn-overview" class="tab-btn active px-3 py-1 text-xs font-semibold rounded-lg text-slate-300 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-chart-line"></i> Executive View
+                    </button>
+                    <button onclick="switchTab('bd')" id="tabBtn-bd" class="tab-btn px-3 py-1 text-xs font-semibold rounded-lg text-slate-300 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-briefcase"></i> BD & Sales Pipeline
+                    </button>
+                    <button onclick="switchTab('kpis')" id="tabBtn-kpis" class="tab-btn px-3 py-1 text-xs font-semibold rounded-lg text-slate-300 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-bullseye"></i> KPI Tracker
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5">
+                <button id="toggleEditBtn" onclick="toggleEditMode()" title="Toggle inline editing" class="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-slate-900/90 hover:bg-monoatom-border text-slate-200 border border-monoatom-border transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-monoatom-emerald"></i>
+                    <span id="editBtnText" class="hidden sm:inline">Enable Inline Edit</span>
+                </button>
+
+                <button onclick="openAddActionModal()" title="Add a new commercial opportunity" class="px-4 py-1.5 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400 transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/10">
+                    <i class="fa-solid fa-plus text-xs"></i> <span class="hidden sm:inline">Add Opportunity</span>
+                </button>
+
+                <button id="exportPdfBtn" onclick="exportPDF()" title="Export dashboard as PDF" class="px-3.5 py-1.5 text-xs font-medium rounded-xl bg-slate-900/90 hover:bg-monoatom-border text-slate-200 border border-monoatom-border transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf text-rose-400"></i> <span class="hidden sm:inline">Export PDF</span>
+                </button>
+
+                <button onclick="resetToDefaults()" title="Reset all data to defaults" class="px-3 py-1.5 text-xs font-medium rounded-xl bg-slate-900/90 hover:bg-red-950/40 text-red-400 border border-monoatom-border transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-rotate-left"></i> <span class="hidden sm:inline">Reset Data</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Tabs -->
+        <div data-html2canvas-ignore="true" class="flex md:hidden items-center justify-between bg-slate-950 p-1.5 rounded-xl border border-monoatom-border">
+            <button onclick="switchTab('overview')" id="mobileTabBtn-overview" class="tab-btn active flex-1 py-1.5 text-[11px] font-semibold text-center rounded-lg text-slate-300">Executive</button>
+            <button onclick="switchTab('bd')" id="mobileTabBtn-bd" class="tab-btn flex-1 py-1.5 text-[11px] font-semibold text-center rounded-lg text-slate-300">BD & Sales</button>
+            <button onclick="switchTab('kpis')" id="mobileTabBtn-kpis" class="tab-btn flex-1 py-1.5 text-[11px] font-semibold text-center rounded-lg text-slate-300">KPI Tracker</button>
+        </div>
+
+        <!-- Header -->
+        <header class="tech-card p-6 md:p-8 rounded-2xl relative overflow-hidden flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 border border-monoatom-border">
+            <div class="absolute -right-16 -top-16 w-80 h-80 bg-monoatom-emerald/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute right-1/3 -bottom-20 w-80 h-80 bg-monoatom-cyan/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-2 max-w-3xl z-10">
+                <div class="flex flex-wrap items-center gap-3.5">
+                    <div class="p-2.5 rounded-xl bg-slate-950 border border-monoatom-border flex items-center justify-center text-monoatom-emerald shadow-inner">
+                        <svg class="w-7 h-7 fill-current text-white" viewBox="0 0 100 100">
+                            <polygon points="50,15 75,30 75,60 50,75 25,60 25,30" fill="none" stroke="#ffffff" stroke-width="6"/>
+                            <polygon points="75,30 95,41 95,65 75,76 55,65 55,41" fill="none" stroke="#00dc82" stroke-width="5"/>
+                            <circle cx="50" cy="15" r="5" fill="#00dc82"/>
+                            <circle cx="75" cy="30" r="5" fill="#ffffff"/>
+                            <circle cx="75" cy="60" r="5" fill="#00dc82"/>
+                            <circle cx="50" cy="75" r="5" fill="#ffffff"/>
+                            <circle cx="25" cy="60" r="5" fill="#00dc82"/>
+                            <circle cx="25" cy="30" r="5" fill="#ffffff"/>
+                            <circle cx="95" cy="41" r="4" fill="#00dc82"/>
+                            <circle cx="95" cy="65" r="4" fill="#00dc82"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 id="headerCompany" contenteditable="true" onblur="saveState()" class="text-3xl font-black tracking-widest text-white uppercase font-sans">
+                            MONOATOM <span class="text-monoatom-emerald font-light">LABS</span>
+                        </h1>
+                        <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-widest block -mt-1">ADVANCED GRAPHENE SOLUTIONS</span>
+                    </div>
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-monoatom-border text-[11px] font-medium text-slate-300">
+                    <span class="w-1.5 h-1.5 rounded-full bg-monoatom-emerald"></span>
+                    <span id="headerTagline" contenteditable="true" onblur="saveState()">UNLOCKING TRILLION DOLLAR ECONOMY</span>
+                </div>
+
+                <h2 id="headerTitle" contenteditable="true" onblur="saveState()" class="text-xl md:text-2xl font-bold text-slate-100 tracking-tight pt-1">
+                    From Atomic Scale to Industrial Reality · Executive Dashboard
+                </h2>
+                <p id="headerSubtitle" contenteditable="true" onblur="saveState()" class="text-xs text-monoatom-muted leading-relaxed">
+                    Engineering Graphene at the atomic level | Commercial Pipeline, BD Operations & Multi-Departmental KPI Intelligence
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto z-10">
+                <div class="grid grid-cols-2 sm:flex sm:flex-col gap-2">
+                    <span class="text-[10px] font-medium text-slate-300 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-monoatom-border text-center flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-industry text-monoatom-emerald text-[10px]"></i> Ton-Scale Plant
+                    </span>
+                    <span class="text-[10px] font-medium text-slate-300 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-monoatom-border text-center flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-certificate text-monoatom-cyan text-[10px]"></i> NABL Validated
+                    </span>
+                </div>
+
+                <div class="emerald-border-glow bg-slate-950/90 px-6 py-4 rounded-2xl text-center flex flex-col justify-center min-w-[150px]">
+                    <span class="text-[9px] font-bold text-monoatom-emerald uppercase tracking-widest">Reporting Period</span>
+                    <div id="headerDate" contenteditable="true" onblur="saveState()" class="text-base font-black tracking-widest text-white uppercase mt-0.5">
+                        JULY 2026
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Executive Metrics Banner -->
+        <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+            <div class="tech-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-monoatom-emerald to-teal-500 opacity-80"></div>
+                <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider">Total KPI Tasks</span>
+                <div id="metric-total-kpi" contenteditable="true" onblur="updateMetricsFromDOM()" class="text-3xl font-black text-white my-2 font-mono">95</div>
+                <span class="text-[11px] text-monoatom-muted flex items-center justify-between">
+                    <span>Workload Items</span>
+                    <i class="fa-solid fa-tasks text-monoatom-emerald/50"></i>
+                </span>
+            </div>
+
+            <div class="tech-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-monoatom-emerald to-emerald-400 opacity-80"></div>
+                <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider">KPI Completion</span>
+                <div id="metric-kpi-completion" contenteditable="true" onblur="updateMetricsFromDOM()" class="text-3xl font-black text-monoatom-emerald my-2 font-mono">76%</div>
+                <span class="text-[11px] text-monoatom-muted flex items-center justify-between">
+                    <span>Target Execution</span>
+                    <i class="fa-solid fa-chart-line text-monoatom-emerald/50"></i>
+                </span>
+            </div>
+
+            <div class="tech-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-monoatom-cyan to-blue-500 opacity-80"></div>
+                <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider">BD Pipeline Value</span>
+                <div id="metric-pipeline-value" contenteditable="true" onblur="updateMetricsFromDOM()" class="text-2xl font-black text-white my-2 font-mono">₹18.5 Cr</div>
+                <span class="text-[11px] text-monoatom-muted flex items-center justify-between">
+                    <span>45 Commercial Deals</span>
+                    <i class="fa-solid fa-indian-rupee-sign text-monoatom-cyan/50"></i>
+                </span>
+            </div>
+
+            <div class="tech-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-cyan-500 opacity-80"></div>
+                <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider">Active Trials/Pilots</span>
+                <div id="metric-active-opps" contenteditable="true" onblur="updateMetricsFromDOM()" class="text-3xl font-black text-white my-2 font-mono">31</div>
+                <span class="text-[11px] text-monoatom-muted flex items-center justify-between">
+                    <span>Industrial Testing</span>
+                    <i class="fa-solid fa-vial text-teal-400/50"></i>
+                </span>
+            </div>
+
+            <div class="tech-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-500 to-amber-500 opacity-80"></div>
+                <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider">Overdue Items</span>
+                <div id="metric-overdue" contenteditable="true" onblur="updateMetricsFromDOM()" class="text-3xl font-black text-rose-400 my-2 font-mono">12</div>
+                <span class="text-[11px] text-monoatom-muted flex items-center justify-between">
+                    <span>Requires Attention</span>
+                    <i class="fa-solid fa-triangle-exclamation text-rose-500/50"></i>
+                </span>
+            </div>
+
+            <div class="tech-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-monoatom-emerald to-teal-300 opacity-80"></div>
+                <span class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider">Closed Won (YTD)</span>
+                <div id="metric-closed" contenteditable="true" onblur="updateMetricsFromDOM()" class="text-2xl font-black text-monoatom-emerald my-2 font-mono">₹3.2 Cr</div>
+                <span class="text-[11px] text-monoatom-muted flex items-center justify-between">
+                    <span>3 Key Supply Agreements</span>
+                    <i class="fa-solid fa-trophy text-monoatom-emerald/50"></i>
+                </span>
+            </div>
+        </section>
+
+        <!-- MAIN VIEW CONTENT CONTAINERS -->
+
+        <!-- VIEW 1: EXECUTIVE OVERVIEW -->
+        <div id="view-overview" class="space-y-5">
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <!-- Column 1: KPI Doughnut & Health (4 Cols) -->
+                <div class="lg:col-span-4 tech-card p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-monoatom-emerald flex items-center gap-2">
+                                    <i class="fa-solid fa-chart-pie"></i> KPI Operational Health
+                                </h3>
+                                <p class="text-[11px] text-monoatom-muted">Operational task breakdown & execution targets</p>
+                            </div>
+                            <button onclick="openKPIModal()" class="text-xs text-monoatom-emerald hover:underline font-semibold">
+                                <i class="fa-solid fa-sliders"></i> Adjust
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center my-2">
+                            <div class="sm:col-span-5 relative flex justify-center items-center h-36">
+                                <canvas id="kpiDoughnutChart" class="max-h-36 max-w-36"></canvas>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                    <span id="donutPctText" class="text-2xl font-black text-monoatom-emerald font-mono">76%</span>
+                                    <span class="text-[9px] text-monoatom-muted uppercase tracking-widest font-bold">Executed</span>
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-7 space-y-2 text-xs">
+                                <div class="flex justify-between items-center pb-1 border-b border-monoatom-border/60">
+                                    <span class="flex items-center gap-1.5 text-slate-300"><i class="fa-solid fa-circle text-[8px] text-monoatom-cyan"></i> In Progress</span>
+                                    <span id="kpi-val-inprogress" contenteditable="true" onblur="updateKpiBreakdown()" class="font-bold font-mono text-slate-100">43</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-1 border-b border-monoatom-border/60">
+                                    <span class="flex items-center gap-1.5 text-slate-300"><i class="fa-solid fa-circle text-[8px] text-amber-400"></i> Pending</span>
+                                    <span id="kpi-val-pending" contenteditable="true" onblur="updateKpiBreakdown()" class="font-bold font-mono text-slate-100">27</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-1 border-b border-monoatom-border/60">
+                                    <span class="flex items-center gap-1.5 text-slate-300"><i class="fa-solid fa-circle text-[8px] text-monoatom-emerald"></i> Done</span>
+                                    <span id="kpi-val-done" contenteditable="true" onblur="updateKpiBreakdown()" class="font-bold font-mono text-slate-100">22</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-1 border-b border-monoatom-border/60">
+                                    <span class="flex items-center gap-1.5 text-slate-300"><i class="fa-solid fa-circle text-[8px] text-slate-500"></i> Unspecified</span>
+                                    <span id="kpi-val-unspecified" contenteditable="true" onblur="updateKpiBreakdown()" class="font-bold font-mono text-slate-100">2</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-1">
+                                    <span class="flex items-center gap-1.5 text-slate-300"><i class="fa-solid fa-circle text-[8px] text-rose-500"></i> Cancelled</span>
+                                    <span id="kpi-val-cancelled" contenteditable="true" onblur="updateKpiBreakdown()" class="font-bold font-mono text-slate-100">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 pt-2 border-t border-monoatom-border/60 flex justify-between items-center text-[10px] text-monoatom-muted">
+                        <span>Target Efficiency Benchmark: 85%</span>
+                        <span class="text-monoatom-emerald font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-atom text-monoatom-emerald"></i> Ton-Scale Operations
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Commercial Deployment Funnel (5 Cols) -->
+                <div class="lg:col-span-5 tech-card p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-monoatom-emerald flex items-center gap-2">
+                                    <i class="fa-solid fa-filter"></i> BD Commercial Funnel Stages
+                                </h3>
+                                <p class="text-[11px] text-monoatom-muted">Graphene industrial solutions progression stages</p>
+                            </div>
+                            <button onclick="openFunnelModal()" class="text-xs text-monoatom-emerald hover:underline font-semibold">
+                                <i class="fa-solid fa-pen"></i> Edit Stages
+                            </button>
+                        </div>
+
+                        <div id="funnelContainer" class="space-y-2 mt-2">
+                            <!-- Funnel rendered via JS -->
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-monoatom-border/60 flex justify-between items-center">
+                        <span class="text-[11px] text-monoatom-muted">Lead-to-Commercial Win Rate</span>
+                        <span class="text-[11px] font-bold text-monoatom-emerald bg-slate-950 px-3 py-1 rounded-full border border-monoatom-emerald/30">
+                            <span id="leadToCloseVal" contenteditable="true" onblur="saveState()">18.5%</span> Conv
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Column 3: Operational Alerts & Matrix (3 Cols) -->
+                <div class="lg:col-span-3 tech-card p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-bell text-monoatom-emerald"></i> BD & Operational Alerts
+                        </h3>
+
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950/80 border border-monoatom-border">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></div>
+                                    <span class="text-xs font-medium text-slate-200">STALLED / OVERDUE</span>
+                                </div>
+                                <span id="alert-overdue" contenteditable="true" onblur="saveState()" class="text-sm font-black font-mono text-rose-400">12</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950/80 border border-monoatom-border">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-monoatom-emerald"></div>
+                                    <span class="text-xs font-medium text-slate-200">ACTIVE FOLLOW-UPS</span>
+                                </div>
+                                <span id="alert-followups" contenteditable="true" onblur="saveState()" class="text-sm font-black font-mono text-monoatom-emerald">31</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950/80 border border-monoatom-border">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-monoatom-cyan"></div>
+                                    <span class="text-xs font-medium text-slate-200">UNASSIGNED LEADS</span>
+                                </div>
+                                <span id="alert-unassigned" contenteditable="true" onblur="saveState()" class="text-sm font-black font-mono text-monoatom-cyan">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-monoatom-border">
+                        <div class="text-[10px] font-bold text-monoatom-muted uppercase tracking-wider mb-2">Executive Portfolio Matrix</div>
+                        <div class="grid grid-cols-3 gap-1 bg-slate-950/90 p-2 rounded-xl text-center border border-monoatom-border">
+                            <div>
+                                <div class="text-[10px] text-monoatom-muted">KPI Exec</div>
+                                <div id="port-exec" contenteditable="true" onblur="saveState()" class="text-xs font-black text-monoatom-emerald font-mono">76%</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-monoatom-muted">Pipe Value</div>
+                                <div id="port-pipe" contenteditable="true" onblur="saveState()" class="text-xs font-black text-slate-200 font-mono">₹18.5Cr</div>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-monoatom-muted">Closed Won</div>
+                                <div id="port-closures" contenteditable="true" onblur="saveState()" class="text-xs font-black text-monoatom-teal font-mono">₹3.2Cr</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lower Section: Team Allocation & Quick Opportunity Summary -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <div class="lg:col-span-4 tech-card p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-monoatom-emerald flex items-center gap-2">
+                                    <i class="fa-solid fa-users"></i> Owner KPI Workload Allocation
+                                </h3>
+                                <p class="text-[11px] text-monoatom-muted">KPI completion by lead personnel</p>
+                            </div>
+                            <button onclick="openOwnerModal()" class="text-xs text-monoatom-emerald hover:underline font-semibold">
+                                <i class="fa-solid fa-user-gear"></i> Manage
+                            </button>
+                        </div>
+
+                        <div id="ownersContainer" class="space-y-3.5 my-2">
+                            <!-- Rendered via JS -->
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-2 border-t border-monoatom-border/60 flex justify-between items-center text-[10px] text-monoatom-muted">
+                        <span>Active BD & Tech Leads</span>
+                        <span class="text-monoatom-emerald font-semibold">100% Accountable</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 tech-card p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200 flex items-center gap-2">
+                                    <i class="fa-solid fa-list-check text-monoatom-emerald"></i> Priority Commercial Deals & Action Items
+                                </h3>
+                                <p id="tableCountText" class="text-[11px] text-monoatom-muted">Active industrial opportunities</p>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <div class="relative">
+                                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-monoatom-muted"></i>
+                                    <input type="text" id="searchInput" oninput="renderTable()" placeholder="Search client, owner or stage..." class="bg-slate-950 border border-monoatom-border rounded-xl pl-8 pr-8 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-monoatom-emerald w-48 sm:w-64">
+                                    <button onclick="clearSearch()" title="Clear search" class="absolute right-2 top-2 text-monoatom-muted hover:text-white text-xs icon-btn"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <button onclick="openAddActionModal()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400 transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-plus"></i> <span class="hidden md:inline">New Deal</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="overflow-x-auto rounded-xl border border-monoatom-border max-h-[340px]">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="text-slate-400 uppercase text-[10px] tracking-wider border-b border-monoatom-border">
+                                        <th class="p-3">Client / Project Account</th>
+                                        <th class="p-3">Sector</th>
+                                        <th class="p-3">Stage</th>
+                                        <th class="p-3">Est. Value</th>
+                                        <th class="p-3">Lead Owner</th>
+                                        <th class="p-3">Next Actionable Milestone</th>
+                                        <th class="p-3 text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="actionsTableBody" class="divide-y divide-monoatom-border/50">
+                                    <!-- Rendered via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW 2: DEDICATED BUSINESS DEV & SALES PIPELINE -->
+        <div id="view-bd" class="space-y-5 hidden">
+            <!-- BD Metrics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border flex flex-col justify-between">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Total Qualified Pipeline</span>
+                    <div class="text-2xl font-black text-white font-mono my-1">₹18,50,00,000</div>
+                    <span class="text-[11px] text-monoatom-emerald"><i class="fa-solid fa-arrow-up-right"></i> Across 45 Active Accounts</span>
+                </div>
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border flex flex-col justify-between">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Weighted Forecast (60 Days)</span>
+                    <div class="text-2xl font-black text-monoatom-emerald font-mono my-1">₹7,20,00,000</div>
+                    <span class="text-[11px] text-slate-400">High Probability Trials & Proposals</span>
+                </div>
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border flex flex-col justify-between">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Avg Sales Cycle</span>
+                    <div class="text-2xl font-black text-monoatom-cyan font-mono my-1">45 Days</div>
+                    <span class="text-[11px] text-slate-400">Lab Pilot to Commercial Contract</span>
+                </div>
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border flex flex-col justify-between">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Primary Revenue Sector</span>
+                    <div class="text-2xl font-black text-amber-400 font-mono my-1">Graphacrete</div>
+                    <span class="text-[11px] text-slate-400">38% of total commercial pipeline</span>
+                </div>
+            </div>
+
+            <!-- BD Sector Breakdown Chart & Funnel Matrix -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <div class="lg:col-span-6 tech-card p-5 rounded-2xl">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-monoatom-emerald mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-bar"></i> Pipeline Value by Industrial Sector (₹ Lakhs)
+                    </h3>
+                    <div class="h-60 relative">
+                        <canvas id="bdSectorChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 tech-card p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-sitemap text-monoatom-emerald"></i> Stage-wise Commercial Value
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-slate-950 border border-monoatom-border text-xs">
+                                <span class="font-semibold text-slate-300">1. Discovery & Initial Sampling</span>
+                                <span class="font-bold text-monoatom-cyan font-mono">12 Deals — ₹2.1 Cr</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-slate-950 border border-monoatom-border text-xs">
+                                <span class="font-semibold text-slate-300">2. Lab Testing & Spec Optimization</span>
+                                <span class="font-bold text-amber-400 font-mono">14 Deals — ₹4.8 Cr</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-slate-950 border border-monoatom-border text-xs">
+                                <span class="font-semibold text-slate-300">3. On-Site Industrial Trial / Pilot</span>
+                                <span class="font-bold text-teal-300 font-mono">11 Deals — ₹5.2 Cr</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-slate-950 border border-monoatom-border text-xs">
+                                <span class="font-semibold text-slate-300">4. Final Commercial Proposal / Negotiation</span>
+                                <span class="font-bold text-monoatom-emerald font-mono">8 Deals — ₹6.4 Cr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-monoatom-muted pt-3 border-t border-monoatom-border text-right">
+                        Last synced with ERP: Today 08:30 AM
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 3: DEDICATED KPI TASK TRACKER -->
+        <div id="view-kpis" class="space-y-5 hidden">
+            <!-- KPI Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Departmental Operations</span>
+                    <div class="text-2xl font-black text-white font-mono my-1">4 Functional Units</div>
+                    <span class="text-[11px] text-monoatom-emerald">BD, R&D, Plant Ops, QA/NABL</span>
+                </div>
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">KPI Health Index</span>
+                    <div class="text-2xl font-black text-monoatom-emerald font-mono my-1">82.4 / 100</div>
+                    <span class="text-[11px] text-slate-400">On-track for Q3 Targets</span>
+                </div>
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Completed Milestones</span>
+                    <div class="text-2xl font-black text-monoatom-cyan font-mono my-1">22 Completed</div>
+                    <span class="text-[11px] text-slate-400">Validated with proof documentation</span>
+                </div>
+                <div class="tech-card p-4 rounded-xl border border-monoatom-border">
+                    <span class="text-[10px] font-bold text-monoatom-muted uppercase">Critical Path Blockers</span>
+                    <div class="text-2xl font-black text-rose-400 font-mono my-1">3 Tasks</div>
+                    <span class="text-[11px] text-rose-400 font-medium">Requires Executive Action</span>
+                </div>
+            </div>
+
+            <!-- Departmental KPI List Table -->
+            <div class="tech-card p-5 rounded-2xl">
+                <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-monoatom-emerald flex items-center gap-2">
+                            <i class="fa-solid fa-list-check"></i> Master KPI Operational Task Tracker
+                        </h3>
+                        <p class="text-[11px] text-monoatom-muted">Cross-functional execution schedule and progress tracking</p>
+                    </div>
+
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <select id="kpiDeptFilter" onchange="renderKpiTable()" class="bg-slate-950 border border-monoatom-border rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-monoatom-emerald">
+                            <option value="ALL">All Departments</option>
+                            <option value="BD & Sales">BD & Sales</option>
+                            <option value="R&D / Product">R&D / Product</option>
+                            <option value="Plant Operations">Plant Operations</option>
+                            <option value="QA & Compliance">QA & Compliance</option>
+                        </select>
+                        <select id="kpiStatusFilter" onchange="renderKpiTable()" class="bg-slate-950 border border-monoatom-border rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-monoatom-emerald">
+                            <option value="ALL">All Statuses</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Done">Done</option>
+                        </select>
+                        <button onclick="openAddKpiModal()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden md:inline">Add KPI</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-monoatom-border max-h-[450px]">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="text-slate-400 uppercase text-[10px] tracking-wider border-b border-monoatom-border">
+                                <th class="p-3">Department</th>
+                                <th class="p-3">KPI Objective / Milestone</th>
+                                <th class="p-3">Owner</th>
+                                <th class="p-3">Priority</th>
+                                <th class="p-3">Progress</th>
+                                <th class="p-3">Target Date</th>
+                                <th class="p-3 text-center">Status</th>
+                                <th class="p-3 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kpiMasterTableBody" class="divide-y divide-monoatom-border/50">
+                            <!-- Rendered via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toastContainer" data-html2canvas-ignore="true" class="fixed bottom-4 right-4 z-[100] flex flex-col gap-2 items-end pointer-events-none"></div>
+
+    <!-- MODAL 1: Action / Opportunity Modal -->
+    <div id="actionModal" onclick="if(event.target===this) closeModal('actionModal')" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-panel bg-monoatom-card border border-monoatom-border rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('actionModal')" class="absolute top-4 right-4 text-monoatom-muted hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 id="actionModalTitle" class="text-sm font-bold uppercase tracking-wider text-monoatom-emerald mb-4">Add Commercial Opportunity</h3>
+
+            <form id="actionForm" onsubmit="saveActionItem(event)" class="space-y-4">
+                <input type="hidden" id="actionEditId" value="">
+
+                <div>
+                    <label class="block text-xs text-monoatom-muted mb-1">Account / Industrial Client Name</label>
+                    <input type="text" id="inputAccount" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Sector / Product Line</label>
+                        <select id="inputSector" class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                            <option value="Graphacrete">Graphacrete (Concrete)</option>
+                            <option value="Graffisol">Graffisol (Solar)</option>
+                            <option value="Ceraphene">Ceraphene (Composites)</option>
+                            <option value="Polymers">HD-G-PE Polymers</option>
+                            <option value="Energy">Voltaphene Battery</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Estimated Deal Value</label>
+                        <input type="text" id="inputValue" placeholder="e.g. ₹50 Lakhs" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Stage</label>
+                        <select id="inputStage" class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                            <option value="Proposal">Proposal</option>
+                            <option value="Pilot">Pilot Testing</option>
+                            <option value="Negotiation">Negotiation</option>
+                            <option value="Active">Active Trial</option>
+                            <option value="Qualified">Qualified Lead</option>
+                            <option value="Discovery">Discovery</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Lead Owner</label>
+                        <input type="text" id="inputOwner" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-monoatom-muted mb-1">Next Actionable Step / Milestone</label>
+                    <textarea id="inputNextStep" rows="3" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none"></textarea>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeModal('actionModal')" class="px-4 py-2 text-xs rounded-xl bg-slate-900 text-slate-300 hover:bg-monoatom-border">Cancel</button>
+                    <button type="submit" class="px-4 py-2 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400">Save Opportunity</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Manage Funnel Stages -->
+    <div id="funnelModal" onclick="if(event.target===this) closeModal('funnelModal')" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-panel bg-monoatom-card border border-monoatom-border rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('funnelModal')" class="absolute top-4 right-4 text-monoatom-muted hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-monoatom-emerald mb-4">Edit Pipeline Funnel Stages</h3>
+
+            <div id="funnelModalList" class="space-y-3 max-h-[300px] overflow-y-auto pr-1">
+                <!-- Dynamic stage inputs -->
+            </div>
+
+            <div class="flex justify-between items-center pt-4 border-t border-monoatom-border mt-4">
+                <button onclick="addFunnelStage()" class="text-xs text-monoatom-emerald font-semibold hover:underline"><i class="fa-solid fa-plus"></i> Add Stage</button>
+                <div class="flex gap-2">
+                    <button onclick="closeModal('funnelModal')" class="px-3 py-1.5 text-xs rounded-xl bg-slate-900 text-slate-300">Cancel</button>
+                    <button onclick="saveFunnelFromModal()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400">Apply Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Manage Owner KPI Allocations -->
+    <div id="ownerModal" onclick="if(event.target===this) closeModal('ownerModal')" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-panel bg-monoatom-card border border-monoatom-border rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('ownerModal')" class="absolute top-4 right-4 text-monoatom-muted hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-monoatom-emerald mb-4">Manage Team Workload Allocations</h3>
+
+            <div id="ownerModalList" class="space-y-3 max-h-[300px] overflow-y-auto pr-1">
+                <!-- Dynamic owner list -->
+            </div>
+
+            <div class="flex justify-between items-center pt-4 border-t border-monoatom-border mt-4">
+                <button onclick="addOwnerRow()" class="text-xs text-monoatom-emerald font-semibold hover:underline"><i class="fa-solid fa-plus"></i> Add Lead Owner</button>
+                <div class="flex gap-2">
+                    <button onclick="closeModal('ownerModal')" class="px-3 py-1.5 text-xs rounded-xl bg-slate-900 text-slate-300">Cancel</button>
+                    <button onclick="saveOwnersFromModal()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400">Save Team</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: KPI Operational Health Adjuster -->
+    <div id="kpiModal" onclick="if(event.target===this) closeModal('kpiModal')" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-panel bg-monoatom-card border border-monoatom-border rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('kpiModal')" class="absolute top-4 right-4 text-monoatom-muted hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-monoatom-emerald mb-4">Adjust KPI Operational Health Metrics</h3>
+
+            <form id="kpiForm" onsubmit="saveKPIFromModal(event)" class="space-y-3.5">
+                <div class="grid grid-cols-2 gap-3 pb-3 border-b border-monoatom-border">
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Total KPI Tasks</label>
+                        <input type="text" id="kpiModalTotal" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Target Completion %</label>
+                        <input type="text" id="kpiModalCompletion" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                </div>
+
+                <div class="text-[11px] font-bold text-monoatom-muted uppercase tracking-wider">Breakdown Status Counts</div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] text-monoatom-cyan mb-1"><i class="fa-solid fa-circle text-[8px] mr-1"></i> In Progress</label>
+                        <input type="number" id="kpiModalInProgress" min="0" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-amber-400 mb-1"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Pending</label>
+                        <input type="number" id="kpiModalPending" min="0" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-monoatom-emerald mb-1"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Done</label>
+                        <input type="number" id="kpiModalDone" min="0" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-1"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Unspecified</label>
+                        <input type="number" id="kpiModalUnspecified" min="0" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-[11px] text-rose-400 mb-1"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Cancelled</label>
+                        <input type="number" id="kpiModalCancelled" min="0" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-3 border-t border-monoatom-border">
+                    <button type="button" onclick="closeModal('kpiModal')" class="px-3 py-1.5 text-xs rounded-xl bg-slate-900 text-slate-300 hover:bg-monoatom-border">Cancel</button>
+                    <button type="submit" class="px-4 py-1.5 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400">Save Metrics</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 5: Add / Edit KPI Task -->
+    <div id="kpiTaskModal" onclick="if(event.target===this) closeModal('kpiTaskModal')" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-panel bg-monoatom-card border border-monoatom-border rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('kpiTaskModal')" class="absolute top-4 right-4 text-monoatom-muted hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 id="kpiTaskModalTitle" class="text-sm font-bold uppercase tracking-wider text-monoatom-emerald mb-4">Add KPI Task</h3>
+
+            <form id="kpiTaskForm" onsubmit="saveKpiTask(event)" class="space-y-4">
+                <input type="hidden" id="kpiTaskEditId" value="">
+
+                <div>
+                    <label class="block text-xs text-monoatom-muted mb-1">KPI Objective / Milestone</label>
+                    <input type="text" id="kpiTaskObjective" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Department</label>
+                        <select id="kpiTaskDept" class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                            <option value="BD & Sales">BD & Sales</option>
+                            <option value="R&D / Product">R&D / Product</option>
+                            <option value="Plant Operations">Plant Operations</option>
+                            <option value="QA & Compliance">QA & Compliance</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Owner</label>
+                        <input type="text" id="kpiTaskOwner" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Priority</label>
+                        <select id="kpiTaskPriority" class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Progress %</label>
+                        <input type="number" id="kpiTaskProgress" min="0" max="100" value="0" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-monoatom-muted mb-1">Status</label>
+                        <select id="kpiTaskStatus" class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none">
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-monoatom-muted mb-1">Target Date</label>
+                    <input type="text" id="kpiTaskTargetDate" placeholder="e.g. 15 Aug 2026" required class="w-full bg-slate-950 border border-monoatom-border rounded-xl p-2.5 text-xs text-slate-100 focus:border-monoatom-emerald focus:outline-none font-mono">
+                </div>
+
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeModal('kpiTaskModal')" class="px-4 py-2 text-xs rounded-xl bg-slate-900 text-slate-300 hover:bg-monoatom-border">Cancel</button>
+                    <button type="submit" class="px-4 py-2 text-xs font-bold rounded-xl bg-monoatom-emerald text-black hover:bg-emerald-400">Save KPI Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const defaultData = {
+            editMode: false,
+            activeTab: 'overview',
+            header: {
+                company: "MONOATOMLABS",
+                title: "From Atomic Scale to Industrial Reality · Executive Dashboard",
+                subtitle: "Engineering Graphene at the atomic level | Commercial Pipeline, BD Operations & Multi-Departmental KPI Intelligence",
+                date: "JULY 2026"
+            },
+            metrics: {
+                totalKpi: "95",
+                kpiCompletion: "76%",
+                pipelineValue: "₹18.5 Cr",
+                activeOpps: "31",
+                overdue: "12",
+                closed: "₹3.2 Cr"
+            },
+            kpiBreakdown: {
+                inProgress: 43,
+                pending: 27,
+                done: 22,
+                unspecified: 2,
+                cancelled: 1
+            },
+            funnel: [
+                { stage: "In Progress / Sampling", count: 22 },
+                { stage: "Lab Testing & Validation", count: 8 },
+                { stage: "On-Site Field Trial", count: 7 },
+                { stage: "Done / Commercial Supply", count: 3 },
+                { stage: "Pilot Dosing Run", count: 1 },
+                { stage: "Vendor Evaluation", count: 1 }
+            ],
+            alerts: {
+                overdue: "12",
+                followups: "31",
+                unassigned: "0",
+                execPct: "76%",
+                pipeline: "₹18.5Cr",
+                closures: "₹3.2Cr"
+            },
+            owners: [
+                { name: "Sushanth (Infrastructure Lead)", current: 18, total: 25, pct: 72 },
+                { name: "Rahul (Solar & Coatings)", current: 14, total: 20, pct: 70 },
+                { name: "Ankit (Polymers & Additives)", current: 12, total: 15, pct: 80 },
+                { name: "Dhaval (Plant Operations)", current: 15, total: 18, pct: 83 },
+                { name: "Unassigned Tasks", current: 22, total: 95, pct: 23 }
+            ],
+            actions: [
+                { id: "1", account: "Graphacrete — AMTZ Infrastructure", sector: "Graphacrete", value: "₹4.5 Cr", stage: "Proposal", owner: "Sushanth", nextStep: "NABL certified M30+Graphacrete≈M50 pilot protocol proposal submitted" },
+                { id: "2", account: "Graffisol — Solar Module Coating", sector: "Graffisol", value: "₹2.8 Cr", stage: "Pilot", owner: "Rahul", nextStep: "18-month payback ROI review and site light transmission trial" },
+                { id: "3", account: "Ceraphene — Automotive Composite", sector: "Ceraphene", value: "₹1.5 Cr", stage: "Negotiation", owner: "Sushanth", nextStep: "Finalize high-heat thermal dissipation spec sheet and pricing agreement" },
+                { id: "4", account: "HD-G-PE — Industrial Polymer Additive", sector: "Polymers", value: "₹90 Lakhs", stage: "Qualified", owner: "Ankit", nextStep: "0.05% dosing optimization test at client manufacturing plant" },
+                { id: "5", account: "Graphacrete — Concrete Batching Pilot", sector: "Graphacrete", value: "₹2.2 Cr", stage: "Active", owner: "Dhaval", nextStep: "Review 28-day cube test results showing 18% compressive strength gain" },
+                { id: "6", account: "Graffisol — Solar Farm Demo", sector: "Graffisol", value: "₹1.2 Cr", stage: "Follow-up", owner: "Aneeya", nextStep: "Confirm module count and dust-repellent coating schedule" },
+                { id: "7", account: "Graphene Fuel Additive Fleet Trial", sector: "Polymers", value: "₹80 Lakhs", stage: "Active", owner: "Dilip", nextStep: "Collect baseline fleet mileage vs additive dosage performance data" },
+                { id: "8", account: "Voltaphene Battery Anode Partner", sector: "Energy", value: "₹3.5 Cr", stage: "Discovery", owner: "Ujjawal", nextStep: "Align conductivity spec sheet and battery cell cycle retention plan" }
+            ],
+            kpisList: [
+                { id: "k1", dept: "BD & Sales", objective: "Close ₹5 Cr Graphacrete supply agreements", owner: "Sushanth", priority: "High", progress: 75, targetDate: "15 Aug 2026", status: "In Progress" },
+                { id: "k2", dept: "BD & Sales", objective: "Onboard 3 top-tier Solar EPC partners for Graffisol", owner: "Rahul", priority: "High", progress: 60, targetDate: "30 Aug 2026", status: "In Progress" },
+                { id: "k3", dept: "R&D / Product", objective: "Achieve 99.8% purity single-layer graphene exfoliation yield", owner: "Dr. Roy", priority: "Critical", progress: 90, targetDate: "10 Aug 2026", status: "In Progress" },
+                { id: "k4", dept: "R&D / Product", objective: "Formulate dispersible Graphene-Polymer masterbatch v2.1", owner: "Ankit", priority: "Medium", progress: 100, targetDate: "01 Jul 2026", status: "Done" },
+                { id: "k5", dept: "Plant Operations", objective: "Ramp up Ton-Scale Reactor Line B to full operational capacity", owner: "Dhaval", priority: "Critical", progress: 85, targetDate: "20 Aug 2026", status: "In Progress" },
+                { id: "k6", dept: "Plant Operations", objective: "Implement ISO 9001 quality audit checklist across plant", owner: "Dhaval", priority: "Medium", progress: 40, targetDate: "15 Sep 2026", status: "Pending" },
+                { id: "k7", dept: "QA & Compliance", objective: "Obtain NABL structural certification for M50 Graphacrete", owner: "Kavita", priority: "High", progress: 95, targetDate: "05 Aug 2026", status: "In Progress" },
+                { id: "k8", dept: "QA & Compliance", objective: "Publish ASTM G154 accelerated weathering report for Graffisol", owner: "Kavita", priority: "Low", progress: 100, targetDate: "25 Jun 2026", status: "Done" }
+            ]
+        };
+
+        let appData = loadStoredData();
+        let kpiChart = null;
+        let bdSectorChart = null;
+
+        function loadStoredData() {
+            try {
+                const stored = JSON.parse(localStorage.getItem('monoatom_dashboard_data_v4'));
+                return stored || JSON.parse(JSON.stringify(defaultData));
+            } catch (e) {
+                console.warn('Stored dashboard data was corrupt, falling back to defaults.', e);
+                return JSON.parse(JSON.stringify(defaultData));
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                initCharts();
+            } catch (e) {
+                console.warn('Chart.js failed to load — dashboard will run without charts.', e);
+            }
+            renderAll();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ['actionModal', 'funnelModal', 'ownerModal', 'kpiModal', 'kpiTaskModal'].forEach(closeModal);
+            }
+        });
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str == null ? '' : String(str);
+            return div.innerHTML;
+        }
+
+        function showToast(message, type) {
+            type = type || 'success';
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const styles = {
+                success: 'border-monoatom-emerald/40 text-monoatom-emerald',
+                danger: 'border-rose-500/40 text-rose-400',
+                info: 'border-monoatom-cyan/40 text-monoatom-cyan'
+            };
+            const icons = { success: 'fa-circle-check', danger: 'fa-trash-can', info: 'fa-circle-info' };
+            const toast = document.createElement('div');
+            toast.className = `toast-item pointer-events-auto flex items-center gap-2.5 bg-monoatom-card border ${styles[type] || styles.success} px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold backdrop-blur-md`;
+            toast.innerHTML = `<i class="fa-solid ${icons[type] || icons.success}"></i><span>${escapeHtml(message)}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('toast-out');
+                setTimeout(() => toast.remove(), 260);
+            }, 2400);
+        }
+
+        function switchTab(tabName) {
+            appData.activeTab = tabName;
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            const mainBtn = document.getElementById(`tabBtn-${tabName}`);
+            if (mainBtn) mainBtn.classList.add('active');
+
+            const mobBtn = document.getElementById(`mobileTabBtn-${tabName}`);
+            if (mobBtn) mobBtn.classList.add('active');
+
+            document.getElementById('view-overview').classList.add('hidden');
+            document.getElementById('view-bd').classList.add('hidden');
+            document.getElementById('view-kpis').classList.add('hidden');
+
+            const activeView = document.getElementById(`view-${tabName}`);
+            if (activeView) activeView.classList.remove('hidden');
+
+            saveState();
+        }
+
+        function saveState() {
+            const getVal = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.innerText.trim() : '';
+            };
+
+            appData.header.company = getVal('headerCompany');
+            appData.header.title = getVal('headerTitle');
+            appData.header.subtitle = getVal('headerSubtitle');
+            appData.header.date = getVal('headerDate');
+
+            appData.alerts.overdue = getVal('alert-overdue');
+            appData.alerts.followups = getVal('alert-followups');
+            appData.alerts.unassigned = getVal('alert-unassigned');
+            appData.alerts.execPct = getVal('port-exec');
+            appData.alerts.pipeline = getVal('port-pipe');
+            appData.alerts.closures = getVal('port-closures');
+
+            localStorage.setItem('monoatom_dashboard_data_v4', JSON.stringify(appData));
+
+            const indicator = document.getElementById('saveIndicator');
+            if (indicator) {
+                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                indicator.innerHTML = `<i class="fa-solid fa-cloud-arrow-up text-monoatom-emerald"></i> Saved ${time}`;
+            }
+        }
+
+        function renderAll() {
+            const setVal = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.innerText = val || '';
+            };
+
+            setVal('headerCompany', appData.header.company);
+            setVal('headerTitle', appData.header.title);
+            setVal('headerSubtitle', appData.header.subtitle);
+            setVal('headerDate', appData.header.date);
+
+            setVal('metric-total-kpi', appData.metrics.totalKpi);
+            setVal('metric-kpi-completion', appData.metrics.kpiCompletion);
+            setVal('metric-pipeline-value', appData.metrics.pipelineValue);
+            setVal('metric-active-opps', appData.metrics.activeOpps);
+            setVal('metric-overdue', appData.metrics.overdue);
+            setVal('metric-closed', appData.metrics.closed);
+
+            setVal('kpi-val-inprogress', appData.kpiBreakdown.inProgress);
+            setVal('kpi-val-pending', appData.kpiBreakdown.pending);
+            setVal('kpi-val-done', appData.kpiBreakdown.done);
+            setVal('kpi-val-unspecified', appData.kpiBreakdown.unspecified);
+            setVal('kpi-val-cancelled', appData.kpiBreakdown.cancelled);
+
+            updateDoughnutFromBreakdown();
+            renderFunnel();
+
+            setVal('alert-overdue', appData.alerts.overdue);
+            setVal('alert-followups', appData.alerts.followups);
+            setVal('alert-unassigned', appData.alerts.unassigned);
+            setVal('port-exec', appData.alerts.execPct);
+            setVal('port-pipe', appData.alerts.pipeline);
+            setVal('port-closures', appData.alerts.closures);
+
+            renderOwners();
+            renderTable();
+            renderKpiTable();
+
+            if (appData.activeTab) {
+                switchTab(appData.activeTab);
+            }
+
+            if (appData.editMode) {
+                document.body.classList.add('edit-mode-active');
+                setVal('editBtnText', "Disable Inline Edit");
+                setEditable(true);
+            } else {
+                document.body.classList.remove('edit-mode-active');
+                setVal('editBtnText', "Enable Inline Edit");
+                setEditable(false);
+            }
+        }
+
+        function setEditable(isEditable) {
+            const editables = document.querySelectorAll('[contenteditable]');
+            editables.forEach(el => {
+                el.setAttribute('contenteditable', isEditable ? 'true' : 'false');
+            });
+        }
+
+        function toggleEditMode() {
+            appData.editMode = !appData.editMode;
+            renderAll();
+            saveState();
+            showToast(appData.editMode ? 'Inline editing enabled' : 'Inline editing disabled', 'info');
+        }
+
+        function initCharts() {
+            // KPI Status Doughnut Chart
+            const canvasKpi = document.getElementById('kpiDoughnutChart');
+            if (canvasKpi) {
+                const ctx = canvasKpi.getContext('2d');
+                kpiChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['In Progress', 'Pending', 'Done', 'Unspecified', 'Cancelled'],
+                        datasets: [{
+                            data: [43, 27, 22, 2, 1],
+                            backgroundColor: ['#0ea5e9', '#f59e0b', '#00dc82', '#64748b', '#f43f5e'],
+                            borderWidth: 0,
+                            hoverOffset: 6
+                        }]
+                    },
+                    options: {
+                        cutout: '78%',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                enabled: true,
+                                backgroundColor: '#0b1019',
+                                borderColor: '#1a2436',
+                                borderWidth: 1,
+                                padding: 8,
+                                titleFont: { family: 'Inter', size: 11 },
+                                bodyFont: { family: 'Inter', size: 11 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // BD Sector Bar Chart
+            const canvasBd = document.getElementById('bdSectorChart');
+            if (canvasBd) {
+                const ctxBd = canvasBd.getContext('2d');
+                bdSectorChart = new Chart(ctxBd, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Graphacrete', 'Graffisol', 'Ceraphene', 'Polymers', 'Energy/Batteries'],
+                        datasets: [{
+                            label: 'Pipeline Value (₹ Lakhs)',
+                            data: [670, 400, 320, 260, 200],
+                            backgroundColor: ['#00dc82', '#0ea5e9', '#14b8a6', '#f59e0b', '#8b5cf6'],
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                grid: { color: '#1a2436' },
+                                ticks: { color: '#94a3b8', font: { family: 'Inter', size: 10 } }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#f8fafc', font: { family: 'Inter', size: 10, weight: 'bold' } }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function updateDoughnutFromBreakdown() {
+            const b = appData.kpiBreakdown;
+            const total = (b.inProgress || 0) + (b.pending || 0) + (b.done || 0) + (b.unspecified || 0) + (b.cancelled || 0);
+            const donePct = total > 0 ? Math.round((b.done / total) * 100) : 0;
+
+            if (kpiChart) {
+                kpiChart.data.datasets[0].data = [b.inProgress || 0, b.pending || 0, b.done || 0, b.unspecified || 0, b.cancelled || 0];
+                kpiChart.update();
+            }
+
+            const pctText = document.getElementById('donutPctText');
+            if (pctText) pctText.innerText = `${donePct}%`;
+        }
+
+        function updateKpiBreakdown() {
+            const clampNonNeg = (id) => Math.max(0, parseInt(document.getElementById(id)?.innerText) || 0);
+            appData.kpiBreakdown.inProgress = clampNonNeg('kpi-val-inprogress');
+            appData.kpiBreakdown.pending = clampNonNeg('kpi-val-pending');
+            appData.kpiBreakdown.done = clampNonNeg('kpi-val-done');
+            appData.kpiBreakdown.unspecified = clampNonNeg('kpi-val-unspecified');
+            appData.kpiBreakdown.cancelled = clampNonNeg('kpi-val-cancelled');
+
+            updateDoughnutFromBreakdown();
+            saveState();
+        }
+
+        function updateMetricsFromDOM() {
+            appData.metrics.totalKpi = document.getElementById('metric-total-kpi')?.innerText.trim() || "0";
+            appData.metrics.kpiCompletion = document.getElementById('metric-kpi-completion')?.innerText.trim() || "0%";
+            appData.metrics.pipelineValue = document.getElementById('metric-pipeline-value')?.innerText.trim() || "0";
+            appData.metrics.activeOpps = document.getElementById('metric-active-opps')?.innerText.trim() || "0";
+            appData.metrics.overdue = document.getElementById('metric-overdue')?.innerText.trim() || "0";
+            appData.metrics.closed = document.getElementById('metric-closed')?.innerText.trim() || "0";
+
+            saveState();
+        }
+
+        function renderFunnel() {
+            const container = document.getElementById('funnelContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (!appData.funnel.length) {
+                container.innerHTML = `<div class="text-xs text-monoatom-muted text-center py-6"><i class="fa-solid fa-filter-circle-xmark text-lg mb-1.5 block opacity-50"></i>No funnel stages configured</div>`;
+                return;
+            }
+
+            const maxCount = Math.max(...appData.funnel.map(f => f.count), 1);
+
+            appData.funnel.forEach((item) => {
+                const barPct = Math.max(Math.round((item.count / maxCount) * 100), 5);
+
+                const row = document.createElement('div');
+                row.className = 'flex items-center text-xs gap-3';
+                row.innerHTML = `
+                    <div class="w-40 truncate text-slate-300 font-medium" title="${escapeHtml(item.stage)}">${escapeHtml(item.stage)}</div>
+                    <div class="flex-grow bg-slate-950 h-5 rounded-lg overflow-hidden relative border border-monoatom-border/60">
+                        <div class="bg-gradient-to-r from-monoatom-emerald to-teal-400 h-full rounded-lg transition-all duration-300 flex items-center justify-end pr-2" style="width: ${barPct}%">
+                            <span class="text-[10px] font-black text-black font-mono">${item.count}</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function renderOwners() {
+            const container = document.getElementById('ownersContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (!appData.owners.length) {
+                container.innerHTML = `<div class="text-xs text-monoatom-muted text-center py-6"><i class="fa-solid fa-user-slash text-lg mb-1.5 block opacity-50"></i>No owners configured</div>`;
+                return;
+            }
+
+            appData.owners.forEach((o) => {
+                const row = document.createElement('div');
+                row.className = 'space-y-1.5';
+                row.innerHTML = `
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="font-semibold text-slate-200">${escapeHtml(o.name)}</span>
+                        <span class="text-monoatom-muted font-mono text-[11px]">${o.current}/${o.total} — <strong class="text-monoatom-emerald">${o.pct}%</strong></span>
+                    </div>
+                    <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-monoatom-border">
+                        <div class="bg-monoatom-emerald h-full rounded-full transition-all" style="width: ${Math.min(100, Math.max(0, o.pct))}%"></div>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('searchInput');
+            if (input) input.value = '';
+            renderTable();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('actionsTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            const searchInput = document.getElementById('searchInput');
+            const query = (searchInput ? searchInput.value : '').toLowerCase();
+
+            const filtered = appData.actions.filter(a =>
+                a.account.toLowerCase().includes(query) ||
+                a.owner.toLowerCase().includes(query) ||
+                a.stage.toLowerCase().includes(query) ||
+                (a.sector && a.sector.toLowerCase().includes(query)) ||
+                a.nextStep.toLowerCase().includes(query)
+            );
+
+            const countText = document.getElementById('tableCountText');
+            if (countText) {
+                countText.innerText = `Showing ${filtered.length} of ${appData.actions.length} active opportunities`;
+            }
+
+            if (!filtered.length) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-monoatom-muted text-xs"><i class="fa-solid fa-inbox text-2xl mb-2 block opacity-50"></i>No matching opportunities found</td></tr>`;
+                return;
+            }
+
+            filtered.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.className = `hover:bg-monoatom-card-hover transition-colors ${item.completed ? 'opacity-70' : ''}`;
+
+                let badgeStyle = 'bg-slate-900 text-slate-300 border-slate-700';
+                if (item.completed || item.stage.includes('Done')) badgeStyle = 'bg-emerald-950/90 text-monoatom-emerald border-emerald-500/60';
+                else if (item.stage.includes('Proposal')) badgeStyle = 'bg-emerald-950/80 text-emerald-300 border-emerald-700/60';
+                else if (item.stage.includes('Pilot')) badgeStyle = 'bg-cyan-950/80 text-cyan-300 border-cyan-700/60';
+                else if (item.stage.includes('Negotiation')) badgeStyle = 'bg-teal-950/80 text-teal-300 border-teal-700/60';
+                else if (item.stage.includes('Active')) badgeStyle = 'bg-emerald-950/90 text-emerald-300 border-emerald-500/60';
+
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-slate-100" contenteditable="${appData.editMode}" onblur="updateTableCell('${item.id}', 'account', this.innerText)">${escapeHtml(item.account)}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-900 text-monoatom-cyan border border-monoatom-border">${escapeHtml(item.sector || 'Graphacrete')}</span></td>
+                    <td class="p-3">
+                        <span class="px-2.5 py-1 rounded-md text-[10px] font-bold border ${badgeStyle}">${item.completed ? 'Done / Closed' : escapeHtml(item.stage)}</span>
+                    </td>
+                    <td class="p-3 font-mono font-bold text-monoatom-emerald" contenteditable="${appData.editMode}" onblur="updateTableCell('${item.id}', 'value', this.innerText)">${escapeHtml(item.value || '₹50 L')}</td>
+                    <td class="p-3 text-slate-300 font-medium" contenteditable="${appData.editMode}" onblur="updateTableCell('${item.id}', 'owner', this.innerText)">${escapeHtml(item.owner)}</td>
+                    <td class="p-3 text-slate-300 max-w-xs leading-snug ${item.completed ? 'line-through text-slate-500' : ''}" contenteditable="${appData.editMode}" onblur="updateTableCell('${item.id}', 'nextStep', this.innerText)">${escapeHtml(item.nextStep)}</td>
+                    <td class="p-3 text-center">
+                        <div class="flex items-center justify-center gap-2.5">
+                            <button onclick="editActionModal('${item.id}')" title="Edit Opportunity" class="icon-btn text-monoatom-muted hover:text-monoatom-emerald"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="completeActionItem('${item.id}')" title="${item.completed ? 'Mark as Active' : 'Complete Deal'}" class="icon-btn ${item.completed ? 'text-monoatom-emerald' : 'text-monoatom-muted hover:text-monoatom-emerald'}">
+                                <i class="fa-solid fa-circle-check text-sm"></i>
+                            </button>
+                            <button onclick="deleteActionItem('${item.id}')" title="Delete Opportunity" class="icon-btn text-monoatom-muted hover:text-rose-400"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderKpiTable() {
+            const tbody = document.getElementById('kpiMasterTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            const deptFilter = document.getElementById('kpiDeptFilter')?.value || 'ALL';
+            const statusFilter = document.getElementById('kpiStatusFilter')?.value || 'ALL';
+
+            const filtered = appData.kpisList.filter(k => {
+                const matchDept = deptFilter === 'ALL' || k.dept === deptFilter;
+                const matchStatus = statusFilter === 'ALL' || k.status === statusFilter;
+                return matchDept && matchStatus;
+            });
+
+            if (!filtered.length) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-monoatom-muted text-xs"><i class="fa-solid fa-inbox text-2xl mb-2 block opacity-50"></i>No KPI tasks match these filters</td></tr>`;
+                return;
+            }
+
+            filtered.forEach((k) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-monoatom-card-hover transition-colors";
+
+                let priorityClass = 'text-slate-400 bg-slate-900 border-slate-700';
+                if (k.priority === 'Critical') priorityClass = 'text-rose-400 bg-rose-950/80 border-rose-800';
+                else if (k.priority === 'High') priorityClass = 'text-amber-400 bg-amber-950/80 border-amber-800';
+
+                let statusBadge = 'bg-slate-900 text-slate-300 border-slate-700';
+                if (k.status === 'Done') statusBadge = 'bg-emerald-950 text-monoatom-emerald border-emerald-600';
+                else if (k.status === 'In Progress') statusBadge = 'bg-cyan-950 text-monoatom-cyan border-cyan-600';
+
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-slate-300"><span class="px-2 py-0.5 rounded bg-slate-900 border border-monoatom-border text-[10px] text-slate-200">${escapeHtml(k.dept)}</span></td>
+                    <td class="p-3 font-medium text-slate-100">${escapeHtml(k.objective)}</td>
+                    <td class="p-3 text-slate-300">${escapeHtml(k.owner)}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded text-[9px] font-bold border ${priorityClass}">${escapeHtml(k.priority)}</span></td>
+                    <td class="p-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-20 bg-slate-950 h-2 rounded-full overflow-hidden border border-monoatom-border">
+                                <div class="bg-monoatom-emerald h-full rounded-full" style="width: ${Math.min(100, Math.max(0, k.progress))}%"></div>
+                            </div>
+                            <span class="font-mono text-[10px] text-slate-300">${k.progress}%</span>
+                        </div>
+                    </td>
+                    <td class="p-3 font-mono text-monoatom-muted text-[11px]">${escapeHtml(k.targetDate)}</td>
+                    <td class="p-3 text-center"><span class="px-2.5 py-1 rounded-md text-[10px] font-bold border ${statusBadge}">${escapeHtml(k.status)}</span></td>
+                    <td class="p-3 text-center">
+                        <div class="flex items-center justify-center gap-2.5">
+                            <button onclick="editKpiTaskModal('${k.id}')" title="Edit KPI Task" class="icon-btn text-monoatom-muted hover:text-monoatom-emerald"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="deleteKpiTask('${k.id}')" title="Delete KPI Task" class="icon-btn text-monoatom-muted hover:text-rose-400"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function updateTableCell(id, field, value) {
+            const target = appData.actions.find(a => a.id === id);
+            if (target) {
+                target[field] = value.trim();
+                saveState();
+            }
+        }
+
+        function openAddActionModal() {
+            document.getElementById('actionModalTitle').innerText = "Add Commercial Opportunity";
+            document.getElementById('actionEditId').value = "";
+            document.getElementById('actionForm').reset();
+            document.getElementById('actionModal').classList.remove('hidden');
+        }
+
+        function editActionModal(id) {
+            const item = appData.actions.find(a => a.id === id);
+            if (!item) return;
+
+            document.getElementById('actionModalTitle').innerText = "Edit Commercial Opportunity";
+            document.getElementById('actionEditId').value = item.id;
+            document.getElementById('inputAccount').value = item.account;
+            document.getElementById('inputSector').value = item.sector || "Graphacrete";
+            document.getElementById('inputValue').value = item.value || "₹50 Lakhs";
+            document.getElementById('inputStage').value = item.stage;
+            document.getElementById('inputOwner').value = item.owner;
+            document.getElementById('inputNextStep').value = item.nextStep;
+
+            document.getElementById('actionModal').classList.remove('hidden');
+        }
+
+        function saveActionItem(e) {
+            e.preventDefault();
+            const editId = document.getElementById('actionEditId').value;
+            const account = document.getElementById('inputAccount').value.trim();
+            const sector = document.getElementById('inputSector').value;
+            const value = document.getElementById('inputValue').value.trim();
+            const stage = document.getElementById('inputStage').value;
+            const owner = document.getElementById('inputOwner').value.trim();
+            const nextStep = document.getElementById('inputNextStep').value.trim();
+
+            if (editId) {
+                const item = appData.actions.find(a => a.id === editId);
+                if (item) {
+                    item.account = account;
+                    item.sector = sector;
+                    item.value = value;
+                    item.stage = stage;
+                    item.owner = owner;
+                    item.nextStep = nextStep;
+                }
+                showToast('Opportunity updated', 'success');
+            } else {
+                appData.actions.unshift({
+                    id: Date.now().toString(),
+                    account,
+                    sector,
+                    value,
+                    stage,
+                    owner,
+                    nextStep
+                });
+                showToast('Opportunity added', 'success');
+            }
+
+            closeModal('actionModal');
+            renderTable();
+            saveState();
+        }
+
+        function completeActionItem(id) {
+            const item = appData.actions.find(a => a.id === id);
+            if (item) {
+                item.completed = !item.completed;
+                if (item.completed) {
+                    item.stage = "Done / Closed";
+                } else {
+                    item.stage = "Active";
+                }
+                renderTable();
+                saveState();
+                showToast(item.completed ? 'Deal marked as closed' : 'Deal reopened', 'success');
+            }
+        }
+
+        function deleteActionItem(id) {
+            const item = appData.actions.find(a => a.id === id);
+            if (!item) return;
+            if (!confirm(`Delete "${item.account}"? This cannot be undone.`)) return;
+            appData.actions = appData.actions.filter(a => a.id !== id);
+            renderTable();
+            saveState();
+            showToast('Opportunity deleted', 'danger');
+        }
+
+        function openFunnelModal() {
+            const container = document.getElementById('funnelModalList');
+            if (!container) return;
+            container.innerHTML = '';
+
+            appData.funnel.forEach((f, idx) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-2';
+                div.innerHTML = `
+                    <input type="text" value="${escapeHtml(f.stage)}" id="funnelStage_${idx}" class="flex-grow bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100">
+                    <input type="number" value="${f.count}" min="0" id="funnelCount_${idx}" class="w-20 bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100">
+                    <button onclick="removeFunnelRow(${idx})" class="icon-btn text-rose-400 p-1.5 hover:text-rose-300"><i class="fa-solid fa-trash"></i></button>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('funnelModal').classList.remove('hidden');
+        }
+
+        function addFunnelStage() {
+            appData.funnel.push({ stage: "New BD Stage", count: 5 });
+            openFunnelModal();
+        }
+
+        function removeFunnelRow(idx) {
+            appData.funnel.splice(idx, 1);
+            openFunnelModal();
+        }
+
+        function saveFunnelFromModal() {
+            const newFunnel = [];
+            appData.funnel.forEach((_, idx) => {
+                const stageInput = document.getElementById(`funnelStage_${idx}`);
+                const countInput = document.getElementById(`funnelCount_${idx}`);
+                if (stageInput && countInput) {
+                    newFunnel.push({
+                        stage: stageInput.value.trim(),
+                        count: Math.max(0, parseInt(countInput.value) || 0)
+                    });
+                }
+            });
+            appData.funnel = newFunnel;
+            closeModal('funnelModal');
+            renderFunnel();
+            saveState();
+            showToast('Funnel stages updated', 'success');
+        }
+
+        function openOwnerModal() {
+            const container = document.getElementById('ownerModalList');
+            if (!container) return;
+            container.innerHTML = '';
+
+            appData.owners.forEach((o, idx) => {
+                const div = document.createElement('div');
+                div.className = 'grid grid-cols-12 gap-2 items-center';
+                div.innerHTML = `
+                    <input type="text" value="${escapeHtml(o.name)}" id="ownerName_${idx}" class="col-span-5 bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100">
+                    <input type="number" value="${o.current}" min="0" id="ownerCurr_${idx}" class="col-span-3 bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100" placeholder="Done">
+                    <input type="number" value="${o.total}" min="1" id="ownerTot_${idx}" class="col-span-3 bg-slate-950 border border-monoatom-border rounded-xl p-2 text-xs text-slate-100" placeholder="Total">
+                    <button onclick="removeOwnerRow(${idx})" class="col-span-1 icon-btn text-rose-400 hover:text-rose-300"><i class="fa-solid fa-trash"></i></button>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('ownerModal').classList.remove('hidden');
+        }
+
+        function openKPIModal() {
+            document.getElementById('kpiModalTotal').value = appData.metrics.totalKpi || "95";
+            document.getElementById('kpiModalCompletion').value = appData.metrics.kpiCompletion || "76%";
+            document.getElementById('kpiModalInProgress').value = appData.kpiBreakdown.inProgress || 0;
+            document.getElementById('kpiModalPending').value = appData.kpiBreakdown.pending || 0;
+            document.getElementById('kpiModalDone').value = appData.kpiBreakdown.done || 0;
+            document.getElementById('kpiModalUnspecified').value = appData.kpiBreakdown.unspecified || 0;
+            document.getElementById('kpiModalCancelled').value = appData.kpiBreakdown.cancelled || 0;
+
+            document.getElementById('kpiModal').classList.remove('hidden');
+        }
+
+        function saveKPIFromModal(e) {
+            e.preventDefault();
+
+            appData.metrics.totalKpi = document.getElementById('kpiModalTotal').value.trim();
+            appData.metrics.kpiCompletion = document.getElementById('kpiModalCompletion').value.trim();
+
+            appData.kpiBreakdown.inProgress = Math.max(0, parseInt(document.getElementById('kpiModalInProgress').value) || 0);
+            appData.kpiBreakdown.pending = Math.max(0, parseInt(document.getElementById('kpiModalPending').value) || 0);
+            appData.kpiBreakdown.done = Math.max(0, parseInt(document.getElementById('kpiModalDone').value) || 0);
+            appData.kpiBreakdown.unspecified = Math.max(0, parseInt(document.getElementById('kpiModalUnspecified').value) || 0);
+            appData.kpiBreakdown.cancelled = Math.max(0, parseInt(document.getElementById('kpiModalCancelled').value) || 0);
+
+            closeModal('kpiModal');
+            renderAll();
+            saveState();
+            showToast('KPI health metrics updated', 'success');
+        }
+
+        function addOwnerRow() {
+            appData.owners.push({ name: "New Lead", current: 0, total: 100, pct: 0 });
+            openOwnerModal();
+        }
+
+        function removeOwnerRow(idx) {
+            appData.owners.splice(idx, 1);
+            openOwnerModal();
+        }
+
+        function saveOwnersFromModal() {
+            const newOwners = [];
+            appData.owners.forEach((_, idx) => {
+                const nameEl = document.getElementById(`ownerName_${idx}`);
+                const currEl = document.getElementById(`ownerCurr_${idx}`);
+                const totEl = document.getElementById(`ownerTot_${idx}`);
+
+                if (nameEl && currEl && totEl) {
+                    const name = nameEl.value.trim();
+                    const current = Math.max(0, parseInt(currEl.value) || 0);
+                    const total = Math.max(1, parseInt(totEl.value) || 1);
+                    const pct = Math.round((current / total) * 100);
+
+                    newOwners.push({ name, current, total, pct });
+                }
+            });
+
+            appData.owners = newOwners;
+            closeModal('ownerModal');
+            renderOwners();
+            saveState();
+            showToast('Team allocations saved', 'success');
+        }
+
+        function openAddKpiModal() {
+            document.getElementById('kpiTaskModalTitle').innerText = "Add KPI Task";
+            document.getElementById('kpiTaskEditId').value = "";
+            document.getElementById('kpiTaskForm').reset();
+            document.getElementById('kpiTaskProgress').value = 0;
+            document.getElementById('kpiTaskModal').classList.remove('hidden');
+        }
+
+        function editKpiTaskModal(id) {
+            const item = appData.kpisList.find(k => k.id === id);
+            if (!item) return;
+
+            document.getElementById('kpiTaskModalTitle').innerText = "Edit KPI Task";
+            document.getElementById('kpiTaskEditId').value = item.id;
+            document.getElementById('kpiTaskObjective').value = item.objective;
+            document.getElementById('kpiTaskDept').value = item.dept;
+            document.getElementById('kpiTaskOwner').value = item.owner;
+            document.getElementById('kpiTaskPriority').value = item.priority;
+            document.getElementById('kpiTaskProgress').value = item.progress;
+            document.getElementById('kpiTaskStatus').value = item.status;
+            document.getElementById('kpiTaskTargetDate').value = item.targetDate;
+
+            document.getElementById('kpiTaskModal').classList.remove('hidden');
+        }
+
+        function saveKpiTask(e) {
+            e.preventDefault();
+            const editId = document.getElementById('kpiTaskEditId').value;
+            const objective = document.getElementById('kpiTaskObjective').value.trim();
+            const dept = document.getElementById('kpiTaskDept').value;
+            const owner = document.getElementById('kpiTaskOwner').value.trim();
+            const priority = document.getElementById('kpiTaskPriority').value;
+            const progress = Math.min(100, Math.max(0, parseInt(document.getElementById('kpiTaskProgress').value) || 0));
+            const status = document.getElementById('kpiTaskStatus').value;
+            const targetDate = document.getElementById('kpiTaskTargetDate').value.trim();
+
+            if (editId) {
+                const item = appData.kpisList.find(k => k.id === editId);
+                if (item) {
+                    item.objective = objective;
+                    item.dept = dept;
+                    item.owner = owner;
+                    item.priority = priority;
+                    item.progress = progress;
+                    item.status = status;
+                    item.targetDate = targetDate;
+                }
+                showToast('KPI task updated', 'success');
+            } else {
+                appData.kpisList.unshift({
+                    id: 'k' + Date.now().toString(),
+                    dept, objective, owner, priority, progress, targetDate, status
+                });
+                showToast('KPI task added', 'success');
+            }
+
+            closeModal('kpiTaskModal');
+            renderKpiTable();
+            saveState();
+        }
+
+        function deleteKpiTask(id) {
+            const item = appData.kpisList.find(k => k.id === id);
+            if (!item) return;
+            if (!confirm(`Delete KPI task "${item.objective}"? This cannot be undone.`)) return;
+            appData.kpisList = appData.kpisList.filter(k => k.id !== id);
+            renderKpiTable();
+            saveState();
+            showToast('KPI task deleted', 'danger');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function exportPDF() {
+            const btn = document.getElementById('exportPdfBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-monoatom-emerald"></i> Exporting PDF...';
+            btn.disabled = true;
+
+            const wasEditMode = appData.editMode;
+            if (wasEditMode) {
+                document.body.classList.remove('edit-mode-active');
+            }
+
+            const element = document.getElementById('app');
+            const opt = {
+                margin:       [0.2, 0.2, 0.2, 0.2],
+                filename:     `monoatom_executive_dashboard_${new Date().toISOString().slice(0,10)}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#03060a' },
+                jsPDF:        { unit: 'in', format: 'a3', orientation: 'landscape' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                if (wasEditMode) {
+                    document.body.classList.add('edit-mode-active');
+                }
+                showToast('PDF exported', 'success');
+            }).catch(err => {
+                console.error("PDF Export failed:", err);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                if (wasEditMode) {
+                    document.body.classList.add('edit-mode-active');
+                }
+                showToast('PDF export failed — see console', 'danger');
+            });
+        }
+
+        function resetToDefaults() {
+            if (!confirm('Reset all dashboard data to defaults? This cannot be undone.')) return;
+            appData = JSON.parse(JSON.stringify(defaultData));
+            localStorage.removeItem('monoatom_dashboard_data_v4');
+            renderAll();
+            showToast('Dashboard reset to defaults', 'info');
+        }
+    </script>
+</body>
+</html>

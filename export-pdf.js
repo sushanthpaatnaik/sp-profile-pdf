@@ -5,7 +5,7 @@ const path = require('path');
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
   const page = await browser.newPage();
   
-  const filePath = path.resolve('/home/user/sp-profile-pdf/editorial-book.html');
+  const filePath = path.resolve('/home/user/sp-profile-pdf/index.html');
   await page.goto(`file://${filePath}`, { waitUntil: 'networkidle', timeout: 60000 });
   await page.waitForTimeout(3000);
   
