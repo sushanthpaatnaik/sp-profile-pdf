@@ -3,7 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sushanth Paatnaik — Profile</title>
+<title>Sushanth Paatnaik — Inventor · Deep-Tech · Founder</title>
+<meta name="description" content="The profile of Sushanth Paatnaik — inventor, deep-tech founder and industry builder. Six Presidential Awards, MIT TR35, NASA and TED recognition, and 23 industrial innovations across graphene, advanced materials and clean energy.">
+<meta name="author" content="Sushanth Paatnaik">
+<meta name="theme-color" content="#050505">
+<link rel="canonical" href="https://sp-profile-pdf.crimson-dream-ed30.workers.dev/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23c99135' text-anchor='middle'%3ESP%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Sushanth Paatnaik">
+<meta property="og:title" content="Sushanth Paatnaik — Inventor · Deep-Tech · Founder">
+<meta property="og:description" content="Six Presidential Awards, MIT TR35, NASA and TED recognition, and 23 industrial innovations across graphene, advanced materials and clean energy.">
+<meta property="og:image" content="https://sp-profile-pdf.crimson-dream-ed30.workers.dev/profile-assets/p01-portrait-cover.jpg">
+<meta property="og:image:alt" content="Sushanth Paatnaik">
+<meta property="og:url" content="https://sp-profile-pdf.crimson-dream-ed30.workers.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sushanth Paatnaik — Inventor · Deep-Tech · Founder">
+<meta name="twitter:description" content="Six Presidential Awards, MIT TR35, NASA and TED recognition, and 23 industrial innovations across graphene, advanced materials and clean energy.">
+<meta name="twitter:image" content="https://sp-profile-pdf.crimson-dream-ed30.workers.dev/profile-assets/p01-portrait-cover.jpg">
 <style>
 /* ---- Embedded webfonts (latin subset, base64 woff2) ---- */
 @font-face {
@@ -280,11 +297,37 @@ body{
 }
 
 /* screen-only toolbar */
+/* The A4 page is 210mm wide and centred, so 50% + 105mm is its right edge.
+   Park the toolbar in the gutter beyond that — never over the artwork. */
 .toolbar{
-  position:fixed;top:12px;right:12px;z-index:999;display:flex;align-items:center;gap:8px;
+  position:fixed;top:12px;left:calc(50% + 105mm + 14px);z-index:999;
+  display:flex;align-items:center;gap:8px;
   background:rgba(10,10,10,.92);border:1px solid var(--gold-line);
   padding:8px 10px;backdrop-filter:blur(8px);
 }
+.fab{display:none}
+
+.edit-note{
+  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1001;
+  max-width:min(92vw,560px);display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;
+  background:rgba(10,10,10,.96);border:1px solid var(--gold-line);
+  padding:12px 40px 12px 16px;backdrop-filter:blur(10px);
+  font-family:var(--sans);font-size:8pt;line-height:1.65;color:var(--grey);
+  box-shadow:0 10px 34px rgba(0,0,0,.55);
+}
+.edit-note strong{color:var(--gold);font-weight:600}
+.edit-note em{color:var(--ivory);font-style:normal}
+.edit-note .warn{color:var(--ivory)}
+.edit-note button{
+  font-family:var(--sans);font-size:7pt;letter-spacing:.10em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--gold-line);color:var(--gold);
+  padding:5px 10px;cursor:pointer;
+}
+.edit-note button:hover{background:var(--gold);color:#000}
+.edit-note .dismiss{
+  position:absolute;top:6px;right:8px;border:0;padding:2px 6px;font-size:12pt;line-height:1;
+}
+.edit-note .dismiss:hover{background:transparent;color:var(--ivory)}
 .toolbar button{
   font-family:var(--sans);font-size:8pt;letter-spacing:.12em;text-transform:uppercase;
   background:transparent;border:1px solid var(--gold-line);color:var(--gold);
@@ -298,8 +341,28 @@ body{
   font-family:var(--sans);font-size:8pt;letter-spacing:.10em;color:var(--grey);
   min-width:52px;text-align:center;font-variant-numeric:tabular-nums;
 }
+/* Not enough gutter to sit beside the page: collapse to a floating button
+   that opens the controls, so nothing covers the artwork unless asked. */
+@media (max-width:1320px){
+  .fab{
+    display:flex;align-items:center;justify-content:center;
+    position:fixed;right:16px;bottom:16px;z-index:1000;
+    width:46px;height:46px;border-radius:50%;cursor:pointer;
+    background:rgba(10,10,10,.92);border:1px solid var(--gold-line);
+    color:var(--gold);font-size:15pt;line-height:1;backdrop-filter:blur(8px);
+    box-shadow:0 8px 26px rgba(0,0,0,.5);
+  }
+  .fab:hover{background:var(--gold);color:#000}
+  .toolbar{
+    top:auto;left:16px;right:16px;bottom:74px;justify-content:center;flex-wrap:wrap;
+    transition:opacity .16s ease,transform .16s ease;
+  }
+  body:not(.tools-open) .toolbar{
+    opacity:0;transform:translateY(8px);pointer-events:none;
+  }
+}
 @media (max-width:640px){
-  .toolbar{top:8px;right:8px;left:8px;justify-content:center;gap:5px;padding:6px}
+  .toolbar{gap:5px;padding:6px}
   .toolbar button{padding:5px 7px;font-size:7pt;letter-spacing:.06em}
   .toolbar .nav{padding:5px 8px;font-size:9pt}
   .toolbar .counter{min-width:44px;font-size:7pt}
@@ -315,8 +378,23 @@ body.editing [contenteditable="true"]:focus{outline:1px solid var(--gold);backgr
   <span class="counter" id="pageCounter" aria-live="polite">1 / 20</span>
   <button class="nav" id="nextBtn" onclick="goPage(1)" aria-label="Next page" title="Next page (→)">&#8594;</button>
   <span class="sep"></span>
-  <button onclick="toggleEdit()" id="editBtn">Enable editing</button>
-  <button onclick="window.print()">Print / PDF</button>
+  <button onclick="toggleEdit()" id="editBtn" title="Edit the text of this document in your browser">Edit text</button>
+  <button onclick="window.print()" title="Print, or save as an A4 PDF">Print / PDF</button>
+</div>
+
+<button class="fab screen-only" id="toolsFab" onclick="document.body.classList.toggle('tools-open')"
+        aria-label="Show document controls" title="Document controls" data-html2canvas-ignore="true">&#9776;</button>
+
+<!-- shown once when edit mode is switched on -->
+<div class="edit-note screen-only" id="editNote" data-html2canvas-ignore="true" hidden>
+  <strong>Edit text is on.</strong>
+  Click any heading, paragraph or caption to change it. Images and layout stay fixed.
+  <span class="warn">Changes are temporary — they live in this browser tab only, are <em>not</em> saved,
+  and reload restores the original.</span>
+  Anything you edit <em>does</em> appear in Print / PDF while the tab stays open.
+  <button onclick="toggleEdit()">Turn off</button>
+  <button onclick="location.reload()">Reset</button>
+  <button class="dismiss" onclick="document.getElementById('editNote').hidden=true" aria-label="Dismiss">&times;</button>
 </div>
 
 <!-- ============================================================
@@ -534,10 +612,14 @@ body.editing [contenteditable="true"]:focus{outline:1px solid var(--gold);backgr
      PAGE 4 — ORIGIN
      ============================================================ -->
 <section class="page" id="page-4">
-  <img src="profile-assets/p04-portrait-headset.jpg" alt="Sushanth with breath-control headset"
-       style="position:absolute;right:0;bottom:0;width:132mm;z-index:1;filter:grayscale(1) contrast(1.05);
+  <!-- mask on the wrapper, filter on the image: keeping both off a single
+       element avoids a compositing bug that blanks the layer on some GPUs -->
+  <div style="position:absolute;right:0;bottom:0;width:132mm;z-index:1;line-height:0;
               -webkit-mask-image:linear-gradient(160deg,transparent 4%,#000 34%);
               mask-image:linear-gradient(160deg,transparent 4%,#000 34%);">
+    <img src="profile-assets/p04-portrait-headset.jpg" alt="Sushanth with breath-control headset"
+         style="display:block;width:100%;filter:grayscale(1) contrast(1.05)">
+  </div>
 
   <div class="page-inner">
     <div class="eyebrow" style="margin-top:22mm">ORIGIN</div>
@@ -2362,7 +2444,8 @@ function toggleEdit(){
   const on=document.body.classList.toggle('editing');
   document.querySelectorAll('.page h1,.page h2,.page p,.page div,.page span,.page b')
     .forEach(el=>{ if(!el.closest('.toolbar')) el.setAttribute('contenteditable',on); });
-  document.getElementById('editBtn').textContent=on?'Disable editing':'Enable editing';
+  document.getElementById('editBtn').textContent = on ? 'Done editing' : 'Edit text';
+  document.getElementById('editNote').hidden = !on;
 }
 
 /* ---- screen-only pager: prev/next, live counter, keyboard arrows ---- */
@@ -2380,13 +2463,20 @@ function toggleEdit(){
     next.disabled = current===pages.length-1;
   }
 
+  // Long smooth scrolls across 20 A4 pages take seconds and let the counter
+  // run ahead of what's on screen. Animate only between neighbouring pages;
+  // jump instantly for anything further, and always land before repainting.
   window.goPage=function(step){
     const target=Math.min(pages.length-1,Math.max(0,current+step));
     if(target===current) return;
+    const near=Math.abs(target-current)===1;
+    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     current=target;
-    pages[current].scrollIntoView({behavior:'smooth',block:'start'});
+    pages[current].scrollIntoView({behavior:(near&&!reduce)?'smooth':'auto',block:'start'});
     paint();
   };
+
+  window.goToPage=function(n){ goPage(n-1-current); };
 
   // keep the counter honest when the reader scrolls by hand
   if('IntersectionObserver' in window){
