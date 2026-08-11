@@ -296,106 +296,194 @@ body{
   body{padding:8mm 0}
 }
 
-/* screen-only toolbar */
-/* The A4 page is 210mm wide and centred, so 50% + 105mm is its right edge.
-   Park the toolbar in the gutter beyond that — never over the artwork. */
-.toolbar{
-  position:fixed;top:12px;left:calc(50% + 105mm + 14px);z-index:999;
-  display:flex;align-items:center;gap:8px;
-  background:rgba(10,10,10,.92);border:1px solid var(--gold-line);
-  padding:8px 10px;backdrop-filter:blur(8px);
+/* ============================================================
+   SCREEN-ONLY CONTROL RAIL
+   The A4 page is 210mm and centred, so 50% + 105mm is its right edge.
+   The rail lives in the gutter beyond it and never covers artwork.
+   Below the gutter breakpoint it becomes a bottom sheet behind a button.
+   ============================================================ */
+.rail{
+  position:fixed;z-index:999;
+  top:50%;left:calc(50% + 105mm + 20px);transform:translateY(-50%);
+  width:196px;
+  background:linear-gradient(180deg,rgba(14,13,12,.96),rgba(7,7,6,.97));
+  border:1px solid var(--gold-line-soft);
+  backdrop-filter:blur(10px);
+  box-shadow:0 18px 50px rgba(0,0,0,.55);
+  font-family:var(--sans);
 }
-.fab{display:none}
+.rail-head{
+  padding:11px 14px 10px;border-bottom:1px solid var(--gold-line-soft);
+  font-size:6.6pt;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
+}
 
-.edit-note{
-  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1001;
-  max-width:min(92vw,560px);display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;
-  background:rgba(10,10,10,.96);border:1px solid var(--gold-line);
-  padding:12px 40px 12px 16px;backdrop-filter:blur(10px);
-  font-family:var(--sans);font-size:8pt;line-height:1.65;color:var(--grey);
-  box-shadow:0 10px 34px rgba(0,0,0,.55);
+/* ---- pager ---- */
+.rail-pager{display:flex;align-items:stretch;border-bottom:1px solid var(--gold-line-soft)}
+.rail-pager button{
+  flex:none;width:44px;background:transparent;border:0;color:var(--gold);
+  font-size:13pt;line-height:1;cursor:pointer;transition:background .15s,color .15s;
 }
-.edit-note strong{color:var(--gold);font-weight:600}
-.edit-note em{color:var(--ivory);font-style:normal}
-.edit-note .warn{color:var(--ivory)}
-.edit-note button{
-  font-family:var(--sans);font-size:7pt;letter-spacing:.10em;text-transform:uppercase;
-  background:transparent;border:1px solid var(--gold-line);color:var(--gold);
-  padding:5px 10px;cursor:pointer;
+.rail-pager button:hover:not(:disabled){background:var(--gold);color:#000}
+.rail-pager button:disabled{opacity:.26;cursor:default}
+.rail-counter{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:9px 0;border-left:1px solid var(--gold-line-soft);border-right:1px solid var(--gold-line-soft);
 }
-.edit-note button:hover{background:var(--gold);color:#000}
-.edit-note .dismiss{
-  position:absolute;top:6px;right:8px;border:0;padding:2px 6px;font-size:12pt;line-height:1;
+.rail-counter b{
+  font-family:var(--serif);font-size:15pt;font-weight:500;color:var(--ivory);line-height:1;
+  font-variant-numeric:lining-nums tabular-nums;
 }
-.edit-note .dismiss:hover{background:transparent;color:var(--ivory)}
-.toolbar button{
-  font-family:var(--sans);font-size:8pt;letter-spacing:.12em;text-transform:uppercase;
-  background:transparent;border:1px solid var(--gold-line);color:var(--gold);
-  padding:6px 12px;cursor:pointer;transition:background .15s,color .15s;
+.rail-counter span{font-size:5.6pt;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-dim);margin-top:3px}
+
+/* ---- section jump list ---- */
+.rail-list{max-height:34vh;overflow-y:auto;border-bottom:1px solid var(--gold-line-soft)}
+.rail-list::-webkit-scrollbar{width:3px}
+.rail-list::-webkit-scrollbar-thumb{background:var(--gold-line)}
+.rail-list button{
+  display:flex;width:100%;gap:9px;align-items:baseline;
+  background:transparent;border:0;border-bottom:1px solid rgba(201,145,53,.08);
+  padding:7px 14px;cursor:pointer;text-align:left;
+  font-size:7pt;letter-spacing:.06em;color:var(--grey);transition:background .12s,color .12s;
 }
-.toolbar button:hover:not(:disabled){background:var(--gold);color:#000}
-.toolbar button:disabled{opacity:.32;cursor:default}
-.toolbar .sep{width:1px;align-self:stretch;background:var(--gold-line)}
-.toolbar .nav{padding:6px 10px;font-size:10pt;line-height:1;letter-spacing:0}
-.toolbar .counter{
-  font-family:var(--sans);font-size:8pt;letter-spacing:.10em;color:var(--grey);
-  min-width:52px;text-align:center;font-variant-numeric:tabular-nums;
+.rail-list button:last-child{border-bottom:0}
+.rail-list button i{
+  font-style:normal;font-size:6pt;color:var(--grey-dim);min-width:14px;
+  font-variant-numeric:tabular-nums;
 }
-/* Not enough gutter to sit beside the page: collapse to a floating button
-   that opens the controls, so nothing covers the artwork unless asked. */
-@media (max-width:1320px){
-  .fab{
+.rail-list button:hover{background:rgba(201,145,53,.1);color:var(--ivory)}
+.rail-list button[aria-current="true"]{color:var(--gold);background:rgba(201,145,53,.08)}
+.rail-list button[aria-current="true"] i{color:var(--gold)}
+
+/* ---- actions ---- */
+.rail-actions{display:flex;flex-direction:column}
+.rail-actions button{
+  display:flex;align-items:center;gap:9px;
+  background:transparent;border:0;border-bottom:1px solid var(--gold-line-soft);
+  padding:11px 14px;cursor:pointer;text-align:left;
+  font-size:7pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  transition:background .15s,color .15s;
+}
+.rail-actions button:last-child{border-bottom:0}
+.rail-actions button:hover{background:var(--gold);color:#000}
+.rail-actions button svg{width:13px;height:13px;flex:none}
+.rail-actions button.on{background:rgba(201,145,53,.16);color:var(--gold-hi)}
+
+/* ---- edit-mode note: inside the rail, never over the page ---- */
+.rail-note{
+  padding:11px 14px;border-top:1px solid var(--gold-line-soft);
+  font-size:6.4pt;line-height:1.7;color:var(--grey);
+}
+.rail-note b{display:block;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:6pt;margin-bottom:5px}
+.rail-note em{color:var(--ivory);font-style:normal}
+.rail-note .reset{
+  margin-top:8px;width:100%;background:transparent;border:1px solid var(--gold-line);
+  color:var(--gold);padding:6px;cursor:pointer;
+  font-family:var(--sans);font-size:6pt;letter-spacing:.16em;text-transform:uppercase;
+}
+.rail-note .reset:hover{background:var(--gold);color:#000}
+
+/* ---- collapsed: no gutter to sit in ---- */
+.rail-toggle{display:none}
+@media (max-width:1340px){
+  .rail-toggle{
     display:flex;align-items:center;justify-content:center;
-    position:fixed;right:16px;bottom:16px;z-index:1000;
-    width:46px;height:46px;border-radius:50%;cursor:pointer;
-    background:rgba(10,10,10,.92);border:1px solid var(--gold-line);
-    color:var(--gold);font-size:15pt;line-height:1;backdrop-filter:blur(8px);
-    box-shadow:0 8px 26px rgba(0,0,0,.5);
+    position:fixed;right:18px;bottom:18px;z-index:1000;
+    width:48px;height:48px;border-radius:50%;cursor:pointer;
+    background:rgba(10,10,10,.94);border:1px solid var(--gold-line);
+    color:var(--gold);backdrop-filter:blur(8px);
+    box-shadow:0 10px 28px rgba(0,0,0,.55);transition:background .15s,color .15s;
   }
-  .fab:hover{background:var(--gold);color:#000}
-  .toolbar{
-    top:auto;left:16px;right:16px;bottom:74px;justify-content:center;flex-wrap:wrap;
-    transition:opacity .16s ease,transform .16s ease;
+  .rail-toggle svg{width:18px;height:18px}
+  .rail-toggle:hover,body.tools-open .rail-toggle{background:var(--gold);color:#000}
+  .rail{
+    top:auto;bottom:0;left:0;transform:none;width:100%;
+    border-left:0;border-right:0;border-bottom:0;
+    max-height:78vh;overflow-y:auto;
+    transition:transform .22s ease,opacity .22s ease;
   }
-  body:not(.tools-open) .toolbar{
-    opacity:0;transform:translateY(8px);pointer-events:none;
-  }
+  body:not(.tools-open) .rail{transform:translateY(100%);opacity:0;pointer-events:none}
+  .rail-list{max-height:38vh}
+  .rail-pager button{width:64px;font-size:15pt}
+  /* clear the floating toggle so it never covers the last row */
+  .rail{padding-bottom:74px}
+  .rail-toggle .ic-close{display:none}
+  body.tools-open .rail-toggle .ic-open{display:none}
+  body.tools-open .rail-toggle .ic-close{display:block}
 }
-@media (max-width:640px){
-  .toolbar{gap:5px;padding:6px}
-  .toolbar button{padding:5px 7px;font-size:7pt;letter-spacing:.06em}
-  .toolbar .nav{padding:5px 8px;font-size:9pt}
-  .toolbar .counter{min-width:44px;font-size:7pt}
-}
+@media (prefers-reduced-motion:reduce){.rail{transition:none}}
+
 body.editing [contenteditable="true"]{outline:1px dashed rgba(201,145,53,.5);outline-offset:2px}
 body.editing [contenteditable="true"]:focus{outline:1px solid var(--gold);background:rgba(201,145,53,.08)}
 </style>
 </head>
 <body>
 
-<div class="toolbar screen-only" data-html2canvas-ignore="true">
-  <button class="nav" id="prevBtn" onclick="goPage(-1)" aria-label="Previous page" title="Previous page (←)">&#8592;</button>
-  <span class="counter" id="pageCounter" aria-live="polite">1 / 20</span>
-  <button class="nav" id="nextBtn" onclick="goPage(1)" aria-label="Next page" title="Next page (→)">&#8594;</button>
-  <span class="sep"></span>
-  <button onclick="toggleEdit()" id="editBtn" title="Edit the text of this document in your browser">Edit text</button>
-  <button onclick="window.print()" title="Print, or save as an A4 PDF">Print / PDF</button>
-</div>
+<button class="rail-toggle screen-only" id="railToggle" data-html2canvas-ignore="true"
+        onclick="document.body.classList.toggle('tools-open')"
+        aria-label="Document controls" title="Document controls">
+  <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M4 7h16M4 12h16M4 17h16"/>
+  </svg>
+  <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </svg>
+</button>
 
-<button class="fab screen-only" id="toolsFab" onclick="document.body.classList.toggle('tools-open')"
-        aria-label="Show document controls" title="Document controls" data-html2canvas-ignore="true">&#9776;</button>
+<aside class="rail screen-only" id="rail" data-html2canvas-ignore="true" aria-label="Document controls">
+  <div class="rail-head">Sushanth Paatnaik</div>
 
-<!-- shown once when edit mode is switched on -->
-<div class="edit-note screen-only" id="editNote" data-html2canvas-ignore="true" hidden>
-  <strong>Edit text is on.</strong>
-  Click any heading, paragraph or caption to change it. Images and layout stay fixed.
-  <span class="warn">Changes are temporary — they live in this browser tab only, are <em>not</em> saved,
-  and reload restores the original.</span>
-  Anything you edit <em>does</em> appear in Print / PDF while the tab stays open.
-  <button onclick="toggleEdit()">Turn off</button>
-  <button onclick="location.reload()">Reset</button>
-  <button class="dismiss" onclick="document.getElementById('editNote').hidden=true" aria-label="Dismiss">&times;</button>
-</div>
+  <div class="rail-pager">
+    <button id="prevBtn" onclick="goPage(-1)" aria-label="Previous page" title="Previous page (←)">&#8592;</button>
+    <div class="rail-counter"><b id="pageCounter">1</b><span id="pageTotal">of 20</span></div>
+    <button id="nextBtn" onclick="goPage(1)" aria-label="Next page" title="Next page (→)">&#8594;</button>
+  </div>
+
+  <nav class="rail-list" id="railList" aria-label="Jump to section">
+    <button onclick="goToPage(1)" data-page="1"><i>01</i>Cover</button>
+    <button onclick="goToPage(2)" data-page="2"><i>02</i>Manifesto</button>
+    <button onclick="goToPage(3)" data-page="3"><i>03</i>About</button>
+    <button onclick="goToPage(4)" data-page="4"><i>04</i>Origin</button>
+    <button onclick="goToPage(5)" data-page="5"><i>05</i>Philosophy</button>
+    <button onclick="goToPage(6)" data-page="6"><i>06</i>Early Works</button>
+    <button onclick="goToPage(7)" data-page="7"><i>07</i>Journey</button>
+    <button onclick="goToPage(8)" data-page="8"><i>08</i>Honors</button>
+    <button onclick="goToPage(9)" data-page="9"><i>09</i>Hall of Fame</button>
+    <button onclick="goToPage(10)" data-page="10"><i>10</i>By the Numbers</button>
+    <button onclick="goToPage(11)" data-page="11"><i>11</i>Intelligent Matter</button>
+    <button onclick="goToPage(12)" data-page="12"><i>12</i>Innovations</button>
+    <button onclick="goToPage(13)" data-page="13"><i>13</i>Plant & R&D</button>
+    <button onclick="goToPage(14)" data-page="14"><i>14</i>Industrial Translation</button>
+    <button onclick="goToPage(15)" data-page="15"><i>15</i>Ventures</button>
+    <button onclick="goToPage(16)" data-page="16"><i>16</i>News & Media</button>
+    <button onclick="goToPage(17)" data-page="17"><i>17</i>Speaking</button>
+    <button onclick="goToPage(18)" data-page="18"><i>18</i>Voices</button>
+    <button onclick="goToPage(19)" data-page="19"><i>19</i>Collaboration</button>
+    <button onclick="goToPage(20)" data-page="20"><i>20</i>Contact</button>
+  </nav>
+
+  <div class="rail-actions">
+    <button id="editBtn" onclick="toggleEdit()" title="Edit the text of this document in your browser">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>
+      </svg>
+      <span id="editBtnLabel">Edit text</span>
+    </button>
+    <button onclick="window.print()" title="Print, or save as an A4 PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="1.5"/><path d="M6 15h12v6H6z"/>
+      </svg>
+      Print / PDF
+    </button>
+  </div>
+
+  <div class="rail-note" id="editNote" hidden>
+    <b>Editing on</b>
+    Click any heading, paragraph or caption to change it — <em>text only</em>, images and layout stay fixed.
+    Changes are <em>not saved</em>: they live in this tab and a reload restores the original.
+    They <em>do</em> appear in Print / PDF while the tab stays open.
+    <button class="reset" onclick="location.reload()">Reset to original</button>
+  </div>
+</aside>
 
 <!-- ============================================================
      PAGE 1 — COVER
@@ -2444,7 +2532,8 @@ function toggleEdit(){
   const on=document.body.classList.toggle('editing');
   document.querySelectorAll('.page h1,.page h2,.page p,.page div,.page span,.page b')
     .forEach(el=>{ if(!el.closest('.toolbar')) el.setAttribute('contenteditable',on); });
-  document.getElementById('editBtn').textContent = on ? 'Done editing' : 'Edit text';
+  document.getElementById('editBtnLabel').textContent = on ? 'Done editing' : 'Edit text';
+  document.getElementById('editBtn').classList.toggle('on', on);
   document.getElementById('editNote').hidden = !on;
 }
 
@@ -2457,10 +2546,23 @@ function toggleEdit(){
   if(!pages.length||!counter) return;
   let current=0;
 
+  const total=document.getElementById('pageTotal');
+  const listBtns=[...document.querySelectorAll('#railList button')];
+  if(total) total.textContent=`of ${pages.length}`;
+
   function paint(){
-    counter.textContent=`${current+1} / ${pages.length}`;
+    counter.textContent=String(current+1);
     prev.disabled = current===0;
     next.disabled = current===pages.length-1;
+    listBtns.forEach(b=>b.setAttribute('aria-current', String(+b.dataset.page===current+1)));
+    // keep the active entry visible in the scrolling section list
+    const active=listBtns[current];
+    if(active && active.parentElement){
+      const l=active.parentElement, t=active.offsetTop, h=active.offsetHeight;
+      if(t < l.scrollTop || t+h > l.scrollTop+l.clientHeight){
+        l.scrollTop = t - l.clientHeight/2 + h/2;
+      }
+    }
   }
 
   // Long smooth scrolls across 20 A4 pages take seconds and let the counter
@@ -2476,7 +2578,10 @@ function toggleEdit(){
     paint();
   };
 
-  window.goToPage=function(n){ goPage(n-1-current); };
+  window.goToPage=function(n){
+    goPage(n-1-current);
+    if(window.matchMedia('(max-width:1340px)').matches) document.body.classList.remove('tools-open');
+  };
 
   // keep the counter honest when the reader scrolls by hand
   if('IntersectionObserver' in window){
@@ -2492,6 +2597,9 @@ function toggleEdit(){
   }
 
   document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && document.body.classList.contains('tools-open')){
+      document.body.classList.remove('tools-open'); return;
+    }
     if(e.metaKey||e.ctrlKey||e.altKey) return;
     const t=e.target;
     if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
