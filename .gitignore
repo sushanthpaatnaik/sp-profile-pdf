@@ -1,1 +1,3 @@
 node_modules/
+
+# generated print artefacts are committed; keep the intermediate proof out
