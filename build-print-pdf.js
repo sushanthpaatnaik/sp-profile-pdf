@@ -23,8 +23,24 @@ const OUT = path.join(__dirname, 'print', 'profile-A4-trim.pdf');
   });
   const page = await browser.newPage();
   await page.goto(SRC, { waitUntil: 'networkidle', timeout: 180000 });
-  await page.waitForTimeout(4000);
+
+  // The page lazy-loads images for the web. Chromium never scrolls during a
+  // PDF export, so offscreen images would render blank — force them all in
+  // and wait for every one to decode before exporting.
+  const loaded = await page.evaluate(async () => {
+    const imgs = [...document.images];
+    imgs.forEach(i => { i.loading = 'eager'; i.decoding = 'sync'; });
+    await Promise.all(imgs.map(i => i.complete && i.naturalWidth
+      ? null
+      : new Promise(res => { i.addEventListener('load', res, { once: true });
+                             i.addEventListener('error', res, { once: true }); })));
+    return imgs.filter(i => i.complete && i.naturalWidth > 0).length;
+  });
+  await page.waitForTimeout(2500);
   await page.evaluate(() => document.fonts.ready);
+  const total = await page.evaluate(() => document.images.length);
+  if (loaded !== total) throw new Error(`only ${loaded}/${total} images decoded — refusing to export a PDF with blank artwork`);
+  console.log(`  ${loaded}/${total} images decoded`);
   await page.emulateMedia({ media: 'print' });
 
   await page.pdf({
