@@ -61,7 +61,7 @@ def main():
     out.set_metadata({
         "title": "Sushanth Paatnaik — Profile",
         "author": "Sushanth Paatnaik",
-        "subject": "20-page A4 profile catalogue — press ready, 3mm bleed",
+        "subject": "22-page A4 profile catalogue — press ready, 3mm bleed",
         "creator": "index.html",
     })
     out.save(OUT, garbage=4, deflate=True, clean=True)

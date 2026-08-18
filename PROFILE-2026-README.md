@@ -1,6 +1,7 @@
 # Sushanth Paatnaik — Profile 2026
 
-A print-ready, editable HTML recreation of the 20-page black-and-gold profile document.
+A print-ready, editable HTML recreation of the black-and-gold profile document — 22 A4 pages
+(the original 20, plus a two-page SPI Industries Portable RO Recovery System insert at 14–15).
 
 ## Files
 

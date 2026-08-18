@@ -1,6 +1,10 @@
 # Print specification — Sushanth Paatnaik Profile
 
-20-page A4 portrait catalogue. Hand `profile-A4-bleed3mm.pdf` to the printer.
+22-page A4 portrait catalogue. Hand `profile-A4-bleed3mm.pdf` to the printer.
+
+> **Binding note:** the page count is now **22**, which is *not* a multiple of 4.
+> Saddle-stitch needs a multiple of 4, so either **perfect-bind** as-is, or add two
+> pages (a blank leaf or an endpaper) to reach **24** before imposing.
 
 ## Files
 
@@ -23,7 +27,7 @@ python3 add-bleed.py      # scales to cover 3mm bleed and stamps the boxes
 | Trim size | 210 × 297 mm (A4 portrait) |
 | Bleed | 3 mm all four edges (MediaBox 216 × 303 mm) |
 | Boxes | TrimBox/ArtBox 210 × 297 centred; BleedBox = MediaBox |
-| Pages | 20 — divisible by 4, so saddle-stitch or perfect-bind both work |
+| Pages | 22 — **not** divisible by 4; perfect-bind as-is, or pad to 24 for saddle-stitch |
 | Fonts | Embedded, subset (Cormorant Garamond, Montserrat, Great Vibes) |
 | Text | Live vector — not outlined, not rasterised |
 | Colour | **DeviceRGB — see below** |
@@ -60,12 +64,13 @@ placed larger than 1:1 cannot reach 300 dpi, no matter how it is re-exported.
 |---|---|---|
 | 2 — Manifesto (Earth) | 111 dpi | visibly soft |
 | 9 — Hall of Fame (tiles) | 151 dpi | visibly soft |
-| 16 — News & Media (thumbnails) | 181 dpi | visibly soft |
+| 18 — News & Media (thumbnails) | 181 dpi | visibly soft |
 | 8 — Honors | 205 dpi | acceptable at reading distance |
 | 5 — Philosophy | 230 dpi | acceptable |
 | 1 — Cover portrait | 243 dpi | acceptable |
-| 15 — Ventures | 247 dpi | acceptable |
-| 11, 13, 17, 20 | 285–300 dpi | fine |
+| 17 — Ventures | 247 dpi | acceptable |
+| 11, 13, 19, 22 | 285–300 dpi | fine |
+| **14, 15 — Portable RO** | **vector** | **no raster; prints at device resolution** |
 
 **To fix the top three, the original high-resolution source images are needed**
 — the actual portrait files, Earth render, award photographs and press
@@ -78,11 +83,12 @@ prints at full device resolution regardless.
 
 ## Pre-flight checklist
 
-- [x] 20 pages, all 216 × 303 mm media / 210 × 297 mm trim
+- [x] 22 pages, all 216 × 303 mm media / 210 × 297 mm trim
+- [ ] Page count padded to 24 **if saddle-stitching** — **printer to confirm binding**
 - [x] 3 mm bleed inked on all four edges of every page (no white slivers)
 - [x] TrimBox, ArtBox and BleedBox stamped
 - [x] Fonts embedded and subset
 - [x] Text is live vector, selectable
 - [x] Backgrounds and gold preserved (print-color-adjust: exact)
 - [ ] CMYK conversion with rich black — **printer to action**
-- [ ] High-resolution replacements for pages 2, 9, 16 — **assets needed**
+- [ ] High-resolution replacements for pages 2, 9, 18 — **assets needed**
